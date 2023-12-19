@@ -1,0 +1,169 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout Header */
+
+.header-logo {
+    width: 250px;
+    height: 110px;
+}
+
+.sub-menu {
+    color: #fff;
+}
+
+.sub-menu::after {
+    content: "";
+    position: absolute;
+    background-color: #888;
+    height: 2px;
+    width: 0;
+    left: 0;
+    bottom: 10px;
+    transition: .5s;
+    border-radius: 10px;
+}
+
+.sub-menu:hover::after {
+    width: 100%;
+    color: #5ab503;
+}
+
+.sub-menu:hover .fa-angle-down {
+    transform: rotate(180deg);
+    transition: .75s;
+}
+
+#header {
+    height: 110px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /* margin-left: 52em;*/
+}
+
+#nav {
+    display: inline-block;
+}
+
+#nav, .subnav {
+    list-style-type: none;
+    position: absolute;
+    z-index: 100;
+}
+
+#nav > li {
+    display: inline-block;
+    margin: 1em 20px 0 20px;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav > li > a {
+    color: #000;
+    text-transform: uppercase;
+}
+
+#nav li:hover .subnav {
+    display: block;
+}
+
+/*#nav .subnav li:hover a {
+    color: #fff;
+    background-color: #5ab503;
+}*/
+
+.subnav li::after{
+    content: "";
+    position: absolute;
+    background-color: #888;
+    height: 1px;
+    width: 0;
+    left: 0;
+    bottom: 12px;
+    transition: .7s;
+    border-radius: 10px;
+    margin-left: 1em;
+}
+
+.subnav li:hover::after{
+    color: #fff;
+    width: 80%;
+}
+
+.margin-menu {
+    margin: 1em 0 0 0;
+}
+
+#nav li a {
+    text-decoration: none;
+    line-height: 50px;
+    padding: 0;
+    font-family: "Helvetica","Arial",sans-serif;
+    display: block;
+}
+
+.mobilemenu {
+    display: none;
+}
+
+#nav li:hover a {
+    /* background-color: #5ab503; */
+    /* color: #fff; */
+}
+
+#nav .subnav {
+    min-width: 200px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding-left: 0;
+}
+
+#nav .subnav a {
+    color: #000;
+    padding: 0 16px;
+    margin: 0 0 0 0;
+    line-height: 3.5em;
+}
+
+.fa-angle-down {
+    margin-left: 5px;
+}
+
+.user-session {
+    margin-left: 6em;
+}
+
+.icon-logout {
+    color: #CD486B;
+}
+
+.badge {
+    position: absolute;
+    top: 2px;
+    right: -12px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    background: #1c1c1c;
+    color: white;
+}
+
+.right-menu{
+    margin-left: 25em;
+    margin-right: -1.5em;
+}
+
+
+/* Home */
+
