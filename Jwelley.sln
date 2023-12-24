@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jewelly", "Jewelly.csproj", "{D8D8FEDA-B2DE-4671-891C-403FB4B948C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jwelley", "Jwelley.csproj", "{D8D8FEDA-B2DE-4671-891C-403FB4B948C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -13,5 +13,25 @@ namespace Jewelly.Controllers
         {
             return View();
         }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Policy()
+        {
+            return View();
+        }
+
+        public ActionResult Rules()
+        {
+            return View();
+        }
     }
 }

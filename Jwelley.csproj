@@ -88,13 +88,83 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Css\Responsive.css" />
     <Content Include="Content\Css\Style.css" />
+    <Content Include="Content\Image\About\aboutbr.jpg" />
+    <Content Include="Content\Image\About\diamond.jpg" />
+    <Content Include="Content\Image\About\diamond2.jpg" />
+    <Content Include="Content\Image\About\diamond3.jpg" />
+    <Content Include="Content\Image\About\diamond4.jpg" />
+    <Content Include="Content\Image\About\diamond5.jpg" />
+    <Content Include="Content\Image\Contact\contact_br.jpg" />
+    <Content Include="Content\Image\Home\1.png" />
+    <Content Include="Content\Image\Home\2.png" />
+    <Content Include="Content\Image\Home\3.png" />
+    <Content Include="Content\Image\Home\b1.jpg" />
+    <Content Include="Content\Image\Home\b2.jpg" />
+    <Content Include="Content\Image\Home\b3.jpg" />
+    <Content Include="Content\Image\Home\b4.jpg" />
+    <Content Include="Content\Image\Home\banner.png" />
+    <Content Include="Content\Image\Home\banner1.png" />
+    <Content Include="Content\Image\Home\banner2.png" />
+    <Content Include="Content\Image\Home\banner3.png" />
+    <Content Include="Content\Image\Home\bannerm1.jpg" />
+    <Content Include="Content\Image\Home\bns.jpg" />
+    <Content Include="Content\Image\Home\bo1.jpg" />
+    <Content Include="Content\Image\Home\bo11.jpg" />
+    <Content Include="Content\Image\Home\bo2.jpg" />
+    <Content Include="Content\Image\Home\bo22.jpg" />
+    <Content Include="Content\Image\Home\bo3.jpg" />
+    <Content Include="Content\Image\Home\bo4.jpg" />
+    <Content Include="Content\Image\Home\bo41.jpg" />
+    <Content Include="Content\Image\Home\Bracelets.jpg" />
+    <Content Include="Content\Image\Home\casourel.jpg" />
+    <Content Include="Content\Image\Home\clsBracelet.jpg" />
+    <Content Include="Content\Image\Home\clseardrop.jpg" />
+    <Content Include="Content\Image\Home\clsnecklace.jpg" />
+    <Content Include="Content\Image\Home\clsring.jpg" />
+    <Content Include="Content\Image\Home\mau1.jpg" />
+    <Content Include="Content\Image\Home\mau2.jpg" />
+    <Content Include="Content\Image\Home\mau3.jpg" />
+    <Content Include="Content\Image\Home\mau4.jpg" />
+    <Content Include="Content\Image\Home\mau5.jpg" />
+    <Content Include="Content\Image\Home\mau6.jpg" />
+    <Content Include="Content\Image\Home\MAU7.jpg" />
+    <Content Include="Content\Image\Home\nec1.jpg" />
+    <Content Include="Content\Image\Home\Necklaces&amp;Pendants.jpg" />
+    <Content Include="Content\Image\Home\nhando.jpg" />
+    <Content Include="Content\Image\Home\Pearl_Rings.jpg" />
+    <Content Include="Content\Image\Home\RingDiamond.jpg" />
+    <Content Include="Content\Image\Home\vong1.jpg" />
+    <Content Include="Content\Image\Home\vong1_2.jpg" />
+    <Content Include="Content\Image\Home\vong2.jpg" />
+    <Content Include="Content\Image\Home\vong22.jpg" />
+    <Content Include="Content\Image\Home\vong31.jpg" />
+    <Content Include="Content\Image\Home\vong3_3.jpg" />
+    <Content Include="Content\Image\Home\vongd.jpg" />
+    <Content Include="Content\Image\Home\vongd2.jpg" />
+    <Content Include="Content\Image\Home\vongt.jpg" />
+    <Content Include="Content\Image\Home\vongt2.jpg" />
+    <Content Include="Content\Image\Home\vongx.jpg" />
+    <Content Include="Content\Image\Home\vongx_2.jpg" />
+    <Content Include="Content\Image\Home\Yash_Earrings.jpg" />
+    <Content Include="Content\Image\Layout\favicon.png" />
     <Content Include="Content\Image\Layout\logo-header.png" />
+    <Content Include="Content\Image\Policy\1.png" />
+    <Content Include="Content\Image\Policy\2.png" />
+    <Content Include="Content\Image\Policy\3.png" />
+    <Content Include="Content\Image\Rules\carat.png" />
+    <Content Include="Content\Image\Rules\clarity.png" />
+    <Content Include="Content\Image\Rules\color.png" />
+    <Content Include="Content\Image\Rules\cut.png" />
+    <Content Include="Content\Image\Layout\upicon.png" />
+    <Content Include="Content\Script\Api.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -106,6 +176,13 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Policy.cshtml" />
+    <Content Include="Views\Home\Rules.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,8 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Image\Home\" />
-    <Folder Include="Content\Script\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,486 @@
+﻿/* PC */
+@media (min-width: 64em){
+    /* Layout */
+    .mobile--menu{
+        display: none;
+    }
+    #header{
+        height: 110px;
+    }
+
+    .bottom--footer{
+        margin-top: 4em;
+    }
+}
+
+/* Tablet */
+@media(min-width: 46.25em) and (max-width: 63.9375em){
+    /* Layout */
+    .header-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    #nav {
+        padding-left: 0;
+    }
+
+    #nav > li {
+        margin: 0 10px 0 10px;
+    }
+
+    #nav li a {
+        line-height: 70px;
+    }
+
+    .right-menu {
+        margin-left: 1em;
+        margin-right: -.5em;
+    }
+
+    #header .mobile--menu{
+        display: none;
+    }
+
+    .badge{
+        top: 10px;
+    }
+
+    .bottom--footer{
+        height: 470px;
+    }
+
+    .logo--footer{
+        margin-left: -10%;
+    }
+
+    .--footer{
+        margin: -8.5em 0 0 1.5em;
+    }
+    .p--footer{
+        margin-left: 1.5em;
+        margin-top: 0;
+    }
+
+    .subtitle--right--footer,
+    .txtEmail{
+        margin-left: 0;
+    }
+
+    button.local--btn--send{
+        margin-left: 0;
+    }
+
+    .ml--footer {
+        margin-left: .5em;
+    }
+
+    /* Home */
+    .img_itemhover,
+    .img_item {
+        width: 100%;
+    }
+
+    .btn_view_more{
+        margin-top: 4em;
+        margin-bottom: -4em;
+    }
+
+    .col{
+        margin-top: 5em;
+    }
+
+    .gemsjwelley_space{
+        margin-top: 4em;
+    }
+
+    .bns h2 {
+        margin-left: 1em;
+    }
+
+    .bns p {
+        font-size: 16px;
+    }
+
+    .bns .btn-dark{
+        margin: 2em 0 0 2em;
+    }
+
+    .letter{
+        margin-top: 2.5em;
+    }
+
+    .collections{
+        margin-top: -10em;
+    }
+
+    /* About */
+    .img---about---diamond2,
+    .img---about---diamond3,
+    .img---about---diamond4,
+    .img---about---diamond5 {
+        background-position: center;
+    }
+
+    /* Policy */
+    .img---policy {
+        height: 600px;
+    }
+
+    /* Rules */
+    .text---magintop {
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media(max-width: 46.25em){
+    /* Layout */
+    .header-logo {
+        width: 50px;
+        height: 50px;
+        margin-left: 11em;
+    }
+
+    #header{
+        overflow: hidden;
+        height: 46px;
+        max-width: 415.2px;
+    }
+
+    #nav {
+        padding-left: 0;
+        margin-left: -14em;
+    }
+
+    #nav > li {
+        display: block;
+    }
+
+    .mobile--menu{
+        float: left;
+        padding: 8px 24px;
+        position: relative;
+        z-index: 1000;
+        top: -3.6em;
+    }
+
+    .menu--icon {
+        line-height: 46px;
+        font-size: 20px;
+    }
+
+    .mobile--menu:hover {
+        cursor: pointer;
+    }
+
+    .badge{
+        right: -237%;
+        top: -12px;
+    }
+
+    #nav .subnav {
+        margin-left: 6em;
+    }
+
+    #nav li a{
+        line-height: 24px;
+    }
+
+    .sub-menu:after,
+    .subnav li::after {
+        height: 0;
+    }
+
+    .margin-menu{
+        margin-top: 3.25em;
+    }
+
+    .right-menu{
+        margin-top: -14.8em;
+        margin-left: 290%;
+    }
+
+    .tablet--cart{
+        margin: -2.45em 0 0 315%;
+    }
+
+    .bottom--footer {
+        height: 101%;
+    }
+
+    .logo--footer {
+        margin-left: -15%;
+    }
+
+    .--footer{
+        margin-top: -1.5em;
+    }
+
+    .col--icon{
+        display: none;
+    }
+
+    .subtitle--right--footer,
+    .txtEmail,
+    .local--btn--send {
+        margin-left: 0;
+    }
+
+    .subtitle--right--footer{
+        margin-top: 2em !important;
+        margin-left: 2em !important;
+    }
+
+    .ml--footer{
+        margin-left: 3em;
+    }
+
+    /* Home */
+    .container-fluid,
+    .container{
+        padding: 0;
+    }
+
+    .carousel-item img{
+        width: 100%;
+        height: 300px;
+    }
+
+    .btn_details_casourel{
+        bottom: 1em;
+        height: 3em;
+        width: 10em;
+    }
+
+    .text_home_f {
+        font-size: 16px;
+    }
+
+    .effect_item {
+        height: 30em;
+        width: 414.4px;
+    }
+
+    .img_item {
+        width: 414.4px;
+    }
+
+    .item_col_3 {
+        width: 414.4px;
+    }
+
+    .item_col_3 ~ p {
+        width: 100%;
+    }
+
+    .btn_view_more{
+        margin-top: -15em;
+    }
+
+    .view_spaces{
+        margin-top: -10em !important;
+    }
+
+    .col {
+        margin-top: 6em;
+    }
+
+    .title_item_,
+    .title_item__,
+    .title_item__one{
+        margin-left: 1.5em;
+    }
+
+    .gemsjwelley_space{
+        margin-top: 3em;
+    }
+
+    .row {
+        display: block;
+        width: 414.4px;
+    }
+
+    .bns {
+        width: 100%;
+        position: absolute;
+        top: 90%;
+    }
+
+    .bns p{
+        margin-left: 0;
+        margin-top: 1.5em;
+    }
+
+    .mobile_yash{
+        margin-top: 40em !important;
+    }
+
+    .letter{
+        margin-top: -9em;
+    }
+
+    .collections{
+        margin-top: -10em;
+    }
+
+    .logo--footer{
+        padding-left: 3em;
+    }
+
+    .--footer,
+    .title--center--footer,
+    .link--footer{
+        padding-left: 2em;
+    }
+
+    .subtitle--right--footer{
+        padding: 0 10px;
+        text-align: center;
+        margin-left: 1em;
+    }
+
+    .title--right--footer{
+        margin-left: 2em;
+    }
+
+    .txtEmail,
+    .btn--dark--model{
+        margin-left: 1em;
+    }
+
+    .ml--footer{
+        margin-left: 4em;
+    }
+
+    .content--bottom--footer{
+        margin-bottom: 0;
+        margin-left: 1.5em;
+    }
+
+    .fix-padding--fluid{
+        overflow: hidden;
+    }
+
+    .btn-dark{
+        display: none;
+    }
+
+    .text_home_fa h2{
+        margin-top: -6em;
+    }
+
+    .responsive{
+        width: 100%;
+    }
+
+    .edit_space_btn{
+        margin-top: 15em;
+    }
+
+    .dp_block h3,
+    .dp_block p{
+        margin: .5em 0 0 1em;
+    }
+
+    .btn_shop{
+        margin: 1em 0 0 2em;
+    }
+
+    .text_home_f{
+        padding: 0 10px;
+    }
+
+    .card {
+        height: 225px;
+    }
+
+    .text1{
+        font-size: 24px;
+        margin-top: 2em;
+    }
+
+    form.example{
+        left: 2em;
+    }
+
+    .marl-home{
+        margin-left: .01em;
+    }
+    /* Contact */
+    .img---contact-br {
+        height: 300px;
+    }
+
+    .text---contact---phone {
+        text-align: center;
+    }
+
+    .text---contact---phonepx{
+        text-align: center;
+    }
+
+    .text---contect-font{
+        margin-left: 2em;
+    }
+
+    .txt---name---email,
+    .text---area,
+    .submit---contact{
+        margin-left: 2em;
+    }
+
+    /* About */
+    .text---about---cline{
+       margin: 1em 0 .5em 1em;
+    }
+
+    .img---about---index{
+        background-position: center;
+        width: 429px !important;
+    }
+
+    .img---about---diamond2,
+    .img---about---diamond3,
+    .img---about---diamond4,
+    .img---about---diamond5{
+        background-position: center;
+        width: 414.4px;
+    }
+
+    .text---title---about{
+        text-align: center;
+        margin: 1em 0 1em 1em;
+    }
+    .text---content---about {
+        margin-left: 2em;
+    }
+
+    /* Policy */
+    .text---policy---cline{
+        text-align: center;
+        margin-left: 1em;
+    }
+
+    .text---policy---titel{
+        font-size: 16px;
+        margin-left: 2em;
+    }
+
+    .ml---policy{
+        margin-left: .9em;
+    }
+
+    .causorel---policy{
+        height: 300px;
+    }
+
+    /* Rules */
+    .text---magintop{
+        text-align: center;
+    }
+
+    .text---italic---rules{
+        margin-left: 2em;
+    }
+}
