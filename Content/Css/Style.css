@@ -112,8 +112,18 @@
     box-shadow: none;
 }
 
-.col-md-12{
+.col-md-12,
+.col-md-6,
+.col-md-8{
     padding: 0;
+}
+
+.text--align--cc{
+    text-align: center;
+}
+
+.text--align--rr {
+    text-align: right;
 }
 
 /* Layout Header */
@@ -1134,4 +1144,69 @@ form.example::after {
 .img--cart{
     width: 95px;
     height: 95px;
+}
+
+.product--cart{
+    margin-left: 2em;
+}
+
+.qly--cart{
+    text-align: center;
+}
+
+.price--cart{
+    text-align: right;
+}
+
+.product--cart,
+.price--cart,
+.qly--cart {
+    opacity: .6;
+}
+
+.icon--remove {
+    display: block;
+    margin: -2.5em 0 0 9em;
+    color: red;
+    font-size: 14px;
+}
+
+.icon--remove:hover{
+    color: red;
+    text-decoration: none;
+}
+
+.subtotal--cart{
+    text-align: right;
+}
+
+.titletemp--order {
+    display: inline-block;
+}
+
+.money--order {
+    text-align: right;
+}
+
+.btn--pay--order {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.btn--continue--order {
+    text-transform: uppercase;
+    width: 100%;
+    display: block;
+    border: 1px solid #1c1c1c;
+    padding: 10px 15px;
+    text-align: center;
+    color: #1c1c1c;
+    letter-spacing: 1px;
+}
+
+.btn--continue--order:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #1c1c1c;
+    transition: .5s;
 }

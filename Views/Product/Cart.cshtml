@@ -7,7 +7,7 @@
 <div class="container mgin--top">
     <div class="row">
         <div class="col-md-12">
-            <a class="slide-home" href="home.php">Home </a><span>/</span><b class="slide-local"> Shopping Cart</b>
+            <a class="slide-home" href="@Url.Action("Index","Home")">Home </a><span>/</span><b class="slide-local"> Shopping Cart</b>
         </div>
     </div>
     <div class="row mt-4">
@@ -16,20 +16,65 @@
         </div>
     </div>
     <div class="row">
-        <table class="table">
-            <tr>
-                <td>Product Name</td>
-                <td>Price</td>
-                <td>Qly</td>
-                <td>Total</td>
-            </tr>
-            <tr>
-                <td><img class="img--cart mt-3" src="~/Content/Image/About/diamond2.jpg"/></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
+        <div class="col-md-9">
+            <table class="table">
+                <tr>
+                    <td>Product Name</td>
+                    <td class="text--align--rr">Price</td>
+                    <td class="text--align--cc">Qly</td>
+                    <td class="text--align--rr">Total</td>
+                </tr>
+                <tr>
+                    <td><img class="img--cart" src="~/Content/Image/About/diamond2.jpg" /><span class="product--cart">Zara Diamond Ring</span><a href="" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                    <td><p class="qly--cart mt-5">1</p></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                </tr>
+                <tr>
+                    <td><img class="img--cart" src="~/Content/Image/About/diamond2.jpg" /><span class="product--cart">Zara Diamond Ring</span><a href="" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                    <td><p class="qly--cart mt-5">1</p></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                </tr>
+                <tr>
+                    <td><img class="img--cart" src="~/Content/Image/About/diamond2.jpg" /><span class="product--cart">Zara Diamond Ring</span><a href="" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                    <td><p class="qly--cart mt-5">1</p></td>
+                    <td><p class="price--cart mt-5">$6281.00</p></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="titletemp--order"><b>Provisional:</b></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="money--order">$</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="titletemp--order"><b>Total:</b></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="money--order">$</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn--dark--model btn--pay--order">Pay Now</button>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <a href="@Url.Action("Shoes/0","Product")" class="btn--continue--order">Continue shopping</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

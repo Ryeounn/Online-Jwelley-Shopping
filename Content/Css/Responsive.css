@@ -11,6 +11,15 @@
     .bottom--footer{
         margin-top: 4em;
     }
+
+    /* Cart */
+    .title--cart {
+        margin-left: .5em;
+    }
+
+    .slide-home{
+        margin-left: 1.2em;
+    }
 }
 
 /* Tablet */
@@ -48,6 +57,7 @@
 
     .bottom--footer{
         height: 470px;
+        margin-top: 0;
     }
 
     .logo--footer{
@@ -131,11 +141,32 @@
     .text---magintop {
         text-align: center;
     }
+
+    /* Card */
+    .slide-home{
+        margin-left: 1.2em;
+    }
+
+    .title--cart {
+        margin-left: .5em;
+    }
+
+    .product--cart{
+        margin-left: 1em;
+    }
+
+    .icon--remove {
+        margin-left: 8em !important;
+    }
 }
 
 /* Mobile */
 @media(max-width: 46.25em){
     /* Layout */
+    .scrollTop{
+        right: -10px;
+    }
+
     .header-logo {
         width: 50px;
         height: 50px;
@@ -207,6 +238,7 @@
 
     .bottom--footer {
         height: 101%;
+        margin-top: 1em;
     }
 
     .logo--footer {
@@ -482,5 +514,39 @@
 
     .text---italic---rules{
         margin-left: 2em;
+    }
+
+    /* Cart */
+    .slide-home{
+        margin-left: 2em;
+    }
+
+    .title--cart{
+        margin: 0 0 1em 1em;
+    }
+
+    .product--cart{
+        display: block;
+        margin: .5em 0 0 0;
+    }
+
+    .icon--remove{
+        margin: 0;
+    }
+
+    .titletemp--order{
+        margin-left: 2em;
+    }
+
+    .money--order{
+        margin-top: -2.5em;
+    }
+
+    .btn--pay--order{
+        margin-top: 1em;
+    }
+
+    .btn--continue--order{
+        margin: 1em 0 0 1em;
     }
 }
