@@ -279,7 +279,7 @@
 .bottom--footer{
     height: 400px;
     background-color: #f3f3f3;
-    margin-top: 12%;
+    margin-top: 12em;
 }
 
 .logo--footer{
@@ -371,6 +371,7 @@
 
 #content {
     position: relative;
+    margin-top: 8em;
 }
 
 /* Home */
@@ -829,7 +830,7 @@ form.example::after {
 .title_sign {
     text-align: center;
     position: relative;
-    top: 5em;
+    top: -1.5em;
 }
 
 .para_title{
@@ -839,7 +840,7 @@ form.example::after {
 .para_title li {
     display: inline-block;
     position: relative;
-    margin: 1em 30px 0 -20px;
+    margin: -2em 30px 0 -20px;
 }
 .confirm_space {
     cursor: pointer; 
@@ -861,7 +862,6 @@ form.example::after {
 }
 
 .form_poc {
-    top: 8em;
     position: relative;
     text-align: center;
 }
@@ -1110,4 +1110,28 @@ form.example::after {
 
 .text---bold {
     font-weight: 500;
+}
+
+/* Cart */
+.mgin--top{
+    margin-top: 7em;
+}
+
+.slide-home{
+    color: #ccc;
+}
+
+.slide-home:hover{
+    text-decoration: none;
+    color: #1c1c1c;
+    transition: var(--tran-05);
+}
+
+.title--cart{
+    font-size: 34px;
+}
+
+.img--cart{
+    width: 95px;
+    height: 95px;
 }
