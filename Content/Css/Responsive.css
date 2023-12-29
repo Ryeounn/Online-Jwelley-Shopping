@@ -20,14 +20,41 @@
     .slide-home{
         margin-left: 1.2em;
     }
+
+    /* OutNews */
+    .galle{
+        height: 550px;
+    }
+
+    .text4{
+        margin-top: 1em;
+        text-align: left;
+    }
+
+    .second-text{
+        margin-top: 2.8em;
+    }
+
+    .third--text{
+        margin-top: 4.5em;
+    }
+
+    .four-text{
+        margin-top: 3em;
+    }
+
+    .five-text{
+        margin-top: 3em;
+    }
 }
 
 /* Tablet */
-@media(min-width: 46.25em) and (max-width: 63.9375em){
+@media(min-width: 46.25em) and (max-width: 63.9375em) {
     /* Layout */
     .header-logo {
         width: 100px;
         height: 100px;
+        margin-left: 0;
     }
 
     #nav {
@@ -47,37 +74,38 @@
         margin-right: -.5em;
     }
 
-    #header .mobile--menu{
+    #header .mobile--menu {
         display: none;
     }
 
-    .badge{
+    .badge {
         top: 10px;
     }
 
-    .bottom--footer{
+    .bottom--footer {
         height: 470px;
-        margin-top: 0;
+        margin-top: 2em;
     }
 
-    .logo--footer{
+    .logo--footer {
         margin-left: -10%;
     }
 
-    .--footer{
+    .--footer {
         margin: -8.5em 0 0 1.5em;
     }
-    .p--footer{
+
+    .p--footer {
         margin-left: 1.5em;
         margin-top: 0;
     }
 
     .subtitle--right--footer,
-    .txtEmail{
+    .txtEmail {
         margin-left: 0;
     }
 
-    button.local--btn--send{
+    button.local--btn--send {
         margin-left: 0;
     }
 
@@ -91,16 +119,16 @@
         width: 100%;
     }
 
-    .btn_view_more{
+    .btn_view_more {
         margin-top: 4em;
         margin-bottom: -4em;
     }
 
-    .col{
+    .col {
         margin-top: 5em;
     }
 
-    .gemsjwelley_space{
+    .gemsjwelley_space {
         margin-top: 4em;
     }
 
@@ -112,15 +140,15 @@
         font-size: 16px;
     }
 
-    .bns .btn-dark{
+    .bns .btn-dark {
         margin: 2em 0 0 2em;
     }
 
-    .letter{
+    .letter {
         margin-top: 2.5em;
     }
 
-    .collections{
+    .collections {
         margin-top: -10em;
     }
 
@@ -143,7 +171,7 @@
     }
 
     /* Card */
-    .slide-home{
+    .slide-home {
         margin-left: 1.2em;
     }
 
@@ -151,15 +179,60 @@
         margin-left: .5em;
     }
 
-    .product--cart{
+    .product--cart {
         margin-left: 1em;
     }
 
     .icon--remove {
         margin-left: 8em !important;
     }
-}
 
+    /* OutNews */
+    .mrlt--navbar {
+        margin-left: 5% !important;
+    }
+
+    .badi {
+        margin-left: 5%;
+    }
+
+    .text5 {
+        margin-bottom: 1.5em;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .text4 {
+        text-align: left;
+    }
+
+    div.textdetails {
+        height: 400px;
+    }
+
+    .third--text {
+        margin-top: 4.2em;
+    }
+
+    .five-text {
+        margin-top: 4.5em;
+    }
+
+    /*Sizering*/
+    .text6 {
+        margin-top: 0;
+    }
+
+    /* Pearl */
+    .img-second{
+        width: 100%;
+    }
+
+    /* Introduction */
+    .designer-image img{
+        height: 100%;
+    }
+}
 /* Mobile */
 @media(max-width: 46.25em){
     /* Layout */
@@ -548,5 +621,95 @@
 
     .btn--continue--order{
         margin: 1em 0 0 1em;
+    }
+
+    /* OutNews */
+    .mrlt--navbar{
+        margin-left: 10% !important;
+    }
+
+    div.textdetails{
+        height: 250px;
+    }
+
+    .badi{
+        margin-left: 6%;
+    }
+
+    .galle{
+        margin: 0 0 10% 8%;
+    }
+
+    /*Sizering*/
+    .text6 {
+        margin-top: 0;
+    }
+
+    .text7,
+    .text8{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .text9{
+        padding-left: 15px;
+    }
+
+    .text8 ~ p {
+        padding-left: 10px;
+    }
+
+    .p-select {
+        padding-left: 10px;
+    }
+
+    /* Pearl */
+    .pdlr--pearl,
+    .pdlr--pearl ~ p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .text6 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .img-second {
+        width: 100%;
+    }
+
+    /* PinkDia */
+    .text17{
+        text-align: left;
+        font-size: 16px;
+        margin-bottom: 1em;
+    }
+
+    /* ColorDia */
+    .ig2{
+        width: 100%;
+    }
+
+    /* Introduction */
+    .designer-info{
+        display: inline;
+    }
+
+    .designer-image img{
+        width: 100%;
+        margin-left: 15%;
+    }
+
+    .designer-details h2{
+        margin-top: 1em;
+    }
+
+    /* Natural */
+    .text-overlay h1{
+        font-size: 16px;
+    }
+
+    .mgtop-text{
+        margin-top: -3em;
     }
 }

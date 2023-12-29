@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,8 +156,47 @@
     <Content Include="Content\Image\Home\vongx.jpg" />
     <Content Include="Content\Image\Home\vongx_2.jpg" />
     <Content Include="Content\Image\Home\Yash_Earrings.jpg" />
+    <Content Include="Content\Image\Introduction\48d0bf4b-b790-4a99-a68f-b51a497b9aff.jpeg" />
+    <Content Include="Content\Image\Introduction\chandung.jpg" />
+    <Content Include="Content\Image\Introduction\Designer Jewellery Brand for Unique Designs! • South India Jewels.jpeg" />
+    <Content Include="Content\Image\Introduction\Les Ateliers Créations by Van Cleef &amp; Arpels.jpeg" />
+    <Content Include="Content\Image\Introduction\pexels-luis-quintero-1659748.jpg" />
+    <Content Include="Content\Image\Introduction\pexels-tima-miroshnichenko-6263066.jpg" />
     <Content Include="Content\Image\Layout\favicon.png" />
     <Content Include="Content\Image\Layout\logo-header.png" />
+    <Content Include="Content\Image\Natural\pexels-ady-5867401.jpg" />
+    <Content Include="Content\Image\Natural\pexels-fuzail-ahmad-2792601.jpg" />
+    <Content Include="Content\Image\Natural\pexels-hey-karan-1694663.jpg" />
+    <Content Include="Content\Image\Natural\pexels-manan-bohra-19511794.jpg" />
+    <Content Include="Content\Image\Natural\pexels-muneeb-najar-19533158.jpg" />
+    <Content Include="Content\Image\Natural\pexels-shiva-smyth-1051449.jpg" />
+    <Content Include="Content\Image\Natural\pexels-shojol-islam-15306413.jpg" />
+    <Content Include="Content\Image\Natural\pexels-tima-miroshnichenko-6263070.jpg" />
+    <Content Include="Content\Image\News\bquants.jpg" />
+    <Content Include="Content\Image\News\bquants1.jpg" />
+    <Content Include="Content\Image\News\bquants2.jpg" />
+    <Content Include="Content\Image\News\bquantsbg.jpg" />
+    <Content Include="Content\Image\News\kimcuonghongbg.jpg" />
+    <Content Include="Content\Image\News\kimcuonghongtrong.jpg" />
+    <Content Include="Content\Image\News\kimcuonghongtrong1.jpg" />
+    <Content Include="Content\Image\News\kimcuonghongtrong2.jpg" />
+    <Content Include="Content\Image\News\kimcuongmaubg.jpg" />
+    <Content Include="Content\Image\News\kimcuongmauden.jpg" />
+    <Content Include="Content\Image\News\kimcuongmaulá.jpg" />
+    <Content Include="Content\Image\News\kimcuongmauxanh.jpg" />
+    <Content Include="Content\Image\News\kimcuongmauxanh1.jpg" />
+    <Content Include="Content\Image\News\ngoctraibg.jpg" />
+    <Content Include="Content\Image\News\ngoctraitrong.jpg" />
+    <Content Include="Content\Image\News\ngoctraitrong1.jpg" />
+    <Content Include="Content\Image\News\ngoctraitrong2.jpg" />
+    <Content Include="Content\Image\News\ptn.jpg" />
+    <Content Include="Content\Image\News\ptn1.jpg" />
+    <Content Include="Content\Image\News\ptnbg.jpg" />
+    <Content Include="Content\Image\News\ringbg.jpg" />
+    <Content Include="Content\Image\News\ringruler.jpg" />
+    <Content Include="Content\Image\News\rings.jpg" />
+    <Content Include="Content\Image\News\ringsize.jpg" />
+    <Content Include="Content\Image\News\ringsizeruler.jpg" />
     <Content Include="Content\Image\Policy\1.png" />
     <Content Include="Content\Image\Policy\2.png" />
     <Content Include="Content\Image\Policy\3.png" />
@@ -158,22 +205,126 @@
     <Content Include="Content\Image\Rules\color.png" />
     <Content Include="Content\Image\Rules\cut.png" />
     <Content Include="Content\Image\Layout\upicon.png" />
-    <Content Include="Content\Script\Api.js" />
+    <Content Include="Content\Script\Function.js" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Jwelley.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+      <LastGenOutput>Jwelley.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Jwelley.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+      <LastGenOutput>Jwelley.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminLoginMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BrandMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartList.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CertifyMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Collection.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DimInfoMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DimMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DimQltyMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DimQltySubMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GoldKrtMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Img.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inquiry.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JewelTypeMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jwelley.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jwelley.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jwelley.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jwelley.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orderdetail.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProdMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoneMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoneQltyMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRegMst.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <EntityDeploy Include="Models\Jwelley.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Jwelley.edmx.diagram">
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -186,6 +337,18 @@
     <Content Include="Views\Home\Rules.cshtml" />
     <Content Include="Views\Product\Cart.cshtml" />
     <Content Include="Views\Product\Seen.cshtml" />
+    <Content Include="Views\News\OurNews.cshtml" />
+    <Content Include="Views\Account\General.cshtml" />
+    <Content Include="Views\Account\Information.cshtml" />
+    <Content Include="Views\Account\Change.cshtml" />
+    <Content Include="Views\News\SizeRing.cshtml" />
+    <Content Include="Views\News\Pearl.cshtml" />
+    <Content Include="Views\News\Lab.cshtml" />
+    <Content Include="Views\News\PinkDia.cshtml" />
+    <Content Include="Views\News\ColorDia.cshtml" />
+    <Content Include="Views\News\Preverse.cshtml" />
+    <Content Include="Views\Home\Introduction.cshtml" />
+    <Content Include="Views\Home\Natural.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +358,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Content\Image\Customer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

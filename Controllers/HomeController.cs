@@ -33,5 +33,16 @@ namespace Jewelly.Controllers
         {
             return View();
         }
+
+        public ActionResult Introduction()
+        {
+            return View();
+        }
+
+        public ActionResult Natural()
+        {
+            return View();
+        }
+
     }
 }

@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Our News";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="slide-home mrlt--navbar" href="@Url.Action("Index","Home")">Home </a><span>/</span><b class="slide-local"> Shopping Cart</b>
+        </div>
+    </div>
+</div>
+<h2 class="badi mt-3 mb-5">News</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/ringbg.jpg">
+                        <img lazy_src="~/Content/Image/News/ringbg.jpg" src="lazy" alt="Cinque Terre" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("SizeRing","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">Instructions on how to measure ring size most accurately</h3>
+                            <p class="text4">
+                                How to know how to measure the right ring size without having to go
+                                directly to the store to measure with a specialized sizing tool...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/ngoctraibg.jpg">
+                        <img lazy_src="~/Content/Image/News/ngoctraibg.jpg" src="lazy" alt="Forest" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("Pearl","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">
+                                How to choose beautiful pearl jewelry
+                            </h3>
+                            <p class="text4 second-text">
+                                Today, in addition to traditional pearl strings, there are also extremely
+                                delicate combinations of pearls and gold, silver, or other precious stones,
+                                with extremely diverse and rich designs to suit your needs...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/ptnbg.jpg">
+                        <img lazy_src="~/Content/Image/News/ptnbg.jpg" src="lazy" alt="Northern Lights" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("Lab","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">
+                                Lab grown diamonds
+                            </h3>
+                            <p class="text4 third--text">
+                                Lab grown diamonds are grown in highly controlled laboratory environments using advanced
+                                technological processes that duplicate the conditions under which diamonds naturally develop
+                                when they form in the mantle,...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/kimcuonghongbg.jpg">
+                        <img lazy_src="~/Content/Image/News/kimcuonghongbg.jpg" src="lazy" alt="Cinque Terre" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("Lab","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">
+                                Pink Diamond : Shortage to Exhaustion in a Few Years
+                            </h3>
+                            <p class="text4 four-text">
+                                What makes a diamond's actual value? A lot goes into deciding the value of a diamond or other gemstone.
+                                But the clearest and most specific deciding factors are beauty and scarcity...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/kimcuongmaubg.jpg">
+                        <img lazy_src="~/Content/Image/News/kimcuongmaubg.jpg" src="lazy" alt="Forest" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("ColorDia","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">
+                                Learn about the colors of diamonds
+                            </h3>
+                            <p class="text4 five-text">
+                                Color – Color value is one of four international standards for diamond valuation,
+                                often called the 4C principle. Natural Diamonds are usually transparent white...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="detail">
+                <div class="galle" data-aos="fade-up" data-aos-duration="5000">
+                    <a target="_blank" href="~/Content/Image/News/bquantsbg.jpg">
+                        <img lazy_src="~/Content/Image/News/bquantsbg.jpg" src="lazy" alt="Northern Lights" width="600" height="400">
+                    </a>
+                    <a href="@Url.Action("Preverse","News")" class="text--decor">
+                        <div class="textdetails">
+                            <h3 class="text5">
+                                How to preserve gemstone jewelry to keep it bright and beautiful
+                            </h3>
+                            <p class="text4">
+                                First, to preserve gemstone jewelry, you should know some basic information about
+                                the hardness and characteristics of the stone...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    AOS.init();
+    function load(img) {
+        const url = img.getAttribute('lazy_src')
+        img.setAttribute('src', url)
+    }
+    function ready() {
+        if ('IntersectionObserver' in window) {
+            var lazyimg = document.querySelectorAll('[lazy_src]')
+            let obsesr = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        load(entry.target)
+                    }
+                })
+            });
+            lazyimg.forEach(img => {
+                obsesr.observe(img)
+            })
+        } else {
+
+        }
+    }
+    document.addEventListener('DOMContentLoaded', ready)
+</script>

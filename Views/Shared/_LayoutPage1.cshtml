@@ -25,10 +25,8 @@
                     <a class="sub-menu" href="product.php">Our Story<i class="fas fa-angle-down"></i></a>
                     <ul class="subnav">
                         <li><a href="@Url.Action("About","Home")">About Us</a></li>
-                        <li><a href="#lotustree.html">Stone Lotus</a></li>
-                        <li><a href="#aquanticplant.html">Aquatic Plant</a></li>
-                        <li><a href="#convolve.html">Convolve</a></li>
-                        <li><a href="#officetree.html">Office Tree</a></li>
+                        <li><a href="@Url.Action("Introduction","Home")">Designer</a></li>
+                        <li><a href="@Url.Action("Natural","Home")">Landscape at the store</a></li>
                     </ul>
                 </li>
                 <li>
@@ -39,14 +37,27 @@
                         <li><a href="#prelotus.html">PreLotus</a></li>
                     </ul>
                 </li>
-                <li><a class="sub-menu" href="aboutus.php">Our News</a></li>
+                <li><a class="sub-menu" href="@Url.Action("OurNews","News")">Our News</a></li>
                 <li><a class="sub-menu" href="@Url.Action("Contact", "Home")">Contact</a></li>
-                <li><a class="right-menu" href="information.php"><i class="fas fa-user"></i></a></li>
                 <li>
-                    <a class="tablet--cart" href="account.php"><i class="fas fa-box"></i><span class="badge">0</span></a>
-                </li>
-            </ul>
-        </div>
+                    @if (Session["Username"] == null)
+                    {
+                        <a class="right-menu" href="@Url.Action("Login", "Account")"><i class="fas fa-user"></i></a>
+                    }
+                    else
+                    {
+                        <a class="right-menu" href="@Url.Action("Login", "Account")"><i class="fas fa-user"></i></a>
+                        <ul class="subnav mgl--layout">
+                            <li><a href="@Url.Action("Information", "Account")">Hello, @Session["userFname"] @Session["userLname"]</a></li>
+                            <li><a href="@Url.Action("Logout", "Account")">Logout</a></li>
+                        </ul>
+                    }
+                    </li>
+                    <li>
+                        <a class="tablet--cart" href="@Url.Action("Cart", "Product")"><i class="fas fa-box"></i><span class="badge">0</span></a>
+                    </li>
+                </ul>
+            </div>
         <div id="mobile-menu" class="mobile--menu">
             <i class="menu--icon fas fa-ellipsis-v"></i>
         </div>
@@ -115,9 +126,8 @@
         if (isClosed) {
             header.style.height = '250px';
             header.style.overflow = 'visible';
-            header.style.transition = '.75s all ease';
+            header.style.transition = 'none';
             mobileMenu.style.transform = 'rotate(90deg)';
-            mobileMenu.style.transition = '.75s all ease';
         } else {
             header.style.height = null;
             mobileMenu.style.transform = null;

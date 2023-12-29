@@ -1,0 +1,32 @@
+﻿﻿
+@{
+    ViewBag.Title = "Change";
+}
+
+<script src="~/Content/Script/Api.js"></script>
+<div class="container">
+    <div class="form_poc">
+        @using (Html.BeginForm("Change", "Account", FormMethod.Post, new { @class = "form_edits" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="space_input_login">
+                <p>Current Password</p>
+                <input class="input_edits form-control txt--input username" ts" name="password" />
+            </div>
+            <div class="space_input_login">
+                <p>New Password</p>
+                <input class="input_edits form-control txt--input New" name="New" oninput="checkConfirm()" />
+            </div>
+            <div class="space_input_login">
+                <p>Confirm Password</p>
+                <input class="input_edits form-control txt--input confirm" name="confirm" oninput="checkConfirm();" />
+            </div>
+            <div class="space_input_login">
+                <button type="submit" name="signin" class="btn--dark--model btn--login mt-3">Login</button>
+                <a class="forget_pass">Fogret Password ?</a>
+            </div>
+        }
+    </div>
+</div>

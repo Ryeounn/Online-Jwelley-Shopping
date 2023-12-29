@@ -1,0 +1,72 @@
+﻿﻿@model Jewelly.Models.UserRegMst
+@{
+    ViewBag.Title = "Information";
+
+}
+
+<div class="content_select">
+    <div class="select_infor">
+        <form action="/Account/Information" method="post" class="container edit_spi" ost" enctype="multipart/form-data">
+            <div class="select_avt">
+                <img src="@Model.Path_photo@Model.photo" name="photo"
+                     class="img_avt">
+            </div>
+            <div class="row edit_spq">
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <label>Username:</label>
+
+                        <input type="text" class="input_edits form-control txt--input username" value="@Model.Username" readonly name="Username" />
+                    </div>
+                    <div class="form-group">
+                        <label>User First Name:</label>
+                        <input type="text" class="input_edits form-control txt--input username" name="userLname" placeholder="Last Name" value="@Model.userLname" />
+                    </div>
+                    <div class="form-group">
+                        <label>User last Name:</label>
+                        <input type="text" class="input_edits form-control txt--input username" name="userFname" value="@Model.userFname" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address:</label>
+                        <input type="text" class="input_edits form-control txt--input username" name="address" value="@Model.address" />
+                    </div>
+                    <div class="form-group">
+                        <label>Birthday:</label>
+                        <input type="text" class="input_edits form-control txt--input username" placeholder="dd/yy/mmmm" name="dob" value="@Model.dob" />
+                    </div>
+                    <div class="form-group">
+                        <label>Avatar:</label>
+                        <input type="file" id="imageFiles" name="imageFiles" value="@Model.photo" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>City:</label>
+                        <input type="text" class="input_edits form-control txt--input username" value="@Model.city" name="city" />
+                    </div>
+                    <div class="form-group">
+                        <label>State:</label>
+                        <input type="text" class="input_edits form-control txt--input username" value="Online" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input type="text" class="input_edits form-control txt--input username" name="mobNo" value="@Model.mobNo" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="input_edits form-control txt--input username" name="emailID" value="@Model.emailID" />
+                    </div>
+                    <div class="form-group">
+                        <label>Current Date:</label>
+                        <input type="text" class="input_edits form-control txt--input username" readonly value="@Model.cdate" />
+                    </div>
+
+                    <div>
+                        <button type="submit" name="signin" class="btn--dark--model btn--login mt-3">Change Information</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

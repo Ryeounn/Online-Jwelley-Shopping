@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "SizeRing";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container-fluid">
+    <div>
+        <h1 class="text6">Instructions on how to measure ring size most accurately</h1>
+        <img class="ig" lazy_src="~/Content/Image/News/rings.jpg" src="lazy" />
+    </div>
+    <div>
+        <p class="text7">
+            How to know how to measure the right ring size without having to go directly
+            to the store to measure with a specialized sizing tool. That is very troublesome
+            for customers who choose online shopping because of busy work, geographical limitations
+            or want to buy as a gift for someone...
+        </p>
+        <p class="text7">
+            That's why VietGemstones' article on how to measure ring size will
+            help you get rid of the problems that are making you worry, consider,
+            and hesitate when choosing what ring size to wear without having to exchange
+            it again and again, which is costly. Low cost and takes a lot of time.
+        </p>
+    </div>
+    <div class=" container">
+        <h2 class="text8">Here is a fairly simple way to measure ring size to do at home:</h2>
+    </div>
+    <div class="container-fluid">
+        <h1 class="text8">Method 1:</h1>
+    </div>
+    <div class="container">
+        <img class="ig" lazy_src="~/Content/Image/News/ringruler.jpg" src="lazy" />
+    </div>
+    <div class=" container-fluid">
+        <p class="p-select">
+            + Implementation tools: include a ruler and the existing ring you are wearing
+        </p>
+        <p class="p-select">+ Steps:</p>
+        <p>
+            <span class="text9">Step 1 : </span>Choose a ring that fits your desired finger
+        </p>
+        <p>
+            <span class="text9">Step 2 : </span> Use a ruler to measure the inside diameter of the ring
+        </p>
+        <p>
+            <span class="text9">Step 3 : </span>Take the measured results and compare them with the standard ring size chart to know what size your finger is.
+        </p>
+        <p class="p-select">
+            + Advantages and Disadvantages of method 1:
+        </p>
+        <u class="p-select">Advantage:</u>
+        <p class="p-select">+ Few tools, easy to do, doesn't take much time</p>
+        <u class="p-select">Defect:</u>
+        <p class="p-select">+ You must have a ring that fits the desired finger to use this method.</p>
+    </div>
+    <div class="container-fluid">
+        <h1 class="text8"> Method 2:</h1>
+        <p>
+            + Implementation tools: include a long string, a ruler (if there is a tape measure, even better)
+            and a device with calculation function (computer, phone,...)
+        </p>
+        <p>+ Steps:</p>
+        <i class="text9">Step 1 :</i>
+        <p>
+            In case there is no tape measure: Use a string (thread, small paper, etc.) to wrap it around the desired finger, then take two fingers to hold the last point adjacent to the first point of the string, then do this. continue step 2.
+        </p>
+        <p>
+            If you have a tape measure, wrap it around the desired finger, mark the junction, and then continue with step 3
+        </p>
+        <p>
+            <span class="text9">Step 2 :</span> Measure the length of the rope from the start point to the end point (point held, marked) on the ruler, remember the result and then do step 3.
+        </p>
+        <div class="container">
+            <img class="ig" lazy_src="~/Content/Image/News/ringsizeruler.jpg" src="lazy" />
+        </div>
+        <p>
+            <span class="text9"> Step 3 : </span>Use a calculator to calculate the radius of the measured wire and the resulting diameter of the ring on the desired finger, with the following formula:
+        </p>
+        <p>
+            Measured length of wire (cm) / 3.14 = result (cm), converting to (mm) we multiply(*) by 10
+        </p>
+        <p>
+            For example, the measured length is 5.5cm
+        </p>
+        <p>
+            Apply formula: 5.5 / 3.14 = 1.75cm = 17.5mm
+        </p>
+        <p>
+            Comparing in the ring size table, we get the corresponding size is size 14
+        </p>
+        <p>
+            <span class="text9"> Step 4 : </span> Take the results from step 3 and compare them to the standard ring size table, we will know what size your desired finger is.
+        </p>
+        <div class="container">
+            <img class="ig" lazy_src="~/Content/Image/News/ringsize.jpg" src="lazy" />
+        </div>
+    </div>
+</div>
+<script>
+    AOS.init();
+    function load(img) {
+        const url = img.getAttribute('lazy_src')
+        img.setAttribute('src', url);
+        img.removeAttribute('lazy_src');
+    }
+    function ready() {
+        if ('IntersectionObserver' in window) {
+            var lazyimg = document.querySelectorAll('[lazy_src]')
+            let obsesr = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        load(entry.target)
+                    }
+                })
+            });
+            lazyimg.forEach(img => {
+                obsesr.observe(img)
+            })
+        } else {
+
+        }
+    }
+    document.addEventListener('DOMContentLoaded', ready)
+</script>
+
