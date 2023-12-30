@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="JewellyModelStoreContainer" CdmEntityContainer="JewellyEntities">
+  <EntityContainerMapping StorageEntityContainer="JwelleyModelStoreContainer" CdmEntityContainer="JwelleyEntities">
     <EntitySetMapping Name="AdminLoginMsts">
-      <EntityTypeMapping TypeName="JewellyModel.AdminLoginMst">
+      <EntityTypeMapping TypeName="JwelleyModel.AdminLoginMst">
         <MappingFragment StoreEntitySet="AdminLoginMst">
           <ScalarProperty Name="Name_employee" ColumnName="Name_employee" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
@@ -17,7 +17,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BrandMsts">
-      <EntityTypeMapping TypeName="JewellyModel.BrandMst">
+      <EntityTypeMapping TypeName="JwelleyModel.BrandMst">
         <MappingFragment StoreEntitySet="BrandMst">
           <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
           <ScalarProperty Name="Brand_Type" ColumnName="Brand_Type" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CartLists">
-      <EntityTypeMapping TypeName="JewellyModel.CartList">
+      <EntityTypeMapping TypeName="JwelleyModel.CartList">
         <MappingFragment StoreEntitySet="CartList">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CatMsts">
-      <EntityTypeMapping TypeName="JewellyModel.CatMst">
+      <EntityTypeMapping TypeName="JwelleyModel.CatMst">
         <MappingFragment StoreEntitySet="CatMst">
           <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
           <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
@@ -53,7 +53,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CertifyMsts">
-      <EntityTypeMapping TypeName="JewellyModel.CertifyMst">
+      <EntityTypeMapping TypeName="JwelleyModel.CertifyMst">
         <MappingFragment StoreEntitySet="CertifyMst">
           <ScalarProperty Name="Certify_ID" ColumnName="Certify_ID" />
           <ScalarProperty Name="Certify_Type" ColumnName="Certify_Type" />
@@ -61,7 +61,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Collections">
-      <EntityTypeMapping TypeName="JewellyModel.Collection">
+      <EntityTypeMapping TypeName="JwelleyModel.Collection">
         <MappingFragment StoreEntitySet="Collections">
           <ScalarProperty Name="collection_ID" ColumnName="collection_ID" />
           <ScalarProperty Name="CGmail" ColumnName="CGmail" />
@@ -69,7 +69,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DimInfoMsts">
-      <EntityTypeMapping TypeName="JewellyModel.DimInfoMst">
+      <EntityTypeMapping TypeName="JwelleyModel.DimInfoMst">
         <MappingFragment StoreEntitySet="DimInfoMst">
           <ScalarProperty Name="DimID" ColumnName="DimID" />
           <ScalarProperty Name="DimType" ColumnName="DimType" />
@@ -77,11 +77,12 @@
           <ScalarProperty Name="DimCrt" ColumnName="DimCrt" />
           <ScalarProperty Name="DimPrice" ColumnName="DimPrice" />
           <ScalarProperty Name="DimImg" ColumnName="DimImg" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DimMsts">
-      <EntityTypeMapping TypeName="JewellyModel.DimMst">
+      <EntityTypeMapping TypeName="JwelleyModel.DimMst">
         <MappingFragment StoreEntitySet="DimMst">
           <ScalarProperty Name="DimMst_ID" ColumnName="DimMst_ID" />
           <ScalarProperty Name="Dim_Crt" ColumnName="Dim_Crt" />
@@ -90,6 +91,7 @@
           <ScalarProperty Name="Dim_Size" ColumnName="Dim_Size" />
           <ScalarProperty Name="Dim_Rate" ColumnName="Dim_Rate" />
           <ScalarProperty Name="Dim_Amt" ColumnName="Dim_Amt" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
           <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
           <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
           <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
@@ -97,7 +99,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DimQltyMsts">
-      <EntityTypeMapping TypeName="JewellyModel.DimQltyMst">
+      <EntityTypeMapping TypeName="JwelleyModel.DimQltyMst">
         <MappingFragment StoreEntitySet="DimQltyMst">
           <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
           <ScalarProperty Name="DimQlty" ColumnName="DimQlty" />
@@ -105,15 +107,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DimQltySubMsts">
-      <EntityTypeMapping TypeName="JewellyModel.DimQltySubMst">
+      <EntityTypeMapping TypeName="JwelleyModel.DimQltySubMst">
         <MappingFragment StoreEntitySet="DimQltySubMst">
           <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
           <ScalarProperty Name="DimQlty" ColumnName="DimQlty" />
+          <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GoldKrtMsts">
-      <EntityTypeMapping TypeName="JewellyModel.GoldKrtMst">
+      <EntityTypeMapping TypeName="JwelleyModel.GoldKrtMst">
         <MappingFragment StoreEntitySet="GoldKrtMst">
           <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
           <ScalarProperty Name="Gold_Crt" ColumnName="Gold_Crt" />
@@ -121,7 +124,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Imgs">
-      <EntityTypeMapping TypeName="JewellyModel.Img">
+      <EntityTypeMapping TypeName="JwelleyModel.Img">
         <MappingFragment StoreEntitySet="Img">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="pic_1" ColumnName="pic_1" />
@@ -135,7 +138,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Inquiries">
-      <EntityTypeMapping TypeName="JewellyModel.Inquiry">
+      <EntityTypeMapping TypeName="JwelleyModel.Inquiry">
         <MappingFragment StoreEntitySet="Inquiry">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -148,7 +151,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ItemMsts">
-      <EntityTypeMapping TypeName="JewellyModel.ItemMst">
+      <EntityTypeMapping TypeName="JwelleyModel.ItemMst">
         <MappingFragment StoreEntitySet="ItemMst">
           <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
           <ScalarProperty Name="Pairs" ColumnName="Pairs" />
@@ -179,7 +182,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JewelTypeMsts">
-      <EntityTypeMapping TypeName="JewellyModel.JewelTypeMst">
+      <EntityTypeMapping TypeName="JwelleyModel.JewelTypeMst">
         <MappingFragment StoreEntitySet="JewelTypeMst">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Jewellery_Type" ColumnName="Jewellery_Type" />
@@ -187,7 +190,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="News">
-      <EntityTypeMapping TypeName="JewellyModel.News">
+      <EntityTypeMapping TypeName="JwelleyModel.News">
         <MappingFragment StoreEntitySet="News">
           <ScalarProperty Name="news_ID" ColumnName="news_ID" />
           <ScalarProperty Name="NGmail" ColumnName="NGmail" />
@@ -195,7 +198,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orderdetails">
-      <EntityTypeMapping TypeName="JewellyModel.Orderdetail">
+      <EntityTypeMapping TypeName="JwelleyModel.Orderdetail">
         <MappingFragment StoreEntitySet="Orderdetails">
           <ScalarProperty Name="Orderdetails_ID" ColumnName="Orderdetails_ID" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -206,7 +209,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Payments">
-      <EntityTypeMapping TypeName="JewellyModel.Payment">
+      <EntityTypeMapping TypeName="JwelleyModel.Payment">
         <MappingFragment StoreEntitySet="Payment">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="type" ColumnName="type" />
@@ -217,7 +220,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProdMsts">
-      <EntityTypeMapping TypeName="JewellyModel.ProdMst">
+      <EntityTypeMapping TypeName="JwelleyModel.ProdMst">
         <MappingFragment StoreEntitySet="ProdMst">
           <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
           <ScalarProperty Name="Prod_Type" ColumnName="Prod_Type" />
@@ -225,7 +228,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StoneMsts">
-      <EntityTypeMapping TypeName="JewellyModel.StoneMst">
+      <EntityTypeMapping TypeName="JwelleyModel.StoneMst">
         <MappingFragment StoreEntitySet="StoneMst">
           <ScalarProperty Name="Stone_ID" ColumnName="Stone_ID" />
           <ScalarProperty Name="Stone_Gm" ColumnName="Stone_Gm" />
@@ -239,7 +242,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StoneQltyMsts">
-      <EntityTypeMapping TypeName="JewellyModel.StoneQltyMst">
+      <EntityTypeMapping TypeName="JwelleyModel.StoneQltyMst">
         <MappingFragment StoreEntitySet="StoneQltyMst">
           <ScalarProperty Name="StoneQlty_ID" ColumnName="StoneQlty_ID" />
           <ScalarProperty Name="StoneQlty" ColumnName="StoneQlty" />
@@ -247,7 +250,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserRegMsts">
-      <EntityTypeMapping TypeName="JewellyModel.UserRegMst">
+      <EntityTypeMapping TypeName="JwelleyModel.UserRegMst">
         <MappingFragment StoreEntitySet="UserRegMst">
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="Username" ColumnName="Username" />

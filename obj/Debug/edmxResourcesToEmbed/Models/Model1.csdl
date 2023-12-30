@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="JewellyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="JwelleyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="AdminLoginMst">
     <Key>
       <PropertyRef Name="userName" />
@@ -79,6 +79,7 @@
     <Property Name="DimCrt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DimPrice" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="DimImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Path_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_diminfor" FromRole="DimInfoMst" ToRole="ItemMst" />
   </EntityType>
   <EntityType Name="DimMst">
@@ -92,6 +93,7 @@
     <Property Name="Dim_Size" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Dim_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Dim_Amt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Path_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Style_Code" Type="Int32" />
     <Property Name="DimQlty_ID" Type="Int32" />
     <Property Name="DimSubType_ID" Type="Int32" />
@@ -113,6 +115,7 @@
     </Key>
     <Property Name="DimSubType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DimQlty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="DimMsts" Relationship="Self.fk_dim_id_sub" FromRole="DimQltySubMst" ToRole="DimMst" />
   </EntityType>
   <EntityType Name="GoldKrtMst">
@@ -156,7 +159,7 @@
     <Property Name="Style_Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Pairs" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
     <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Prod_Quality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prod_Quality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
     <Property Name="Stone_Wt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Net_Gold" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
@@ -223,7 +226,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="numbercard" Type="Int32" />
+    <Property Name="numbercard" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="cgv" Type="Int32" />
     <Property Name="expiration_date" Type="DateTime" Precision="0" />
     <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_pay" FromRole="Payment" ToRole="CartList" />
@@ -233,7 +236,7 @@
       <PropertyRef Name="Prod_ID" />
     </Key>
     <Property Name="Prod_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Prod_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prod_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_prod" FromRole="ProdMst" ToRole="ItemMst" />
   </EntityType>
   <EntityType Name="StoneMst">
@@ -495,7 +498,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="JewellyEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="JwelleyEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AdminLoginMsts" EntityType="Self.AdminLoginMst" />
     <EntitySet Name="BrandMsts" EntityType="Self.BrandMst" />
     <EntitySet Name="CartLists" EntityType="Self.CartList" />

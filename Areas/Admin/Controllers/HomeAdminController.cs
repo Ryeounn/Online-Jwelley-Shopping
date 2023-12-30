@@ -9,7 +9,17 @@ namespace Jewelly.Areas.Admin.Controllers
     public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
-        public ActionResult Index()
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public ActionResult Users()
+        {
+            return View();
+        }
+
+        public ActionResult History()
         {
             return View();
         }
