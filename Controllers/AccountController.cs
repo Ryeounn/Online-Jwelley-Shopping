@@ -63,7 +63,7 @@ namespace Jewelly.Controllers
                     Session["PasswordAd"] = f_password;
                     Session["userName"] = data_ad.FirstOrDefault().userName;
                     //return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
-                    return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
+                    return RedirectToAction("Dashboard", "HomeAdmin", new { area = "Admin" });
                 }
                 else
                 {
@@ -207,8 +207,11 @@ namespace Jewelly.Controllers
                 return View("Login");
 
             }
-
-
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();//remove session
+            return RedirectToAction("Login", "Account");
         }
         public static string GetMD5(string str)
         {

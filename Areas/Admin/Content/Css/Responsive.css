@@ -11,6 +11,10 @@
         grid-template-columns: 7rem auto 23rem;
     }
 
+    .asider .sidebar{
+        height: 90%;
+    }
+
     .asider .logo h2 {
         display: none;
     }
@@ -25,7 +29,16 @@
 
     .asider .sidebar a:last-child {
         position: relative;
-        margin-top: 1.8rem;
+        margin-top: 6rem;
+        left: .3em;
+    }
+
+    .mode{
+        margin-top: .8em;
+    }
+
+    .asider .toggle .logo img{
+        margin-left: 2.5em;
     }
 
     .main .analyse {
@@ -70,12 +83,12 @@
     }
 
     .asider{
-        position: fixed;
+        position: absolute;
         background-color: var(--color-white);
         width: 15rem;
         z-index: 3;
         box-shadow: 1rem 3rem 4rem var(--color-light);
-        height: 100vh;
+        height: 100%;
         left: -100%;
         display: none;
         animation: showMenu 0.4s ease forwards;
@@ -97,6 +110,11 @@
 
     .asider .sidebar h3 {
         display: inline;
+        margin-top: .7em;
+    }
+
+    .asider .sidebar {
+        height: 130%;
     }
 
     .asider .sidebar a {
@@ -105,8 +123,8 @@
     }
 
     .asider .sidebar a:last-child{
-        position: absolute;
-        bottom: 5rem;
+        position: relative;
+        bottom: 0;
     }
 
     .asider .toggle .close {
@@ -153,14 +171,15 @@
         margin: 0;
     }
 
+    .mode{
+        height: 0;
+        margin-top: -2em;
+    }
+
     .right-section .nav .dark-mode{
         width: 4.4rem;
         position: absolute;
         left: 66%;
-    }
-
-    .right-section .profile .info{
-        display: none;
     }
 
     .right-section .nav button{
@@ -175,4 +194,6 @@
     .right-section .nav button span{
         font-size: 2rem;
     }
+
+
 }

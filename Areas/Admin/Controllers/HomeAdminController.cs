@@ -23,5 +23,11 @@ namespace Jewelly.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();//remove session
+            return RedirectToAction("Login", "Account", new {area = ""});
+        }
     }
 }

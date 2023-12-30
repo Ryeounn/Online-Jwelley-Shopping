@@ -33,7 +33,7 @@
             </div>
 
             <div class="sidebar" id="siderbar">
-                <a href="@Url.Action("Dashboard", "HomeAdmin")" class="btns" >
+                <a href="@Url.Action("Dashboard", "HomeAdmin")" class="btns">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -90,10 +90,59 @@
                 </a>
                 <a href="@Url.Action("", "HomeAdmin")" class="btns">
                     <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>New Login</h3>
+                </a>
+                <a href="@Url.Action("Logout", "HomeAdmin")" class="btns">
+                    <span class="material-icons-sharp">
                         logout
                     </span>
                     <h3>Logout</h3>
                 </a>
+
             </div>
         </aside>
         <!-- End of Sidebar Section -->
@@ -122,11 +171,11 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Reza</b></p>
+                        <p>Hey, <b>@Session["Name_employee"]</b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="images/profile-1.jpg">
+                        <img src="@Session["Path_avt"]@Session["Avatar"]">
                     </div>
                 </div>
 
@@ -138,16 +187,3 @@
     <script src="~/Areas/Admin/Content/Script/Index.js"></script>
 </body>
 </html>
-<script>
-    $(document).ready(function () {
-        var url = window.location.pathname,
-            urlRegExp = new RegExp(url.replace(/\/$/, ''));
-        $('#siderbar a.btns').each(function () {
-            if (urlRegExp.test(this.href)) {
-                $(this).addClass('active');
-            } else{
-                $(this).removeClass('active');
-            }
-        });
-    });
-</script>

@@ -157,7 +157,7 @@ body{
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: 15px;
-    height: 88vh;
+    height: 150%;
     position: relative;
     top: 1.5rem;
     transition: var(--transition-03);
@@ -185,8 +185,9 @@ body{
 
 .asider .sidebar a:last-child{
     position: absolute;
-    bottom: 2rem;
+    bottom: 5rem;
     width: 100%;
+    left: .5em;
 }
 
 .asider .sidebar a.active{
