@@ -34,10 +34,12 @@
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="ShipName" ColumnName="ShipName" />
           <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
-          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
           <ScalarProperty Name="ShipCity" ColumnName="ShipCity" />
           <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
           <ScalarProperty Name="ShipCountry" ColumnName="ShipCountry" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="userName" ColumnName="userName" />
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="payment_ID" ColumnName="payment_ID" />
@@ -77,6 +79,7 @@
           <ScalarProperty Name="DimCrt" ColumnName="DimCrt" />
           <ScalarProperty Name="DimPrice" ColumnName="DimPrice" />
           <ScalarProperty Name="DimImg" ColumnName="DimImg" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -90,6 +93,7 @@
           <ScalarProperty Name="Dim_Size" ColumnName="Dim_Size" />
           <ScalarProperty Name="Dim_Rate" ColumnName="Dim_Rate" />
           <ScalarProperty Name="Dim_Amt" ColumnName="Dim_Amt" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
           <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
           <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
           <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
@@ -109,6 +113,7 @@
         <MappingFragment StoreEntitySet="DimQltySubMst">
           <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
           <ScalarProperty Name="DimQlty" ColumnName="DimQlty" />
+          <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

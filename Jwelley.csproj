@@ -100,6 +100,7 @@
     <Content Include="Areas\Admin\Content\Css\Responsive.css" />
     <Content Include="Areas\Admin\Content\Script\Index.js" />
     <Content Include="Areas\Admin\Content\Script\Order.js" />
+    <Content Include="Content\Css\intlTelInput.css" />
     <Content Include="Content\Css\Responsive.css" />
     <Content Include="Content\Css\Style.css" />
     <Content Include="Content\Image\About\aboutbr.jpg" />
@@ -108,7 +109,9 @@
     <Content Include="Content\Image\About\diamond3.jpg" />
     <Content Include="Content\Image\About\diamond4.jpg" />
     <Content Include="Content\Image\About\diamond5.jpg" />
+    <Content Include="Content\Image\Admin\han2803.jpg" />
     <Content Include="Content\Image\Contact\contact_br.jpg" />
+    <Content Include="Content\Image\Countries\flags.png" />
     <Content Include="Content\Image\Home\1.png" />
     <Content Include="Content\Image\Home\2.png" />
     <Content Include="Content\Image\Home\3.png" />
@@ -204,22 +207,411 @@
     <Content Include="Content\Image\Policy\1.png" />
     <Content Include="Content\Image\Policy\2.png" />
     <Content Include="Content\Image\Policy\3.png" />
+    <Content Include="Content\Image\Product\Items\10_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\10_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\10_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\10_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\10_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\11_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\11_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\11_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\11_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\12_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\12_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\12_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\12_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\13_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\13_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\13_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\14_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\14_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\14_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\15_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\16_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\16_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\16_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\16_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\16_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\17_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\18_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\18_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\18_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\18_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\19_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\1_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\1_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\1_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\20_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\20_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\20_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\20_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\21_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\21_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\21_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\21_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\21_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\22_\7.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\23_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\7.jpg" />
+    <Content Include="Content\Image\Product\Items\24_\8.jpg" />
+    <Content Include="Content\Image\Product\Items\25_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\26_\Untitled design.jpg" />
+    <Content Include="Content\Image\Product\Items\27_\Untitled design.jpg" />
+    <Content Include="Content\Image\Product\Items\28_\Untitled design %281%29.jpg" />
+    <Content Include="Content\Image\Product\Items\29_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\29_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\29_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\2_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\2_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\2_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\2_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\2_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\30_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\31_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\31_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\31_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\31_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\32_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\32_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\32_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\32_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\33_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\33_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\33_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\33_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\33_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\34_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\35_\Untitled design.jpg" />
+    <Content Include="Content\Image\Product\Items\36_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\36_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\37_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\38_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\38_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\38_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\38_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\38_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\39_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\3_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\3_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\3_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\3_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\40_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\41_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\41_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\41_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\41_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\41_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\42_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\43_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\43_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\43_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\43_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\44_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\44_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\44_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\44_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\45_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\45_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\45_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\45_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\46_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\46_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\46_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\46_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\47_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\47_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\47_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\47_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\48_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\48_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\48_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\48_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\48_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\49_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\49_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\49_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\49_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\49_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\4_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\4_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\4_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\4_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\4_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\50_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\50_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\50_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\50_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\51_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\51_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\51_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\51_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\52_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\53_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\53_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\53_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\54_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\54_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\54_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\55_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\55_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\55_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\56_\Untitled design %281%29.jpg" />
+    <Content Include="Content\Image\Product\Items\57_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\57_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\57_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\57_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\57_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\58_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\58_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\58_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\58_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\58_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\59_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\59_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\59_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\59_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\59_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\5_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\60_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\60_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\60_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\60_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\61_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\61_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\61_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\61_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\62_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\62_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\62_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\62_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\63_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\63_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\63_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\63_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\63_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\64_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\64_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\64_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\64_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\64_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\65_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\65_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\66_\Untitled design %281%29.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\67_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\68_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\68_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\68_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\69_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\69_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\69_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\6_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\6_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\6_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\70_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\70_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\70_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\70_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\70_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\71_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\71_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\71_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\72_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\73_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\74_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\75_\7.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\76_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\77_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\77_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\77_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\77_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\78_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\79_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\79_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\79_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\7_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\7_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\7_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\80_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\80_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\80_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\81_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\81_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\81_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\81_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\82_\6.jpg" />
+    <Content Include="Content\Image\Product\Items\83_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\83_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\83_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\83_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\84_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\84_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\84_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\84_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\85_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\85_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\85_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\85_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\85_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\86_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\86_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\86_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\86_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\86_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\87_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\87_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\87_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\87_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\88_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\88_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\88_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\88_\4.jpg" />
+    <Content Include="Content\Image\Product\Items\88_\5.jpg" />
+    <Content Include="Content\Image\Product\Items\89_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\89_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\89_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\8_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\8_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\8_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\90_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\90_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\90_\3.jpg" />
+    <Content Include="Content\Image\Product\Items\9_\1.jpg" />
+    <Content Include="Content\Image\Product\Items\9_\2.jpg" />
+    <Content Include="Content\Image\Product\Items\9_\3.jpg" />
     <Content Include="Content\Image\Rules\carat.png" />
     <Content Include="Content\Image\Rules\clarity.png" />
     <Content Include="Content\Image\Rules\color.png" />
     <Content Include="Content\Image\Rules\cut.png" />
     <Content Include="Content\Image\Layout\upicon.png" />
+    <Content Include="Content\Script\data.js" />
+    <Content Include="Content\Script\data.min.js" />
     <Content Include="Content\Script\Function.js" />
+    <Content Include="Content\Script\intlTelInput-jquery.js" />
+    <Content Include="Content\Script\intlTelInput.js" />
+    <Content Include="Content\Script\utils.js" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\Jwelley.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+      <LastGenOutput>Jwelley.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\Jwelley.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+      <LastGenOutput>Jwelley.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -235,85 +627,88 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminLoginMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BrandMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CartList.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CatMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CertifyMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Collection.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Details.cs" />
     <Compile Include="Models\DimInfoMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DimMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DimQltyMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DimQltySubMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GoldKrtMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Img.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Inquiry.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JewelTypeMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\Jwelley.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>Jwelley.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\Jwelley.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
+    <Compile Include="Models\Jwelley.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>Jwelley.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Orderdetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProdMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Productss.cs" />
     <Compile Include="Models\StoneMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StoneQltyMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserRegMst.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -322,15 +717,17 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
+    <Content Include="Content\Script\intlTelInput-jquery.min.js" />
+    <Content Include="Content\Script\intlTelInput.min.js" />
+    <EntityDeploy Include="Models\Jwelley.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Jwelley.edmx.diagram">
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -342,7 +739,6 @@
     <Content Include="Views\Home\Policy.cshtml" />
     <Content Include="Views\Home\Rules.cshtml" />
     <Content Include="Views\Product\Cart.cshtml" />
-    <Content Include="Views\Product\Seen.cshtml" />
     <Content Include="Views\News\OurNews.cshtml" />
     <Content Include="Views\Account\General.cshtml" />
     <Content Include="Views\Account\Information.cshtml" />
@@ -355,6 +751,13 @@
     <Content Include="Views\News\Preverse.cshtml" />
     <Content Include="Views\Home\Introduction.cshtml" />
     <Content Include="Views\Home\Natural.cshtml" />
+    <Content Include="Views\Product\Jewelry.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\BagCartTotal.cshtml" />
+    <Content Include="Views\Product\BagCart.cshtml" />
+    <Content Include="Views\Product\CheckOut.cshtml" />
+    <Content Include="Views\Product\Payment.cshtml" />
+    <Content Include="Views\Product\ShoppingSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

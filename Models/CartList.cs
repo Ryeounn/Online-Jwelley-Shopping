@@ -27,10 +27,12 @@ namespace Jewelly.Models
         public string OrderDate { get; set; }
         public string ShipName { get; set; }
         public string ShipAddress { get; set; }
-        public string OrderCode { get; set; }
         public string ShipCity { get; set; }
         public string ShipCode { get; set; }
         public string ShipCountry { get; set; }
+        public string Phone { get; set; }
+        public string Status { get; set; }
+        public string Note { get; set; }
         public string userName { get; set; }
         public Nullable<int> userID { get; set; }
         public Nullable<int> payment_ID { get; set; }

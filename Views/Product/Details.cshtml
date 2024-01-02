@@ -1,0 +1,211 @@
+﻿﻿@model dynamic
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="container">
+    <a class="slide-home mt-5" href="home.php">Home </a><span>/</span><b class="slide-local">Details</b>
+    <div class="row mt-5">
+        @foreach (var item in Model.Details)
+        {
+            <div class="col-md-7">
+                <div class="product---details">
+
+                    <div class="product---small---img">
+                        <img class="img---Details-product " src="@item.Path/@item.Img" onclick="detailsProduct(this)" />
+                        <img class="img---Details-product magin---to2" src="@item.Path/@item.Img2" onclick="detailsProduct(this)" />
+                        <img class="img---Details-product magin---to2" src="@item.Path/@item.Img3" onclick="detailsProduct(this)" />
+                        <img class="img---Details-product magin---to2" src="@item.Path/@item.Img4" onclick="detailsProduct(this)" />
+                        <img class="img---Details-product magin---to2" src="@item.Path/@item.Img5" onclick="detailsProduct(this)" />
+                    </div>
+                </div>
+                <div class="img-magnifier-container">
+                    <img id="myimage" src="@item.Path/@item.Img" class=" magin---top img---Details-product2" width="600" height="400" alt="Girl">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <p class="magin---top text---details---tilet">@item.Name</p>
+                <p class="text---money">@item.Price$</p>
+                <p class="text---des">
+                    @item.Prod
+                </p>
+                <hr />
+                <button class="accordion text---tilel---product">Specifications</button>
+                <div class="panel">
+                    <p class="text---tilel---panel">Diamond ratio @item.Stone%</p>
+                    <p class="text---tilel---panel">Golden ratio: @item.Gold_Rate%</p>
+                    <p class="text---tilel---panel">Lifting scale: @item.Gold_Wt gam</p>
+                    <p class="text---tilel---panel">Pure gold: @item.Net_Gold gam</p>
+                    <p class="text---tilel---panel">The amount of gold in the item: @item.Gold_Amt gam</p>
+                </div>
+                <hr />
+                <a class="btn--dark--model submit---contact btn---details" href="/Product/AddtoCart/@item.Id">Buy Oder</a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <p class="details---cettere ">Technical specifications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <table class="table table-bordered 0.2 table-hover tb---table">
+                        <thead>
+                            <tr>
+                                <th>General information</th>
+                                <th>Jewelly</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>@item.Name</td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>Description</td>
+                                <td>@item.Prod</td>
+
+                            </tr>
+                            <tr>
+                                <td>Product Weight</td>
+                                <td>@item.Product_Weight</td>
+
+                            </tr>
+                            <tr>
+                                <td>category</td>
+                                <td>@item.Cat</td>
+
+                            </tr>
+                            <tr>
+                                <td>Brand</td>
+                                <td>@item.Brand</td>
+
+                            </tr>
+                            <tr>
+                                <td>Gold Type</td>
+                                <td>@item.GoldType</td>
+
+                            </tr>
+                            <tr>
+                                <td>Certification</td>
+                                <td>@item.Certify</td>
+
+                            </tr>
+                            <tr>
+                                <td>Stone</td>
+                                <td>@item.Stone</td>
+
+                            </tr>
+                            <tr>
+                                <td>Stone cara</td>
+                                <td>@item.Stone</td>
+
+                            </tr>
+                            <tr>
+                                <td>Diasmond</td>
+                                <td>@item.DimTPye</td>
+
+                            </tr>
+                            <tr>
+                                <td>Diamond car</td>
+                                <td>@item.DimCrt</td>
+
+                            </tr>
+                            <tr>
+                                <td>Gold Weight</td>
+                                <td>@item.Net_Gold</td>
+
+                            </tr>
+                            <tr>
+                                <td>Amount Of Gold In Item</td>
+                                <td>@item.Product_Weight</td>
+
+                            </tr>
+                            <tr>
+                                <td>Gold Rate</td>
+                                <td>@item.Gold_Rate</td>
+
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>@item.Price</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4 col---mobile">
+                    <a class="link---news " href="@Url.Action("SizeRing","News")">
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <img src="~/Content/Image/News/bquants.jpg" width="100%" />
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text---details---news">Instructions on how to measure ring size most accurately</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="link---news" href="@Url.Action("Pearl","News")">
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <img src="~/Content/Image/News/bquants2.jpg" width="100%" />
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text---details---news">LEARN ABOUT THE COLORS OF DIAMONDS</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="link---news" href="@Url.Action("Lab","News")">
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <img class="img---" src="~/Content/Image/News/ringruler.jpg" width="100%" />
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text---details---news">How to preserve gemstone jewelry to keep it bright and beautiful</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="link---news " href="@Url.Action("ColorDia","News")">
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <img src="~/Content/Image/News/bquantsbg.jpg" width="100%" />
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text---details---news">Lab grown diamonds</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<script>
+    function detailsProduct(smallImg) {
+        var fullImg = document.getElementById("myimage");
+        fullImg.src = smallImg.src;
+    }
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>

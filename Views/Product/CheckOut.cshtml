@@ -1,0 +1,111 @@
+﻿@model Jewelly.Models.Cart
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@if (Session["username"] != null)
+{
+    if (Model != null)
+    {
+        <form action="/Product/CheckedOut" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="img--checkout" lazy_src="~/Content/Image/Layout/logo-header.png" src="logo" />
+                        <div class="box--checkout">
+                            <p class="infor--checkout">Delivery information</p>
+                            <p class="login--checkout"><i class="fas fa-user-circle"></i><a href="@Url.Action("Users","Account")">Login</a></p>
+                            <input type="text" class="form-control mt-3 emailID" placeholder="Email" oninput="checkEmail();" name="email" />
+                            <input type="text" class="form-control mt-3 name" placeholder="Name" oninput="checkName();" name="name" />
+                            <input type="text" class="form-control mt-3 mobNo" placeholder="Phone" oninput="checkPhone();" name="phone" />
+                            <input type="text" class="form-control mt-3 address" placeholder="Address" oninput="checkAdd();" name="address" />
+                            <input type="text" class="form-control mt-3 city" placeholder="City" oninput="checkCity();" name="city" />
+                            <input type="text" class="form-control mt-3 country" placeholder="Country" oninput="checkCountry();" name="country" />
+                            <textarea class="form-control mt-3 note" placeholder="Note (option)" oninput="checkNote();" name="note"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box--checkout box--mobile">
+                            <img class="img--checkout hidden" lazy_src="~/Content/Image/Layout/logo-header.png" src="logo" />
+                            <p class="infor--checkout content--tablet mb-4">Payment</p>
+                            <select id="payment" name="payment" class="form-control mt-2" onchange="getSelect()">
+                                <option>---</option>
+                                <option value="Visa">Visa</option>
+                                <option value="Cod">Cod</option>
+                            </select>
+                            <div id="checkout--ajax">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 border--l">
+                        <p class="total--checkout mt-2">Order (@Html.Action("BagCartTotal", "Product") product)</p>
+                        <hr />
+                        @foreach (var item in Model.Items)
+                        {
+                            <div class="row mt-4 mb-4">
+                                @{
+                                    string imgURL = item.ItemMst.Img.path_img + "/" + item.ItemMst.Img.pic_1;
+                                }
+                                <span class="posision">
+                                    <img class="img--rw" src="@Url.Content(imgURL)" />
+                                    <span class="badge badge--checkout">@item.quantity</span>
+                                </span>
+                                <p class="name--checkout">@item.ItemMst.ProdMst.Prod_Type - @item.ItemMst.Style_Code</p>
+                                <input />
+                                <p class="price--checkout">@item.ItemMst.MRP$</p>
+                            </div>
+                            <hr />
+                            <input type="text" hidden value="@item.ItemMst.ProdMst.Prod_Type" name="product" />
+                        }
+                        <input type="text" hidden value="@Model.Total_money()" name="mrp" />
+                        <p class="provisional--checkout">Provisional:</p>
+                        <p class="provisional--checkout float--right" name="mrp">@Model.Total_money()$</p>
+                        <p>Transport fee:<span class="float--right">-</span></p>
+                        <hr />
+                        <p class="total--bill">Total<span class="float--right">@Model.Total_money()$</span></p>
+                        <a href="@Url.Action("Jewelry", "Product")" class="backto--checkout"><i class="fas fa-angle-left icon--checkout"></i> Back</a>
+                        <button type="submit" class="btn--checkout">Check Out</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+
+
+}
+else
+{
+    if (ViewBag.SuccessMg != null)
+    {
+        <div id="msgAlert" style="margin-left: 3em;" class="alert alert-success">
+            @ViewBag.SuccessMg
+        </div>
+    }
+    else if (ViewBag.ErrorMg != null)
+    {
+        <div id="msgsAlert" style="margin-left: 3em;" class="alert alert-danger">
+            @ViewBag.ErrorMg
+        </div>
+    }
+}
+<script>
+    function getSelect() {
+        var pay = document.getElementById('payment');
+        var check = document.getElementById('checkout--ajax');
+        // Lấy giá trị của option được chọn
+        var selectedValue = pay.options[pay.selectedIndex].value;
+
+        // In giá trị ra console (có thể thay thế bằng các xử lý khác)
+        console.log("Selected Value:", selectedValue);
+
+        if (selectedValue == 'Visa') {
+            check.style.display = 'block';
+            $('#checkout--ajax').load('/Product/Payment');
+        } else {
+            check.style.display = 'none';
+        }
+    }
+</script>
+<script src="~/Content/Script/Function.js"></script>

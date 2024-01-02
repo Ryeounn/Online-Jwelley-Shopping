@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingSuccess";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="slide-home" href="@Url.Action("Index","Home")">Home </a><span>/</span><b class="slide-local"> Shopping Cart</b>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <p class="title--cart">Shopping Cart </p><span>(0 product)</span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="alert alert-success" id="msgAlert">
+                <strong>Success!</strong> You have placed your order successfully.
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img style="margin-left: 25%" src="~/Content/Image/Details/empty.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>*@
+</div>
+<script>
+    setTimeout(function () {
+        $('#msgAlert').fadeOut('slow');
+        $('#msgsAlert').fadeOut('slow');
+    };
+</script>

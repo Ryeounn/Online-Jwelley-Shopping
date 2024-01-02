@@ -85,6 +85,51 @@ function checkRegister() {
     }
 }
 
+function checkOut() {
+    var email = document.querySelector('email');
+    var name = document.querySelector('name');
+    var phone = document.querySelector('phone');
+    var address = document.querySelector('address');
+    var city = document.querySelector('city');
+    var country = document.querySelector('country');
+    var note = document.querySelector('note');
+
+    if (email.value == "" || email.value == null) {
+        email.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        email.style.border = '1px solid green';
+        if (name.value == "" || name.value == null) {
+            name.style.border = '1px solid #B80000';
+            return false;
+        } else if (phone.value == "" || phone.value == null) {
+            name.style.border = '1px solid green';
+            phone.style.border = '1px solid #B80000';
+            return false;
+        } else if (address.value == "" || address.value == null) {
+            phone.style.border = '1px solid green';
+            address.style.border = '1px solid #B80000';
+            return false;
+        } else if (city.value == "" || city.value == null) {
+            address.style.border = '1px solid green';
+            city.style.border = '1px solid #B80000';
+            return false;
+        } else if (country.value == "" || country.value == null) {
+            city.style.border = '1px solid green';
+            country.style.border = '1px solid #B80000';
+            return false;
+        } else if (note.value == "" || note.value == null) {
+            country.style.border = '1px solid green';
+            note.style.border = '1px solid #B80000';
+            return false;
+        } else {
+            note.style.border = '1px solid green';
+            return true;
+        }
+        return true;
+    }
+}
+
 function checkUser() {
     var user = document.querySelector('.username');
     if (user.value == "" || user.value == null) {
@@ -204,3 +249,84 @@ function checkCity() {
     }
 }
 
+function checkName() {
+    var name = document.querySelector('.name');
+
+    if (name.value == "" || name.value == null) {
+        name.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        name.style.border = '1px solid green';
+        return true;
+    }
+}
+
+function checkCountry() {
+    var country = document.querySelector('.country');
+
+    if (country.value == "" || country.value == null) {
+        country.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        country.style.border = '1px solid green';
+        return true;
+    }
+}
+
+function checkNote() {
+    var note = document.querySelector('.note');
+
+    if (note.value == "" || note.value == null) {
+        note.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        note.style.border = '1px solid green';
+        return true;
+    }
+}
+
+function checkNumber() {
+    var numbercard = document.querySelector('.numbercard');
+
+    if (numbercard.value == "" || numbercard == null) {
+        numbercard.style.border = '1px solid #B80000';
+        return false;
+    } else if (numbercard.value.length != 16) {
+        numbercard.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        umbercard.style.border = '1px solid green';
+        return true;
+    }
+}
+
+function checkCgv() {
+    var cgv = document.querySelector('.cgv');
+
+    if (cgv.value == "" || cgb.value == null) {
+        cgv.style.border = '1px solid #B80000';
+        return false;
+    } else if (cgv.value.length > 3 && cgv.value.length < 3) {
+        cgv.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        cgv.style.border = '1px solid green';
+        return true;
+    }
+}
+
+function checkDateEnd() {
+    var dateend = document.querySelector('.dateend');
+    var pattern = /^\d{2}[.-/]\d{2}[.-/]\d{4}$/;
+
+    if (dateend.value == "" || dateend.value == null) {
+        dateend.style.border = '1px solid #B80000';
+        return false;
+    } else if (!dateend.matches(pattern)) {
+        dateend.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        dateend.style.border = '1px solid green';
+        return true;
+    }
+}

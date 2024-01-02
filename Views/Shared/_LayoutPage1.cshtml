@@ -21,15 +21,14 @@
             <ul id="nav">
                 <li><a class="margin-menu sub-menu" href="@Url.Action("Index","Home")">Home</a></li>
                 <li>
-                    <a class="sub-menu" href="product.php">Our Story<i class="fas fa-angle-down"></i></a>
+                    <a class="sub-menu" href="@Url.Action("About","Home")">Our Story<i class="fas fa-angle-down"></i></a>
                     <ul class="subnav">
-                        <li><a href="@Url.Action("About","Home")">About Us</a></li>
                         <li><a href="@Url.Action("Introduction","Home")">Designer</a></li>
                         <li><a href="@Url.Action("Natural","Home")">Landscape at the store</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a class="sub-menu" href="booking.php">Shop<i class="fas fa-angle-down"></i></a>
+                    <a class="sub-menu" href="@Url.Action("Jewelry","Product")">Shop<i class="fas fa-angle-down"></i></a>
                     <ul class="subnav">
                         <li><a href="#proplant.html">ProPlant</a></li>
                         <li><a href="#goodtrees.html">GoodTrees</a></li>
@@ -45,7 +44,7 @@
                     }
                     else
                     {
-                        <a class="right-menu" href="@Url.Action("Login", "Account")"><i class="fas fa-user"></i></a>
+                        <a class="right-menu" href=""><i class="fas fa-user"></i></a>
                         <ul class="subnav mgl--layout">
                             <li><a href="@Url.Action("Information", "Account")">Hello, @Session["userFname"] @Session["userLname"]</a></li>
                             <li><a href="@Url.Action("Logout", "Account")">Logout</a></li>
@@ -53,7 +52,7 @@
                     }
                     </li>
                     <li>
-                        <a class="tablet--cart" href="@Url.Action("Cart", "Product")"><i class="fas fa-box"></i><span class="badge">0</span></a>
+                        <a class="tablet--cart" href="@Url.Action("Cart", "Product")"><i class="fas fa-box"></i>@Html.Action("BagCart", "Product")</a>
                     </li>
                 </ul>
             </div>
@@ -92,7 +91,7 @@
                     <div class="col-md-4">
                         <p class="title--right--footer mt-5">Sign up to receive new news</p>
                         <p class="subtitle--right--footer mt-5">Receive the latest product information, promotions and more.</p>
-                        <form action="/Home/Contact" method="post">
+                        <form action="/Home/Newss" method="post">
                             <input type="text" class="form-control txtEmail" name="email" placeholder="Your Email" value="@Session["Email"]" />
                             <button type="submit" class="btn btn--dark--model mt-4 local--btn--send">Register</button>
                         </form>
@@ -113,6 +112,7 @@
         </div>
 </body>
 </html>
+<script src="~/Content/Script/Function.js"></script>
 <script>
     var header = document.getElementById('header');
     var mobileMenu = document.getElementById('mobile-menu');
@@ -162,4 +162,29 @@
             behavior: 'smooth'
         })
     }
+</script>
+<script>
+    AOS.init();
+    function load(img) {
+        const url = img.getAttribute('lazy_src')
+        img.setAttribute('src', url)
+    }
+    function ready() {
+        if ('IntersectionObserver' in window) {
+            var lazyimg = document.querySelectorAll('[lazy_src]')
+            let obsesr = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        load(entry.target)
+                    }
+                })
+            });
+            lazyimg.forEach(img => {
+                obsesr.observe(img)
+            })
+        } else {
+
+        }
+    }
+    document.addEventListener('DOMContentLoaded', ready)
 </script>

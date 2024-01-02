@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Jewelry";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container-fluid de_" id="display_filter">
+    <form class="d-flex flex-row align-items-center flex-wrap" action="/product/jewelry">
+        <div class="find_cat">
+
+            <div class="header_filter">
+                <p>FILTER</p>
+                <a>
+                    <i class="fa-solid fa-xmark filter_cancel" id="cancel_"></i>
+                </a>
+            </div>
+            <div class="filter_price">
+                <p>Price</p>
+                <div class="filter_price_moz">
+                    <div class="progress_"></div>
+                </div>
+
+                <div class="range_input">
+                    <input type="range" class="range_min" min="0" max="10000" value="0" name="MinPrice" id="minPrice" />
+                    <input type="range" class="range_max" min="0" max="10000" value="0" name="MaxPrice" id="maxPrice" />
+                </div>
+                <div>
+                    <div class="dis_price">
+                        <span id="spanValueMin">0,00$</span>
+                        <span>to</span>
+
+                        <span id="spanValueMax">0,00$</span>
+                    </div>
+                </div>
+                <hr />
+                @* Brand *@
+                <div>
+                    <p class="style_title">Brand</p>
+                    <div class="panel_">
+                        @foreach (var item in Model.Brand)
+                        {
+                            <div class="one_row">
+                                <div>
+                                    <input type="radio" class="radio_input_pro" value="@item.Brand_ID" name="Brandtype" id="Brandtype" />    @item.Brand_Type
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+                <hr />
+                @* Jeweley *@
+                <div>
+                    <p class="style_title">Jewelry</p>
+                    <div class="panel_">
+                        @foreach (var item in Model.Jewe)
+                        {
+                            <div class="one_row">
+                                <div>
+                                    <input type="radio" class="radio_input_pro" value="@item.ID" name="jewelry" id="jewelry" />    @item.Jewellery_Type
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <hr />
+                @* Gold_type *@
+                <div>
+                    <p class="style_title">Gold Type</p>
+                    <div class="panel_">
+                        @foreach (var item in Model.GoldType)
+                        {
+                            <div class="one_row">
+                                <div>
+                                    <input type="radio" class="radio_input_pro" value="@item.GoldType_ID" name="Gold" id="Gold" />    @item.Gold_Crt
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <hr />
+                @* Category *@
+                <div>
+                    <p class="style_title">Category</p>
+                    <div class="panel_">
+                        @foreach (var item in Model.Cate)
+                        {
+                            <div class="one_row">
+                                <div>
+                                    <input type="radio" class="radio_input_pro" value="@item.Cat_ID" name="Categorytype" id="Categorytype" />    @item.Cat_Name
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <hr />
+                @*  Stone*@
+                <div>
+                    <p class="style_title">Stone</p>
+                    <div class="panel_">
+                        @foreach (var item in Model.Stone)
+                        {
+                            <div class="one_row">
+                                <div>
+                                    <input type="radio" class="radio_input_pro" value="@item.StoneQlty_ID" name="stone" id="stone" />    @item.StoneQlty
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn--dark--model btn--login btn_filter mb-3">Find</button>
+        </div>
+    </form>
+
+</div>
+<div class="container-fluid contain_of_pro" id="contain_of_pro">
+    <div class="contain_bg_pro">
+        <img src="~/Content/Image/Home/banner1.png" class="img_bg_pro" />
+    </div>
+    <div class="intro_pro">
+
+        <p class="para_product">
+
+            Here at Jewels of the Kimberley all our pink diamonds originate from the Argyle Diamond Mine, once located in northern Western Australia. The mine, now closed was the world’s largest source of pink diamonds, boasting 95% of the world’s supply.
+
+            We have hand selected our pink diamonds with our qualified gemmologist to ensure they are true to their type and certification. This amazing gemstone has surpassed all other diamonds in demand, price and beauty. Proven to be an investor’s dream or an amazing bespoke piece of fine jewellery to be adorned for generations.
+
+            The Australian pink diamond is the rarest and most valuable gemstone in the world. For every million carats of rough diamonds mined only one carat of pink diamonds will be suitable for sale. The exclusivity and beauty of the Argyle pink diamond makes it perfect for a stunning statement piece, or the ideal investment.
+        </p>
+    </div>
+    <div class="filter_product">
+        <div class="filter_tap">
+            <a class="selec_fil" id="filter_pro">
+                <i class="fa-solid fa-filter"></i>   Filter
+
+            </a>
+
+        </div>
+        <form action="/product/jewelry">
+
+            <div class="cate_tap">
+                Show 1-100 products for you <select class="form_select" name="prices">
+                    <option value="defaulf">
+                        defaulf
+                    </option>
+                    <option value="prices">
+                        Low to high
+                    </option>
+                    <option value="pricem">
+                        hight to low
+                    </option>
+                </select>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+    @* show product *@
+    <div class="show_product" id="show_product">
+        <div class="container-fluid edit_space" data-aos="fade-up" data-aos-duration="5000">
+
+            <div class="row">
+                @foreach (var item in Model.Producter)
+                {
+                    <div class="col-sm-3 effect_item">
+                        <a href="@Url.Action("Details/"+ item.ID, "Product")">
+                            <img lazy_src="@item.Path/@item.Img" src="imgaeforlazy" class="img_item" />
+                            <img lazy_src="@item.Path/@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                            <p class="title_item_">@item.Name</p>
+                            <p class="title_item__">AOV</p>
+                            <p class="title_item__one">@item.Price$</p>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="page_pro">
+        <div class="pagination_pro" id="pagination">
+
+        </div>
+    </div>
+</div>
+<script>AOS.init();
+    function load(img) {
+        const url = img.getAttribute('lazy_src')
+        img.setAttribute('src', url)
+    }
+    function ready() {
+        if ('IntersectionObserver' in window) {
+            var lazyimg = document.querySelectorAll('[lazy_src]')
+            let obsesr = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        load(entry.target)
+                    }
+                })
+            });
+            lazyimg.forEach(img => {
+                obsesr.observe(img)
+            })
+        } else {
+
+        }
+    }
+    document.addEventListener('DOMContentLoaded', ready);
+    //rangeinput
+
+    const rangeInput = document.querySelectorAll(".range_input input"),
+        process = document.querySelector(".filter_price_moz .progress_");
+    textMin = document.getElementById('spanValueMin');
+    textMax = document.getElementById('spanValueMax');
+
+
+
+    rangeInput.forEach(input => {
+        input.addEventListener("input", () => {
+            let minval = parseInt(rangeInput[0].value),
+                maxval = parseInt(rangeInput[1].value)
+            process.style.left = (minval / rangeInput[0].max) * 100 + "%";
+            process.style.right = 100 - (maxval / rangeInput[1].max) * 100 + "%";
+            textMin.textContent = minval.toFixed(2) + "$";
+            textMax.textContent = maxval.toFixed(2) + "$";
+
+            console.log(minval, maxval);
+        })
+    });
+
+
+
+    //display_filter
+    var display = document.getElementById('display_filter');
+    var contain_pro = document.getElementById('contain_of_pro')
+    var filter = document.getElementById('filter_pro');
+    var cancel = document.getElementById('cancel_');
+    filter.onclick = function () {
+        display.style.display = "block";
+        display.style.opacity = 1;
+        display.style.transition = "5s";
+
+    };
+    cancel.onclick = function () {
+        display.style.display = "none";
+    };
+    //paging
+    document.addEventListener('DOMContentLoaded', function () {
+        var itemsPerPage = 12;
+        var productList = document.getElementById('show_product');
+        var products = productList.getElementsByClassName('effect_item');
+        var totalPages = Math.ceil(products.length / itemsPerPage);
+        showPage(1);
+        var pagination = document.getElementById('pagination');
+        for (var i = 1; i <= totalPages; i++) {
+            var cur = i;
+            var pageLink = document.createElement('span');
+            pageLink.textContent = i;
+            pageLink.classList.add('page-link');
+            pageLink.style.border = "none";
+            pageLink.style.color = "#000";
+            pageLink.addEventListener('click', function () {
+
+                var allPageLinks = pagination.getElementsByClassName('page-link');
+                for (var j = 0; j < allPageLinks.length; j++) {
+                    allPageLinks[j].classList.remove('active');
+                    allPageLinks[j].style.backgroundColor = "#fff";
+                    allPageLinks[j].style.color = "#000";
+                    allPageLinks[j].style.cursor = "pointer";
+                }
+
+                this.classList.add('active');
+                this.style.backgroundColor = "#000";
+                this.style.color = "#fff";
+                this.style.cursor = "pointer";
+
+
+
+                    showPage(parseInt(this.textContent));
+                });
+            pagination.appendChild(pageLink);
+        }
+        function showPage(pageNumber) {
+            if (totalPages == i)
+            {
+                pageLink.style.color = "#fff";
+                pageLink.style.backgroundColor = "#000";
+
+            }
+            for (var i = 0; i < products.length; i++) {
+                products[i].style.display = 'none';
+
+            }
+            var startIndex = (pageNumber - 1) * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+
+            for (var i = startIndex; i < endIndex && i < products.length; i++) {
+                products[i].style.display = 'block';
+
+            }
+
+        }
+    });
+    //button filter
+    var acc = document.getElementsByClassName("style_title");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+}
+
+    var test = document.getElementsByClassName("prices").
+        test.addEventListener('change', function () {
+        var selectedValue = this.value;
+        // Sử dụng giá trị ở đây để thực hiện các hành động mong muốn
+        console.log(selectedValue);
+    })</script>
+

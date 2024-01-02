@@ -32,10 +32,12 @@
     <Property Name="OrderDate" Type="varchar" MaxLength="255" />
     <Property Name="ShipName" Type="varchar" MaxLength="255" />
     <Property Name="ShipAddress" Type="varchar" MaxLength="255" />
-    <Property Name="OrderCode" Type="varchar" MaxLength="255" />
     <Property Name="ShipCity" Type="varchar" MaxLength="255" />
     <Property Name="ShipCode" Type="varchar" MaxLength="255" />
     <Property Name="ShipCountry" Type="varchar" MaxLength="255" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="varchar" MaxLength="255" />
+    <Property Name="Note" Type="varchar" MaxLength="1000" />
     <Property Name="userName" Type="varchar" MaxLength="250" />
     <Property Name="userID" Type="int" />
     <Property Name="payment_ID" Type="int" />
@@ -71,6 +73,7 @@
     <Property Name="DimCrt" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DimPrice" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="DimImg" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Path_img" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="DimMst">
     <Key>
@@ -83,6 +86,7 @@
     <Property Name="Dim_Size" Type="numeric" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Dim_Rate" Type="numeric" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Dim_Amt" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Path_img" Type="varchar(max)" />
     <Property Name="Style_Code" Type="int" />
     <Property Name="DimQlty_ID" Type="int" />
     <Property Name="DimSubType_ID" Type="int" />
@@ -100,6 +104,7 @@
     </Key>
     <Property Name="DimSubType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DimQlty" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="GoldKrtMst">
     <Key>
@@ -140,7 +145,7 @@
     <Property Name="Style_Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Pairs" Type="numeric" Precision="3" Scale="0" Nullable="false" />
     <Property Name="Quantity" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Prod_Quality" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Prod_Quality" Type="varchar(max)" Nullable="false" />
     <Property Name="Gold_Wt" Type="numeric" Precision="10" Scale="3" Nullable="false" />
     <Property Name="Stone_Wt" Type="numeric" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Net_Gold" Type="numeric" Precision="10" Scale="3" Nullable="false" />
@@ -193,7 +198,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="type" Type="varchar" MaxLength="255" />
-    <Property Name="numbercard" Type="int" />
+    <Property Name="numbercard" Type="varchar(max)" />
     <Property Name="cgv" Type="int" />
     <Property Name="expiration_date" Type="date" />
   </EntityType>
@@ -202,7 +207,7 @@
       <PropertyRef Name="Prod_ID" />
     </Key>
     <Property Name="Prod_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Prod_Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Prod_Type" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="StoneMst">
     <Key>

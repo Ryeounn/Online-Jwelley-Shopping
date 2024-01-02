@@ -50,6 +50,8 @@ D:\A22063\Jewelly\bin\roslyn\vbc.exe.config
 D:\A22063\Jewelly\bin\roslyn\vbc.rsp
 D:\A22063\Jewelly\bin\roslyn\VBCSCompiler.exe
 D:\A22063\Jewelly\bin\roslyn\VBCSCompiler.exe.config
+D:\A22063\Jewelly\bin\EntityFramework.dll
+D:\A22063\Jewelly\bin\EntityFramework.SqlServer.dll
 D:\A22063\Jewelly\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\A22063\Jewelly\bin\Microsoft.Web.Infrastructure.dll
 D:\A22063\Jewelly\bin\System.Web.Helpers.dll
@@ -58,6 +60,8 @@ D:\A22063\Jewelly\bin\System.Web.Razor.dll
 D:\A22063\Jewelly\bin\System.Web.Webpages.Deployment.dll
 D:\A22063\Jewelly\bin\System.Web.Webpages.dll
 D:\A22063\Jewelly\bin\System.Web.Webpages.Razor.dll
+D:\A22063\Jewelly\bin\EntityFramework.xml
+D:\A22063\Jewelly\bin\EntityFramework.SqlServer.xml
 D:\A22063\Jewelly\bin\System.Web.Razor.xml
 D:\A22063\Jewelly\bin\System.Web.Webpages.xml
 D:\A22063\Jewelly\bin\System.Web.Webpages.Deployment.xml
@@ -70,7 +74,3 @@ D:\A22063\Jewelly\obj\Debug\Jwelley.csproj.CoreCompileInputs.cache
 D:\A22063\Jewelly\obj\Debug\Jwelley.csproj.CopyComplete
 D:\A22063\Jewelly\obj\Debug\Jewelly.dll
 D:\A22063\Jewelly\obj\Debug\Jewelly.pdb
-D:\A22063\Jewelly\bin\EntityFramework.dll
-D:\A22063\Jewelly\bin\EntityFramework.SqlServer.dll
-D:\A22063\Jewelly\bin\EntityFramework.xml
-D:\A22063\Jewelly\bin\EntityFramework.SqlServer.xml

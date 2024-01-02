@@ -455,7 +455,7 @@ body{
 }
 
 .right-section .user-profile img{
-    width: 11rem;
+    width: 100px;
     height: auto;
     margin-bottom: .8rem;
     border-radius: 50%;
