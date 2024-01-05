@@ -13,7 +13,19 @@
         margin-top: 4em;
     }
 
+    /* Home */
+    .effect_item {
+        height: 30em !important;
+    }
 
+    .edit_space_btn{
+        margin-top: 1em;
+        margin-bottom: 5em;
+    }
+
+    .text_home_fa{
+        margin-top: 5em;
+    }
     /* Cart */
     .title--cart {
         margin-left: .5em;
@@ -73,12 +85,12 @@
 
     .right-menu {
         position: relative;
-        left: 1em;
+        left: 2em;
     }
 
     .tablet--cart{
         position: relative;
-        left: 2em;
+        left: 3em;
     }
 
     #header .mobile--menu {
@@ -90,7 +102,7 @@
     }
 
     .bottom--footer {
-        height: 570px;
+        height: 500px;
         margin-top: 2em;
     }
 
@@ -167,6 +179,29 @@
         height: 400px;
     }
 
+    .gallery{
+        height: 350px;
+    }
+
+    .edit_space_btn{
+        margin-top: 8em;
+    }
+
+    .letter {
+        margin-top: -2em;
+    }
+
+    .btn_view_more{
+        margin-top: -10em;
+    }
+
+    .effect_item{
+        height: 30em !important;
+    }
+
+    .item_col_3{
+        width: 100%;
+    }
     /* About */
     .img---about---diamond2,
     .img---about---diamond3,
@@ -191,7 +226,7 @@
     }
 
     .title--cart {
-        margin: 0 .2em 0 .5em;
+        margin: 0 .2em 0 0;
     }
 
     .product--cart {
@@ -298,6 +333,18 @@
     .price--checkout{
         margin: 0 0 0 1em;
     }
+
+    /* General */
+    .img_avt,
+    .select_avt {
+        height: 14em;
+        width: 14em;
+    }
+
+    .txtfile,
+    .note_avt{
+        margin-left: .5em;
+    }
 }
 /* Mobile */
 @media(max-width: 46.25em){
@@ -310,6 +357,8 @@
         width: 50px;
         height: 50px;
         margin-left: 11em;
+        z-index 100;
+        position: relative;
     }
 
     #header{
@@ -374,6 +423,15 @@
         top: .5em;
     }
 
+    .mgl--layout {
+        opacity: 0;
+    }
+
+    .mgl--layout{
+        left: 5em;
+        top: 3em !important;
+    }
+
     .tablet--cart{
         margin: -1.95em 0 0 -50%;
     }
@@ -429,7 +487,17 @@
         height: 300px;
     }
 
-    .btn_details_casourel{
+    .carousel--mobile {
+        width: 110%;
+    }
+
+    .edit_surf,
+    .edit_surf1,
+    .edit_surf2{
+        display: none;
+    }
+
+    .btn_details_casourel {
         bottom: 1em;
         height: 3em;
         width: 10em;
@@ -589,9 +657,16 @@
     .marl-home{
         margin-left: .01em;
     }
+
+    .btn_shop {
+        position: relative;
+        top: 1em;
+    }
     /* Contact */
     .img---contact-br {
         height: 300px;
+        position: relative;
+        z-index: 1;
     }
 
     .text---contact---name{
@@ -906,5 +981,31 @@
 
     .price--checkout{
         margin: 0 0 0 2em;
+    }
+
+    /* General */
+    .parallax-infor{
+        width: 103.6%;
+    }
+
+    .title_general{
+        margin-left: 1em;
+    }
+
+    .select_avt{
+        margin-left: 28%;
+    }
+
+    .t--mobile--infor{
+        margin-top: 6em !important;
+        margin-left: 1em;
+    }
+
+    .l--mobile--infor{
+        margin-left: 1em;
+    }
+
+    .btn--save--infor{
+        margin-left: 1em;
     }
 }

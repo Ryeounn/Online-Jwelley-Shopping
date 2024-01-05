@@ -18,6 +18,7 @@ namespace Jewelly.Models
         public ItemMst()
         {
             this.DimMsts = new HashSet<DimMst>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
             this.Orderdetails = new HashSet<Orderdetail>();
             this.StoneMsts = new HashSet<StoneMst>();
         }
@@ -56,6 +57,8 @@ namespace Jewelly.Models
         public virtual ICollection<DimMst> DimMsts { get; set; }
         public virtual GoldKrtMst GoldKrtMst { get; set; }
         public virtual Img Img { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orderdetail> Orderdetails { get; set; }
         public virtual JewelTypeMst JewelTypeMst { get; set; }

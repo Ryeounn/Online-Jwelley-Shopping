@@ -18,6 +18,7 @@ namespace Jewelly.Models
         public UserRegMst()
         {
             this.CartLists = new HashSet<CartList>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
         }
     
         public int userID { get; set; }
@@ -37,5 +38,7 @@ namespace Jewelly.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartList> CartLists { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

@@ -44,6 +44,7 @@ namespace Jewelly.Models
         public virtual DbSet<Orderdetail> Orderdetails { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<ProdMst> ProdMsts { get; set; }
+        public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public virtual DbSet<StoneMst> StoneMsts { get; set; }
         public virtual DbSet<StoneQltyMst> StoneQltyMsts { get; set; }
         public virtual DbSet<UserRegMst> UserRegMsts { get; set; }

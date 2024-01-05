@@ -34,12 +34,13 @@
     <Property Name="OrderDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ShipName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ShipAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrderCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ShipCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ShipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ShipCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="userID" Type="Int32" />
     <Property Name="payment_ID" Type="Int32" />
@@ -47,6 +48,7 @@
     <NavigationProperty Name="Payment" Relationship="Self.fk_crt_id_pay" FromRole="CartList" ToRole="Payment" />
     <NavigationProperty Name="UserRegMst" Relationship="Self.fk_crt_id_user" FromRole="CartList" ToRole="UserRegMst" />
     <NavigationProperty Name="Orderdetails" Relationship="Self.fk_details_id_cart" FromRole="CartList" ToRole="Orderdetails" />
+    <NavigationProperty Name="JewelTypeMsts" Relationship="Self.fk_jew_id_cart" FromRole="CartList" ToRole="JewelTypeMst" />
   </EntityType>
   <EntityType Name="CatMst">
     <Key>
@@ -140,6 +142,7 @@
     <Property Name="pic_5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="pic_6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="path_img" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_img" FromRole="Img" ToRole="ShoppingCart" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_img" FromRole="Img" ToRole="ItemMst" />
   </EntityType>
   <EntityType Name="Inquiry">
@@ -190,6 +193,7 @@
     <NavigationProperty Name="DimMsts" Relationship="Self.fk_dim_id_item" FromRole="ItemMst" ToRole="DimMst" />
     <NavigationProperty Name="GoldKrtMst" Relationship="Self.fk_item_id_goldtype" FromRole="ItemMst" ToRole="GoldKrtMst" />
     <NavigationProperty Name="Img" Relationship="Self.fk_item_id_img" FromRole="ItemMst" ToRole="Img" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_item" FromRole="ItemMst" ToRole="ShoppingCart" />
     <NavigationProperty Name="Orderdetails" Relationship="Self.fk_details_id_item" FromRole="ItemMst" ToRole="Orderdetails" />
     <NavigationProperty Name="JewelTypeMst" Relationship="Self.fk_item_id_jwelly" FromRole="ItemMst" ToRole="JewelTypeMst" />
     <NavigationProperty Name="ProdMst" Relationship="Self.fk_item_id_prod" FromRole="ItemMst" ToRole="ProdMst" />
@@ -201,6 +205,8 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Jewellery_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_cart" Type="Int32" />
+    <NavigationProperty Name="CartList" Relationship="Self.fk_jew_id_cart" FromRole="JewelTypeMst" ToRole="CartList" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_jwelly" FromRole="JewelTypeMst" ToRole="ItemMst" />
   </EntityType>
   <EntityType Name="News">
@@ -231,6 +237,7 @@
     <Property Name="numbercard" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="cgv" Type="Int32" />
     <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="Cus_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_pay" FromRole="Payment" ToRole="CartList" />
   </EntityType>
   <EntityType Name="ProdMst">
@@ -240,6 +247,27 @@
     <Property Name="Prod_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Prod_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_prod" FromRole="ProdMst" ToRole="ItemMst" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_pro" FromRole="ProdMst" ToRole="ShoppingCart" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ImgPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_pro" Type="Int32" />
+    <Property Name="img_id" Type="Int32" />
+    <Property Name="item_id" Type="Int32" />
+    <Property Name="User_id" Type="Int32" />
+    <NavigationProperty Name="Img1" Relationship="Self.fk_cart_id_img" FromRole="ShoppingCart" ToRole="Img" />
+    <NavigationProperty Name="ItemMst" Relationship="Self.fk_cart_id_item" FromRole="ShoppingCart" ToRole="ItemMst" />
+    <NavigationProperty Name="ProdMst" Relationship="Self.fk_cart_id_pro" FromRole="ShoppingCart" ToRole="ProdMst" />
+    <NavigationProperty Name="UserRegMst" Relationship="Self.fk_cart_id_User" FromRole="ShoppingCart" ToRole="UserRegMst" />
   </EntityType>
   <EntityType Name="StoneMst">
     <Key>
@@ -283,6 +311,7 @@
     <Property Name="photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Path_photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_user" FromRole="UserRegMst" ToRole="CartList" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_User" FromRole="UserRegMst" ToRole="ShoppingCart" />
   </EntityType>
   <Association Name="fk_crt_id_ad">
     <End Role="AdminLoginMst" Type="Self.AdminLoginMst" Multiplicity="0..1" />
@@ -341,6 +370,18 @@
       </Principal>
       <Dependent Role="Orderdetails">
         <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_jew_id_cart">
+    <End Role="CartList" Type="Self.CartList" Multiplicity="0..1" />
+    <End Role="JewelTypeMst" Type="Self.JewelTypeMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JewelTypeMst">
+        <PropertyRef Name="ID_cart" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -428,6 +469,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_cart_id_img">
+    <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Img">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_item_id_img">
     <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
     <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
@@ -437,6 +490,18 @@
       </Principal>
       <Dependent Role="ItemMst">
         <PropertyRef Name="Img_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="item_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -488,6 +553,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_cart_id_pro">
+    <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProdMst">
+        <PropertyRef Name="Prod_ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="id_pro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_User">
+    <End Role="UserRegMst" Type="Self.UserRegMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRegMst">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Stone_id_stoneqlty">
     <End Role="StoneQltyMst" Type="Self.StoneQltyMst" Multiplicity="0..1" />
     <End Role="StoneMst" Type="Self.StoneMst" Multiplicity="*" />
@@ -520,6 +609,7 @@
     <EntitySet Name="Orderdetails" EntityType="Self.Orderdetail" />
     <EntitySet Name="Payments" EntityType="Self.Payment" />
     <EntitySet Name="ProdMsts" EntityType="Self.ProdMst" />
+    <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCart" />
     <EntitySet Name="StoneMsts" EntityType="Self.StoneMst" />
     <EntitySet Name="StoneQltyMsts" EntityType="Self.StoneQltyMst" />
     <EntitySet Name="UserRegMsts" EntityType="Self.UserRegMst" />
@@ -542,6 +632,10 @@
     <AssociationSet Name="fk_details_id_cart" Association="Self.fk_details_id_cart">
       <End Role="CartList" EntitySet="CartLists" />
       <End Role="Orderdetails" EntitySet="Orderdetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_jew_id_cart" Association="Self.fk_jew_id_cart">
+      <End Role="CartList" EntitySet="CartLists" />
+      <End Role="JewelTypeMst" EntitySet="JewelTypeMsts" />
     </AssociationSet>
     <AssociationSet Name="fk_item_id_cat" Association="Self.fk_item_id_cat">
       <End Role="CatMst" EntitySet="CatMsts" />
@@ -571,9 +665,17 @@
       <End Role="GoldKrtMst" EntitySet="GoldKrtMsts" />
       <End Role="ItemMst" EntitySet="ItemMsts" />
     </AssociationSet>
+    <AssociationSet Name="fk_cart_id_img" Association="Self.fk_cart_id_img">
+      <End Role="Img" EntitySet="Imgs" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
     <AssociationSet Name="fk_item_id_img" Association="Self.fk_item_id_img">
       <End Role="Img" EntitySet="Imgs" />
       <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_item" Association="Self.fk_cart_id_item">
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
     </AssociationSet>
     <AssociationSet Name="fk_details_id_item" Association="Self.fk_details_id_item">
       <End Role="ItemMst" EntitySet="ItemMsts" />
@@ -590,6 +692,14 @@
     <AssociationSet Name="fk_stone_id_item" Association="Self.fk_stone_id_item">
       <End Role="ItemMst" EntitySet="ItemMsts" />
       <End Role="StoneMst" EntitySet="StoneMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_pro" Association="Self.fk_cart_id_pro">
+      <End Role="ProdMst" EntitySet="ProdMsts" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
+      <End Role="UserRegMst" EntitySet="UserRegMsts" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
     </AssociationSet>
     <AssociationSet Name="fk_Stone_id_stoneqlty" Association="Self.fk_Stone_id_stoneqlty">
       <End Role="StoneQltyMst" EntitySet="StoneQltyMsts" />

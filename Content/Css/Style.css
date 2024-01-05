@@ -126,8 +126,172 @@
     text-align: right;
 }
 
-/* Layout Header */
+/* Toast */
+#toast {
+    position: fixed;
+    top: 80px;
+    right: 32px;
+    z-index: 999999;
+}
 
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    border-left: 10px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+    flex-direction: column;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+}
+
+/* Modifier */
+.btn--size-l {
+    padding: 16px 56px;
+}
+
+.btn--size-s {
+    padding: 8px 32px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn + .btn {
+    margin-left: 16px;
+}
+
+.btn--success {
+    background-color: #71be34;
+}
+
+.btn--warn {
+    background-color: #ffb702;
+}
+
+.btn--danger {
+    background-color: #ff623d;
+}
+
+.btn--disabled {
+    opacity: 0.5 !important;
+    cursor: default;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}*/
+
+.toast--success {
+    border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+    color: #47d864;
+}
+
+.toast--info {
+    border-color: #2f86eb;
+}
+
+.toast--info .toast__icon {
+    color: #2f86eb;
+}
+
+.toast-danger {
+    border-color: #EF4040;
+}
+
+.toast-danger .toast__icon {
+    color: #EF4040;
+}
+
+.toast--error {
+    border-color: #ff623d;
+}
+
+.toast--error .toast__icon {
+    color: #ff623d;
+}
+
+.toast + .toast {
+    margin-top: 24px;
+}
+
+.toast__icon {
+    font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+    padding: 0 16px;
+}
+
+.toast__body {
+    display: flex;
+    flex-grow: 1;
+}
+
+.toast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    position: absolute;
+    top: 28px;
+    left: 50px;
+}
+
+.toast__msg {
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+    position: absolute;
+    top: 22px;
+    left: 130px;
+}
+
+.toast__close {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    position: absolute;
+    top: 23px;
+    left: 350px;
+}
+/* Layout Header */
 .header-logo {
     width: 110px;
     height: 110px;
@@ -261,7 +425,7 @@
 
 .mgl--layout{
     position: relative;
-    left: 20em;
+    left: 18em;
 }
 
 .fa-angle-down {
@@ -295,6 +459,7 @@
 .tablet--cart {
     position: relative;
     left: 25em;
+    top: 1.5px;
 }
 
 .bottom--footer{
@@ -394,9 +559,11 @@
     margin-top: 8em;
 }
 
+.local--btn--send{
+    border-radius: 0;
+}
 /* Home */
-
-.carousel_bg{
+.carousel_bg {
     width: 100%;
     height: 768px;
 }
@@ -623,11 +790,18 @@
     height: 2.7em;
     border-radius: 5px;
     border: none;
+    margin-top: 2em;
+    padding: 10px 20px;
     background-color: #fff;
     box-shadow: -2px 1px 17px 0px rgba(0,0,0,0.35);
     -webkit-box-shadow: -2px 1px 17px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: -2px 1px 17px 0px rgba(0,0,0,0.35);
     color: #1c1c1c;
+}
+
+.btn_shop:hover{
+    text-decoration: none;
+    color: #ccc;
 }
 
 .btn_shop:hover .fa-arrow-right{
@@ -1293,6 +1467,33 @@ div.textdetails {
     display: flex;
 }
 
+.parallax-infor {
+    height: 550px;
+    background-image: url(../Image/General/parallax.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.titlecontent {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 28%;
+    font-weight: bold;
+}
+
+.under-border {
+    width: 60px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 12px auto 0;
+}
+
 .select_avt {
     position: relative;
     right: 2em;
@@ -1315,13 +1516,14 @@ div.textdetails {
     border-radius: 15px;
 }
 
-.edit_spq {
-    height: 50em;
+.txtfile{
+    margin-left: 1.5em;
 }
 
-.edit_spi {
-    margin-bottom: 15em !important;
-    display: flex;
+.note_avt {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 1.5em;
 }
 
 .img_avt {
@@ -1364,6 +1566,9 @@ div.textdetails {
     text-decoration: none;
 }
 
+.txt_infor{
+    width: 100%;
+}
 /*Sizering*/
 .text6 {
     text-align: left;

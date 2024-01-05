@@ -18,6 +18,7 @@ namespace Jewelly.Models
         public CartList()
         {
             this.Orderdetails = new HashSet<Orderdetail>();
+            this.JewelTypeMsts = new HashSet<JewelTypeMst>();
         }
     
         public int ID { get; set; }
@@ -27,6 +28,7 @@ namespace Jewelly.Models
         public string OrderDate { get; set; }
         public string ShipName { get; set; }
         public string ShipAddress { get; set; }
+        public string OrderCode { get; set; }
         public string ShipCity { get; set; }
         public string ShipCode { get; set; }
         public string ShipCountry { get; set; }
@@ -42,5 +44,7 @@ namespace Jewelly.Models
         public virtual UserRegMst UserRegMst { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orderdetail> Orderdetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JewelTypeMst> JewelTypeMsts { get; set; }
     }
 }

@@ -204,14 +204,29 @@ function checkPhone() {
     if (phone.value == "" || phone.value == null) {
         phone.style.border = '1px solid #B80000';
         return false;
-    } else if (!pattern.test(phone.value)) {
+    }
+    else if (!pattern.test(phone.value)) {
         phone.style.border = '1px solid #B80000';
         return false;
-    } else {
-        phone.style.border = '1px solid green';
-        return true;
     }
-}
+    else {
+        if (phone.value.trim()) {
+            if (iti.isPossibleNumber()) {
+                phone.style.border = "1px solid green";
+                return true;
+            } else {
+                phone.style.border = "1px solid red";
+                return false;
+            }
+        }
+        //phone.addEventListener('change', reset);
+        //phone.addEventListener('keyup', reset);
+    
+    }
+
+     
+    }
+
 
 function checkDob() {
     var dob = document.querySelector('.dob');

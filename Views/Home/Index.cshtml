@@ -1,8 +1,47 @@
-﻿
+﻿@model dynamic
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
+
+<div id="toast">
+    @if (ViewBag.SuccessMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkSuccess());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.SuccessMg" />
+    }
+    else if (ViewBag.ErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ErrorMg" />
+    }
+    else if (ViewBag.NewsMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkNews());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.NewsMg" />
+    }
+    else if (ViewBag.CollectionMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkCollection());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.CollectionMg" />
+    }
+</div>
 
 <div class="container-fluid fix-padding--fluid">
     <div class="row">
@@ -15,7 +54,7 @@
                     <li data-target="#demo" data-slide-to="2" class="edit_surf2"></li>
                 </ul>
                 <!-- The slideshow -->
-                <div class="carousel-inner">
+                <div class="carousel-inner carousel--mobile">
                     <div class="carousel-item active">
                         <img src="~/Content/Image/Home/1.png" alt="Los Angeles"
                              class="carousel_bg"> <button class="btn_details_casourel">See More</button>
@@ -49,48 +88,18 @@
     <!-- VONG TAY -->
     <div class="container-fluid edit_space" data-aos="fade-up" data-aos-duration="5000">
         <div class="row">
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/vong1.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/vong1_2.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-            </div>
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/vong2.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/vong22.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-            </div>
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/vongt.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/vongt2.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/vongd.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/vongd2.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-
+            @foreach (var item in Model.Home1)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
         </div>
     </div>
     <!-- button view more-->
@@ -102,37 +111,19 @@
     <!-- RINGS -->
     <div class="container-fluid edit_space_btn view_spaces" data-aos="fade-up" data-aos-duration="5000">
         <div class="row">
-            <div class="col dp_block">
-                <img lazy_src="~/Content/Image/Home/MAU7.jpg" src="imgaeforlazyload" class="item_col_3" />
-                <h3 class="mt-3">Blue Rings Jwelley</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ea dolorum sit natus officia quaerat commodi, nihil accusamu
-                </p>
-                <div>
-                    <button class="btn_shop">SHOP    <i class="fa-solid fa-arrow-right"></i></button>
+            @foreach (var item in Model.Home2)
+            {
+                <div class="col dp_block">
+                    <img lazy_src="@item.Path@item.Img" src="imgaeforlazyload" class="item_col_3" />
+                    <h3 class="mt-3">@item.Name</h3>
+                    <p>
+                        @item.Price
+                    </p>
+                    <div>
+                        <a href="/Product/Details/@item.ID" class="btn_shop">SHOP    <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
-
-            </div>
-            <div class="col dp_block">
-                <img lazy_src="~/Content/Image/Home/mau5.jpg" src="imgaeforlazyload" class="item_col_3" />
-                <h3 class="mt-3">Blue Rings Jwelley</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ea dolorum sit natus officia quaerat commodi, nihil accusamu
-                </p>
-                <div>
-                    <button class="btn_shop">SHOP    <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
-            <div class="col dp_block">
-                <img lazy_src="~/Content/Image/Home/mau6.jpg" src="imgaeforlazyload" class="item_col_3" />
-                <h3 class="mt-3">Blue Rings Jwelley</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ea dolorum sit natus officia quaerat commodi, nihil accusamu
-                </p>
-                <div>
-                    <button class="btn_shop">SHOP    <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
+            }
         </div>
     </div>
     <!-- banner under -->
@@ -167,52 +158,18 @@
     <!-- COMBO -->
     <div class="container-fluid edit_space" data-aos="fade-up" data-aos-duration="5000">
         <div class="row">
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/bo1.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/bo11.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/bo2.jpg" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/bo22.jpg" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/bo3.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/bo3.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-
-            <div class="col-sm-3 effect_item">
-                <a href="">
-                    <img lazy_src="~/Content/Image/Home/bo4.jpg" src="imgaeforlazy" class="img_item" />
-                    <img lazy_src="~/Content/Image/Home/bo41.jpg" src="imgaeforlazy" class="img_itemhover" />
-                    <p class="title_item_">Florentino Diamond Jewelly</p>
-                    <p class="title_item__">AOV</p>
-                    <p class="title_item__one">2,000,000 $</p>
-                </a>
-
-
-            </div>
-
+            @foreach (var item in Model.Home3)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
         </div>
     </div>
     <!--VIEW MORE -->
@@ -226,76 +183,36 @@
         <div class="clearfix">
             <h2 class="letter">Shop By Product</h2>
         </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/Bracelets.jpg">
-                    <img lazy_src="~/Content/Image/Home/Bracelets.jpg" src="imgaeforlazy" alt="Bracelets" width="600" height="414.4px">
-                </a>
-                <div class="desc">Bracelets</div>
+        @foreach (var item in Model.Home4)
+        {
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="~/Content/Image/Home/Bracelets.jpg">
+                        <img lazy_src="@item.Path/@item.Img" src="imgaeforlazy" alt="Bracelets" width="600" height="414.4px">
+                    </a>
+                    <div class="desc">@item.Name</div>
+                </div>
             </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/Necklaces&Pendants.jpg">
-                    <img lazy_src="~/Content/Image/Home/Necklaces&Pendants.jpg" src="imgaeforlazy" alt="Forest" width="600" height="414.4px">
-                </a>
-                <div class="desc">Necklaces & Pendants</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/Pearl_Rings.jpg">
-                    <img lazy_src="~/Content/Image/Home/Pearl_Rings.jpg" src="imgaeforlazy" alt="Northern Lights" width="600" height="414.4px">
-                </a>
-                <div class="desc">Pearl Rings</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/RingDiamond.jpg">
-                    <img lazy_src="~/Content/Image/Home/RingDiamond.jpg" src="imgaeforlazy" alt="Mountains" width="600" height="400">
-                </a>
-                <div class="desc">Diamond Ring</div>
-            </div>
-        </div>
+        }
+
+
     </div>
 
     <div class="edit_space_g collections_spaces" data-aos="fade-up" data-aos-duration="5000">
         <div class="clearfix">
             <h2 class="letter collections">Explore Our Collections</h2>
         </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/clsBracelet.jpg">
-                    <img lazy_src="~/Content/Image/Home/clsBracelet.jpg" src="imgaeforlazy" alt="Bracelets" width="600" height="400">
-                </a>
-                <div class="desc">Bracelets</div>
+        @foreach (var item in Model.Homef)
+        {
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="~/Content/Image/Home/Bracelets.jpg">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" alt="Bracelets" width="600" height="414.4px">
+                    </a>
+                    <div class="desc">@item.Name</div>
+                </div>
             </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/clsnecklace.jpg">
-                    <img lazy_src="~/Content/Image/Home/clsnecklace.jpg" src="imgaeforlazy" alt="Forest" width="600" height="400">
-                </a>
-                <div class="desc">Necklaces</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/clseardrop.jpg">
-                    <img lazy_src="~/Content/Image/Home/clseardrop.jpg" src="imgaeforlazy" alt="Northern Lights" width="600" height="400">
-                </a>
-                <div class="desc">Eardrop</div>
-            </div>
-        </div>
-        <div class="responsive">
-            <div class="gallery">
-                <a target="_blank" href="~/Content/Image/Home/clsring.jpg">
-                    <img lazy_src="~/Content/Image/Home/clsring.jpg" src="imgaeforlazy" alt="Mountains" width="600" height="400">
-                </a>
-                <div class="desc">Ring</div>
-            </div>
-        </div>
+        }
     </div>
 
     <div class="yash container-fluid">
@@ -338,12 +255,11 @@
             </h2>
             <i class="text2">New collections are released to our VIP customers, sign up to never miss out</i>
         </div>
-        <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+        <form class="example" action="/Home/Collection" method="post" style="margin:auto;max-width:300px">
             <input type="text" placeholder="Your E-mail" name="search2">
             <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
         </form>
     </div>
-
 </div>
 <script>
     AOS.init();
@@ -370,4 +286,4 @@
     }
     document.addEventListener('DOMContentLoaded', ready)
 </script>
-
+<script src="~/Content/Script/message.js"></script>

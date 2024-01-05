@@ -34,7 +34,9 @@
                 <p>PHONE <red style="color: red">*</red></p>
 
 
-                <input class="input_edits form-control txt--input mobNo" id="phone" oninput="checkPhone();" placeholder="Mobile" type="tel" name="mobNo" />
+                <input class="input_edits form-control txt--input mobNo" id="mobNo" type="tel" oninput="checkPhone();" name="mobNo" />
+
+
             </div>
             <div class="space_input_login">
                 <p>BIRTHDAY <red style="color: red">*</red></p>
@@ -65,32 +67,14 @@
     </div>
 </div>
 <script src="~/Content/Script/intlTelInput.js"></script>
+<script src="~/Content/Script/utils.js"></script>
+
 <script>
-    var input = document.querySelector("#phone");
-    window.intlTelInput(input, {
-        nationalMode: false,
-        utilsScript: "./build/js/utils.js",
-        allowDropdown: true,
-    });
+    const input = document.querySelector(".mobNo");
 
-    // Set the initial dial code
-
-
-    // Make the input field not clickable (remove the down arrow icon)
-    const arrow = document.querySelector(".iti__flag-container > .arrow");
-    arrow.style.display = "none";
-
-    // Change the flag on click event
-    const countryCode = document.querySelector(".iti__selected-dial-code ");
-    const countryFlag = document.querySelector(".iti__flag-container > .iti__flag");
-    const phoneNumberInput = document.getElementById("phoneNumber");
-
-    countryFlag.addEventListener("click", function () {
-        const dialCode = countryCode.innerText;
-        iti.setCountry(dialCode.trim());
-
-        // Add a space after the country code in the input field
-        phoneNumberInput.value = phoneNumberInput.value.replace(/^\+\d*/, `+${dialCode} `);
+    const iti = window.intlTelInput(input, {
+        initialCountry: 'vn',
+        utilsScript: "/intl-tel-input/js/utils.js?1701962297307"
     });
     AOS.init();
     $("#signup").click(function () {

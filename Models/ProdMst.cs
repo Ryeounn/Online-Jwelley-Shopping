@@ -18,6 +18,7 @@ namespace Jewelly.Models
         public ProdMst()
         {
             this.ItemMsts = new HashSet<ItemMst>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
         }
     
         public int Prod_ID { get; set; }
@@ -25,5 +26,7 @@ namespace Jewelly.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemMst> ItemMsts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

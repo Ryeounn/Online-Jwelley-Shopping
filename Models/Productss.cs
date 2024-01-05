@@ -202,6 +202,102 @@ namespace Jewelly.Models
 
             return producttotal;
         }
+
+        public List<Productss> SelectHome()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 1
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(4).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectHome1()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 2
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(3).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectHome2()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 3
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(4).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectHome3()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 4
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(4).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectHome4()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 1
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(4).ToList();
+
+            return product;
+        }
     }
 }
 

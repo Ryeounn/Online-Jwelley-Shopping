@@ -22,7 +22,9 @@ namespace Jewelly.Models
     
         public int ID { get; set; }
         public string Jewellery_Type { get; set; }
+        public Nullable<int> ID_cart { get; set; }
     
+        public virtual CartList CartList { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemMst> ItemMsts { get; set; }
     }

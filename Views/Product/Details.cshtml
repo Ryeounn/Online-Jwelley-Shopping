@@ -5,6 +5,29 @@
 }
 
 
+<div id="toast">
+    @if (ViewBag.SuccessMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkSuccess());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.SuccessMg" />
+    }
+    else if (ViewBag.ErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ErrorMg" />
+    }
+</div>
+
+
+
 <div class="container">
     <a class="slide-home mt-5" href="home.php">Home </a><span>/</span><b class="slide-local">Details</b>
     <div class="row mt-5">
@@ -26,6 +49,7 @@
                 </div>
             </div>
             <div class="col-md-5">
+                <input type="hidden" value="@item.Name" name="Name" />
                 <p class="magin---top text---details---tilet">@item.Name</p>
                 <p class="text---money">@item.Price$</p>
                 <p class="text---des">
@@ -41,7 +65,8 @@
                     <p class="text---tilel---panel">The amount of gold in the item: @item.Gold_Amt gam</p>
                 </div>
                 <hr />
-                <a class="btn--dark--model submit---contact btn---details" href="/Product/AddtoCart/@item.Id">Buy Oder</a>
+                <input type="text" hidden name="userID" value="@Session["userID"]" />
+                <a class="btn--dark--model submit---contact btn---details" onclick="checkStatus();" href="/Product/AddtoCart/@item.Id">Buy Oder</a>
             </div>
 
             <div class="row">
@@ -186,7 +211,6 @@
             </div>
         }
     </div>
-
 </div>
 <script>
     function detailsProduct(smallImg) {
@@ -209,3 +233,83 @@
         });
     }
 </script>
+<script src="~/Content/Script/message.js"></script>
+@*<script>
+    function checkSuccess() {
+        toast({
+            title: "Success!",
+            message: "Add Product successful.",
+            type: "success",
+            duration: 100000
+        });
+    }
+
+    function checkError() {
+        toast({
+            title: "Fail",
+            message: "Add Product fail.",
+            type: "error",
+            duration: 100000
+        });
+    }
+</script>
+<script>
+    function checkStatus() {
+        const success = document.querySelector('.success').value;
+        const fail = document.querySelector('.fail');
+        console.log(success);
+        if (success != "") {
+            checkSuccess();
+        } else if (fail != "") {
+            checkError();
+        }
+    }
+</script>
+<script>
+    // Toast function
+    function toast({ title = "", message = "", type = "info", duration = 10000000 }) {
+        const main = document.getElementById("toast");
+        if (main) {
+            const toast = document.createElement("div");
+
+            // Auto remove toast
+            const autoRemoveId = setTimeout(function () {
+                main.removeChild(toast);
+            }, duration + 1000);
+
+            // Remove toast when clicked
+            toast.onclick = function (e) {
+                if (e.target.closest(".toast__close")) {
+                    main.removeChild(toast);
+                    clearTimeout(autoRemoveId);
+                }
+            };
+
+            const icons = {
+                success: "fas fa-check-circle",
+                info: "fas fa-info-circle",
+                warning: "fas fa-exclamation-circle",
+                error: "fas fa-exclamation-circle"
+            };
+            const icon = icons[type];
+            const delay = (duration / 100).toFixed(2);
+
+            toast.classList.add("toast", `toast--${type}`);
+            toast.style.animation = `slideInLeft ease 2s`;
+            toast.style.display = 'block';
+            toast.innerHTML = `
+                <div class="toast__icon">
+                    <i class="${icon}"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title"><b>${title}</b></h3>
+                    <p class="toast__msg">${message}</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            `;
+            main.appendChild(toast);
+        }
+    }
+</script>*@

@@ -1,8 +1,29 @@
-﻿@model Jewelly.Models.Cart
+﻿@model dynamic
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
+
+<div id="toast">
+    @if (ViewBag.DeleteMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDelete());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteMg" />
+    }
+    else if (ViewBag.ErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ErrorMg" />
+    }
+</div>
 
 <div class="container mgin--top">
     <div class="row">
@@ -10,10 +31,8 @@
             <a class="slide-home" href="@Url.Action("Index","Home")">Home </a><span>/</span><b class="slide-local"> Shopping Cart</b>
         </div>
     </div>
-    @if (Session["username"] != null)
+    @if (Session["username"] != null && Model.Details != null)
     {
-        if (Model != null)
-        {
             <div class="row mt-4">
                 <div class="col-md-12">
                     <p class="title--cart">Shopping Cart </p><span>(@Html.Action("BagCartTotal", "Product") product)</span>
@@ -29,13 +48,13 @@
                                 <td class="text--align--cc">Qly</td>
                                 <td class="text--align--rr">Total</td>
                             </tr>
-                            @foreach (var item in Model.Items)
+                            @foreach (var item in Model.Details)
                             {
                                 <tr>
-                                    <td><img class="img--cart" src="@item.ItemMst.Img.path_img/@item.ItemMst.Img.pic_1" /><span class="product--cart">@item.ItemMst.ProdMst.Prod_Type</span><a href="/Product/Delete/@item.ItemMst.Style_Code" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
-                                    <td><p class="price--cart mt-5">@item.ItemMst.MRP$</p></td>
-                                    <td><p class="qly--cart mt-5">@item.quantity</p></td>
-                                    <td><p class="price--cart mt-5">@item.ItemMst.MRP$</p></td>
+                                    <td><img class="img--cart" src="@item.ImgPath/@item.Img" /><span class="product--cart">@item.Product_name</span><a href="/Product/Delete/@item.ID" class="icon--remove"><i class="fas fa-times"></i> Delete</a></td>
+                                    <td><p class="price--cart mt-5">@item.Price$</p></td>
+                                    <td><p class="qly--cart mt-5">@item.Quantity</p></td>
+                                    <td><p class="price--cart mt-5">@item.Total$</p></td>
                                 </tr>
                             }
                         </table>
@@ -47,7 +66,7 @@
                                 <p class="titletemp--order"><b>Provisional:</b></p>
                             </div>
                             <div class="col-md-6">
-                                <p class="money--order">@Model.Total_money()$</p>
+                                <p class="money--order">@Model.Money$</p>
                             </div>
                         </div>
                         <div class="row">
@@ -60,7 +79,7 @@
                                 <p class="titletemp--order"><b>Total:</b></p>
                             </div>
                             <div class="col-md-6">
-                                <p class="money--order">@Model.Total_money()$</p>
+                                <p class="money--order">@Model.Money$</p>
                             </div>
                         </div>
                         <div class="row">
@@ -74,20 +93,6 @@
                     </div>
                 </div>
             </form>
-        }
-        else
-        {
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <p class="title--cart">Shopping Cart </p><span>(@Html.Action("BagCartTotal", "Product") product)</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="~/Content/Image/Details/empty.jpg" />
-                </div>
-            </div>
-        }
     }
     else
     {
@@ -98,11 +103,43 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <img src="~/Content/Image/Details/empty.jpg" />
+                <div class="col-md-9">
+                    <img src="~/Content/Image/Layout/empty.jpg" />
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="titletemp--order"><b>Provisional:</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="money--order">$</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="titletemp--order"><b>Total:</b></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="money--order">$</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn--dark--model btn--pay--order">Pay Now</button>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <a href="@Url.Action("Jewelry","Product")" class="btn--continue--order">Continue shopping</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     }
 </div>
+<script src="~/Content/Script/message.js"></script>
 

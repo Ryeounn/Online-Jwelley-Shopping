@@ -25,6 +25,7 @@ namespace Jewelly.Models
         public string numbercard { get; set; }
         public Nullable<int> cgv { get; set; }
         public Nullable<System.DateTime> expiration_date { get; set; }
+        public string Cus_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartList> CartLists { get; set; }

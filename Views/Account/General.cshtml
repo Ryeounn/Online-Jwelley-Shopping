@@ -6,30 +6,34 @@
 }
 
 <div class="container-fluid">
-    <div class="bg_general">
-        <img src="~/Content/Image/Home/banner.png" width="100%" class="img_bg_pro" />
-    </div>
-    <div class="title_general">
-        <a class="hover__" id="information">Information</a>
-        <a class="hover_" id="change">Change Password</a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="parallax-infor">
+                <p class="titlecontent">GENERAL</p>
+                <div class="under-border"></div>
+            </div>
+            <div class="title_general mt-4">
+                <a class="hover__ information active" id="information">Information</a>
+                <a class="hover_ change" id="change">Change Password</a>
+            </div>
+        </div>
     </div>
     <div class="container" id="display">
-        
+
     </div>
 </div>
 
 
 
 <script>
+
     $(document).ready(function () {
         $("#display").load("Information", "Account");
     });
     $("#change").click(function () {
-
         $("#display").load("Change", "Account");
     });
     $("#information").click(function () {
-
         $("#display").load("Information", "Account");
     });
     //css cho thẻ information
@@ -37,5 +41,5 @@
 <script>
     setTimeout(function () {
         $('#msgAlert').fadeOut('slow');
-    };
+    });
 </script>

@@ -33,6 +33,7 @@ namespace Jewelly.Controllers
                 if (data_cus.Count() > 0)
                 {
                     //add session
+                    Session["userID"] = data_cus.FirstOrDefault().userID;
                     Session["userFname"] = data_cus.FirstOrDefault().userFname;
                     Session["userLname"] = data_cus.FirstOrDefault().userLname;
                     Session["address"] = data_cus.FirstOrDefault().address;
@@ -152,7 +153,7 @@ namespace Jewelly.Controllers
 
 
                 var filename = user.Username + ".jpg";
-                var path = Path.Combine(Server.MapPath("~/Content/Image/Customer"), filename);
+                var path = Path.Combine(Server.MapPath("~/Content/Image/Customer/"), filename);
                 user.photo = filename;
                 user.Path_photo = "/Content/Image/Customer/";
                 imageFiles.SaveAs(path);

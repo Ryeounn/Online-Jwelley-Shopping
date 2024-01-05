@@ -32,12 +32,13 @@
     <Property Name="OrderDate" Type="varchar" MaxLength="255" />
     <Property Name="ShipName" Type="varchar" MaxLength="255" />
     <Property Name="ShipAddress" Type="varchar" MaxLength="255" />
+    <Property Name="OrderCode" Type="varchar" MaxLength="255" />
     <Property Name="ShipCity" Type="varchar" MaxLength="255" />
     <Property Name="ShipCode" Type="varchar" MaxLength="255" />
     <Property Name="ShipCountry" Type="varchar" MaxLength="255" />
     <Property Name="Phone" Type="varchar" MaxLength="255" />
     <Property Name="Status" Type="varchar" MaxLength="255" />
-    <Property Name="Note" Type="varchar" MaxLength="1000" />
+    <Property Name="Note" Type="varchar" MaxLength="255" />
     <Property Name="userName" Type="varchar" MaxLength="250" />
     <Property Name="userID" Type="int" />
     <Property Name="payment_ID" Type="int" />
@@ -174,6 +175,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Jewellery_Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_cart" Type="int" />
   </EntityType>
   <EntityType Name="News">
     <Key>
@@ -201,6 +203,7 @@
     <Property Name="numbercard" Type="varchar(max)" />
     <Property Name="cgv" Type="int" />
     <Property Name="expiration_date" Type="date" />
+    <Property Name="Cus_name" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="ProdMst">
     <Key>
@@ -208,6 +211,22 @@
     </Key>
     <Property Name="Prod_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Prod_Type" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_name" Type="varchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Img" Type="varchar(max)" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ImgPath" Type="varchar(max)" />
+    <Property Name="id_pro" Type="int" />
+    <Property Name="img_id" Type="int" />
+    <Property Name="item_id" Type="int" />
+    <Property Name="User_id" Type="int" />
   </EntityType>
   <EntityType Name="StoneMst">
     <Key>
@@ -248,6 +267,54 @@
     <Property Name="photo" Type="varchar" MaxLength="255" />
     <Property Name="Path_photo" Type="varchar" MaxLength="255" />
   </EntityType>
+  <Association Name="fk_cart_id_img">
+    <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Img">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="img_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_pro">
+    <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProdMst">
+        <PropertyRef Name="Prod_ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="id_pro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_User">
+    <End Role="UserRegMst" Type="Self.UserRegMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRegMst">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_crt_id_ad">
     <End Role="AdminLoginMst" Type="Self.AdminLoginMst" Multiplicity="0..1" />
     <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
@@ -440,6 +507,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_jew_id_cart">
+    <End Role="CartList" Type="Self.CartList" Multiplicity="0..1" />
+    <End Role="JewelTypeMst" Type="Self.JewelTypeMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JewelTypeMst">
+        <PropertyRef Name="ID_cart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_stone_id_item">
     <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
     <End Role="StoneMst" Type="Self.StoneMst" Multiplicity="*" />
@@ -484,9 +563,26 @@
     <EntitySet Name="Orderdetails" EntityType="Self.Orderdetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProdMst" EntityType="Self.ProdMst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StoneMst" EntityType="Self.StoneMst" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StoneQltyMst" EntityType="Self.StoneQltyMst" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRegMst" EntityType="Self.UserRegMst" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_cart_id_img" Association="Self.fk_cart_id_img">
+      <End Role="Img" EntitySet="Img" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_item" Association="Self.fk_cart_id_item">
+      <End Role="ItemMst" EntitySet="ItemMst" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_pro" Association="Self.fk_cart_id_pro">
+      <End Role="ProdMst" EntitySet="ProdMst" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
+      <End Role="UserRegMst" EntitySet="UserRegMst" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+    </AssociationSet>
     <AssociationSet Name="fk_crt_id_ad" Association="Self.fk_crt_id_ad">
       <End Role="AdminLoginMst" EntitySet="AdminLoginMst" />
       <End Role="CartList" EntitySet="CartList" />
@@ -550,6 +646,10 @@
     <AssociationSet Name="fk_item_id_prod" Association="Self.fk_item_id_prod">
       <End Role="ProdMst" EntitySet="ProdMst" />
       <End Role="ItemMst" EntitySet="ItemMst" />
+    </AssociationSet>
+    <AssociationSet Name="fk_jew_id_cart" Association="Self.fk_jew_id_cart">
+      <End Role="CartList" EntitySet="CartList" />
+      <End Role="JewelTypeMst" EntitySet="JewelTypeMst" />
     </AssociationSet>
     <AssociationSet Name="fk_stone_id_item" Association="Self.fk_stone_id_item">
       <End Role="ItemMst" EntitySet="ItemMst" />

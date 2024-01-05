@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="18KGold" xml:space="preserve">
+    <value>18K PNJ Gold Earrings Jewels</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Về chúng tôi</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>1 Lý Tự Trọng, P. An Cư, Q. Ninh Kiều, TP. Cần Thơ</value>
+  </data>
+  <data name="BraceletsHome" xml:space="preserve">
+    <value>Vòng tay được làm từ nhiều loại vàng chọn lọc kết hợp với đá và kim cương chất lượng, và bằng bàn tay nhiều năm kinh nghiệm của thợ kim hoàn, chúng tôi tạo ra những sản phẩm tốt nhất để phục vụ khách hàng một cách tốt nhất. Món đồ hoàn hảo nhất</value>
+  </data>
+  <data name="ColorbytheYardPendant" xml:space="preserve">
+    <value>Color by the Yard Pendant</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>Copyright © 2023 Jwelley: 1 Lý Tự Trọng, Phường An Cư, Quận Ninh Kiều, Thành phố Cần Thơ, Việt Nam.</value>
+  </data>
+  <data name="Designer" xml:space="preserve">
+    <value>Nhà Thiết Kế</value>
+  </data>
+  <data name="DiamondPlatinum" xml:space="preserve">
+    <value>PNJ Diamond Platinum Wedding Ring</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Jwelley@gmail.com</value>
+  </data>
+  <data name="ExCollections" xml:space="preserve">
+    <value>Khám phá bộ sưu tập của chúng tôi</value>
+  </data>
+  <data name="FeaturingCombo" xml:space="preserve">
+    <value>Nổi bật với comno hiếm từ Argyle Diamond, Stone, Gold chất lượng nhất hiện đã đóng cửa. Những món đồ trang sức kết hợp này thực sự độc đáo và sẽ trở thành vật gia truyền cho các thế hệ tương lai hoặc như một khoản đầu tư mà bạn có thể đeo. Jewels of the Kimberley cũng có một bộ sưu tập trang sức Combo rời tuyệt vời có sẵn để xem theo lịch hẹn riêng.</value>
+  </data>
+  <data name="FeaturingHome" xml:space="preserve">
+    <value>Nổi bật với những viên kim cương hồng quý hiếm từ Mỏ kim cương Argyle hiện đã đóng cửa ở Tây Úc. Những viên kim cương hồng này thực sự độc đáo và sẽ trở thành vật gia truyền cho các thế hệ tương lai hoặc như một khoản đầu tư mà bạn có thể đeo. Jewels of the Kimberley cũng có một bộ sưu tập kim cương màu hồng tuyệt vời có sẵn để xem theo lịch hẹn riêng.</value>
+  </data>
+  <data name="GraduatedLinkNecklace" xml:space="preserve">
+    <value>Graduated Link Necklace</value>
+  </data>
+  <data name="HappyClients" xml:space="preserve">
+    <value>Khách Hàng Vui Vẻ</value>
+  </data>
+  <data name="HappyDiamondsIcons" xml:space="preserve">
+    <value>Happy Diamonds Icons</value>
+  </data>
+  <data name="HappyHearts" xml:space="preserve">
+    <value>Happy Hearts</value>
+  </data>
+  <data name="HappySpirit" xml:space="preserve">
+    <value>Happy Spirit</value>
+  </data>
+  <data name="IceCube" xml:space="preserve">
+    <value>Ice Cube</value>
+  </data>
+  <data name="JewelsoftheYashGems&amp;Jewelry" xml:space="preserve">
+    <value>Đồ trang sức của Yash Đá quý &amp; Trang sức</value>
+  </data>
+  <data name="JusteUn" xml:space="preserve">
+    <value>Juste Un Clou Single Earring</value>
+  </data>
+  <data name="Landspace" xml:space="preserve">
+    <value>Không Gian Tại Cửa Hàng</value>
+  </data>
+  <data name="LangEnglish" xml:space="preserve">
+    <value>Tiếng Anh</value>
+  </data>
+  <data name="LangVietnamese" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>Cuộc họp</value>
+  </data>
+  <data name="menuHome" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="NewCollections" xml:space="preserve">
+    <value>Bộ sưu tập mới được phát hành cho khách hàng VIP của chúng tôi, hãy đăng ký để không bao giờ bỏ lỡ</value>
+  </data>
+  <data name="OurNews" xml:space="preserve">
+    <value>Tin Tức</value>
+  </data>
+  <data name="OurStory" xml:space="preserve">
+    <value>Câu Chuyện</value>
+  </data>
+  <data name="Partners" xml:space="preserve">
+    <value>Đối Tác</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>+1234 567 890</value>
+  </data>
+  <data name="Policy" xml:space="preserve">
+    <value>Chính sách</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Dự Án</value>
+  </data>
+  <data name="Receive" xml:space="preserve">
+    <value>Nhận thông tin sản phẩm mới nhất, chương trình khuyến mãi và nhiều hơn nữa.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Trả Hàng và Bảo Hành</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Quy tắc</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>Cửa Hàng</value>
+  </data>
+  <data name="ShopProduct" xml:space="preserve">
+    <value>Mua sắm theo sản phẩm</value>
+  </data>
+  <data name="SIGNUP" xml:space="preserve">
+    <value>Đăng ký để nhận tin tức mới</value>
+  </data>
+  <data name="SmilePendant" xml:space="preserve">
+    <value>Smile Pendant</value>
+  </data>
+  <data name="ViewMore" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
+  <data name="WhiteGold" xml:space="preserve">
+    <value>PNJ 14K White Gold Diamond Earrings</value>
+  </data>
+  <data name="Yash's Bracelet" xml:space="preserve">
+    <value>Vòng tay của Yash</value>
+  </data>
+  <data name="Yash'SComBoJewelry" xml:space="preserve">
+    <value>Trang sức ComBo của Yash</value>
+  </data>
+  <data name="YASHGEMS&amp;JEWELRY" xml:space="preserve">
+    <value>YASH ĐÁ QUÝ &amp; TRANG SỨC</value>
+  </data>
+</root>

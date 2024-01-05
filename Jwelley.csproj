@@ -112,6 +112,7 @@
     <Content Include="Content\Image\Admin\han2803.jpg" />
     <Content Include="Content\Image\Contact\contact_br.jpg" />
     <Content Include="Content\Image\Countries\flags.png" />
+    <Content Include="Content\Image\General\parallax.jpg" />
     <Content Include="Content\Image\Home\1.png" />
     <Content Include="Content\Image\Home\2.png" />
     <Content Include="Content\Image\Home\3.png" />
@@ -169,6 +170,7 @@
     <Content Include="Content\Image\Introduction\Les Ateliers Créations by Van Cleef &amp; Arpels.jpeg" />
     <Content Include="Content\Image\Introduction\pexels-luis-quintero-1659748.jpg" />
     <Content Include="Content\Image\Introduction\pexels-tima-miroshnichenko-6263066.jpg" />
+    <Content Include="Content\Image\Layout\empty.jpg" />
     <Content Include="Content\Image\Layout\favicon.png" />
     <Content Include="Content\Image\Layout\logo-header.png" />
     <Content Include="Content\Image\Natural\pexels-ady-5867401.jpg" />
@@ -422,7 +424,7 @@
     <Content Include="Content\Image\Product\Items\55_\1.jpg" />
     <Content Include="Content\Image\Product\Items\55_\2.jpg" />
     <Content Include="Content\Image\Product\Items\55_\3.jpg" />
-    <Content Include="Content\Image\Product\Items\56_\Untitled design %281%29.jpg" />
+    <Content Include="Content\Image\Product\Items\56_\1.jpg" />
     <Content Include="Content\Image\Product\Items\57_\1.jpg" />
     <Content Include="Content\Image\Product\Items\57_\2.jpg" />
     <Content Include="Content\Image\Product\Items\57_\3.jpg" />
@@ -600,7 +602,10 @@
     <Content Include="Content\Script\data.min.js" />
     <Content Include="Content\Script\Function.js" />
     <Content Include="Content\Script\intlTelInput-jquery.js" />
+    <Content Include="Content\Script\intlTelInput-jquery.min.js" />
     <Content Include="Content\Script\intlTelInput.js" />
+    <Content Include="Content\Script\intlTelInput.min.js" />
+    <Content Include="Content\Script\message.js" />
     <Content Include="Content\Script\utils.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\Jwelley.Context.tt">
@@ -616,6 +621,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\name.language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>name.language.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\name.language.vi-vn.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>name.language.vi-vn.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
@@ -642,6 +657,7 @@
     <Compile Include="Models\CertifyMst.cs">
       <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cocart.cs" />
     <Compile Include="Models\Collection.cs">
       <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
@@ -701,6 +717,9 @@
       <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Productss.cs" />
+    <Compile Include="Models\ShoppingCart.cs">
+      <DependentUpon>Jwelley.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\StoneMst.cs">
       <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
@@ -719,8 +738,6 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
-    <Content Include="Content\Script\intlTelInput-jquery.min.js" />
-    <Content Include="Content\Script\intlTelInput.min.js" />
     <EntityDeploy Include="Models\Jwelley.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
@@ -757,7 +774,6 @@
     <Content Include="Views\Product\BagCart.cshtml" />
     <Content Include="Views\Product\CheckOut.cshtml" />
     <Content Include="Views\Product\Payment.cshtml" />
-    <Content Include="Views\Product\ShoppingSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -772,6 +788,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\name.language.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>name.language.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\name.language.vi-vn.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>name.language.vi-vn.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

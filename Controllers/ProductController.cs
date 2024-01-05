@@ -26,13 +26,21 @@ namespace Jewelly.Controllers
                 {
                     ViewBag.ErrorMg = TempData["error"];
                 }
-                if (Session["Cart"] == null)
+                if (TempData["delete"] != null) 
                 {
-                    return RedirectToAction("Shoes", "Product");
+                    ViewBag.DeleteMg = TempData["delete"];
                 }
-                Cart cart = Session["Cart"] as Cart;
-
-                return View(cart);
+                if (TempData["login"] != null)
+                {
+                    ViewBag.LoginMg = TempData["login"];
+                }
+                int user = (int)Session["userID"];
+                var shoppingCarts = db.ShoppingCarts.Where(s => s.User_id == user).ToList();
+                var money = db.ShoppingCarts.Where(s => s.User_id == user).Sum(s => s.Total);
+                dynamic model = new ExpandoObject();
+                model.Details = shoppingCarts;
+                model.Money = money;
+                return View(model);
             }
             else
             {
@@ -62,6 +70,14 @@ namespace Jewelly.Controllers
 
         public ActionResult Details(int id) 
         {
+            if (TempData["result"] != null)
+            {
+                ViewBag.SuccessMg = TempData["result"];
+            }
+            if (TempData["error"] != null)
+            {
+                ViewBag.ErrorMg = TempData["error"];
+            }
             var model = new JoinDetails().SelectDetails(id).ToList();
             dynamic models = new ExpandoObject();
             models.Details = model;
@@ -81,79 +97,131 @@ namespace Jewelly.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddtoCart(int ID)
+        public ActionResult AddtoCart(int Id, string Img, string Path, string Name, decimal? Price, string Prod, int quantity = 1)
         {
-            if (Session["username"] != null)
+            if (TempData["result"] != null)
             {
-                var product = db.ItemMsts.SingleOrDefault(s => s.Style_Code == ID);
-                if (product != null)
-                {
-                    GetCart().Add(product);
-                    Session["Quantity"] = ID;
-                }
-                return RedirectToAction("Cart", "Product");
+                ViewBag.SuccessMg = TempData["result"];
+            }
+            if (TempData["error"] != null)
+            {
+                ViewBag.ErrorMg = TempData["error"];
+            }
+            if (Session["Username"] != null)
+            {
+
+                int user = (int)Session["userID"];
+                Cocart cocart = new Cocart();
+                cocart.Add(Id, user, Img, Path, Name, Price, Prod, quantity);
+                TempData["result"] = "Add Product successful.";
+                return RedirectToAction("Details/" + Id, "Product");
             }
             else
             {
-                TempData["error"] = "You need to log in, please log in to continue!";
-                return RedirectToAction("Login", "Account");
+                TempData["error"] = "Add Product fail.";
+                return RedirectToAction("Payment", "Product");
             }
-        }
 
-        public ActionResult ShowOrder()
-        {
-            if (Session["username"] != null)
-            {
-                if (Session["Cart"] == null)
-                {
-                    return RedirectToAction("Order", "Product");
-                }
-                Cart cart = Session["Cart"] as Cart;
 
-                return View(cart);
-            }
-            else
-            {
-                TempData["error"] = "You need to log in, please log in to continue!";
-                return RedirectToAction("Login", "Account");
-            }
         }
+        //public ActionResult ShowOrder()
+        //{
+        //    if (Session["Username"] == null)
+        //    {
+        //        return Content("You are not logged in, Please log in!");
 
-        public PartialViewResult BagCart()
-        {
-            int total_item = 0;
-            Cart cart = Session["Cart"] as Cart;
-            if (cart != null)
-                total_item = cart.Total_Quantity_in_Cart();
-            ViewBag.QuantityCart = total_item;
-            return PartialView("BagCart");
-        }
+        //    }
+        //    int username = (int)Session["userID"];
+        //    var users = db.ShoppingCarts.Where(s => s.User_id == username).ToList();
+        //    var money = db.ShoppingCarts.Where(s => s.User_id == username).Sum(s => s.Total);
+        //    dynamic model = new ExpandoObject();
+        //    model.Details = users;
+        //    model.Money = money;
+
+        //    return View(model);
+        //}
 
         public PartialViewResult BagCartTotal()
         {
-            int total_item = 0;
-            Cart cart = Session["Cart"] as Cart;
-            if (cart != null)
-                total_item = cart.Total_Quantity_in_Cart();
-            ViewBag.QuantityCart = total_item;
+            var total = 0;
+            if (Session["username"] != null)
+            {
+
+                var user = (int)Session["userID"];
+                var cart = db.ShoppingCarts.Where(row => row.User_id == user);
+                var check = db.ShoppingCarts.Where(row => row.Quantity == 0);
+                if (cart.Count() > 0 && check != null)
+                {
+                    total = (int)cart.Sum(s => s.Quantity);
+                }
+                else if (cart == null && check == null)
+                {
+                    total = 0;
+
+                }
+
+            }
+
+            ViewBag.QuantityCart = total;
             return PartialView("BagCartTotal");
         }
 
+
         public ActionResult Delete(int id)
         {
-            if (Session["username"] != null)
+            if (Session["Username"] != null)
             {
-                Cart cart = Session["Cart"] as Cart;
-                cart.Remove_CartItem(id);
-                TempData["result"] = "Delete Product in cart successfully!";
-                return RedirectToAction("Cart", "Product");
+                int user = (int)Session["userID"];
+                var cart = db.ShoppingCarts.Where(s => s.ID == id && s.User_id == user).FirstOrDefault();
+                if (cart != null)
+                {
+                    db.ShoppingCarts.Remove(cart);
+                    db.SaveChanges();
+                    TempData["delete"] = "Delete Product in cart successfully!";
+                    return RedirectToAction("Cart", "Product");
+                }
+                else
+                {
+                    TempData["error"] = "Delete fail!";
+                    return RedirectToAction("Jewelry", "Product");
+
+                }
             }
             else
             {
-                TempData["error"] = "You need to log in, please log in to continue!";
+                TempData["login"] = "You need to log in, please log in to continue!";
                 return RedirectToAction("Login", "Account");
             }
         }
+
+
+
+        public PartialViewResult BagCart()
+        {
+            var total = 0;
+            if (Session["username"] != null)
+            {
+
+                var user = (int)Session["userID"];
+                var cart = db.ShoppingCarts.Where(row => row.User_id == user);
+                var check = db.ShoppingCarts.Where(row => row.Quantity == 0);
+                if (cart.Count() > 0 && check != null)
+                {
+                    total = (int)cart.Sum(s => s.Quantity);
+                }
+                else if (cart == null && check == null)
+                {
+                    total = 0;
+
+                }
+
+            }
+
+            ViewBag.QuantityCart = total;
+            return PartialView("BagCart");
+        }
+
+
 
         public ActionResult CheckOut()
         {
@@ -167,24 +235,20 @@ namespace Jewelly.Controllers
             }
             if (Session["username"] != null)
             {
-                if (Session["Cart"] == null)
-                {
-                    return RedirectToAction("Order", "Product");
-                }
-                Cart cart = Session["Cart"] as Cart;
-
-                return View(cart);
+                var total_item = 0;
+                var user = (int)Session["userID"];
+                var shopping = db.ShoppingCarts.Where(s => s.User_id == user).ToList();
+                var money = db.ShoppingCarts.Where(s => s.User_id == user).Sum(s => s.Total);
+                dynamic model = new ExpandoObject();
+                model.Shop = shopping;
+                model.Money = money;
+                return View(model);
             }
             else
             {
                 TempData["error"] = "You need to log in, please log in to continue!";
                 return RedirectToAction("Login", "Account");
             }
-        }
-
-        public ActionResult ShoppingSuccess()
-        {
-            return View();
         }
 
         public ActionResult Payment()
@@ -193,76 +257,68 @@ namespace Jewelly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Checkedout(FormCollection form)
+        public ActionResult CheckedOut(FormCollection form)
         {
-            if (TempData["result"] != null)
+            //ShoppingCart cart = new ShoppingCart();
+            int id = (int)Session["userID"];
+            var cart = db.ShoppingCarts.Where(s => s.User_id == id).ToList();
+            if (cart != null)
             {
-                ViewBag.SuccessMg = TempData["result"];
-            }
-            if (TempData["error"] != null)
-            {
-                ViewBag.ErrorMg = TempData["error"];
-            }
-            if (Session["username"] != null)
-            {
-                try
+                CartList cartList = new CartList();
+                cartList.ShipCode = "123";
+                if (cartList.ShipCode == "Visa")
                 {
-                    Cart cart = Session["Cart"] as Cart;
-                    CartList cartList = new CartList();
-                    cartList.ShipCode = form["payment"];
-                    if (cartList.ShipCode == "Visa")
-                    {
-                        Payment payments = new Payment();
-                        payments.numbercard = form["numbercard"];
-                        payments.cgv = int.Parse(form["cgv"]);
-                        payments.expiration_date = DateTime.Parse(form["dateend"]);
-                        payments.type = "Visa";
-                        db.Payments.Add(payments);
-                    }
-                    else
-                    {
-                        cartList.payment_ID = null;
-                    }
+                    Payment payments = new Payment();
+                    payments.ID = 1;
+                    payments.numbercard = form["numbercard"];
+                    payments.Cus_name = form["holder"];
+                    payments.cgv = int.Parse(form["cgv"]);
+                    payments.expiration_date = DateTime.Parse(form["dateend"]);
+                    payments.type = "Visa";
+                    db.Payments.Add(payments);
                     cartList.payment_ID = 1;
-                    cartList.userID = null;
-                    cartList.userName = "an1203";
-                    cartList.ShipCode = "SC123";
-                    cartList.OrderDate = DateTime.Now.ToString();
-                    cartList.MRP = decimal.Parse(form["mrp"]);
-                    cartList.ShipName = form["name"];
-                    cartList.Email_ID = form["email"];
-                    cartList.Phone = form["phone"];
-                    cartList.ShipAddress = form["address"];
-                    cartList.ShipCity = form["city"];
-                    cartList.ShipCountry = form["country"];
-                    cartList.Status = "Pending";
-                    cartList.Note = form["note"];
-                    cartList.Product_Name = form["product"];
-
-                    db.CartLists.Add(cartList);
-                    foreach (var item in cart.Items)
-                    {
-                        Orderdetail details = new Orderdetail();
-                        details.ID = cartList.ID;
-                        details.Style_Code = item.ItemMst.Style_Code;
-                        details.Quantity = (int?)item.quantity;
-                        details.UnitPrice = item.ItemMst.MRP;
-                        db.Orderdetails.Add(details);
-                    }
-                    db.SaveChanges();
-                    cart.ClearCart();
-                    return RedirectToAction("ShoppingSuccess", "Product");
                 }
-                catch
+                else
                 {
-                    return Content("Error Checkout. Please information of Customer...");
+                    cartList.payment_ID = null;
                 }
+                cartList.userID = (int)Session["userID"];
+                cartList.userName = "an1203";
+                cartList.OrderDate = DateTime.Now.ToString();
+                cartList.MRP = decimal.Parse(form["mrp"]);
+                cartList.ShipName = form["name"];
+                cartList.Email_ID = form["email"];
+                cartList.Phone = form["phone"];
+                cartList.ShipAddress = form["address"];
+                cartList.ShipCity = form["city"];
+                cartList.OrderCode = "oc1";
+                cartList.ShipCountry = form["country"];
+                cartList.Status = "Pending";
+                cartList.Note = form["note"];
+                cartList.Product_Name = "Diamond";
+                db.CartLists.Add(cartList);
+
+                foreach (var item in cart)
+                {
+                    Orderdetail details = new Orderdetail();
+                    details.ID = cartList.ID;
+                    details.Style_Code = item.item_id;
+                    details.Quantity = (int?)item.Quantity;
+                    details.UnitPrice = item.Price;
+                    db.Orderdetails.Add(details);
+                }
+                foreach (var item in cart)
+                {
+                    db.ShoppingCarts.Remove(item);
+                }
+
+                db.SaveChanges();
+                TempData["result"] = "Order successful.";
+                return RedirectToAction("Cart", "Product");
             }
-            else
-            {
-                TempData["error"] = "You need to log in, please log in to continue!";
-                return RedirectToAction("Login", "Account");
-            }
+            TempData["error"] = "Order fail.";
+            return RedirectToAction("CheckOut", "Product");
+
         }
     }
 }
