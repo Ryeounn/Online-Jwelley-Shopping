@@ -59,6 +59,10 @@ body{
     background-color: var(--color-background);
 }
 
+hr{
+    border: var(--color-dark) .1px solid;
+}
+
 .containers a {
     color: var(--color-dark);
 }
@@ -435,6 +439,14 @@ body{
     height: 2.8rem;
     border-radius: 50%;
     overflow: hidden;
+    position: relative;
+    top: -.1em;
+}
+
+.right-section .nav .profile .profile-photo:hover{
+    cursor: pointer;
+    transform: translateX(5px);
+    transition: var(--transition-05);
 }
 
 .right-section .user-profile{
@@ -643,4 +655,107 @@ body{
 #siderbar a.active:first-child{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+
+.space--infor:hover{
+    text-decoration: none;
+}
+/* Menu */
+.side_bar {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    backdrop-filter: blur();
+    width: 230px;
+    height: 88vh;
+    position: relative;
+    left: -1.6em;
+    top: 1em;
+    overflow-y: auto;
+}
+.side_bar .menu {
+    width: 100%;
+    margin-top: 2.3em;
+}
+.side_bar .menu .item {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.side_bar .menu .item a {
+   color: var(--color-dark);
+   background-color: var(--color-white);
+   font-size: 14px;
+   text-decoration: none;
+   display: block;
+   padding: 5px 30px;
+   transition: var(--transition-03);
+   line-height: 60px;
+}
+.side_bar .menu .item a:hover{
+    background-color: var(--color-light);
+    transition: 0.3s ease;
+}
+.side_bar .menu .item i{
+   margin-right: 15px;
+}
+.side_bar .menu .item a .dropdown{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    top: .5em;
+    transition: 0.3s ease;
+}
+.side_bar .menu .item .sub-menu{
+   background: var(--color-light);
+   display: none;
+}
+.side_bar .menu .item .sub-menu a{
+   padding-left: 40px;
+}
+.rotate{
+   transform :rotate(90deg);
+}
+.close_btn{
+    position: absolute;
+    color: var(--color-white);
+    font-size: 18px;
+    right: 0;
+    margin: 25px;
+    cursor: pointer;
+}
+.asider .side_bar a.active{
+    width: 100%;
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    margin-left: 0;
+}
+.asider .side_bar a.active::before{
+    content: '';
+    width: 6px;
+    height: 18px;
+    background-color: var(--color-light);
+}
+.side_bar .menu .item._active a.sub-btn {
+    background-color: var(--color-light) !important;
+}
+.side_bar .menu .item._active::after {
+    content: ""; /*tại là phần tử con nên phải có thuộc tính content quần què này mới ra đm m*/
+    height: 69px;
+    background-color: red;
+    position: absolute;
+    width: 5px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* Administrator */
+.title--admin{
+    margin: 3.5em 0 0 2.1em;
+}
+
+.search--group{
+    margin-left: 3.4em;
 }

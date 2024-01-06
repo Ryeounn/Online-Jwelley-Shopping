@@ -621,19 +621,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\name.language.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>name.language.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\name.language.vi-vn.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>name.language.vi-vn.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -735,9 +726,9 @@
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\History.cshtml" />
     <EntityDeploy Include="Models\Jwelley.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
@@ -745,6 +736,8 @@
     <Content Include="Models\Jwelley.edmx.diagram">
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Home\Gold.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -782,24 +775,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\Image\Customer\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\name.language.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>name.language.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\name.language.vi-vn.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>name.language.vi-vn.designer.cs</LastGenOutput>
-    </Content>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

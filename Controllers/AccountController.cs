@@ -64,7 +64,7 @@ namespace Jewelly.Controllers
                     Session["PasswordAd"] = f_password;
                     Session["userName"] = data_ad.FirstOrDefault().userName;
                     //return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
-                    return RedirectToAction("Dashboard", "HomeAdmin", new { area = "Admin" });
+                    return RedirectToAction("Dashboard", "Home", new { area = "Admin" });
                 }
                 else
                 {

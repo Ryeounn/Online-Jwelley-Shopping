@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Jewelly.Areas.Admin.Controllers
 {
-    public class HomeAdminController : Controller
+    public class HomeController : Controller
     {
         // GET: Admin/HomeAdmin
         public ActionResult Dashboard()
@@ -28,6 +28,11 @@ namespace Jewelly.Areas.Admin.Controllers
         {
             Session.Clear();//remove session
             return RedirectToAction("Login", "Account", new {area = ""});
+        }
+
+        public ActionResult Gold()
+        {
+            return View();
         }
     }
 }

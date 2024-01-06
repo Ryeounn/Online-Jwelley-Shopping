@@ -1,9 +1,10 @@
 ﻿const sideMenu = document.querySelector('aside');
 const menu = document.getElementById('siderbar');
-const btns = menu.getElementsByClassName('btns');
 const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const darkMode = document.querySelector('.dark-mode');
+const item = document.getElementsByClassName('item');
+const bg = document.getElementsByClassName('sub-btn');
 const body = document.querySelector("body"),
     sidebar = body.querySelector(".sidebar"),
     toggle = body.querySelector(".toggle"),
@@ -39,14 +40,35 @@ modeSwitch.addEventListener('click', () => {
 $(document).ready(function () {
     var url = window.location.pathname,
         urlRegExp = new RegExp(url.replace(/\/$/, ''));
-    $('#siderbar a.btns').each(function () {
+    $('.side_bar a').each(function () {
         if (urlRegExp.test(this.href)) {
-            $(this).addClass('active');
+            $(this).parent('.item').addClass('_active');
         } else {
-            $(this).removeClass('active');
+            $(this).parent('.item').removeClass('_active');
         }
     });
+    $('.sub-btn').click(function (e) {
+        e.preventDefault(); // cái qq này để ngăn thằng a chạy hết 
+        $('.sub-menu').not($(this).next('.sub-menu')).slideUp();
+        $('.dropdown').not($(this).find('.dropdown')).removeClass('rotate');
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+        $('.item').removeClass('_active');
+        $(this).parent('.item').addClass('_active');
+    });
 });
+
+//$(document).ready(function () {
+//    var url = window.location.pathname,
+//        urlRegExp = new RegExp(url.replace(/\/$/, ''));
+//    $('#siderbar a.btns').each(function () {
+//        if (urlRegExp.test(this.href)) {
+//            $(this).addClass('active');
+//        } else {
+//            $(this).removeClass('active');
+//        }
+//    });
+//});
 
 
 //Orders.forEach(order => {

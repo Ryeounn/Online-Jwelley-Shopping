@@ -32,119 +32,95 @@
                 </div>
             </div>
 
-            <div class="sidebar" id="siderbar">
-                <a href="@Url.Action("Dashboard", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="@Url.Action("Users", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        person_outline
-                    </span>
-                    <h3>Users</h3>
-                </a>
-                <a href="@Url.Action("History", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        receipt_long
-                    </span>
-                    <h3>History</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Analytics</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        mail_outline
-                    </span>
-                    <h3>Tickets</h3>
-                    <span class="message-count">27</span>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Sale List</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Reports</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        settings
-                    </span>
-                    <h3>Settings</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="@Url.Action("Logout", "HomeAdmin")" class="btns">
-                    <span class="material-icons-sharp">
-                        logout
-                    </span>
-                    <h3>Logout</h3>
-                </a>
+            <div class="side_bar" id="side_bar">
+                <div class="menu">
+                    <div class="item">
+                        <a href="@Url.Action("Dashboard","Home")" class="sub-btn">
+                            <i class="fa-solid fa-shop"></i>
+                            Dashboard
+                        </a>
+                    </div>
+                    @* Hệ Items *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-ring"></i>Item<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Items</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-toolbox"></i>Product</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-copyright"></i>Brand</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Jewelry</a>
+
+                        </div>
+                    </div>
+                    @* Hệ Diamond *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-gem"></i>Diamond<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Information</a>
+                            <a href="#" class="sub-item"><i class="fas fa-table"></i>Quanlity</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-rainbow"></i>Subtype</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-gem"></i>Diamond</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-certificate"></i>Certify</a>
+                        </div>
+                    </div>
+                    @* Hệ đá *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-diamond"></i>Stone<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Stone Quanlity</i></a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-diamond"></i>Stone</a>
+                        </div>
+                    </div>
+                    @* Hệ Gold  *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-coins"></i>Gold<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-heart-circle-minus"></i>Category</a>
+                        </div>
+
+                    </div>
+                    @* hệ User *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-users"></i>Users<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-solid fa-user-cog"></i>Administrator</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-user"></i>Customer</a>
+                        </div>
+                    </div>
+                    @* Hệ Order *@
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fa-solid fa-truck"></i>Order<i class="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div class="sub-menu">
+                            <a href="#" class="sub-item"><i class="fa-regular fa-credit-card"></i>Payment</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-truck"></i>Order</a>
+                            <a href="#" class="sub-item"><i class="fa-solid fa-file-circle-check"></i>Orderdetails</a>
+                        </div>
+                    </div>
+                    @* Hệ news *@
+                    <div class="item">
+                        <a href="@Url.Action("History","Home")" class="sub-btn"><i class="fas fa-table"></i>News</a>
+                    </div>
+                </div>
+
+
 
             </div>
         </aside>
+
+        <!-- End of Sidebar Section -->
         <!-- End of Sidebar Section -->
         <div>
             @RenderBody()
@@ -170,23 +146,25 @@
                 </div>
 
                 <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>@Session["Name_employee"]</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
                     <div class="profile-photo">
-                        <img src="@Session["Path_avt"]@Session["Avatar"]">
+                        <a href="@Url.Action("Logout","Home")">
+                            <span class="material-icons-sharp">
+                                logout
+                            </span>
+                        </a>
                     </div>
                 </div>
 
             </div>
             <!-- End of Nav -->
-            <div class="user-profile">
-                <div class="logo">
-                    <img src="@Session["Path_avt"]@Session["Avatar"]">
-                    <h2>@Session["Name_employee"]</h2>
+            <a href="" class="space--infor">
+                <div class="user-profile">
+                    <div class="logo">
+                        <img src="@Session["Path_avt"]@Session["Avatar"]">
+                        <h2>@Session["Name_employee"]</h2>
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="reminders">
                 <div class="header">
                     <h2>Reminders</h2>
@@ -243,7 +221,7 @@
                 </div>
             </div>
         </div>
-    <script src="~/Areas/Admin/Content/Script/Order.js"></script>
-    <script src="~/Areas/Admin/Content/Script/Index.js"></script>
+        <script src="~/Areas/Admin/Content/Script/Order.js"></script>
+        <script src="~/Areas/Admin/Content/Script/Index.js"></script>
 </body>
 </html>
