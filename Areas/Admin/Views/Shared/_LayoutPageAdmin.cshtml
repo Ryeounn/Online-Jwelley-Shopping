@@ -35,7 +35,7 @@
             <div class="side_bar" id="side_bar">
                 <div class="menu">
                     <div class="item">
-                        <a href="@Url.Action("Dashboard","Home")" class="sub-btn">
+                        <a href="@Url.Action("Dashboard","HomeAdmin")" class="sub-btn">
                             <i class="fa-solid fa-shop"></i>
                             Dashboard
                         </a>
@@ -94,7 +94,7 @@
                             <i class="fa-solid fa-users"></i>Users<i class="fas fa-angle-right dropdown"></i>
                         </a>
                         <div class="sub-menu">
-                            <a href="#" class="sub-item"><i class="fa-solid fa-user-cog"></i>Administrator</a>
+                            <a href="@Url.Action("Manager", "Administrator")" class="sub-item"><i class="fa-solid fa-user-cog"></i>Administrator</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-user"></i>Customer</a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     </div>
                     @* Hệ news *@
                     <div class="item">
-                        <a href="@Url.Action("History","Home")" class="sub-btn"><i class="fas fa-table"></i>News</a>
+                        <a href="@Url.Action("History","HomeAdmin")" class="sub-btn"><i class="fas fa-table"></i>News</a>
                     </div>
                 </div>
 
@@ -225,3 +225,19 @@
         <script src="~/Areas/Admin/Content/Script/Index.js"></script>
 </body>
 </html>
+<script>
+    $(function () {
+        var hub = $.connection.onlineUsersHub;
+
+        hub.client.receiveOnlineUsersCount = function (count) {
+            console.log("Online users count: " + count);
+            // Update UI with the online users count
+        };
+
+        $.connection.hub.start().done(function () {
+            console.log("SignalR connected");
+        }).fail(function (err) {
+            return console.error(err.toString());
+        });
+    });
+</script>

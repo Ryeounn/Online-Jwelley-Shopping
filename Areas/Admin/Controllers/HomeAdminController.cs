@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Jewelly.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
         public ActionResult Dashboard()

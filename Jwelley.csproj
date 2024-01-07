@@ -50,6 +50,9 @@
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -624,7 +627,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -726,9 +729,9 @@
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Users.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\History.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
     <EntityDeploy Include="Models\Jwelley.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
@@ -736,8 +739,9 @@
     <Content Include="Models\Jwelley.edmx.diagram">
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Home\Gold.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Gold.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -783,9 +787,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

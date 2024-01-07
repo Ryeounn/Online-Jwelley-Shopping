@@ -54,6 +54,7 @@ D:\A22063\Jewelly\bin\EntityFramework.dll
 D:\A22063\Jewelly\bin\EntityFramework.SqlServer.dll
 D:\A22063\Jewelly\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\A22063\Jewelly\bin\Microsoft.Web.Infrastructure.dll
+D:\A22063\Jewelly\bin\Owin.dll
 D:\A22063\Jewelly\bin\System.Web.Helpers.dll
 D:\A22063\Jewelly\bin\System.Web.Mvc.dll
 D:\A22063\Jewelly\bin\System.Web.Razor.dll

@@ -291,7 +291,7 @@ namespace Jewelly.Controllers
                 cartList.Phone = form["phone"];
                 cartList.ShipAddress = form["address"];
                 cartList.ShipCity = form["city"];
-                cartList.OrderCode = "oc1";
+                cartList.OrderCode = GenerateUniqueRandomCode();
                 cartList.ShipCountry = form["country"];
                 cartList.Status = "Pending";
                 cartList.Note = form["note"];
@@ -319,6 +319,28 @@ namespace Jewelly.Controllers
             TempData["error"] = "Order fail.";
             return RedirectToAction("CheckOut", "Product");
 
+        }
+
+        //public String GenerateUniqueRandomCode()
+        //{
+        //    var code = "";
+        //    Random rd = new Random();
+        //    while (db.CartLists.Count(s => s.OrderCode == code) > 0)
+        //    {
+        //        code = string.Join("", new int[13].Select(_ => rd.Next(10).ToString()));
+        //    }
+        //    return code;
+        //}
+
+        public String GenerateUniqueRandomCode() 
+        {
+            string code;
+            Random rd = new Random();
+            code = string.Join("", new int[13].Select(_ => rd.Next(10).ToString()));
+            while (db.CartLists.Where(s => s.OrderCode == code) == null){
+                code = string.Join("", new int[13].Select(_ => rd.Next(10).ToString()));
+            }
+            return code;
         }
     }
 }

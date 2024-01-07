@@ -20,7 +20,7 @@ namespace Jewelly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string password, string username)
+        public ActionResult Index(string password, string username, string userId)
         {
 
             if (ModelState.IsValid)
@@ -64,7 +64,7 @@ namespace Jewelly.Controllers
                     Session["PasswordAd"] = f_password;
                     Session["userName"] = data_ad.FirstOrDefault().userName;
                     //return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
-                    return RedirectToAction("Dashboard", "Home", new { area = "Admin" });
+                    return RedirectToAction("Dashboard", "HomeAdmin", new { area = "Admin" });
                 }
                 else
                 {
@@ -209,7 +209,7 @@ namespace Jewelly.Controllers
 
             }
         }
-        public ActionResult Logout()
+        public ActionResult Logout(string userId)
         {
             Session.Clear();//remove session
             return RedirectToAction("Login", "Account");
