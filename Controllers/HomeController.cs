@@ -24,9 +24,9 @@ namespace Jewelly.Controllers
             {
                 ViewBag.CollectionMg = TempData["collection"];
             }
-            if (TempData["error"] != null)
+            if (TempData["errorr"] != null)
             {
-                ViewBag.ErrorMg = TempData["error"];
+                ViewBag.ErrorrMg = TempData["errorr"];
             }
             if (TempData["news"] != null) 
             {

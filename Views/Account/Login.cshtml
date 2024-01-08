@@ -3,6 +3,26 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
+<div id="toast">
+    @if (ViewBag.RegisterMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkRegister());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.RegisterMg" />
+    }
+    else if (ViewBag.RegisterErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkRegisterError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.RegisterErrorMg" />
+    }
+</div>
 <div id="ajax--load">
 
 </div>
@@ -13,4 +33,5 @@
         $("#ajax--load").load("Index", "Account");
     });
 </script>
+<script src="~/Content/Script/message.js"></script>
 

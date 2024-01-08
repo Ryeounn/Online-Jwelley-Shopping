@@ -2,8 +2,9 @@
 <Schema Namespace="JwelleyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="AdminLoginMst">
     <Key>
-      <PropertyRef Name="userName" />
+      <PropertyRef Name="AdminID" />
     </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name_employee" Type="varchar" MaxLength="255" />
     <Property Name="Avatar" Type="varchar" MaxLength="255" />
     <Property Name="Path_avt" Type="varchar" MaxLength="255" />
@@ -11,7 +12,7 @@
     <Property Name="Email" Type="varchar" MaxLength="255" />
     <Property Name="Phone" Type="varchar" MaxLength="255" />
     <Property Name="Address" Type="varchar" MaxLength="255" />
-    <Property Name="userName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="250" />
     <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="BrandMst">
@@ -39,7 +40,7 @@
     <Property Name="Phone" Type="varchar" MaxLength="255" />
     <Property Name="Status" Type="varchar" MaxLength="255" />
     <Property Name="Note" Type="varchar" MaxLength="255" />
-    <Property Name="userName" Type="varchar" MaxLength="250" />
+    <Property Name="AdminID" Type="int" />
     <Property Name="userID" Type="int" />
     <Property Name="payment_ID" Type="int" />
   </EntityType>
@@ -320,10 +321,10 @@
     <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdminLoginMst">
-        <PropertyRef Name="userName" />
+        <PropertyRef Name="AdminID" />
       </Principal>
       <Dependent Role="CartList">
-        <PropertyRef Name="userName" />
+        <PropertyRef Name="AdminID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

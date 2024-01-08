@@ -35,7 +35,7 @@ namespace Jewelly.Models
         public string Phone { get; set; }
         public string Status { get; set; }
         public string Note { get; set; }
-        public string userName { get; set; }
+        public Nullable<int> AdminID { get; set; }
         public Nullable<int> userID { get; set; }
         public Nullable<int> payment_ID { get; set; }
     

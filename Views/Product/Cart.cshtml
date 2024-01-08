@@ -23,6 +23,24 @@
         </script>
         <input type="hidden" class="fail" value="@ViewBag.ErrorMg" />
     }
+    else if (ViewBag.OrderMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkOrder());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.OrderMg" />
+    }
+    else if (ViewBag.ErrorOrderMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkErrorOrder());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ErrorOrderMg" />
+    }
 </div>
 
 <div class="container mgin--top">

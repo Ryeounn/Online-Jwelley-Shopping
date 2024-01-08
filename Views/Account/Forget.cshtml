@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Forget";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="sign_layout" id="displaysignin" data-aos="fade-right" data-aos-duration="1000">
+    <div class="title_sign">
+        <ul class="para_title">
+            <li><a class="confirm_space1" id="signin" style="color: black;">Forget Password</a></li>
+        </ul>
+    </div>
+    <div class="form_poc">
+        <form id="form1" runat="server" class="form_edits" onsubmit="return checkEmail();">
+            <div>
+                <p>USERNAME <red style="color: red">*</red></p>
+                <input type="text" class="input_edits form-control txt--input emailID" placeholder="Email" oninput="checkEmail();" name="emailID" />
+                <button type="submit" ID="btnForgotPassword" runat="server" OnClick="btnForgotPassword_Click" name="signin" class="btn--dark--model btn--login mt-3">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/Content/Script/Function.js"></script>

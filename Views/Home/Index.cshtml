@@ -5,23 +5,14 @@
 }
 
 <div id="toast">
-    @if (ViewBag.SuccessMg != null)
-    {
-        <script>
-            $(document).ready(function () {
-                $("toast").load(checkSuccess());
-            })
-        </script>
-        <input type="hidden" class="success" value="@ViewBag.SuccessMg" />
-    }
-    else if (ViewBag.ErrorMg != null)
+    @if (ViewBag.ErrorrMg != null)
     {
         <script>
             $(document).ready(function () {
                 $("toast").load(checkError());
             })
         </script>
-        <input type="hidden" class="fail" value="@ViewBag.ErrorMg" />
+        <input type="hidden" class="fail" value="@ViewBag.ErrorrMg" />
     }
     else if (ViewBag.NewsMg != null)
     {

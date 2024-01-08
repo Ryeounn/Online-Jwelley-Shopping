@@ -4,7 +4,45 @@
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 
 }
+<div id="toast">
+    @if (ViewBag.ChangeInforMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkGeneral());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.ChangeInforMg" />
+    }
+    else if (ViewBag.ChangeInforErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkGeneralError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ChangeInforErrorMg" />
+    }
+    else if (ViewBag.PasswordGeneralMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkPassGeneral());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.PasswordGeneralMg" />
+    }
+    else if (ViewBag.PasswordGeneralErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkPassGeneralError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.PasswordGeneralErrorMg" />
+    }
 
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">

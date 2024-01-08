@@ -130,6 +130,7 @@ function checkOut() {
     }
 }
 
+
 function checkUser() {
     var user = document.querySelector('.username');
     if (user.value == "" || user.value == null) {

@@ -20,6 +20,7 @@ namespace Jewelly.Models
             this.CartLists = new HashSet<CartList>();
         }
     
+        public int AdminID { get; set; }
         public string Name_employee { get; set; }
         public string Avatar { get; set; }
         public string Path_avt { get; set; }

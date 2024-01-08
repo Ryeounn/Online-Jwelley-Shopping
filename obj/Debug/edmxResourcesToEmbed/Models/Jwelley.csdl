@@ -2,8 +2,9 @@
 <Schema Namespace="JwelleyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="AdminLoginMst">
     <Key>
-      <PropertyRef Name="userName" />
+      <PropertyRef Name="AdminID" />
     </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name_employee" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Path_avt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -11,7 +12,7 @@
     <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_ad" FromRole="AdminLoginMst" ToRole="CartList" />
   </EntityType>
@@ -41,7 +42,7 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AdminID" Type="Int32" />
     <Property Name="userID" Type="Int32" />
     <Property Name="payment_ID" Type="Int32" />
     <NavigationProperty Name="AdminLoginMst" Relationship="Self.fk_crt_id_ad" FromRole="CartList" ToRole="AdminLoginMst" />
@@ -318,10 +319,10 @@
     <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AdminLoginMst">
-        <PropertyRef Name="userName" />
+        <PropertyRef Name="AdminID" />
       </Principal>
       <Dependent Role="CartList">
-        <PropertyRef Name="userName" />
+        <PropertyRef Name="AdminID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

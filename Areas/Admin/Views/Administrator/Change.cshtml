@@ -1,0 +1,33 @@
+﻿@model Jewelly.Models.AdminLoginMst
+@{
+    ViewBag.Title = "Change";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Change Password</h2>
+<h6 class="sub--title">[ @Model.userName ]</h6>
+<div class="container container--left">
+    <div class="row mt-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/Administrator/Change/@Model.AdminID" method="post">
+                <div class="form-group">
+                    <label class="form-text" hidden>ID</label>
+                    <input type="hidden" class="form-control txt--input" name="id" value="@Model.AdminID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">New Password</label>
+                    <input type="password" class="form-control txt--input" name="pass" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Confirm Password</label>
+                    <input type="password" class="form-control txt--input" name="cpass" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

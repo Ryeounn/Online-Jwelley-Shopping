@@ -7,10 +7,65 @@
     });
 };
 
-function checkDelete() {
+function checkDeleteAdmin() {
     toast({
         title: "Success!",
-        message: "Delete Product in cart successful.",
+        message: "Delete Admin successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+function checkPassword() {
+    toast({
+        title: "Success!",
+        message: "Change Password successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+function checkImage() {
+    toast({
+        title: "Success!",
+        message: "Update Avatar successful.",
+        type: "success",
+        duration: 100000
+    });
+}; 
+
+function checkAddAdmin() {
+    toast({
+        title: "Success!",
+        message: "Add Administrator successful.",
+        type: "success",
+        duration: 100000
+    });
+}; 
+
+
+function checkErrorAdd() {
+    toast({
+        title: "Error!",
+        message: "Add Administrator fail.",
+        type: "error",
+        duration: 100000
+    });
+}; 
+
+function checkErrorPass() {
+    toast({
+        title: "Error!",
+        message: "Change Password fail.",
+        type: "error",
+        duration: 100000
+    });
+};
+
+function checkInfor() {
+    toast({
+        title: "Success!",
+        message: "Change Information successful.",
         type: "success",
         duration: 100000
     });
@@ -21,81 +76,6 @@ function checkNews() {
         title: "Success!",
         message: "Send successful.",
         type: "success",
-        duration: 100000
-    });
-};
-
-
-function checkOrder() {
-    toast({
-        title: "Success!",
-        message: "Order successful.",
-        type: "success",
-        duration: 100000
-    });
-};
-
-function checkErrorOrder() {
-    toast({
-        title: "Error!",
-        message: "Order fail.",
-        type: "error",
-        duration: 100000
-    });
-};
-
-function checkRegister() {
-    toast({
-        title: "Success!",
-        message: "Register Account successful.",
-        type: "success",
-        duration: 100000
-    });
-};
-
-function checkRegisterError() {
-    toast({
-        title: "Error!",
-        message: "Register Account fail.",
-        type: "error",
-        duration: 100000
-    });
-};
-
-function checkGeneral() {
-    toast({
-        title: "Success!",
-        message: "Change Information successful.",
-        type: "success",
-        duration: 100000
-    });
-};
-
-function checkGeneralError() {
-    toast({
-        title: "Error!",
-        message: "Change Information fail.",
-        type: "error",
-        duration: 100000
-    });
-};
-
-
-function checkPassGeneral() {
-    toast({
-        title: "Success!",
-        message: "Change Password successful.",
-        type: "success",
-        duration: 100000
-    });
-};
-
-
-function checkPassGeneralError() {
-    toast({
-        title: "Error!",
-        message: "Change Password fail.",
-        type: "error",
         duration: 100000
     });
 };

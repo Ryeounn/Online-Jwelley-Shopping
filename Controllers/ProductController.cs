@@ -34,6 +34,14 @@ namespace Jewelly.Controllers
                 {
                     ViewBag.LoginMg = TempData["login"];
                 }
+                if(TempData["order"] != null)
+                {
+                    ViewBag.OrderMg = TempData["order"];
+                }
+                if(TempData["errorOrder"] != null)
+                {
+                    ViewBag.ErrorOrderMg = TempData["errorOrder"];
+                }
                 int user = (int)Session["userID"];
                 var shoppingCarts = db.ShoppingCarts.Where(s => s.User_id == user).ToList();
                 var money = db.ShoppingCarts.Where(s => s.User_id == user).Sum(s => s.Total);
@@ -70,13 +78,13 @@ namespace Jewelly.Controllers
 
         public ActionResult Details(int id) 
         {
-            if (TempData["result"] != null)
+            if (TempData["AddProduct"] != null)
             {
-                ViewBag.SuccessMg = TempData["result"];
+                ViewBag.AddProductMg = TempData["AddProduct"];
             }
-            if (TempData["error"] != null)
+            if (TempData["errorAddProduct"] != null)
             {
-                ViewBag.ErrorMg = TempData["error"];
+                ViewBag.ErrorAddProductMg = TempData["errorAddProduct"];
             }
             var model = new JoinDetails().SelectDetails(id).ToList();
             dynamic models = new ExpandoObject();
@@ -99,13 +107,13 @@ namespace Jewelly.Controllers
         [HttpGet]
         public ActionResult AddtoCart(int Id, string Img, string Path, string Name, decimal? Price, string Prod, int quantity = 1)
         {
-            if (TempData["result"] != null)
+            if (TempData["AddProduct"] != null)
             {
-                ViewBag.SuccessMg = TempData["result"];
+                ViewBag.AddProductMg = TempData["AddProduct"];
             }
-            if (TempData["error"] != null)
+            if (TempData["errorAddProduct"] != null)
             {
-                ViewBag.ErrorMg = TempData["error"];
+                ViewBag.ErrorAddProductMg = TempData["errorAddProduct"];
             }
             if (Session["Username"] != null)
             {
@@ -113,12 +121,12 @@ namespace Jewelly.Controllers
                 int user = (int)Session["userID"];
                 Cocart cocart = new Cocart();
                 cocart.Add(Id, user, Img, Path, Name, Price, Prod, quantity);
-                TempData["result"] = "Add Product successful.";
+                TempData["AddProduct"] = "Add Product successful.";
                 return RedirectToAction("Details/" + Id, "Product");
             }
             else
             {
-                TempData["error"] = "Add Product fail.";
+                TempData["errorAddProduct"] = "Add Product fail.";
                 return RedirectToAction("Payment", "Product");
             }
 
@@ -225,14 +233,6 @@ namespace Jewelly.Controllers
 
         public ActionResult CheckOut()
         {
-            if (TempData["result"] != null)
-            {
-                ViewBag.SuccessMg = TempData["result"];
-            }
-            if (TempData["error"] != null)
-            {
-                ViewBag.ErrorMg = TempData["error"];
-            }
             if (Session["username"] != null)
             {
                 var total_item = 0;
@@ -265,7 +265,7 @@ namespace Jewelly.Controllers
             if (cart != null)
             {
                 CartList cartList = new CartList();
-                cartList.ShipCode = "123";
+                cartList.ShipCode = form["payment"];
                 if (cartList.ShipCode == "Visa")
                 {
                     Payment payments = new Payment();
@@ -283,7 +283,7 @@ namespace Jewelly.Controllers
                     cartList.payment_ID = null;
                 }
                 cartList.userID = (int)Session["userID"];
-                cartList.userName = "an1203";
+                cartList.AdminID = 1;
                 cartList.OrderDate = DateTime.Now.ToString();
                 cartList.MRP = decimal.Parse(form["mrp"]);
                 cartList.ShipName = form["name"];
@@ -313,10 +313,10 @@ namespace Jewelly.Controllers
                 }
 
                 db.SaveChanges();
-                TempData["result"] = "Order successful.";
+                TempData["order"] = "Order successful.";
                 return RedirectToAction("Cart", "Product");
             }
-            TempData["error"] = "Order fail.";
+            TempData["errorOrder"] = "Order fail.";
             return RedirectToAction("CheckOut", "Product");
 
         }

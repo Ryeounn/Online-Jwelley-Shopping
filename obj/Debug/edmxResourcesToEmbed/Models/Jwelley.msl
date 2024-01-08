@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AdminLoginMsts">
       <EntityTypeMapping TypeName="JwelleyModel.AdminLoginMst">
         <MappingFragment StoreEntitySet="AdminLoginMst">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
           <ScalarProperty Name="Name_employee" ColumnName="Name_employee" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="Path_avt" ColumnName="Path_avt" />
@@ -41,7 +42,7 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="payment_ID" ColumnName="payment_ID" />
         </MappingFragment>

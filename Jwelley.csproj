@@ -101,7 +101,9 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Content\Css\Admin.css" />
     <Content Include="Areas\Admin\Content\Css\Responsive.css" />
+    <Content Include="Areas\Admin\Content\Image\avatardefault.jpg" />
     <Content Include="Areas\Admin\Content\Script\Index.js" />
+    <Content Include="Areas\Admin\Content\Script\messageAdmin.js" />
     <Content Include="Areas\Admin\Content\Script\Order.js" />
     <Content Include="Content\Css\intlTelInput.css" />
     <Content Include="Content\Css\Responsive.css" />
@@ -603,6 +605,7 @@
     <Content Include="Content\Image\Layout\upicon.png" />
     <Content Include="Content\Script\data.js" />
     <Content Include="Content\Script\data.min.js" />
+    <Content Include="Content\Script\DrapandDrop.js" />
     <Content Include="Content\Script\Function.js" />
     <Content Include="Content\Script\intlTelInput-jquery.js" />
     <Content Include="Content\Script\intlTelInput-jquery.min.js" />
@@ -732,6 +735,12 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Gold.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\General.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Change.cshtml" />
+    <Content Include="Areas\Admin\Views\Administrator\Add.cshtml" />
     <EntityDeploy Include="Models\Jwelley.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
@@ -739,9 +748,6 @@
     <Content Include="Models\Jwelley.edmx.diagram">
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\HomeAdmin\Gold.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
-    <Content Include="Areas\Admin\Views\Administrator\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -771,6 +777,7 @@
     <Content Include="Views\Product\BagCart.cshtml" />
     <Content Include="Views\Product\CheckOut.cshtml" />
     <Content Include="Views\Product\Payment.cshtml" />
+    <Content Include="Views\Account\Forget.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
