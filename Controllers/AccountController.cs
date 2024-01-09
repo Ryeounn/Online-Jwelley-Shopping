@@ -255,32 +255,35 @@ namespace Jewelly.Controllers
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(fromEmail);
             mailMessage.To.Add(toEmail);
-            mailMessage.Subject = "Mã xác nhận quên mật khẩu";
-            mailMessage.Body = $"Mã xác nhận của bạn là: {code}";
+            mailMessage.Subject = "Yash Gems & Jewelry";
+            mailMessage.Body = "Confirmation code forgot password";
+            mailMessage.Body = "Do not share this code with anyone!";
+            mailMessage.Body = "---";
+            mailMessage.Body = $"Your confirmation code is: {code}";
 
             smtpClient.Send(mailMessage);
         }
-
-        protected void btnForgotPassword_Click(string emailID, EventArgs e)
+            
+        public ActionResult Forget()
         {
-            try
-            {
-                string userEmail = emailID; // Lấy địa chỉ email từ người dùng
-                string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
-                SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
-
-                // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
-                Session["VerificationCode"] = randomCode;
-                // Chuyển hướng đến trang nhập lại hoặc trang xác nhận mã
-                //Response.Redirect("Forget.cshtml");
-            }
-            catch(e)
-            {
-                Console.(e);
-            }
+            return View();
         }
 
-        public ActionResult Forget()
+        [HttpPost]
+        public ActionResult Forget(string emmailID, FormCollection form)
+        {
+            var email = form["emailID"];
+            string userEmail = email; // Lấy địa chỉ email từ người dùng
+            string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
+            SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
+                                              // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
+            Session["VerificationCode"] = randomCode;
+            // Chuyển hướng đến trang nhập lại hoặc trang xác nhận mã
+            //Response.Redirect("Forget.cshtml");
+            return RedirectToAction("Verification","Account");
+        }
+
+        public ActionResult Verification()
         {
             return View();
         }

@@ -10,11 +10,11 @@
         </ul>
     </div>
     <div class="form_poc">
-        <form id="form1" runat="server" class="form_edits" onsubmit="return checkEmail();">
+        <form id="/Admin/Administrator/Forget" method="post" class="form_edits" onsubmit="return checkEmail();">
             <div>
                 <p>USERNAME <red style="color: red">*</red></p>
                 <input type="text" class="input_edits form-control txt--input emailID" placeholder="Email" oninput="checkEmail();" name="emailID" />
-                <button type="submit" ID="btnForgotPassword" runat="server" OnClick="btnForgotPassword_Click" name="signin" class="btn--dark--model btn--login mt-3">Send</button>
+                <button type="submit" ID="btnForgotPassword" name="signin" class="btn--dark--model btn--login mt-3">Send</button>
             </div>
         </form>
     </div>

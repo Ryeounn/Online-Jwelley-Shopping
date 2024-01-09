@@ -778,6 +778,7 @@
     <Content Include="Views\Product\CheckOut.cshtml" />
     <Content Include="Views\Product\Payment.cshtml" />
     <Content Include="Views\Account\Forget.cshtml" />
+    <Content Include="Views\Account\Verification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
