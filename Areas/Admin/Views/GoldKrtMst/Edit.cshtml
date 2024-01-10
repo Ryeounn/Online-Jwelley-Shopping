@@ -1,0 +1,27 @@
+﻿@model Jewelly.Models.GoldKrtMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.Gold_Crt ]</h6>
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/GoldKrtMst/Edit/@Model.GoldType_ID" method="post">
+                <input type="hidden" name="GoldType_ID" value="@Model.GoldType_ID" />
+                        <label for="GoldCrt">Prod Type</label>
+                        <input type="text"
+                               class="form-control"
+                               id="GoldCrt"
+                               name="Gold_Crt"
+                               placeholder="GoldCrt"
+                               value="@Model.Gold_Crt" />
+                <br />
+                <button type="submit" class="form-control mt-2 btn-primary change--admin">Save Change</button>
+            </form>
+        </div>
+            <div class="col-md-3"></div>
+        </div>
+</div>

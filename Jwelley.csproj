@@ -102,6 +102,7 @@
     <Content Include="Areas\Admin\Content\Css\Admin.css" />
     <Content Include="Areas\Admin\Content\Css\Responsive.css" />
     <Content Include="Areas\Admin\Content\Image\avatardefault.jpg" />
+    <Content Include="Areas\Admin\Content\Script\DrapDrop.js" />
     <Content Include="Areas\Admin\Content\Script\Index.js" />
     <Content Include="Areas\Admin\Content\Script\messageAdmin.js" />
     <Content Include="Areas\Admin\Content\Script\Order.js" />
@@ -630,7 +631,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GoldKrtMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\JewelTypeMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StoneMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StoneQltyController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -735,7 +742,6 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Gold.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\General.cshtml" />
@@ -748,6 +754,26 @@
     <Content Include="Models\Jwelley.edmx.diagram">
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\CustomerAdmin\Customer.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerAdmin\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerAdmin\General.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerAdmin\Change.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerAdmin\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\GoldKrtMst\Gold.cshtml" />
+    <Content Include="Areas\Admin\Views\GoldKrtMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\GoldKrtMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProMst\Prod.cshtml" />
+    <Content Include="Areas\Admin\Views\ProMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\ProMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\JewelTypeMst\Jewel.cshtml" />
+    <Content Include="Areas\Admin\Views\JewelTypeMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\JewelTypeMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneMst\Stone.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneQlty\Stoneqlt.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneQlty\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\StoneQlty\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -779,6 +805,7 @@
     <Content Include="Views\Product\Payment.cshtml" />
     <Content Include="Views\Account\Forget.cshtml" />
     <Content Include="Views\Account\Verification.cshtml" />
+    <Content Include="Views\Account\ChangeFromForget.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

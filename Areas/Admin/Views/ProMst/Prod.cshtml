@@ -1,0 +1,78 @@
+﻿@model List<Jewelly.Models.ProdMst>
+@{
+    ViewBag.Title = "Prod";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.AddProMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddPro());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddPro" />
+    }
+    else if (ViewBag.AddProErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddProError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddProError" />
+    }
+    else if (ViewBag.EditProMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditProMg" />
+    }
+    else if (ViewBag.EditProErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditProErrorMg" />
+    }
+</div>
+<h2 class="title--admin">Product</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/ProMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Product</a>
+    <form action="/Admin/ProMst/Prod" method="post">
+        <input type="text" placeholder="Product Type" name="search" class="form-control btn--search btn--search--pro" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--pro" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <table class="table _gold">
+        <thead>
+            <tr>
+                <td class="text--table">Product ID</td>
+                <td class="text--table">Enter Weight Of Each Stone</td>
+                <td class="text--table" style="text-align: center">Edit</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text--table">@item.Prod_ID </td>
+                    <td class="text--table">@item.Prod_Type</td>
+                    <td class="text--table">
+                        <a href="/Admin/ProMst/Edit/@item.Prod_ID" class="btn edit--admin text-center btn--td">Edit</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

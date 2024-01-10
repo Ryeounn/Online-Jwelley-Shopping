@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add Stone</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/StoneMst/Add" method="post">
+                <div class="form-group">
+                    <label class="form-text">Stone Gm</label>
+                    <input type="text" class="form-control" name="Stone_Gm" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone Pcs</label>
+                    <input type="text" class="form-control" name="Stone_Pcs" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone Crt</label>
+                    <input type="text" class="form-control" name="Stone_Crt" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone Rate</label>
+                    <input type="text" class="form-control" name="Stone_Rate" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone Amt</label>
+                    <input type="text" class="form-control" name="Stone_Amt" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Style Code</label>
+                    <input type="text" class="form-control" name="Style_Code" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">StoneQlty ID</label>
+                    <select class="form-control" name="StoneQlty_ID">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control mt-5 edit--admin change--admin" name="Add" value="Create" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

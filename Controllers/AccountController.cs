@@ -26,6 +26,10 @@ namespace Jewelly.Controllers
             {
                 ViewBag.RegisterErrorMg = TempData["registerError"];
             }
+            if (TempData["ChangeFrom"] != null)
+            {
+                ViewBag.ChangeFromMg = TempData["ChangeFrom"];
+            }
             return View();
         }
 
@@ -99,7 +103,8 @@ namespace Jewelly.Controllers
         {
             if (ModelState.IsValid)
             {
-                var check = db.UserRegMsts.FirstOrDefault(s => s.Username == username);
+                var email = form["emailID"];
+                var check = db.UserRegMsts.FirstOrDefault(s => s.Username == username && s.emailID == email);
                 if (check == null)
                 {
                     user.userLname = form["userLname"];
@@ -246,7 +251,6 @@ namespace Jewelly.Controllers
         {
             string fromEmail = "pglaca22063@cusc.ctu.edu.vn"; // Điền địa chỉ email của bạn
             string fromPassword = "L@csocool"; // Điền mật khẩu email của bạn
-
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
             smtpClient.Port = 587;
             smtpClient.Credentials = new NetworkCredential(fromEmail, fromPassword);
@@ -255,17 +259,17 @@ namespace Jewelly.Controllers
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(fromEmail);
             mailMessage.To.Add(toEmail);
-            mailMessage.Subject = "Yash Gems & Jewelry";
-            mailMessage.Body = "Confirmation code forgot password";
-            mailMessage.Body = "Do not share this code with anyone!";
-            mailMessage.Body = "---";
-            mailMessage.Body = $"Your confirmation code is: {code}";
-
+            mailMessage.Subject = "Yash Gems & Jewelry - Confirmation code forgot password";
+            mailMessage.Body = $"\nYour confirmation code is: {code}\n\nDo not share this code with anyone!";
             smtpClient.Send(mailMessage);
         }
             
         public ActionResult Forget()
         {
+            if(TempData["CheckMailError"] != null)
+            {
+                ViewBag.CheckMailError = TempData["CheckMailError"];
+            }
             return View();
         }
 
@@ -273,19 +277,113 @@ namespace Jewelly.Controllers
         public ActionResult Forget(string emmailID, FormCollection form)
         {
             var email = form["emailID"];
-            string userEmail = email; // Lấy địa chỉ email từ người dùng
-            string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
-            SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
-                                              // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
-            Session["VerificationCode"] = randomCode;
+            var emailuser = db.UserRegMsts.Where(row => row.emailID == email).FirstOrDefault();
+            var emailAdmin = db.AdminLoginMsts.Where(row => row.Email == email).FirstOrDefault();
+            if (emailuser != null)
+            {
+                string userEmail = email; // Lấy địa chỉ email từ người dùng
+                string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
+                SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
+                                                  // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
+                Session["VerificationCode"] = randomCode;
+                Session["EmailForget"] = email;
+                TempData["CheckMail"] = "Email has been sent";
+                return RedirectToAction("Verification", "Account");
+            }else if(emailAdmin != null)
+            {
+                string userEmail = email; // Lấy địa chỉ email từ người dùng
+                string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
+                SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
+                                                  // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
+                Session["VerificationCode"] = randomCode;
+                Session["EmailForget"] = email;
+                TempData["CheckMail"] = "Email has been sent";
+                return RedirectToAction("Verification", "Account");
+            }
+            else
+            {
+                TempData["CheckMailError"] = "Email don't exist";
+                return RedirectToAction("Forget", "Account");
+            }
             // Chuyển hướng đến trang nhập lại hoặc trang xác nhận mã
             //Response.Redirect("Forget.cshtml");
-            return RedirectToAction("Verification","Account");
+            
         }
 
         public ActionResult Verification()
         {
+            if(TempData["VerificationCodeError"] != null)
+            {
+                ViewBag.VerificationErrorMg = TempData["VerificationCodeError"];
+            }
+            if (TempData["CheckMail"] != null)
+            {
+                ViewBag.CheckMailer = TempData["CheckMail"];
+            }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Verification(FormCollection form)
+        {
+            string one = form["one"];
+            string two = form["two"];
+            string three = form["three"];
+            string four = form["four"];
+            string five = form["five"];
+            string six = form["six"];
+            string total = one + two + three + four + five + six;
+            string ses = Session["VerificationCode"] as string;
+            if (total == ses)
+            {
+                Session.Remove("VerificationCode");
+                return RedirectToAction("ChangeFromForget", "Account");
+            }
+            else
+            {
+                TempData["VerificationCodeError"] = "Verification Code not match";
+                return RedirectToAction("Verification", "Account");
+            }
+            
+        }
+
+        public ActionResult ChangeFromForget()
+        {
+            if(TempData["ChangeFromError"] != null)
+            {
+                ViewBag.ChangeFromErrorMg = TempData["ChangeFromError"];
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeFromForget(FormCollection form)
+        {
+            var newpass = GetMD5(form["news"]);
+            var confirm = GetMD5(form["confirm"]);
+            string email = Session["EmailForget"] as string;
+            if(newpass == confirm)
+            {
+                var updatePass = db.UserRegMsts.Where(row => row.emailID.Equals(email)).FirstOrDefault();
+                var updatePassAdmin = db.AdminLoginMsts.Where(row => row.Email.Equals(email)).FirstOrDefault();
+                if (updatePass != null)
+                {
+                    updatePass.password = newpass;
+                }
+                else if(updatePassAdmin != null) { }
+                {
+                    updatePassAdmin.Password = newpass;
+                }
+                db.SaveChanges();
+                Session.Remove("EmailForget");
+                TempData["ChangeFrom"] = "Change Password successful.";
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                TempData["ChangeFromError"] = "Change Password fail.";
+                return RedirectToAction("ChangeFromForget", "Account");
+            }
         }
 
         public ActionResult Logout(string userId)

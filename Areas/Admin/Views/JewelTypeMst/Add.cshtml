@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/JewelTypeMst/Add" method="post">
+                <label class="form-text">Jewellery Type</label>
+                <input type="text" class="form-control" name="Jewellery_Type" placeholder="" />
+                <input type="submit" class="form-control mt-4 btn-primary btn change--admin" name="Add" value="Create">
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

@@ -3,6 +3,90 @@
     ViewBag.Title = "Verification";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
+<div id="toast">
+    @if (ViewBag.VerificationErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkVeriError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.VerificationErrorMg" />
+    }
+    else if (ViewBag.CheckMailer != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkMailer());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.CheckMailer" />
+    }
 
-<h2>Verification</h2>
+</div>
+<form action="/Account/Verification" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="title--veri">Confirm Code</p>
+                <p class="sub--title--veri">Enter the code you received in Gmail</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <input type="text" class="form-control txt--code margin--first" name="one" maxlength="1" oninput="moveToNextInput(this, 1)" onpaste="pasteHandler(event, this)"/>
+                <input type="text" class="form-control txt--code" name="two" maxlength="1" oninput="moveToNextInput(this, 2)" onpaste="pasteHandler(event, this)"/>
+                <input type="text" class="form-control txt--code" name="three" maxlength="1" oninput="moveToNextInput(this, 3)" onpaste="pasteHandler(event, this)"/>
+                <input type="text" class="form-control txt--code" name="four" maxlength="1" oninput="moveToNextInput(this, 4)" onpaste="pasteHandler(event, this)"/>
+                <input type="text" class="form-control txt--code" name="five" maxlength="1" oninput="moveToNextInput(this, 5)" onpaste="pasteHandler(event, this)"/>
+                <input type="text" class="form-control txt--code" name="six" maxlength="1" oninput="moveToNextInput(this, 6)" onpaste="pasteHandler(event, this)"/>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <button type="submit" class="form-control btn--dark--model btn--submit--veri">Send</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function moveToNextInput(currentInput, nextInputIndex) {
+        var currentInput = document.querySelector('.form-control.txt--code:nth-child(' + nextInputIndex + '):not([readonly]):not([disabled])');
 
+        if (currentInput) {
+            var currentValue = currentInput.value;
+
+            // Nếu có giá trị và không phải ô cuối cùng
+            if (currentValue && nextInputIndex < 6) {
+                var nextInput = document.querySelector('.form-control.txt--code:nth-child(' + (nextInputIndex + 1) + '):not([readonly]):not([disabled])');
+
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+        
+    }
+
+    function pasteHandler(event, currentInput) {
+        event.preventDefault();
+
+        // Lấy nội dung được paste
+        var pastedText = (event.clipboardData || window.clipboardData).getData('text');
+
+        // Tách và gán từng ký tự vào từng ô
+        for (var i = 0; i < pastedText.length && i < 6; i++) {
+            var currentChar = pastedText.charAt(i);
+
+            // Gán giá trị vào ô nhập liệu hiện tại
+            currentInput.value = currentChar;
+
+            // Chuyển đến ô nhập liệu tiếp theo
+            var nextInput = currentInput.nextElementSibling;
+            if (nextInput) {
+                currentInput = nextInput;
+            }
+        }
+    }
+</script>
+<script src="~/Content/Script/message.js"></script>

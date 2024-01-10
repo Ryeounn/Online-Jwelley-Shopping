@@ -40,6 +40,15 @@
         </script>
         <input type="hidden" class="success" value="@ViewBag.ImageMg" />
     }
+    else if (ViewBag.InforErrorMatch != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkInforErrorMatch());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.InforErrorMatch" />
+    }
 </div>
 <h2 class="title--admin">Detail</h2>
 <h6 class="sub--title">[ @Model.userName ]</h6>

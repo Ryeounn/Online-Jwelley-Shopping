@@ -1,0 +1,78 @@
+﻿@model List<Jewelly.Models.GoldKrtMst>
+@{
+    ViewBag.Title = "Gold";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.AddGoldMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGold());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddGoldMg" />
+    }
+    else if (ViewBag.AddGoldErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddGoldErrorMg" />
+    }
+    else if (ViewBag.EditGoldMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditGoldMg" />
+    }
+    else if (ViewBag.EditGoldErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditGoldErrorMg" />
+    }
+</div>
+<h2 class="title--admin">Gold Krt</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/GoldKrtMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Gold Krt</a>
+    <form action="/Admin/GoldKrtMst/Gold" method="post">
+        <input type="text" placeholder="Gold Crt" name="search" class="form-control btn--search btn--gold" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--gold" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <tr>
+                    <td class="text--table">GoldType ID</td>
+                    <td class="text--table">GoldCrt</td>
+                    <td class="text--table" style="text-align: center">Edit</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text--table">@item.GoldType_ID </td>
+                        <td class="text--table">@item.Gold_Crt</td>
+                        <td class="text--table">
+                            <a href="/Admin/GoldKrtMst/Edit/@item.GoldType_ID" class="btn edit--admin text-center btn--td--gold">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

@@ -3,6 +3,7 @@
     ViewBag.Title = "Manager";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
+
 <div id="toast">
     @if (ViewBag.DeleteMg != null)
     {
@@ -48,7 +49,7 @@
     <a href="/Admin/Administrator/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Administrator</a>
     <form action="/Admin/Administrator/Manager" method="post">
         <input type="text" placeholder="Username" name="search" class="form-control btn--search" />
-        <input type="submit" class="btn btn-primary btn--submit--admin" value="Search"/>
+        <input type="submit" class="btn btn-primary btn--submit--admin" value="Search" />
     </form>
 </div>
 <hr class="mx-5" />
@@ -57,7 +58,7 @@
     {
         <div class="row mt-5 mb-3">
             <div class="col-md-3">
-                <img src="@item.Path_avt@item.Avatar" class="img--admin"/>
+                <img src="@item.Path_avt@item.Avatar" class="img--admin" />
             </div>
             <div class="col-md-5">
                 <p class="name--admin">@item.Name_employee</p>
@@ -76,3 +77,5 @@
     }
 </div>
 <script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
+
+

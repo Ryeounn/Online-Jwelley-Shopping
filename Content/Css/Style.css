@@ -1025,7 +1025,6 @@ form.example::after {
 .title_sign {
     text-align: center;
     position: relative;
-    top: -1.5em;
 }
 
 .para_title{
@@ -2370,3 +2369,31 @@ input{
     padding-top: 20px;
 }
 
+/* Verification */
+.title--veri{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.txt--code{
+    width: 5%;
+    height: 80px;
+    font-size: 32px;
+    display: inline-block;
+    margin-right: .5em;
+    text-align: center;
+}
+
+.margin--first{
+    margin-left: 30.7%;
+}
+
+.sub--title--veri{
+    text-align: center;
+}
+
+.btn--submit--veri{
+    width: 30%;
+    margin-left: 25em;
+}

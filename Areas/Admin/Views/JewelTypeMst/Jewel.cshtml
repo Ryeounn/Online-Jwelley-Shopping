@@ -1,0 +1,82 @@
+﻿@model List<Jewelly.Models.JewelTypeMst>
+@{
+    ViewBag.Title = "Jewel";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.AddJewelMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGold());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddJewelMg" />
+    }
+    else if (ViewBag.AddJewelErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddJewelErrorMg" />
+    }
+    else if (ViewBag.UpdateJewel != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.UpdateJewel" />
+    }
+    else if (ViewBag.UpdateJewelError != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.UpdateJewelError" />
+    }
+</div>
+<h2 class="title--admin">Jewel Type</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/JewelTypeMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Jewel</a>
+    <form action="/Admin/JewelTypeMst/Jewel" method="post">
+        <input type="text" placeholder="Jewellery Type" name="search" class="form-control btn--search btn--jewel" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--jewel" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">ID</td>
+                        <td class="text--table">Jewellery Type</td>
+                        <td class="text--table" style="text-align: center">Edit</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.ID </td>
+                            <td class="text--table">@item.Jewellery_Type</td>
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/JewelTypeMst/Edit/@item.ID" class="btn text-center edit--admin btn--td--gold">Edit</a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

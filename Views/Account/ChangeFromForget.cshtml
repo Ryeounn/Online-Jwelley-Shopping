@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ChangeFromForget";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.ChangeFromErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkChangeFromErrorMg());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ChangeFromErrorMg" />
+    }
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="title--veri">Changing</p>
+        </div>
+    </div>
+    <div class="form_poc">
+        @using (Html.BeginForm("ChangeFromForget", "Account", FormMethod.Post, new { @class = "form_edits" , @onsubmit = "return checkForget();" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="space_input_login">
+                <p>New Password</p>
+                <input type="password" placeholder="At least 8 characters" class="input_edits form-control txt--input news" name="news"/>
+            </div>
+            <div class="space_input_login">
+                <p>Confirm Password</p>
+                <input type="password" placeholder="Matches new password" class="input_edits form-control txt--input confirm" name="confirm"/>
+            </div>
+            <div class="space_input_login">
+                <button type="submit" name="signin" class="btn--dark--model btn--login mt-3">Change</button>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Content/Script/Function.js"></script>
+<script src="~/Content/Script/message.js"></script>

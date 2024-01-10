@@ -1,0 +1,84 @@
+﻿@model Jewelly.Models.UserRegMst
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.InforMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkInfor());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.InforMg" />
+    }
+    else if (ViewBag.PassMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkPassword());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.PassMg" />
+    }
+    else if (ViewBag.ErrorPass != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkErrorPass());
+            })
+        </script>
+        <input type="hidden" class="error" value="@ViewBag.ErrorPass" />
+    }
+    else if (ViewBag.ImageMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkImage());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.ImageMg" />
+    }
+    else if (ViewBag.InforErrorMatch != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkInforErrorMatch());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.InforErrorMatch" />
+    }
+</div>
+<h2 class="title--admin">Detail</h2>
+<h6 class="sub--title">[ @Model.Username ]</h6>
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <img class="details--admin" id="uploadedImage" src="@Url.Content(Model.Path_photo + Model.photo)" />
+        </div>
+        <div class="col-md-4 mt-5">
+            <p class="name--admin">@Model.userFname @Model.userLname</p>
+            <p class="state--admin"><i class="fas fa-circle"></i> Online</p>
+            <p class="user--admin"><i class="fas fa-user icon--admin mt-4"></i> @Model.Username</p>
+            <p><i class="fas fa-phone icon--admin mt-3"></i>@Model.mobNo</p>
+            <p><i class="fas fa-calendar-alt icon--admin mt-3"></i>@Model.dob</p>
+            <p><i class="fas fa-envelope icon--admin mt-3"></i>@Model.emailID</p>
+            <p><i class="fas fa-map-marker-alt icon--admin mt-3"></i>@Model.address</p>
+
+            <div id="dropZone" class="drap--drop mt-4" onchange="chooseFile(this)">
+                <p class="drapdrop--title">Drap & Drop File Avatar Here</p>
+                <p class="drapdrop--title">Accept: .JPG, .JPEG, .PNG</p>
+                <input type="file" id="fileInput" style="display: none;" />
+                <input type="hidden" id="id" value="@Model.userID" />
+            </div>
+        </div>
+        <div class="col-md-3 mt-5">
+            <a href="/Admin/CustomerAdmin/General/@Model.userID" class="btn btn-primary edit--admin"><i class="fas fa-info-circle"></i> Change Informartion</a>
+            <a href="/Admin/CustomerAdmin/Change/@Model.userID" class="btn btn-primary edit--admin change--admin mt-2"><i class="fas fa-cogs"></i> Change Password</a>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/DrapDrop.js"></script>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
+

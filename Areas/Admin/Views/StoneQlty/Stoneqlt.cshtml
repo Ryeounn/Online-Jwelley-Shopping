@@ -1,0 +1,82 @@
+﻿@model List<Jewelly.Models.StoneQltyMst>
+@{
+    ViewBag.Title = "Stoneqlt";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.AddStoneQltyMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddPro());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddStoneQltyMg" />
+    }
+    else if (ViewBag.AddStoneQltyErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddProError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddStoneQltyErrorMg" />
+    }
+    else if (ViewBag.EditStoneQltyMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditStoneQltyMg" />
+    }
+    else if (ViewBag.EditStoneQltyErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditStoneQltyErrorMg" />
+    }
+</div>
+<h2 class="title--admin">Stone Qlty</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/StoneQlty/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Stone Qlty</a>
+    <form action="/Admin/StoneQlty/Stoneqlt" method="post">
+        <input type="text" placeholder="Style Code" name="search" class="form-control btn--search btn--search--qlty" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--qlty" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">StoneQlty ID</td>
+                        <td class="text--table">StoneQlty</td>
+                        <td class="text--table" style="text-align: center">Edit</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.StoneQlty_ID </td>
+                            <td class="text--table">@item.StoneQlty</td>
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/StoneQlty/Edit/@item.StoneQlty_ID" class="btn form-control edit--admin text-center btn--td--gold">Edit</a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

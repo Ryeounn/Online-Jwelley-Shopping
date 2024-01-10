@@ -45,6 +45,12 @@
     --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
+
+.btn--login--admin{
+    width: 10%;
+    color: var(--color-btn) !important;
+    margin-left: 3em;
+}
 /* Input */
 .txt--input {
     padding-top: 25px;
@@ -62,6 +68,9 @@
     box-shadow: none;
 }
 
+.form-control{
+    border: none !important;
+}
 /* Toast */
 #toast {
     position: fixed;
@@ -949,14 +958,22 @@ hr{
 .btn--search {
     width: 15%;
     position: absolute;
-    top: 17.55%;
+    top: 17.54%;
     left: 26.6%;
+}
+
+.btn--search--customer {
+    left: 25%;
 }
 
 .btn--submit--admin {
     position: absolute;
-    top: 17.7%;
-    left: 42.3%;
+    top: 17.65%;
+    left: 42%;
+}
+
+.btn--submit--customer {
+    left: 40.5%;
 }
 
 .container--left{
@@ -979,7 +996,11 @@ hr{
     color: green !important;
 }
 
-.user--admin{
+.state--admin--off{
+    color: gray !important;
+}
+
+.user--admin {
     margin-top: 1em;
 }
 
@@ -1047,10 +1068,15 @@ hr{
     margin-left: 27.5%;
 }
 
-#selectName {
+#selectName, 
+#selectLast {
     font-size: 20px;
     text-align: center;
     font-weight: 500;
+}
+
+#selectLast{
+    display: inline-block;
 }
 
 #selectNameu,
@@ -1080,4 +1106,66 @@ hr{
 
 .demo--mt--add{
     margin-top: 1.65rem !important;
+}
+
+/* Gold */
+._gold{
+    width: 94%;
+}
+
+.btn--gold{
+    left: 26em;
+}
+
+.btn--submit--gold{
+    left: 42.7em;
+}
+
+/* Product */
+.btn--search--pro{
+    left: 24%;
+}
+
+.btn--submit--pro{
+    left: 39.5%;
+}
+
+.btn--td{
+    width: 100%;
+}
+
+.btn--td--gold{
+    width: 40%;
+    margin-left: 30%;
+}
+
+/* Jewel */
+.btn--jewel{
+    left: 23%;
+}
+
+.btn--submit--jewel{
+    left: 38.5%;
+}
+
+.text--table {
+    color: var(--color-dark);
+}
+
+/* Stone */
+.btn--search--stone{
+    left: 23%;
+}
+
+.btn--submit--stone{
+    left: 38.5%;
+}
+
+/* Stone Qlty */
+.btn--search--qlty{
+    left: 25%;
+}
+
+.btn--submit--qlty{
+    left: 40.5%;
 }

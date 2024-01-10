@@ -1,0 +1,106 @@
+﻿@model List<Jewelly.Models.StoneMst>
+@{
+    ViewBag.Title = "StoneMst";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.AddStoneMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddPro());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddStoneMstMg" />
+    }
+    else if (ViewBag.AddStoneMstErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddProError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddStoneMstErrorMg" />
+    }
+    else if (ViewBag.EditStoneMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditStoneMstMg" />
+    }
+    else if (ViewBag.EditStoneMstErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditStoneMstErrorMg" />
+    }
+    else if (ViewBag.DeleteStoneMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteStone());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.DeleteStoneMg" />
+    }
+</div>
+<h2 class="title--admin">Stone</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/StoneMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Stone</a>
+    <form action="/Admin/StoneMst/Stone" method="post">
+        <input type="text" placeholder="Style Code" name="search" class="form-control btn--search btn--search--stone" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--stone" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">Stone ID</td>
+                        <td class="text--table">Enter Weight Of Each Stone</td>
+                        <td class="text--table">Enter Total Pcs Of Stones In Item </td>
+                        <td class="text--table">Enter Carat Of Stone</td>
+                        <td class="text--table">Enter Rate Of Each Stone</td>
+                        <td class="text--table">Enter Total Amount Of Stones In Item</td>
+                        <td class="text--table">Code Of Style</td>
+                        <td class="text--table">ID Of Stone Quality</td>
+                        <td class="text--table">Edit</td>
+                        <td class="text--table">Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.Stone_ID </td>
+                            <td class="text--table">@item.Stone_Gm</td>
+                            <td class="text--table">@item.Stone_Pcs</td>
+                            <td class="text--table">@item.Stone_Crt</td>
+                            <td class="text--table">@item.Stone_Rate</td>
+                            <td class="text--table">@item.Stone_Amt</td>
+                            <td class="text--table">@item.Style_Code</td>
+                            <td>@item.StoneQlty_ID</td>
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/StoneMst/Edit/@item.Stone_ID" class="btn edit--admin text-center">Edit</a>
+                            </td>
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/StoneMst/Delete/@item.Stone_ID" class="form-contrl btn edit--admin delete--admin text-center">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

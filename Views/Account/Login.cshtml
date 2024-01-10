@@ -22,6 +22,15 @@
         </script>
         <input type="hidden" class="fail" value="@ViewBag.RegisterErrorMg" />
     }
+    else if (ViewBag.ChangeFromMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkChangeFrom());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.ChangeFromMg" />
+    }
 </div>
 <div id="ajax--load">
 

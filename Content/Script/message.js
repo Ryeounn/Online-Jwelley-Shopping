@@ -100,6 +100,55 @@ function checkPassGeneralError() {
     });
 };
 
+
+function checkVeriError() {
+    toast({
+        title: "Error!",
+        message: "Verification Code not match.",
+        type: "error",
+        duration: 100000
+    });
+};
+
+
+function checkChangeFrom() {
+    toast({
+        title: "Success!",
+        message: "Change Password successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkMailer() {
+    toast({
+        title: "Success!",
+        message: "Email has been sent.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkCheckMailError() {
+    toast({
+        title: "Error!",
+        message: "Email don't exist.",
+        type: "error",
+        duration: 100000
+    });
+};
+
+function checkChangeFromErrorMg() {
+    toast({
+        title: "Error!",
+        message: "Change Password fail.",
+        type: "error",
+        duration: 100000
+    });
+};
+
 function checkCollection() {
     toast({
         title: "Success!",

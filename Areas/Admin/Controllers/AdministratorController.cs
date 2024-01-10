@@ -54,6 +54,10 @@ namespace Jewelly.Areas.Admin.Controllers
             {
                 ViewBag.ImageMg = TempData["Image"];
             }
+            if(TempData["InforErrorMatch"] != null)
+            {
+                ViewBag.InforErrorMatch = TempData["InforErrorMatch"];
+            }
             var adminLoginMst = db.AdminLoginMsts.Where(row => row.AdminID == id).FirstOrDefault();
             //ViewBag.ImagePath = adminLoginMst.Path_avt + adminLoginMst.Avatar;
             return View(adminLoginMst);
@@ -121,8 +125,9 @@ namespace Jewelly.Areas.Admin.Controllers
         {
             int id = int.Parse(form["id"]);
             var admin = db.AdminLoginMsts.Where(s => s.AdminID == id).FirstOrDefault();
-            if(admin != null)
+            if (admin != null)
             {
+                admin.Name_employee = form["name"];
                 admin.Email = form["emalID"];
                 admin.Phone = form["mobNo"];
                 admin.Birthday = form["dob"];
@@ -130,8 +135,14 @@ namespace Jewelly.Areas.Admin.Controllers
                 db.SaveChanges();
                 TempData["Infor"] = "Change General successful";
                 return RedirectToAction("Details/" + id, "Administrator");
+
             }
-            return View();
+            else
+            {
+                TempData["InforErrorMatch"] = "Change General fail";
+                return RedirectToAction("Details/" + id, "Administrator");
+            }
+        
         }
 
         public ActionResult Change(int id)
@@ -178,7 +189,8 @@ namespace Jewelly.Areas.Admin.Controllers
         public ActionResult Add(FormCollection form)
         {
             var user = form["username"];
-            var check = db.AdminLoginMsts.Where(s => s.userName == user).FirstOrDefault();
+            var email = form["emalID"];
+            var check = db.AdminLoginMsts.Where(s => s.userName == user && s.Email == email).FirstOrDefault();
             if(check == null)
             {
                 AdminLoginMst admin = new AdminLoginMst();

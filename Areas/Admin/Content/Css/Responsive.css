@@ -1,77 +1,14 @@
 ﻿/* PC */
 @media (min-width: 64em) {
-
+    /* Gold */
+    .btn--submit--gold {
+        left: 42.7em;
+    }
 }
 
 /* Tablet */
 @media(min-width: 46.25em) and (max-width: 63.9375em) {
     /* Layout */
-    /*.containers {
-        width: 95%;
-        grid-template-columns: 7rem auto 23rem;
-    }
-
-    .asider .sidebar{
-        height: 90%;
-    }
-
-    .asider .logo h2 {
-        display: none;
-    }
-
-    .asider .sidebar h3 {
-        display: none;
-    }
-
-    .asider .sidebar a {
-        width: 5.6rem;
-    }
-
-    .asider .sidebar a:last-child {
-        position: relative;
-        margin-top: 6rem;
-        left: .3em;
-    }
-
-    .mode{
-        margin-top: .8em;
-    }
-
-    .asider .toggle .logo img{
-        margin-left: 2.5em;
-    }
-
-    .main .analyse {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .main .new-users .user-list .user {
-        flex-basis: 40%;
-    }
-
-    .main .recent-orders {
-        width: 94%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 5.5rem 0 0 1rem;
-    }
-
-    .main .recent-orders table {
-        width: 83vw;
-    }
-
-    .main table thead tr th:last-child,
-    .main table thead tr th:first-child {
-        display: none;
-    }
-
-    .main table tbody tr td:last-child,
-    .main table tbody tr td:first-child {
-        display: none;
-    }*/
-
     .containers {
         width: 100%;
         height: 100% !important;
@@ -206,8 +143,12 @@
     }
 
     /* Manager */
+    .btn--login--admin{
+        width: 20%;
+    }
+
     .btn--search{
-        top: 8.7em;
+        top: 8.65em;
         left: 13em;
         width: 31%;
     }
@@ -217,8 +158,62 @@
     }
 
     .btn--submit--admin{
-        top: 8.8em;
+        top: 8.7em;
         left: 30.5em;
+    }
+    /* Customer */
+    .btn--search--customer {
+        left: 11em;
+    }
+
+    .btn--submit--customer{
+        left: 28.5em;
+    }
+
+    /* Gold */
+    .btn--gold{
+        left: 18.5%;
+    }
+    .btn--submit--gold{
+        left: 50.5%;
+        top: 11.9%;
+    }
+
+    /* Pro */
+    .btn--search--pro{
+        left: 18%;
+    }
+
+    .btn--submit--pro{
+        left: 49.7%;
+    }
+
+    /* Jewel */
+    ._gold{
+        width: 100%;
+    }
+
+    .btn--jewel{
+        left: 16.5%;
+    }
+
+    .btn--submit--jewel{
+        left: 48.5%;
+    }
+
+    /* StoneMst */
+    .btn--search--stone{
+        left: 16.5%;
+    }
+
+    .btn--submit--stone{
+        left: 48.5%;
+    }
+
+    /* Stone Qlty */
+    .btn--search--qlty{
+        left: 21%;
+        width: 32.8%;
     }
 }
 
@@ -354,13 +349,13 @@
 
     /* Manager */
     .btn--search{
-        top: 16.5%;
+        top: 16.4%;
         left: 37%;
         width: 41%;
     }
 
     .btn--submit--admin{
-        top: 16.6%;
+        top: 16.55%;
         left: 80%;
     }
 
@@ -391,6 +386,65 @@
 
     .search--group {
         margin-left: 1em;
+    }
+
+    /* Customer */
+    .btn--search--customer{
+        left: 9em;
+        width: 47%;
+    }
+
+    .btn--submit--customer{
+        left: 23.5em;
+    }
+
+    /* Gold */
+    .btn--gold{
+        left: 27%;
+        width: 51.2%;
+    }
+    ._gold{
+        width: 99.5%;
+    }
+
+    .btn--td--gold{
+        width: 100%;
+        margin-left: 0;
+    }
+    /* Pro */
+    .btn--search--pro {
+        left: 26.5%;
+        width: 51.5%;
+    }
+
+    /* Jewel */
+    .btn--jewel{
+        left: 23%;
+        width: 55.5%;
+    }
+
+    .btn--td--gold{
+        width: 100%;
+    }
+
+    .sub--title{
+        margin-left: 1em;
+    }
+
+    /* StoneMst */
+    .btn--search--stone{
+        left: 23.5%;
+        width: 50%;
+    }
+
+    .btn--submit--stone{
+        left: 75.5%;
+    }
+
+    /* Stone Qlty */
+    .btn--search--qlty{
+        left: 31%;
+        width: 47%;
     }
 
 }

@@ -346,3 +346,24 @@ function checkDateEnd() {
         return true;
     }
 }
+
+function checkForget() {
+    var news = document.querySelector(".news");
+    var confirm = document.querySelector('.confirm');
+    if (news.value == "" && confirm.value.length < 8) {
+        new.style.border = '1px solid #B80000';
+        return false;
+    } else {
+        new.style.border = '1px solid green';
+        if (confirm.value == "" && confirm.value.length < 8) {
+            confirm.style.border = '1px solid #B80000';
+            return false;
+        } else {
+            confirm.style.border = '1px solid green';
+            return true;
+        }
+        return true;
+    }
+
+}
+

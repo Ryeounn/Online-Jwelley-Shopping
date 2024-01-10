@@ -47,7 +47,7 @@
                         </a>
                         <div class="sub-menu">
                             <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Items</a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-toolbox"></i>Product</a>
+                            <a href="@Url.Action("Prod","ProMst")" class="sub-item"><i class="fa-solid fa-toolbox"></i>Product</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-copyright"></i>Brand</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Jewelry</a>
@@ -74,8 +74,8 @@
                             <i class="fa-solid fa-diamond"></i>Stone<i class="fas fa-angle-right dropdown"></i>
                         </a>
                         <div class="sub-menu">
-                            <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Stone Quanlity</i></a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-diamond"></i>Stone</a>
+                            <a href="@Url.Action("Stoneqlt","StoneQlty")" class="sub-item"><i class="fa-solid fa-droplet"></i>Stone Quanlity</i></a>
+                            <a href="@Url.Action("Stone","StoneMst")" class="sub-item"><i class="fa-solid fa-diamond"></i>Stone</a>
                         </div>
                     </div>
                     @* Hệ Gold  *@
@@ -84,6 +84,7 @@
                             <i class="fa-solid fa-coins"></i>Gold<i class="fas fa-angle-right dropdown"></i>
                         </a>
                         <div class="sub-menu">
+                            <a href="@Url.Action("Gold","GoldKrtMst")" class="sub-item"><i class="fa-solid fa-heart-circle-minus"></i>Krt</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-heart-circle-minus"></i>Category</a>
                         </div>
 
@@ -95,7 +96,7 @@
                         </a>
                         <div class="sub-menu">
                             <a href="@Url.Action("Manager", "Administrator")" class="sub-item"><i class="fa-solid fa-user-cog"></i>Administrator</a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-user"></i>Customer</a>
+                            <a href="@Url.Action("Customer", "CustomerAdmin")" class="sub-item"><i class="fa-solid fa-user"></i>Customer</a>
                         </div>
                     </div>
                     @* Hệ Order *@
@@ -147,7 +148,7 @@
 
                 <div class="profile">
                     <div class="profile-photo">
-                        <a href="@Url.Action("Logout","Home")">
+                        <a href="@Url.Action("Logout","HomeAdmin")">
                             <span class="material-icons-sharp">
                                 logout
                             </span>

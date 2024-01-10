@@ -10,10 +10,14 @@
     <div class="row mt-3">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form action="/Admin/Administrator/General/@Model.AdminID" method="post">
+            <form action="/Admin/CustomerAdmin/General/@Model.AdminID" method="post">
                 <div class="form-group">
                     <label class="form-text" hidden>ID</label>
                     <input type="hidden" class="form-control txt--input" name="id" value="@Model.AdminID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Name</label>
+                    <input type="text" class="form-control txt--input" name="name" value="@Model.Name_employee" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Email</label>

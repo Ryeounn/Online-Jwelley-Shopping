@@ -1,0 +1,63 @@
+﻿@model Jewelly.Models.StoneMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.Stone_ID ]</h6>
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/StoneMst/Edit/@Model.Stone_ID" method="post">
+                <div class="form-group">
+                    <input type="hidden" name="Stone_ID" value="@Model.Stone_ID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneGm">Stone Gm</label>
+                    <input type="text" class="form-control" id="StoneGm" name="Stone_Gm" placeholder="StoneGm" value="@Model.Stone_Gm" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StonePcs">Stone Pcs</label>
+                    <input type="text" class="form-control" id="StonePcs" name="Stone_Pcs" placeholder="StonePcs" value="@Model.Stone_Pcs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneCrt">Stone Crt</label>
+                    <input type="text" class="form-control" id="StoneCrt" name="Stone_Crt" placeholder="StoneCrt" value="@Model.Stone_Crt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneRate">Stone Rate</label>
+                    <input type="text" class="form-control" id="StoneRate" name="Stone_Rate"placeholder ="StoneRate" value="@Model.Stone_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneRate">Stone Rate</label>
+                    <input type="text" class="form-control" id="StoneRate" name="Stone_Rate" placeholder="StoneRate" value="@Model.Stone_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneRate">Stone Rate</label>
+                    <input type="text" class="form-control" id="StoneRate" name="Stone_Rate" placeholder="StoneRate" value="@Model.Stone_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneRate">Stone Rate</label>
+                    <input type="text" class="form-control" id="StoneRate" name="Stone_Rate" placeholder="StoneRate" value="@Model.Stone_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneAmt">Stone Amt</label>
+                    <input type="text" class="form-control" id="StoneAmt" name="Stone_Amt" placeholder="StoneAmt" value="@Model.Stone_Amt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StyleCode">Style Code</label>
+                    <input type="text" class="form-control" id="StyleCode" name="Style_Code" placeholder="StyleCode" value="@Model.Style_Code" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text" for="StoneQltyID">StoneQlty ID</label>
+                    <input type="text" class="form-control" id="StoneQltyID" name="StoneQlty_ID" placeholder="StoneQltyID" value="@Model.StoneQlty_ID" />
+                </div>
+                <button type="submit" class="form-control mt-4 mb-4 edit--admin change--admin">Save Change</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+

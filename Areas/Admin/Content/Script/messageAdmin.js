@@ -1,7 +1,7 @@
 ﻿function checkSuccess() {
     toast({
         title: "Success!",
-        message: "Add Product successful.",
+        message: "Add successful.",
         type: "success",
         duration: 100000
     });
@@ -10,7 +10,7 @@
 function checkDeleteAdmin() {
     toast({
         title: "Success!",
-        message: "Delete Admin successful.",
+        message: "Delete successful.",
         type: "success",
         duration: 100000
     });
@@ -37,7 +37,7 @@ function checkImage() {
 function checkAddAdmin() {
     toast({
         title: "Success!",
-        message: "Add Administrator successful.",
+        message: "Add successful.",
         type: "success",
         duration: 100000
     });
@@ -47,7 +47,27 @@ function checkAddAdmin() {
 function checkErrorAdd() {
     toast({
         title: "Error!",
-        message: "Add Administrator fail.",
+        message: "Add fail.",
+        type: "error",
+        duration: 100000
+    });
+}; 
+
+
+function checkAddPro() {
+    toast({
+        title: "Success!",
+        message: "Add successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkAddProError() {
+    toast({
+        title: "Error!",
+        message: "Add fail.",
         type: "error",
         duration: 100000
     });
@@ -67,6 +87,16 @@ function checkInfor() {
         title: "Success!",
         message: "Change Information successful.",
         type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkInforErrorMatch() {
+    toast({
+        title: "Error!",
+        message: "Change Information fail.",
+        type: "error",
         duration: 100000
     });
 };
@@ -92,11 +122,61 @@ function checkCollection() {
 function checkError() {
     toast({
         title: "Fail",
-        message: "Add Product fail.",
+        message: "Add fail.",
         type: "error",
         duration: 100000
     });
 };
+
+
+function checkAddGold() {
+    toast({
+        title: "Success!",
+        message: "Add successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkAddGoldError() {
+    toast({
+        title: "Fail",
+        message: "Add fail.",
+        type: "error",
+        duration: 100000
+    });
+};
+
+function checkEditGold() {
+    toast({
+        title: "Success!",
+        message: "Update successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkDeleteStone() {
+    toast({
+        title: "Success!",
+        message: "Delete successful.",
+        type: "success",
+        duration: 100000
+    });
+};
+
+
+function checkEditGoldError() {
+    toast({
+        title: "Error!",
+        message: "Update fail.",
+        type: "error",
+        duration: 100000
+    });
+};
+
 
 function checkStatus() {
     const success = document.querySelector('.success').value;

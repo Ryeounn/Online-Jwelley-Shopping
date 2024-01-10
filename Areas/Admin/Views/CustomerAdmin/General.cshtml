@@ -1,0 +1,50 @@
+﻿@model Jewelly.Models.UserRegMst
+@{
+    ViewBag.Title = "General";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">General</h2>
+<h6 class="sub--title">[ @Model.Username ]</h6>
+<div class="container container--left">
+    <div class="row mt-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/CustomerAdmin/General/@Model.userID" method="post">
+                <div class="form-group">
+                    <label class="form-text" hidden>ID</label>
+                    <input type="hidden" class="form-control" name="id" value="@Model.userID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">First Name</label>
+                    <input type="text" class="form-control" name="first" value="@Model.userFname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Last Name</label>
+                    <input type="text" class="form-control" name="last" value="@Model.userLname" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Email</label>
+                    <input type="text" class="form-control" name="emalID" value="@Model.emailID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Phone</label>
+                    <input type="text" class="form-control" name="mobNo" value="@Model.mobNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Birthday</label>
+                    <input type="text" class="form-control" name="dob" value="@Model.dob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Address</label>
+                    <input type="text" class="form-control" name="address" value="@Model.address" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
