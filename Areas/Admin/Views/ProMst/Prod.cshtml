@@ -40,6 +40,15 @@
         </script>
         <input type="hidden" class="fail" value="@ViewBag.EditProErrorMg" />
     }
+    else if (ViewBag.DeleteProMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteStone());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.DeleteProMg" />
+    }
 </div>
 <h2 class="title--admin">Product</h2>
 <hr class="mx-5" />
@@ -58,6 +67,7 @@
                 <td class="text--table">Product ID</td>
                 <td class="text--table">Enter Weight Of Each Stone</td>
                 <td class="text--table" style="text-align: center">Edit</td>
+                <td class="text--table" style="text-align: center">Delete</td>
             </tr>
         </thead>
         <tbody>
@@ -69,6 +79,7 @@
                     <td class="text--table">
                         <a href="/Admin/ProMst/Edit/@item.Prod_ID" class="btn edit--admin text-center btn--td">Edit</a>
                     </td>
+                    <td> <a href="/Admin/ProMst/Delete/@item.Prod_ID" class="btn edit--admin delete--admin text-center btn--td">Delete</a></td>
 
                 </tr>
             }

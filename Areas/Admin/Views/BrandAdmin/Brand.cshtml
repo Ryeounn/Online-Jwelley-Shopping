@@ -1,0 +1,88 @@
+﻿@model List<Jewelly.Models.BrandMst>
+@{
+    ViewBag.Title = "BrandAd";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.AddBrandMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddAdmin());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddBrandMg" />
+    }
+    else if (ViewBag.AddBrandErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkErrorAdd());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddBrandErrorMg" />
+    }
+    else if (ViewBag.EditBrandMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditBrandMg" />
+    }
+    else if (ViewBag.EditBrandErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditBrandErrorMg" />
+    }
+    else if (ViewBag.DeleteBrand != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteStone());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteBrand" />
+    }
+</div>
+<h2 class="title--admin">Branch</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/BrandAdmin/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Branch</a>
+    <form action="/Admin/BrandAdmin/Brand" method="post">
+        <input type="text" placeholder="Username" name="search" class="form-control btn--search btn--search--brand" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--brand" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                    <tr>
+                        <th class="text--table">Branch Id</th>
+                        <th class="text--table">List Brand </th>
+                        <th class="text--table" style="text-align: center">Edit</th>
+                        <th class="text--table" style="text-align: center">Delete</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.Brand_ID</td>
+                            <td class="text--table">@item.Brand_Type</td>
+                            <td><a class="btn form-control edit--admin text-center btn--td--gold btn--brand" href="/Admin/BrandAdmin/Edit/@item.Brand_ID">Edit</a></td>
+                            <td><a class="btn form-control edit--admin text-center btn--td--gold delete--admin btn--brand" href="/Admin/BrandAdmin/Delete/@item.Brand_ID">Delete</a></td>
+                        </tr>
+                    }
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
+

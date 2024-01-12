@@ -1,0 +1,94 @@
+﻿
+@model Jewelly.Models.CartList
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="container _containss">
+
+    <h1 class="tex_edit">Order Record</h1>
+    <hr />
+    <div class="row _ed_c">
+        <div class="col-md-6">
+            <div class="contain_1">
+                <div class="inf_">
+                    <img src="@Model.UserRegMst.Path_photo@Model.UserRegMst.photo" class="img_edit_cus" />
+                    <div class="text_order">
+                        <h3>@Model.Product_Name</h3>
+                        <p>  Cam On Khach Iu da Mua Hang Ben Shop Em, Hay Ung Ho vao LAN sau nhe mua cang nhieu cang khong co uu dai nhung duoc may em gai long bong de y</p>
+                    </div>
+                </div>
+                <div class="payment_method">
+                    <p>
+                        <h2>
+                            <i class="fa-solid fa-credit-card"></i>Payment Method of Customer
+                        </h2>
+
+                    </p>
+                    <p class="edit_text_edit">
+                        <i class="fa-solid fa-circle"></i>Payment Type: @Model.Payment.type
+                    </p>
+                    <p class="edit_text_edit">
+                        <i class="fa-solid fa-circle"></i>Order Date: @Model.OrderDate
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="contain_2">
+                <div class="text_or">
+                    <h2><i class="fa-solid fa-circle-info"></i>Order Information</h2>
+                    <p><i class="fa-solid fa-barcode"></i>Order ID: @Model.OrderCode</p>
+                    <p><i class="fa-solid fa-user"></i>Customer Name: @Model.UserRegMst.userFname @Model.UserRegMst.userLname</p>
+                    <p><i class="fa-solid fa-location-dot"></i>Address:@Model.ShipAddress</p>
+                    <p><i class="fa-solid fa-city"></i>City:@Model.ShipCity</p>
+                    <p><i class="fa-solid fa-globe"></i>Country: @Model.ShipCountry</p>
+                    <p><i class="fa-solid fa-barcode"></i>Ship Code: @Model.ShipCode</p>
+                    <p><i class="fa-solid fa-gem"></i>Product: @Model.Product_Name</p>
+                    <p><i class="fa-solid fa-dollar-sign"></i>Price Total: @Model.MRP$</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: @Model.Email_ID</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: @Model.Phone</p>
+
+
+                    <form action="/Admin/CartList/Edit/@Model.ID" method="post">
+                        <input type="hidden" value="@Model.ID" name="ID" />
+                        <div class="edit_Cs">
+                            <div class="edit_form">
+                                <div class="form-group khung_">
+                                    <label>Status</label>
+                                    <select class="form-control" type="text" name="Status" value="@Model.Status">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Accept">Accept</option>
+                                        <option value="Cancel">Cancel</option>
+                                        <option value="Delivering">Delivering</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <button type="submit" class="btn form-control edit--admin change--admin btn--td--gold mr-btn">Change Information</button>
+                                <a href="@Url.Action("CartList","CartList")" class="btn btn-warning">Back</a>
+                                
+
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+

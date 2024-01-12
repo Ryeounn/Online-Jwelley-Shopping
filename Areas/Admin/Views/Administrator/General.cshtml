@@ -13,30 +13,37 @@
             <form action="/Admin/CustomerAdmin/General/@Model.AdminID" method="post">
                 <div class="form-group">
                     <label class="form-text" hidden>ID</label>
-                    <input type="hidden" class="form-control txt--input" name="id" value="@Model.AdminID" />
+                    <input type="hidden" class="form-control" name="id" value="@Model.AdminID" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Name</label>
-                    <input type="text" class="form-control txt--input" name="name" value="@Model.Name_employee" />
+                    <input type="text" class="form-control" name="name" value="@Model.Name_employee" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Email</label>
-                    <input type="text" class="form-control txt--input" name="emalID" value="@Model.Email" />
+                    <input type="text" class="form-control" name="emalID" value="@Model.Email" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Phone</label>
-                    <input type="text" class="form-control txt--input" name="mobNo" value="@Model.Phone" />
+                    <input type="text" class="form-control" name="mobNo" value="@Model.Phone" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Birthday</label>
-                    <input type="text" class="form-control txt--input" name="dob" value="@Model.Birthday" />
+                    <input type="text" class="form-control" name="dob" value="@Model.Birthday" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Address</label>
-                    <input type="text" class="form-control txt--input" name="address" value="@Model.Address" />
+                    <input type="text" class="form-control" name="address" value="@Model.Address" />
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Manager","Administrator")" class="btn form-control mt-5 edit--admin">Back</a>
+                    </div>
                 </div>
             </form>
         </div>

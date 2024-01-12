@@ -1,0 +1,117 @@
+﻿@model  List<Jewelly.Models.Payment>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.Addp != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddAdmin());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.Addp" />
+    }
+    else if (ViewBag.ErrorAp != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkErrorAdd());
+            })</script>
+        <input type="hidden" class="error" value="@ViewBag.ErrorAp" />
+    }
+    else if (ViewBag.Editp != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.Editp" />
+    }
+    else if (ViewBag.ErrorEdit != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.ErrorEdit" />
+    }
+    else if (ViewBag.DeleteP != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteStone());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteP" />
+    }
+    else if (ViewBag.ErrorDeleteP != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.ErrorDeleteP" />
+    }
+</div>
+<h2 class="title--admin">Payment</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/Payment/Create" class="btn btn-primary btn--add"><i class="fa fa-plus"></i>Payment</a>
+    <form action="/Admin/Payment/Payment" method="post">
+        <input type="text" placeholder="Payment Type" name="search" class="form-control btn--search btn--jewel btn_create" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--jewel mx-3" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container-fluid container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">ID</td>
+                        <td class="text--table">Payment Type</td>
+                        <td class="text--table">Number Card</td>
+                        <td class="text--table">CGV</td>
+
+                        <td class="text--table" style="text-align: center">Edit</td>
+                        <td class="text--table" style="text-align: center">Delete</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.ID </td>
+                            <td class="text--table">@item.type</td>
+                            <td class="text--table">@item.numbercard</td>
+                            <td class="text--table">@item.cgv</td>
+
+                            <td class="text--table">
+                                <a href="/Admin/Payment/Edit/@item.ID" class="btn edit--admin text-center btn--td">Edit</a>
+                            </td>
+                            <td class="text--table">
+                                <a href="/Admin/Payment/Delete/@item.ID" class="btn edit--admin delete--admin text-center btn--td">Delete</a>
+                            </td>
+
+                        </tr>
+
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
+
+
+<script>
+    setTimeout(function () {
+        $('#msgAlert').fadeOut('slow');
+        $('#msgsAlert').fadeOut('slow');
+    }, 2000);</script>

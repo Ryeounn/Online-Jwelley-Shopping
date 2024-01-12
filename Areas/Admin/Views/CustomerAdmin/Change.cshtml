@@ -23,8 +23,15 @@
                     <label class="form-text">Confirm Password</label>
                     <input type="password" class="form-control" name="cpass" />
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" class="form-control mt-4 btn-primary change--admin" value="Save Change" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Customer","CustomerAdmin")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
                 </div>
             </form>
         </div>

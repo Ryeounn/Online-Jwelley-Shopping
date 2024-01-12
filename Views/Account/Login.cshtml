@@ -31,6 +31,15 @@
         </script>
         <input type="hidden" class="success" value="@ViewBag.ChangeFromMg" />
     }
+    else if (ViewBag.LoginError != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkLoginError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.LoginError" />
+    }
 </div>
 <div id="ajax--load">
 

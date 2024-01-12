@@ -4,30 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d7a022494c642ccbd92e55e9513a2eb" Name="Diagram1">
-        <EntityTypeShape EntityType="JwelleyModel.AdminLoginMst" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.BrandMst" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.CartList" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.CatMst" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.CertifyMst" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.Collection" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.DimInfoMst" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.DimMst" Width="1.5" PointX="12.75" PointY="8" IsExpanded="true" />
+      <Diagram DiagramId="73cd45aab6434b5f95a81ed76e4e6ceb" Name="Diagram1">
+        <EntityTypeShape EntityType="JwelleyModel.AdminLoginMst" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.BrandMst" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.CartList" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.CatMst" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.CertifyMst" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.Collection" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.DimInfoMst" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.DimMst" Width="1.5" PointX="12.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="JwelleyModel.DimQltyMst" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.DimQltySubMst" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.GoldKrtMst" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.Img" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.Inquiry" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.ItemMst" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.JewelTypeMst" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.News" Width="1.5" PointX="4.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.Orderdetail" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.Payment" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.ProdMst" Width="1.5" PointX="5.25" PointY="28.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.ShoppingCart" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.StoneMst" Width="1.5" PointX="9.75" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.StoneQltyMst" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="JwelleyModel.UserRegMst" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.DimQltySubMst" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.GoldKrtMst" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.Img" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.Inquiry" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.ItemMst" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.JewelTypeMst" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.News" Width="1.5" PointX="6.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.Orderdetail" Width="1.5" PointX="9.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.Payment" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.ProdMst" Width="1.5" PointX="5.25" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.ShoppingCart" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.StoneMst" Width="1.5" PointX="9.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.StoneQltyMst" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="JwelleyModel.UserRegMst" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="JwelleyModel.fk_crt_id_ad" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_item_id_brand" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_crt_id_pay" ManuallyRouted="false" />
@@ -41,14 +41,12 @@
         <AssociationConnector Association="JwelleyModel.fk_dim_id_item" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_dim_id_sub" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_item_id_goldtype" ManuallyRouted="false" />
-        <AssociationConnector Association="JwelleyModel.fk_cart_id_img" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_item_id_img" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_cart_id_item" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_details_id_item" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_item_id_jwelly" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_item_id_prod" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_stone_id_item" ManuallyRouted="false" />
-        <AssociationConnector Association="JwelleyModel.fk_cart_id_pro" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_cart_id_User" ManuallyRouted="false" />
         <AssociationConnector Association="JwelleyModel.fk_Stone_id_stoneqlty" ManuallyRouted="false" />
       </Diagram>

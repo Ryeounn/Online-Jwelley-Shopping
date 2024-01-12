@@ -19,7 +19,14 @@
                        name="Jewellery_Type"
                        placeholder="JewelleryType"
                        value="@Model.Jewellery_Type" />
-                <button type="submit" class="form-control mt-4 btn-primary change--admin">Save</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="form-control mt-4 btn-primary change--admin">Save</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Jewel","JewelTypeMst")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-md-3"></div>

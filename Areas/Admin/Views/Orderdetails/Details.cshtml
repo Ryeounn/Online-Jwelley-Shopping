@@ -1,0 +1,68 @@
+﻿@model Jewelly.Models.Orderdetail
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div class="container _containss">
+    <h1 class="tex_edit">Order Record</h1>
+    <hr />
+    <div class="row _ed_c">
+
+        <div class="col-md-6">
+            <div class="contain_1 edit_contain1">
+                <div class="inf_ edit_order">
+                    <img src="~/Content/Image/Layout/logo-header.png" class="img_edit_cus" />
+                    <div class="text_order edit_name_order">
+                        <h3>Product Name: </h3>
+                        <p>@Model.ItemMst.ProdMst.Prod_Type</p>
+                    </div>
+                </div>
+
+
+                <div class="payment_method edit_order_pay edit_details_">
+                    <p>
+                        <h2>
+                            <i class="fa-solid fa-credit-card"></i>Type Of Product
+                        </h2>
+
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle"></i> Type: @Model.ItemMst.CatMst.Cat_Name
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle"></i> Brand: @Model.ItemMst.BrandMst.Brand_Type
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="contain_2">
+                <div class="text_or edit_txt">
+                    <h2><i class="fa-solid fa-circle-info"></i>Order Information</h2>
+                    <p><i class="fa-solid fa-barcode"></i>Order ID: @Model.Orderdetails_ID</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i>Address:@Model.CartList.ShipAddress</p>
+                    <p><i class="fa-solid fa-city"></i>City:@Model.CartList.ShipCity</p>
+                    <p><i class="fa-solid fa-globe"></i>Country: @Model.CartList.ShipCountry</p>
+                    <p><i class="fa-solid fa-barcode"></i>Ship Code: @Model.CartList.ShipCode</p>
+
+                    <p><i class="fa-solid fa-dollar-sign"></i>Price Total: @Model.ItemMst.MRP$</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: @Model.CartList.Email_ID</p>
+                    <p><i class="fa-solid fa-envelope"></i>Email: @Model.CartList.Phone</p>
+                    <div class="btn_edit edit_btn_or">
+                      <a href="@Url.Action("Orderdetails","Orderdetails")" class="btn edit--admin text-center btn--td">Back</a>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

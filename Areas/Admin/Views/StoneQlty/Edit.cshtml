@@ -19,7 +19,14 @@
                     <input type="text" class="form-control" id="StoneQlty_Mst" name="StoneQlty" placeholder="StoneQlty" value="@Model.StoneQlty" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn form-control mt-4 edit--admin change--admin">Save Change</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn form-control mt-4 edit--admin change--admin">Save Change</button>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="@Url.Action("Stoneqlt","StoneQlty")" class="btn mt-4 form-control edit--admin">Back</a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

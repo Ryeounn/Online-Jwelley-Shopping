@@ -14,7 +14,14 @@
                     <input type="text" class="form-control" name="StoneQlty" placeholder="" />
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn mt-4 edit--admin change--admin" name="Create" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="submit" class="btn mt-4 edit--admin change--admin" name="Create" />
+                        </div>
+                        <div class="col-md-6">
+                            <a href="@Url.Action("Stoneqlt","StoneQlty")" class="btn mt-4 edit--admin" >Back</a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

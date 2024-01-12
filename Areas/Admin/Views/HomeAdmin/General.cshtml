@@ -1,0 +1,158 @@
+﻿@model Jewelly.Models.AdminLoginMst
+@{
+    ViewBag.Title = "General";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.UpdateInforMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkPassword());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.UpdateInforMg" />
+    }
+    else if (ViewBag.UpdateInforErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkInforErrorMatch());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.UpdateInforErrorMg" />
+    }
+    else if (ViewBag.ChangePassHomeMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkPassword());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ChangePassHomeMg" />
+    }
+    else if (ViewBag.ChangePassHomeErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkErrorPass());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.ChangePassHomeErrorMg" />
+    }
+</div>
+<h2 class="title--admin">General</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <img class="details--admin" id="uploadedImage" src="@Url.Content(Model.Path_avt + Model.Avatar)" />
+        </div>
+        <div class="col-md-4">
+            <p class="name--admin">@Model.Name_employee</p>
+            <p class="state--admin mb-5"><i class="fas fa-circle"></i> Online</p>
+            <p class="mt-3"><i class="fas fa-birthday-cake icon--admin"></i> @Model.Birthday</p>
+            <p class="mt-3"><i class="fas fa-phone icon--admin"></i> @Model.Phone</p>
+            <p class="mt-3"><i class="fas fa-envelope icon--admin"></i> @Model.Email</p>
+            <p class="mt-3"><i class="fas fa-map-marker-alt icon--admin"></i> @Model.Address</p>
+
+            <div id="dropZone" class="drap--drop mt-4 drap--home--admin" onchange="chooseFile(this)">
+                <p class="drapdrop--title">Drap & Drop File Avatar Here</p>
+                <p class="drapdrop--title">Accept: .JPG, .JPEG, .PNG</p>
+                <input type="file" id="fileInput" style="display: none;" />
+                <input type="hidden" id="id" value="@Model.AdminID" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a href="/Admin/HomeAdmin/Information/@Model.AdminID" class="btn form-control edit--admin mb-2"><i class="fas fa-info-circle"></i> Change Information</a>
+            <a href="@Url.Action("Change","HomeAdmin")" class="btn form-control edit--admin change--admin"><i class="fas fa-cogs"></i> Change Password</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function chooseFile(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+</script>
+<script>
+    var dropZone = document.getElementById('dropZone');
+    var userID = document.getElementById('id').value;
+    var uploadedImage = $('#uploadedImage')
+
+    dropZone.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+    });
+
+    dropZone.addEventListener('dragleave', function (e) {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+    });
+
+    dropZone.addEventListener('drop', function (e) {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+
+        var files = e.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    function handleFiles(files) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            console.log('File name: ' + file.name);
+            console.log(userID);
+
+            // Tạo FormData để gửi file lên server
+            var formData = new FormData();
+            formData.append('file', file);
+            formData.append('userID', userID);
+
+            // Sử dụng Ajax để gửi file lên server
+            $.ajax({
+                url: '/Admin/HomeAdmin/UploadFiles',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response.Message);
+                    /*uploadedImage.attr('src', response.imageUrl);*/
+                    window.location.href = "/Admin/HomeAdmin/General";
+                },
+                error: function (error) {
+                    console.error('Error uploading files: ' + error.responseText);
+                }
+            });
+        }
+    };
+
+    $(document).ready(function () {
+        var openFileInput = $("#dropZone");
+        var fileInput = $("#fileInput");
+        var isClickHandled = false;
+
+        openFileInput.on('click', function () {
+            if (!isClickHandled) {
+                isClickHandled = true;
+                fileInput.click();
+            }
+        });
+
+        fileInput.on('change', function () {
+            var selectedFileName = $(this).val();
+            alert('Selected File: ' + selectedFileName);
+            // Thực hiện xử lý file ở đây nếu cần
+            isClickHandled = false; // Đặt lại trạng thái để chuẩn bị cho lần click tiếp theo
+        });
+    });
+</script>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

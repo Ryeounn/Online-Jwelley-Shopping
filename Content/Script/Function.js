@@ -144,7 +144,6 @@ function checkUser() {
 
 function checkPass() {
     var pass = document.querySelector('.password');
-
     if (pass.value == "" || pass.value == null) {
         pass.style.border = '1px solid #B80000';
         return false;
@@ -224,9 +223,7 @@ function checkPhone() {
         //phone.addEventListener('keyup', reset);
     
     }
-
-     
-    }
+}
 
 
 function checkDob() {
@@ -351,10 +348,10 @@ function checkForget() {
     var news = document.querySelector(".news");
     var confirm = document.querySelector('.confirm');
     if (news.value == "" && confirm.value.length < 8) {
-        new.style.border = '1px solid #B80000';
+        news.style.border = '1px solid #B80000';
         return false;
     } else {
-        new.style.border = '1px solid green';
+        news.style.border = '1px solid green';
         if (confirm.value == "" && confirm.value.length < 8) {
             confirm.style.border = '1px solid #B80000';
             return false;

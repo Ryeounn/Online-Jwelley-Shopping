@@ -631,10 +631,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministratorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CartListController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DimMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\GoldKrtMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\JewelTypeMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderdetailsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PaymentController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoneMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoneQltyController.cs" />
@@ -740,20 +745,11 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\Users.cshtml" />
-    <Content Include="Areas\Admin\Views\HomeAdmin\History.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Manager.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\General.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Change.cshtml" />
     <Content Include="Areas\Admin\Views\Administrator\Add.cshtml" />
-    <EntityDeploy Include="Models\Jwelley.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Jwelley.edmx.diagram">
-      <DependentUpon>Jwelley.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\CustomerAdmin\Customer.cshtml" />
     <Content Include="Areas\Admin\Views\CustomerAdmin\Details.cshtml" />
     <Content Include="Areas\Admin\Views\CustomerAdmin\General.cshtml" />
@@ -774,6 +770,33 @@
     <Content Include="Areas\Admin\Views\StoneQlty\Stoneqlt.cshtml" />
     <Content Include="Areas\Admin\Views\StoneQlty\Add.cshtml" />
     <Content Include="Areas\Admin\Views\StoneQlty\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Inquiry.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\News.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\General.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Information.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Change.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Brand.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\BrandAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CartList\CartList.cshtml" />
+    <Content Include="Areas\Admin\Views\CartList\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Payment\Payment.cshtml" />
+    <Content Include="Areas\Admin\Views\Payment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Payment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Orderdetails\Orderdetails.cshtml" />
+    <Content Include="Areas\Admin\Views\Orderdetails\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DimMst\Dim.cshtml" />
+    <Content Include="Areas\Admin\Views\DimMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\DimMst\Edit.cshtml" />
+    <EntityDeploy Include="Models\Jwelley.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Jwelley.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Jwelley.edmx.diagram">
+      <DependentUpon>Jwelley.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\HomeAdmin\Notification.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Notify.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

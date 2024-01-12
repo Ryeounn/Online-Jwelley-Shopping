@@ -345,6 +345,19 @@
     .note_avt{
         margin-left: .5em;
     }
+
+    /* Verification */
+    .margin--first{
+        margin-left: 19%;
+    }
+
+    .txt--code{
+        width: 8%;
+    }
+
+    .btn--submit--veri{
+        margin-left: 15.8em;
+    }
 }
 /* Mobile */
 @media(max-width: 46.25em){
@@ -1007,5 +1020,24 @@
 
     .btn--save--infor{
         margin-left: 1em;
+    }
+
+    /* Verification */
+    .title--veri,
+    .sub--title--veri{
+        margin-left: 2em;
+    }
+
+    .margin--first {
+        margin-left: 14%;
+    }
+
+    .txt--code {
+        width: 9%;
+    }
+
+    .btn--submit--veri {
+        width: 50%;
+        margin-left: 7.3em;
     }
 }

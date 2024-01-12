@@ -26,6 +26,16 @@ function checkNews() {
 };
 
 
+function checkLoginError() {
+    toast({
+        title: "Error!",
+        message: "Login fail.",
+        type: "error",
+        duration: 100000
+    });
+};
+
+
 function checkOrder() {
     toast({
         title: "Success!",

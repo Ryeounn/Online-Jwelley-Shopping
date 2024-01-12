@@ -35,7 +35,7 @@
           <Property Name="Product_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MRP" Type="numeric" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Email_ID" Type="varchar" MaxLength="255" />
-          <Property Name="OrderDate" Type="varchar" MaxLength="255" />
+          <Property Name="OrderDate" Type="datetime" />
           <Property Name="ShipName" Type="varchar" MaxLength="255" />
           <Property Name="ShipAddress" Type="varchar" MaxLength="255" />
           <Property Name="OrderCode" Type="varchar" MaxLength="255" />
@@ -43,8 +43,8 @@
           <Property Name="ShipCode" Type="varchar" MaxLength="255" />
           <Property Name="ShipCountry" Type="varchar" MaxLength="255" />
           <Property Name="Phone" Type="varchar" MaxLength="255" />
-          <Property Name="Status" Type="varchar" MaxLength="255" />
           <Property Name="Note" Type="varchar" MaxLength="255" />
+          <Property Name="Status" Type="varchar" MaxLength="255" />
           <Property Name="AdminID" Type="int" />
           <Property Name="userID" Type="int" />
           <Property Name="payment_ID" Type="int" />
@@ -229,8 +229,6 @@
           <Property Name="Img" Type="varchar(max)" />
           <Property Name="Total" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ImgPath" Type="varchar(max)" />
-          <Property Name="id_pro" Type="int" />
-          <Property Name="img_id" Type="int" />
           <Property Name="item_id" Type="int" />
           <Property Name="User_id" Type="int" />
         </EntityType>
@@ -273,18 +271,6 @@
           <Property Name="photo" Type="varchar" MaxLength="255" />
           <Property Name="Path_photo" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="fk_cart_id_img">
-          <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
-          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Img">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ShoppingCart">
-              <PropertyRef Name="img_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_cart_id_item">
           <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
           <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
@@ -294,18 +280,6 @@
             </Principal>
             <Dependent Role="ShoppingCart">
               <PropertyRef Name="item_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cart_id_pro">
-          <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
-          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProdMst">
-              <PropertyRef Name="Prod_ID" />
-            </Principal>
-            <Dependent Role="ShoppingCart">
-              <PropertyRef Name="id_pro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -573,16 +547,8 @@
           <EntitySet Name="StoneMst" EntityType="Self.StoneMst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StoneQltyMst" EntityType="Self.StoneQltyMst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRegMst" EntityType="Self.UserRegMst" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fk_cart_id_img" Association="Self.fk_cart_id_img">
-            <End Role="Img" EntitySet="Img" />
-            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
-          </AssociationSet>
           <AssociationSet Name="fk_cart_id_item" Association="Self.fk_cart_id_item">
             <End Role="ItemMst" EntitySet="ItemMst" />
-            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cart_id_pro" Association="Self.fk_cart_id_pro">
-            <End Role="ProdMst" EntitySet="ProdMst" />
             <End Role="ShoppingCart" EntitySet="ShoppingCart" />
           </AssociationSet>
           <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
@@ -703,7 +669,7 @@
           <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Email_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="OrderDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
           <Property Name="ShipName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ShipAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="OrderCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -711,8 +677,8 @@
           <Property Name="ShipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ShipCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="AdminID" Type="Int32" />
           <Property Name="userID" Type="Int32" />
           <Property Name="payment_ID" Type="Int32" />
@@ -814,7 +780,6 @@
           <Property Name="pic_5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="pic_6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="path_img" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_img" FromRole="Img" ToRole="ShoppingCart" />
           <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_img" FromRole="Img" ToRole="ItemMst" />
         </EntityType>
         <EntityType Name="Inquiry">
@@ -919,7 +884,6 @@
           <Property Name="Prod_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Prod_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_prod" FromRole="ProdMst" ToRole="ItemMst" />
-          <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_pro" FromRole="ProdMst" ToRole="ShoppingCart" />
         </EntityType>
         <EntityType Name="ShoppingCart">
           <Key>
@@ -932,13 +896,9 @@
           <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ImgPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="id_pro" Type="Int32" />
-          <Property Name="img_id" Type="Int32" />
           <Property Name="item_id" Type="Int32" />
           <Property Name="User_id" Type="Int32" />
-          <NavigationProperty Name="Img1" Relationship="Self.fk_cart_id_img" FromRole="ShoppingCart" ToRole="Img" />
           <NavigationProperty Name="ItemMst" Relationship="Self.fk_cart_id_item" FromRole="ShoppingCart" ToRole="ItemMst" />
-          <NavigationProperty Name="ProdMst" Relationship="Self.fk_cart_id_pro" FromRole="ShoppingCart" ToRole="ProdMst" />
           <NavigationProperty Name="UserRegMst" Relationship="Self.fk_cart_id_User" FromRole="ShoppingCart" ToRole="UserRegMst" />
         </EntityType>
         <EntityType Name="StoneMst">
@@ -1141,18 +1101,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_cart_id_img">
-          <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
-          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Img">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ShoppingCart">
-              <PropertyRef Name="img_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_item_id_img">
           <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
           <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
@@ -1222,18 +1170,6 @@
             </Principal>
             <Dependent Role="StoneMst">
               <PropertyRef Name="Style_Code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cart_id_pro">
-          <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
-          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProdMst">
-              <PropertyRef Name="Prod_ID" />
-            </Principal>
-            <Dependent Role="ShoppingCart">
-              <PropertyRef Name="id_pro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1337,10 +1273,6 @@
             <End Role="GoldKrtMst" EntitySet="GoldKrtMsts" />
             <End Role="ItemMst" EntitySet="ItemMsts" />
           </AssociationSet>
-          <AssociationSet Name="fk_cart_id_img" Association="Self.fk_cart_id_img">
-            <End Role="Img" EntitySet="Imgs" />
-            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
-          </AssociationSet>
           <AssociationSet Name="fk_item_id_img" Association="Self.fk_item_id_img">
             <End Role="Img" EntitySet="Imgs" />
             <End Role="ItemMst" EntitySet="ItemMsts" />
@@ -1364,10 +1296,6 @@
           <AssociationSet Name="fk_stone_id_item" Association="Self.fk_stone_id_item">
             <End Role="ItemMst" EntitySet="ItemMsts" />
             <End Role="StoneMst" EntitySet="StoneMsts" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cart_id_pro" Association="Self.fk_cart_id_pro">
-            <End Role="ProdMst" EntitySet="ProdMsts" />
-            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
           </AssociationSet>
           <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
             <End Role="UserRegMst" EntitySet="UserRegMsts" />
@@ -1423,8 +1351,8 @@
                 <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
                 <ScalarProperty Name="ShipCountry" ColumnName="ShipCountry" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="payment_ID" ColumnName="payment_ID" />
@@ -1626,8 +1554,6 @@
                 <ScalarProperty Name="Img" ColumnName="Img" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
-                <ScalarProperty Name="id_pro" ColumnName="id_pro" />
-                <ScalarProperty Name="img_id" ColumnName="img_id" />
                 <ScalarProperty Name="item_id" ColumnName="item_id" />
                 <ScalarProperty Name="User_id" ColumnName="User_id" />
               </MappingFragment>

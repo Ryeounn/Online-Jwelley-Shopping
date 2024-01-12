@@ -19,7 +19,14 @@
                                placeholder="GoldCrt"
                                value="@Model.Gold_Crt" />
                 <br />
-                <button type="submit" class="form-control mt-2 btn-primary change--admin">Save Change</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="form-control mt-2 btn-primary change--admin">Save Change</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Jewel","JewelTypeMst")" class="btn form-control mt-2 edit--admin">Back</a>
+                    </div>
+                </div>
             </form>
         </div>
             <div class="col-md-3"></div>

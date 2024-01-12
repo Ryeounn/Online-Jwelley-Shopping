@@ -30,7 +30,7 @@
     <Property Name="Product_Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="MRP" Type="numeric" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Email_ID" Type="varchar" MaxLength="255" />
-    <Property Name="OrderDate" Type="varchar" MaxLength="255" />
+    <Property Name="OrderDate" Type="datetime" />
     <Property Name="ShipName" Type="varchar" MaxLength="255" />
     <Property Name="ShipAddress" Type="varchar" MaxLength="255" />
     <Property Name="OrderCode" Type="varchar" MaxLength="255" />
@@ -38,8 +38,8 @@
     <Property Name="ShipCode" Type="varchar" MaxLength="255" />
     <Property Name="ShipCountry" Type="varchar" MaxLength="255" />
     <Property Name="Phone" Type="varchar" MaxLength="255" />
-    <Property Name="Status" Type="varchar" MaxLength="255" />
     <Property Name="Note" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="varchar" MaxLength="255" />
     <Property Name="AdminID" Type="int" />
     <Property Name="userID" Type="int" />
     <Property Name="payment_ID" Type="int" />
@@ -224,8 +224,6 @@
     <Property Name="Img" Type="varchar(max)" />
     <Property Name="Total" Type="decimal" Precision="18" Scale="0" />
     <Property Name="ImgPath" Type="varchar(max)" />
-    <Property Name="id_pro" Type="int" />
-    <Property Name="img_id" Type="int" />
     <Property Name="item_id" Type="int" />
     <Property Name="User_id" Type="int" />
   </EntityType>
@@ -268,18 +266,6 @@
     <Property Name="photo" Type="varchar" MaxLength="255" />
     <Property Name="Path_photo" Type="varchar" MaxLength="255" />
   </EntityType>
-  <Association Name="fk_cart_id_img">
-    <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
-    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Img">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ShoppingCart">
-        <PropertyRef Name="img_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_cart_id_item">
     <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
     <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
@@ -289,18 +275,6 @@
       </Principal>
       <Dependent Role="ShoppingCart">
         <PropertyRef Name="item_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_cart_id_pro">
-    <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
-    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProdMst">
-        <PropertyRef Name="Prod_ID" />
-      </Principal>
-      <Dependent Role="ShoppingCart">
-        <PropertyRef Name="id_pro" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -568,16 +542,8 @@
     <EntitySet Name="StoneMst" EntityType="Self.StoneMst" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StoneQltyMst" EntityType="Self.StoneQltyMst" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRegMst" EntityType="Self.UserRegMst" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="fk_cart_id_img" Association="Self.fk_cart_id_img">
-      <End Role="Img" EntitySet="Img" />
-      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
-    </AssociationSet>
     <AssociationSet Name="fk_cart_id_item" Association="Self.fk_cart_id_item">
       <End Role="ItemMst" EntitySet="ItemMst" />
-      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
-    </AssociationSet>
-    <AssociationSet Name="fk_cart_id_pro" Association="Self.fk_cart_id_pro">
-      <End Role="ProdMst" EntitySet="ProdMst" />
       <End Role="ShoppingCart" EntitySet="ShoppingCart" />
     </AssociationSet>
     <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">

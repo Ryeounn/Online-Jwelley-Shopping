@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JwelleyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminLoginMst">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="Name_employee" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Path_avt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Birthday" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_ad" FromRole="AdminLoginMst" ToRole="CartList" />
+  </EntityType>
+  <EntityType Name="BrandMst">
+    <Key>
+      <PropertyRef Name="Brand_ID" />
+    </Key>
+    <Property Name="Brand_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_brand" FromRole="BrandMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="CartList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Email_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="ShipName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrderCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ShipCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="payment_ID" Type="Int32" />
+    <NavigationProperty Name="AdminLoginMst" Relationship="Self.fk_crt_id_ad" FromRole="CartList" ToRole="AdminLoginMst" />
+    <NavigationProperty Name="Payment" Relationship="Self.fk_crt_id_pay" FromRole="CartList" ToRole="Payment" />
+    <NavigationProperty Name="UserRegMst" Relationship="Self.fk_crt_id_user" FromRole="CartList" ToRole="UserRegMst" />
+    <NavigationProperty Name="Orderdetails" Relationship="Self.fk_details_id_cart" FromRole="CartList" ToRole="Orderdetails" />
+    <NavigationProperty Name="JewelTypeMsts" Relationship="Self.fk_jew_id_cart" FromRole="CartList" ToRole="JewelTypeMst" />
+  </EntityType>
+  <EntityType Name="CatMst">
+    <Key>
+      <PropertyRef Name="Cat_ID" />
+    </Key>
+    <Property Name="Cat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_cat" FromRole="CatMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="CertifyMst">
+    <Key>
+      <PropertyRef Name="Certify_ID" />
+    </Key>
+    <Property Name="Certify_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Certify_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_cer" FromRole="CertifyMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="Collection">
+    <Key>
+      <PropertyRef Name="collection_ID" />
+    </Key>
+    <Property Name="collection_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CGmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DimInfoMst">
+    <Key>
+      <PropertyRef Name="DimID" />
+    </Key>
+    <Property Name="DimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DimType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DimSubType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DimCrt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DimPrice" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DimImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Path_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_diminfor" FromRole="DimInfoMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="DimMst">
+    <Key>
+      <PropertyRef Name="DimMst_ID" />
+    </Key>
+    <Property Name="DimMst_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dim_Crt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Dim_Pcs" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Dim_Gm" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Dim_Size" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Dim_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Dim_Amt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Path_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Style_Code" Type="Int32" />
+    <Property Name="DimQlty_ID" Type="Int32" />
+    <Property Name="DimSubType_ID" Type="Int32" />
+    <NavigationProperty Name="DimQltyMst" Relationship="Self.fk_dim_id_dimqly" FromRole="DimMst" ToRole="DimQltyMst" />
+    <NavigationProperty Name="ItemMst" Relationship="Self.fk_dim_id_item" FromRole="DimMst" ToRole="ItemMst" />
+    <NavigationProperty Name="DimQltySubMst" Relationship="Self.fk_dim_id_sub" FromRole="DimMst" ToRole="DimQltySubMst" />
+  </EntityType>
+  <EntityType Name="DimQltyMst">
+    <Key>
+      <PropertyRef Name="DimQlty_ID" />
+    </Key>
+    <Property Name="DimQlty_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DimQlty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DimMsts" Relationship="Self.fk_dim_id_dimqly" FromRole="DimQltyMst" ToRole="DimMst" />
+  </EntityType>
+  <EntityType Name="DimQltySubMst">
+    <Key>
+      <PropertyRef Name="DimSubType_ID" />
+    </Key>
+    <Property Name="DimSubType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DimQlty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DimMsts" Relationship="Self.fk_dim_id_sub" FromRole="DimQltySubMst" ToRole="DimMst" />
+  </EntityType>
+  <EntityType Name="GoldKrtMst">
+    <Key>
+      <PropertyRef Name="GoldType_ID" />
+    </Key>
+    <Property Name="GoldType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gold_Crt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_goldtype" FromRole="GoldKrtMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="Img">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pic_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pic_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pic_3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pic_4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pic_5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pic_6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="path_img" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_img" FromRole="Img" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="Inquiry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cdate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ItemMst">
+    <Key>
+      <PropertyRef Name="Style_Code" />
+    </Key>
+    <Property Name="Style_Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pairs" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Prod_Quality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gold_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Stone_Wt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Net_Gold" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Wstg_Per" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Wstg" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Tot_Gross_Wt" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Gold_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Gold_Amt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Gold_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stone_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Other_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Tot_Making" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Img_ID" Type="Int32" />
+    <Property Name="Brand_ID" Type="Int32" />
+    <Property Name="Cat_ID" Type="Int32" />
+    <Property Name="Certify_ID" Type="Int32" />
+    <Property Name="Prod_ID" Type="Int32" />
+    <Property Name="GoldType_ID" Type="Int32" />
+    <Property Name="DimID" Type="Int32" />
+    <Property Name="ID_jewelly" Type="Int32" />
+    <NavigationProperty Name="BrandMst" Relationship="Self.fk_item_id_brand" FromRole="ItemMst" ToRole="BrandMst" />
+    <NavigationProperty Name="CatMst" Relationship="Self.fk_item_id_cat" FromRole="ItemMst" ToRole="CatMst" />
+    <NavigationProperty Name="CertifyMst" Relationship="Self.fk_item_id_cer" FromRole="ItemMst" ToRole="CertifyMst" />
+    <NavigationProperty Name="DimInfoMst" Relationship="Self.fk_item_id_diminfor" FromRole="ItemMst" ToRole="DimInfoMst" />
+    <NavigationProperty Name="DimMsts" Relationship="Self.fk_dim_id_item" FromRole="ItemMst" ToRole="DimMst" />
+    <NavigationProperty Name="GoldKrtMst" Relationship="Self.fk_item_id_goldtype" FromRole="ItemMst" ToRole="GoldKrtMst" />
+    <NavigationProperty Name="Img" Relationship="Self.fk_item_id_img" FromRole="ItemMst" ToRole="Img" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_item" FromRole="ItemMst" ToRole="ShoppingCart" />
+    <NavigationProperty Name="Orderdetails" Relationship="Self.fk_details_id_item" FromRole="ItemMst" ToRole="Orderdetails" />
+    <NavigationProperty Name="JewelTypeMst" Relationship="Self.fk_item_id_jwelly" FromRole="ItemMst" ToRole="JewelTypeMst" />
+    <NavigationProperty Name="ProdMst" Relationship="Self.fk_item_id_prod" FromRole="ItemMst" ToRole="ProdMst" />
+    <NavigationProperty Name="StoneMsts" Relationship="Self.fk_stone_id_item" FromRole="ItemMst" ToRole="StoneMst" />
+  </EntityType>
+  <EntityType Name="JewelTypeMst">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Jewellery_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_cart" Type="Int32" />
+    <NavigationProperty Name="CartList" Relationship="Self.fk_jew_id_cart" FromRole="JewelTypeMst" ToRole="CartList" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_jwelly" FromRole="JewelTypeMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="news_ID" />
+    </Key>
+    <Property Name="news_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NGmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Orderdetail">
+    <Key>
+      <PropertyRef Name="Orderdetails_ID" />
+    </Key>
+    <Property Name="Orderdetails_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Style_Code" Type="Int32" />
+    <NavigationProperty Name="CartList" Relationship="Self.fk_details_id_cart" FromRole="Orderdetails" ToRole="CartList" />
+    <NavigationProperty Name="ItemMst" Relationship="Self.fk_details_id_item" FromRole="Orderdetails" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="numbercard" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cgv" Type="Int32" />
+    <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="Cus_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_pay" FromRole="Payment" ToRole="CartList" />
+  </EntityType>
+  <EntityType Name="ProdMst">
+    <Key>
+      <PropertyRef Name="Prod_ID" />
+    </Key>
+    <Property Name="Prod_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Prod_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_prod" FromRole="ProdMst" ToRole="ItemMst" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ImgPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="item_id" Type="Int32" />
+    <Property Name="User_id" Type="Int32" />
+    <NavigationProperty Name="ItemMst" Relationship="Self.fk_cart_id_item" FromRole="ShoppingCart" ToRole="ItemMst" />
+    <NavigationProperty Name="UserRegMst" Relationship="Self.fk_cart_id_User" FromRole="ShoppingCart" ToRole="UserRegMst" />
+  </EntityType>
+  <EntityType Name="StoneMst">
+    <Key>
+      <PropertyRef Name="Stone_ID" />
+    </Key>
+    <Property Name="Stone_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Stone_Gm" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stone_Pcs" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stone_Crt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stone_Rate" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stone_Amt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Style_Code" Type="Int32" />
+    <Property Name="StoneQlty_ID" Type="Int32" />
+    <NavigationProperty Name="ItemMst" Relationship="Self.fk_stone_id_item" FromRole="StoneMst" ToRole="ItemMst" />
+    <NavigationProperty Name="StoneQltyMst" Relationship="Self.fk_Stone_id_stoneqlty" FromRole="StoneMst" ToRole="StoneQltyMst" />
+  </EntityType>
+  <EntityType Name="StoneQltyMst">
+    <Key>
+      <PropertyRef Name="StoneQlty_ID" />
+    </Key>
+    <Property Name="StoneQlty_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoneQlty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="StoneMsts" Relationship="Self.fk_Stone_id_stoneqlty" FromRole="StoneQltyMst" ToRole="StoneMst" />
+  </EntityType>
+  <EntityType Name="UserRegMst">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="userFname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="userLname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mobNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emailID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Path_photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_user" FromRole="UserRegMst" ToRole="CartList" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_User" FromRole="UserRegMst" ToRole="ShoppingCart" />
+  </EntityType>
+  <Association Name="fk_crt_id_ad">
+    <End Role="AdminLoginMst" Type="Self.AdminLoginMst" Multiplicity="0..1" />
+    <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminLoginMst">
+        <PropertyRef Name="userName" />
+      </Principal>
+      <Dependent Role="CartList">
+        <PropertyRef Name="userName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_brand">
+    <End Role="BrandMst" Type="Self.BrandMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BrandMst">
+        <PropertyRef Name="Brand_ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="Brand_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_crt_id_pay">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CartList">
+        <PropertyRef Name="payment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_crt_id_user">
+    <End Role="UserRegMst" Type="Self.UserRegMst" Multiplicity="0..1" />
+    <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRegMst">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="CartList">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_details_id_cart">
+    <End Role="CartList" Type="Self.CartList" Multiplicity="0..1" />
+    <End Role="Orderdetails" Type="Self.Orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orderdetails">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_jew_id_cart">
+    <End Role="CartList" Type="Self.CartList" Multiplicity="0..1" />
+    <End Role="JewelTypeMst" Type="Self.JewelTypeMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CartList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JewelTypeMst">
+        <PropertyRef Name="ID_cart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_cat">
+    <End Role="CatMst" Type="Self.CatMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatMst">
+        <PropertyRef Name="Cat_ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="Cat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_cer">
+    <End Role="CertifyMst" Type="Self.CertifyMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertifyMst">
+        <PropertyRef Name="Certify_ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="Certify_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_diminfor">
+    <End Role="DimInfoMst" Type="Self.DimInfoMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInfoMst">
+        <PropertyRef Name="DimID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="DimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dim_id_dimqly">
+    <End Role="DimQltyMst" Type="Self.DimQltyMst" Multiplicity="0..1" />
+    <End Role="DimMst" Type="Self.DimMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimQltyMst">
+        <PropertyRef Name="DimQlty_ID" />
+      </Principal>
+      <Dependent Role="DimMst">
+        <PropertyRef Name="DimQlty_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dim_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="DimMst" Type="Self.DimMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="DimMst">
+        <PropertyRef Name="Style_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dim_id_sub">
+    <End Role="DimQltySubMst" Type="Self.DimQltySubMst" Multiplicity="0..1" />
+    <End Role="DimMst" Type="Self.DimMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimQltySubMst">
+        <PropertyRef Name="DimSubType_ID" />
+      </Principal>
+      <Dependent Role="DimMst">
+        <PropertyRef Name="DimSubType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_goldtype">
+    <End Role="GoldKrtMst" Type="Self.GoldKrtMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoldKrtMst">
+        <PropertyRef Name="GoldType_ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="GoldType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_img">
+    <End Role="Img" Type="Self.Img" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Img">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="Img_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_details_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="Orderdetails" Type="Self.Orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="Orderdetails">
+        <PropertyRef Name="Style_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_jwelly">
+    <End Role="JewelTypeMst" Type="Self.JewelTypeMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JewelTypeMst">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="ID_jewelly" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_prod">
+    <End Role="ProdMst" Type="Self.ProdMst" Multiplicity="0..1" />
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProdMst">
+        <PropertyRef Name="Prod_ID" />
+      </Principal>
+      <Dependent Role="ItemMst">
+        <PropertyRef Name="Prod_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stone_id_item">
+    <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="0..1" />
+    <End Role="StoneMst" Type="Self.StoneMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMst">
+        <PropertyRef Name="Style_Code" />
+      </Principal>
+      <Dependent Role="StoneMst">
+        <PropertyRef Name="Style_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_User">
+    <End Role="UserRegMst" Type="Self.UserRegMst" Multiplicity="0..1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRegMst">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Stone_id_stoneqlty">
+    <End Role="StoneQltyMst" Type="Self.StoneQltyMst" Multiplicity="0..1" />
+    <End Role="StoneMst" Type="Self.StoneMst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StoneQltyMst">
+        <PropertyRef Name="StoneQlty_ID" />
+      </Principal>
+      <Dependent Role="StoneMst">
+        <PropertyRef Name="StoneQlty_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JwelleyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminLoginMsts" EntityType="Self.AdminLoginMst" />
+    <EntitySet Name="BrandMsts" EntityType="Self.BrandMst" />
+    <EntitySet Name="CartLists" EntityType="Self.CartList" />
+    <EntitySet Name="CatMsts" EntityType="Self.CatMst" />
+    <EntitySet Name="CertifyMsts" EntityType="Self.CertifyMst" />
+    <EntitySet Name="Collections" EntityType="Self.Collection" />
+    <EntitySet Name="DimInfoMsts" EntityType="Self.DimInfoMst" />
+    <EntitySet Name="DimMsts" EntityType="Self.DimMst" />
+    <EntitySet Name="DimQltyMsts" EntityType="Self.DimQltyMst" />
+    <EntitySet Name="DimQltySubMsts" EntityType="Self.DimQltySubMst" />
+    <EntitySet Name="GoldKrtMsts" EntityType="Self.GoldKrtMst" />
+    <EntitySet Name="Imgs" EntityType="Self.Img" />
+    <EntitySet Name="Inquiries" EntityType="Self.Inquiry" />
+    <EntitySet Name="ItemMsts" EntityType="Self.ItemMst" />
+    <EntitySet Name="JewelTypeMsts" EntityType="Self.JewelTypeMst" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="Orderdetails" EntityType="Self.Orderdetail" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="ProdMsts" EntityType="Self.ProdMst" />
+    <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCart" />
+    <EntitySet Name="StoneMsts" EntityType="Self.StoneMst" />
+    <EntitySet Name="StoneQltyMsts" EntityType="Self.StoneQltyMst" />
+    <EntitySet Name="UserRegMsts" EntityType="Self.UserRegMst" />
+    <AssociationSet Name="fk_crt_id_ad" Association="Self.fk_crt_id_ad">
+      <End Role="AdminLoginMst" EntitySet="AdminLoginMsts" />
+      <End Role="CartList" EntitySet="CartLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_brand" Association="Self.fk_item_id_brand">
+      <End Role="BrandMst" EntitySet="BrandMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_crt_id_pay" Association="Self.fk_crt_id_pay">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="CartList" EntitySet="CartLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_crt_id_user" Association="Self.fk_crt_id_user">
+      <End Role="UserRegMst" EntitySet="UserRegMsts" />
+      <End Role="CartList" EntitySet="CartLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_details_id_cart" Association="Self.fk_details_id_cart">
+      <End Role="CartList" EntitySet="CartLists" />
+      <End Role="Orderdetails" EntitySet="Orderdetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_jew_id_cart" Association="Self.fk_jew_id_cart">
+      <End Role="CartList" EntitySet="CartLists" />
+      <End Role="JewelTypeMst" EntitySet="JewelTypeMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_cat" Association="Self.fk_item_id_cat">
+      <End Role="CatMst" EntitySet="CatMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_cer" Association="Self.fk_item_id_cer">
+      <End Role="CertifyMst" EntitySet="CertifyMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_diminfor" Association="Self.fk_item_id_diminfor">
+      <End Role="DimInfoMst" EntitySet="DimInfoMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dim_id_dimqly" Association="Self.fk_dim_id_dimqly">
+      <End Role="DimQltyMst" EntitySet="DimQltyMsts" />
+      <End Role="DimMst" EntitySet="DimMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dim_id_item" Association="Self.fk_dim_id_item">
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+      <End Role="DimMst" EntitySet="DimMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dim_id_sub" Association="Self.fk_dim_id_sub">
+      <End Role="DimQltySubMst" EntitySet="DimQltySubMsts" />
+      <End Role="DimMst" EntitySet="DimMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_goldtype" Association="Self.fk_item_id_goldtype">
+      <End Role="GoldKrtMst" EntitySet="GoldKrtMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_img" Association="Self.fk_item_id_img">
+      <End Role="Img" EntitySet="Imgs" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_item" Association="Self.fk_cart_id_item">
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_details_id_item" Association="Self.fk_details_id_item">
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+      <End Role="Orderdetails" EntitySet="Orderdetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_jwelly" Association="Self.fk_item_id_jwelly">
+      <End Role="JewelTypeMst" EntitySet="JewelTypeMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_prod" Association="Self.fk_item_id_prod">
+      <End Role="ProdMst" EntitySet="ProdMsts" />
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stone_id_item" Association="Self.fk_stone_id_item">
+      <End Role="ItemMst" EntitySet="ItemMsts" />
+      <End Role="StoneMst" EntitySet="StoneMsts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
+      <End Role="UserRegMst" EntitySet="UserRegMsts" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Stone_id_stoneqlty" Association="Self.fk_Stone_id_stoneqlty">
+      <End Role="StoneQltyMst" EntitySet="StoneQltyMsts" />
+      <End Role="StoneMst" EntitySet="StoneMsts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

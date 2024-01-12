@@ -9,11 +9,11 @@
         <form action="/Account/Index" method="post" class="form_edits" onsubmit="return checkLogin();">
             <div>
                 <p>USERNAME <red style="color: red">*</red></p>
-                <input type="text" class="input_edits form-control txt--input username" placeholder="Username" oninput="checkUser();" name="username"/>
+                <input type="text" class="input_edits form-control txt--input username" placeholder="Username" oninput="checkUser()" name="username"/>
             </div>
             <div class="space_input_login">
                 <p>PASSWORD <red style="color: red">*</red></p>
-                <input type="password" class="input_edits form-control txt--input password" placeholder="At least 8 characters" oninput="checkPass();" id="password" name="password"/>
+                <input type="password" class="input_edits form-control txt--input password" placeholder="At least 8 characters" oninput="checkPass()" id="password" name="password"/>
             </div>
             <div class="space_input_login mt-3">
                 <a href="/Account/Forget" id="forget" class="forget_pass">Fogret Password ?</a>
@@ -28,5 +28,4 @@
         $("#ajax--load").load("Register", "Account");
     });
 </script>
-<script src="~/Content/Script/Api.js"></script>
 

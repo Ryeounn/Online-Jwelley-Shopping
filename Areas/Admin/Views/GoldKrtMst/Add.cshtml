@@ -10,8 +10,16 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <form action="/Admin/GoldKrtMst/Add" method="post">
+                <label class="form-text">Gold Crt</label>
                 <input type="text" class="form-control" name="Gold_Crt" placeholder="" />
-                <button type="submit" class="form-control mt-4 btn-primary change--admin">Create</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="form-control mt-4 btn-primary change--admin">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Gold","GoldKrtMst")" class="btn mt-4 form-control edit--admin">Back</a>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-md-3"></div>

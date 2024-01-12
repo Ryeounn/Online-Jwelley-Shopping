@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JwelleyModelStoreContainer" CdmEntityContainer="JwelleyEntities">
+    <EntitySetMapping Name="AdminLoginMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.AdminLoginMst">
+        <MappingFragment StoreEntitySet="AdminLoginMst">
+          <ScalarProperty Name="Name_employee" ColumnName="Name_employee" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Path_avt" ColumnName="Path_avt" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BrandMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.BrandMst">
+        <MappingFragment StoreEntitySet="BrandMst">
+          <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+          <ScalarProperty Name="Brand_Type" ColumnName="Brand_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartLists">
+      <EntityTypeMapping TypeName="JwelleyModel.CartList">
+        <MappingFragment StoreEntitySet="CartList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email_ID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+          <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="ShipCity" ColumnName="ShipCity" />
+          <ScalarProperty Name="ShipCode" ColumnName="ShipCode" />
+          <ScalarProperty Name="ShipCountry" ColumnName="ShipCountry" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="payment_ID" ColumnName="payment_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.CatMst">
+        <MappingFragment StoreEntitySet="CatMst">
+          <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertifyMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.CertifyMst">
+        <MappingFragment StoreEntitySet="CertifyMst">
+          <ScalarProperty Name="Certify_ID" ColumnName="Certify_ID" />
+          <ScalarProperty Name="Certify_Type" ColumnName="Certify_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collections">
+      <EntityTypeMapping TypeName="JwelleyModel.Collection">
+        <MappingFragment StoreEntitySet="Collections">
+          <ScalarProperty Name="collection_ID" ColumnName="collection_ID" />
+          <ScalarProperty Name="CGmail" ColumnName="CGmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimInfoMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.DimInfoMst">
+        <MappingFragment StoreEntitySet="DimInfoMst">
+          <ScalarProperty Name="DimID" ColumnName="DimID" />
+          <ScalarProperty Name="DimType" ColumnName="DimType" />
+          <ScalarProperty Name="DimSubType" ColumnName="DimSubType" />
+          <ScalarProperty Name="DimCrt" ColumnName="DimCrt" />
+          <ScalarProperty Name="DimPrice" ColumnName="DimPrice" />
+          <ScalarProperty Name="DimImg" ColumnName="DimImg" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.DimMst">
+        <MappingFragment StoreEntitySet="DimMst">
+          <ScalarProperty Name="DimMst_ID" ColumnName="DimMst_ID" />
+          <ScalarProperty Name="Dim_Crt" ColumnName="Dim_Crt" />
+          <ScalarProperty Name="Dim_Pcs" ColumnName="Dim_Pcs" />
+          <ScalarProperty Name="Dim_Gm" ColumnName="Dim_Gm" />
+          <ScalarProperty Name="Dim_Size" ColumnName="Dim_Size" />
+          <ScalarProperty Name="Dim_Rate" ColumnName="Dim_Rate" />
+          <ScalarProperty Name="Dim_Amt" ColumnName="Dim_Amt" />
+          <ScalarProperty Name="Path_img" ColumnName="Path_img" />
+          <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+          <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
+          <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimQltyMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.DimQltyMst">
+        <MappingFragment StoreEntitySet="DimQltyMst">
+          <ScalarProperty Name="DimQlty_ID" ColumnName="DimQlty_ID" />
+          <ScalarProperty Name="DimQlty" ColumnName="DimQlty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimQltySubMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.DimQltySubMst">
+        <MappingFragment StoreEntitySet="DimQltySubMst">
+          <ScalarProperty Name="DimSubType_ID" ColumnName="DimSubType_ID" />
+          <ScalarProperty Name="DimQlty" ColumnName="DimQlty" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoldKrtMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.GoldKrtMst">
+        <MappingFragment StoreEntitySet="GoldKrtMst">
+          <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
+          <ScalarProperty Name="Gold_Crt" ColumnName="Gold_Crt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imgs">
+      <EntityTypeMapping TypeName="JwelleyModel.Img">
+        <MappingFragment StoreEntitySet="Img">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="pic_1" ColumnName="pic_1" />
+          <ScalarProperty Name="pic_2" ColumnName="pic_2" />
+          <ScalarProperty Name="pic_3" ColumnName="pic_3" />
+          <ScalarProperty Name="pic_4" ColumnName="pic_4" />
+          <ScalarProperty Name="pic_5" ColumnName="pic_5" />
+          <ScalarProperty Name="pic_6" ColumnName="pic_6" />
+          <ScalarProperty Name="path_img" ColumnName="path_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inquiries">
+      <EntityTypeMapping TypeName="JwelleyModel.Inquiry">
+        <MappingFragment StoreEntitySet="Inquiry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Cdate" ColumnName="Cdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.ItemMst">
+        <MappingFragment StoreEntitySet="ItemMst">
+          <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+          <ScalarProperty Name="Pairs" ColumnName="Pairs" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Prod_Quality" ColumnName="Prod_Quality" />
+          <ScalarProperty Name="Gold_Wt" ColumnName="Gold_Wt" />
+          <ScalarProperty Name="Stone_Wt" ColumnName="Stone_Wt" />
+          <ScalarProperty Name="Net_Gold" ColumnName="Net_Gold" />
+          <ScalarProperty Name="Wstg_Per" ColumnName="Wstg_Per" />
+          <ScalarProperty Name="Wstg" ColumnName="Wstg" />
+          <ScalarProperty Name="Tot_Gross_Wt" ColumnName="Tot_Gross_Wt" />
+          <ScalarProperty Name="Gold_Rate" ColumnName="Gold_Rate" />
+          <ScalarProperty Name="Gold_Amt" ColumnName="Gold_Amt" />
+          <ScalarProperty Name="Gold_Making" ColumnName="Gold_Making" />
+          <ScalarProperty Name="Stone_Making" ColumnName="Stone_Making" />
+          <ScalarProperty Name="Other_Making" ColumnName="Other_Making" />
+          <ScalarProperty Name="Tot_Making" ColumnName="Tot_Making" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="Img_ID" ColumnName="Img_ID" />
+          <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+          <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+          <ScalarProperty Name="Certify_ID" ColumnName="Certify_ID" />
+          <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+          <ScalarProperty Name="GoldType_ID" ColumnName="GoldType_ID" />
+          <ScalarProperty Name="DimID" ColumnName="DimID" />
+          <ScalarProperty Name="ID_jewelly" ColumnName="ID_jewelly" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JewelTypeMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.JewelTypeMst">
+        <MappingFragment StoreEntitySet="JewelTypeMst">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Jewellery_Type" ColumnName="Jewellery_Type" />
+          <ScalarProperty Name="ID_cart" ColumnName="ID_cart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="JwelleyModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="news_ID" ColumnName="news_ID" />
+          <ScalarProperty Name="NGmail" ColumnName="NGmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orderdetails">
+      <EntityTypeMapping TypeName="JwelleyModel.Orderdetail">
+        <MappingFragment StoreEntitySet="Orderdetails">
+          <ScalarProperty Name="Orderdetails_ID" ColumnName="Orderdetails_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="JwelleyModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="numbercard" ColumnName="numbercard" />
+          <ScalarProperty Name="cgv" ColumnName="cgv" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="Cus_name" ColumnName="Cus_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProdMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.ProdMst">
+        <MappingFragment StoreEntitySet="ProdMst">
+          <ScalarProperty Name="Prod_ID" ColumnName="Prod_ID" />
+          <ScalarProperty Name="Prod_Type" ColumnName="Prod_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCarts">
+      <EntityTypeMapping TypeName="JwelleyModel.ShoppingCart">
+        <MappingFragment StoreEntitySet="ShoppingCart">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoneMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.StoneMst">
+        <MappingFragment StoreEntitySet="StoneMst">
+          <ScalarProperty Name="Stone_ID" ColumnName="Stone_ID" />
+          <ScalarProperty Name="Stone_Gm" ColumnName="Stone_Gm" />
+          <ScalarProperty Name="Stone_Pcs" ColumnName="Stone_Pcs" />
+          <ScalarProperty Name="Stone_Crt" ColumnName="Stone_Crt" />
+          <ScalarProperty Name="Stone_Rate" ColumnName="Stone_Rate" />
+          <ScalarProperty Name="Stone_Amt" ColumnName="Stone_Amt" />
+          <ScalarProperty Name="Style_Code" ColumnName="Style_Code" />
+          <ScalarProperty Name="StoneQlty_ID" ColumnName="StoneQlty_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoneQltyMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.StoneQltyMst">
+        <MappingFragment StoreEntitySet="StoneQltyMst">
+          <ScalarProperty Name="StoneQlty_ID" ColumnName="StoneQlty_ID" />
+          <ScalarProperty Name="StoneQlty" ColumnName="StoneQlty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRegMsts">
+      <EntityTypeMapping TypeName="JwelleyModel.UserRegMst">
+        <MappingFragment StoreEntitySet="UserRegMst">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="userFname" ColumnName="userFname" />
+          <ScalarProperty Name="userLname" ColumnName="userLname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="mobNo" ColumnName="mobNo" />
+          <ScalarProperty Name="emailID" ColumnName="emailID" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="Path_photo" ColumnName="Path_photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

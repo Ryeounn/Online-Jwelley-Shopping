@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add Diamond</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/DimMst/Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-text">Dim_Crt</label>
+                    <input type="text" class="form-control" name="Dim_Crt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim_Pcs</label>
+                    <input type="text" class="form-control" name="Dim_Pcs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim_Size</label>
+                    <input type="text" class="form-control" name="Dim_Size" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim_Rate</label>
+                    <input type="text" class="form-control" name="Dim_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim_Amt</label>
+                    <input type="text" class="form-control" name="Dim_Amt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim_Gm</label>
+                    <input type="text" class="form-control" name="Dim_Gm" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" name="create" class="btn form-control mt-4 edit--admin change--admin">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Dim","DimMst")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model Jewelly.Models.Payment
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div class="container _containss">
+    <h1 class="tex_edit">Payment Record</h1>
+    <hr />
+    <div class="row _ed_c">
+        <div class="col-md-6">
+            <div class="contain_1">
+                <div class="inf_">
+                    <img src="~/Content/Image/Layout/1200px-Circle-icons-clipboard.svg.png" class="img_edit_cus" />
+                    <div class="text_order edit_text_pay">
+                        <h3>Name: @Model.type</h3>
+                        <p> Description Payment type @Model.type is the one of the most in Payment type in our Shop</p>
+                    </div>
+                </div>
+
+
+                <div class="payment_method edit_pay">
+                    <p>
+                        <h2>
+                            <i class="fa-solid fa-credit-card"></i>Payment Description
+                        </h2>
+
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle"></i>Payment CGV: @Model.cgv
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle"></i>Number Card: @Model.numbercard
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-circle"></i>Expiration Date: @Model.expiration_date
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="contain_2">
+                <div class="edit_Cs">
+                    <form action="/Admin/Payment/Edit/@Model.ID" method="post">
+                        <input type="hidden" value="@Model.ID" name="ID" />
+                        <div class="edit_form">
+                            <div class="form-group khung_">
+                                <label>Type</label>
+                                <input type="text" name="type" value="@Model.type" class="form-control" />
+                            </div>
+                            <div class="form-group khung_">
+                                <label>Number Card</label>
+                                <input type="text" name="numbercard" value="@Model.numbercard" class="form-control" />
+                            </div>
+                            <div class="form-group khung_">
+                                <label>CGV</label>
+                                <input type="text" name="cgv" value="@Model.cgv" class="form-control" />
+                            </div>
+                            <div class="form-group khung_">
+                                <label>Expiration Date</label>
+                                <input type="text" name="expiration_date" value="@Model.expiration_date" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="btn_edit edit_btn_pay">
+                            <button type="submit" class="btn_my_E btn btn-primary">Change Information</button>
+                            <a href="@Url.Action("Payment","Payment")" class="btn btn-warning">Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

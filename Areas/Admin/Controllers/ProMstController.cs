@@ -31,6 +31,10 @@ namespace Jewelly.Areas.Admin.Controllers
             {
                 ViewBag.EditProErrorMg = TempData["EditProError"];
             }
+            if(TempData["DeletePro"] != null)
+            {
+                ViewBag.DeleteProMg = TempData["DeletePro"];
+            }
             List<ProdMst> prod = db.ProdMsts.Where(row => row.Prod_Type.Contains(search)).ToList();
             return View(prod);
         }
@@ -94,7 +98,17 @@ namespace Jewelly.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/ProdMst/Delete/5
+        public ActionResult Delete(int id)
+        {
+            ProdMst pro = db.ProdMsts.Find(id);
+            if (pro != null)
+            {
+                db.ProdMsts.Remove(pro);
+                db.SaveChanges();
+                TempData["DeletePro"] = "Delete successful.";
+            }
+            return RedirectToAction("Prod", "ProMst");
+        }
 
     }
 }

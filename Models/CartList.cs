@@ -25,7 +25,7 @@ namespace Jewelly.Models
         public string Product_Name { get; set; }
         public decimal MRP { get; set; }
         public string Email_ID { get; set; }
-        public string OrderDate { get; set; }
+        public Nullable<System.DateTime> OrderDate { get; set; }
         public string ShipName { get; set; }
         public string ShipAddress { get; set; }
         public string OrderCode { get; set; }
@@ -33,8 +33,8 @@ namespace Jewelly.Models
         public string ShipCode { get; set; }
         public string ShipCountry { get; set; }
         public string Phone { get; set; }
-        public string Status { get; set; }
         public string Note { get; set; }
+        public string Status { get; set; }
         public Nullable<int> AdminID { get; set; }
         public Nullable<int> userID { get; set; }
         public Nullable<int> payment_ID { get; set; }

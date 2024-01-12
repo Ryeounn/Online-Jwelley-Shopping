@@ -17,7 +17,6 @@ namespace Jewelly.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Img()
         {
-            this.ShoppingCarts = new HashSet<ShoppingCart>();
             this.ItemMsts = new HashSet<ItemMst>();
         }
     
@@ -30,8 +29,6 @@ namespace Jewelly.Models
         public string pic_6 { get; set; }
         public string path_img { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemMst> ItemMsts { get; set; }
     }

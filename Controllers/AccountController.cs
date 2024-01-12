@@ -30,6 +30,10 @@ namespace Jewelly.Controllers
             {
                 ViewBag.ChangeFromMg = TempData["ChangeFrom"];
             }
+            if(TempData["LoginError"] != null)
+            {
+                ViewBag.LoginError = TempData["LoginError"];
+            }
             return View();
         }
 
@@ -81,10 +85,12 @@ namespace Jewelly.Controllers
                 }
                 else
                 {
+                    TempData["LoginError"] = "Login fail.";
                     return RedirectToAction("Login");
                 }
             }
-            return RedirectToAction("Index", "Home");
+            TempData["LoginError"] = "Login fail.";
+            return RedirectToAction("Login");
 
         }
 

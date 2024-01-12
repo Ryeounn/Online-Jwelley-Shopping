@@ -35,43 +35,50 @@
             <div class="col-md-5">
                 <div class="form-group">
                     <label class="form-text">Name</label>
-                    <input type="text" class="form-control txt--input" name="name" id="name" oninput="myChange()" />
+                    <input type="text" class="form-control" name="name" id="name" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Username</label>
-                    <input type="text" class="form-control txt--input" name="username" id="username" oninput="myChange()" />
+                    <input type="text" class="form-control" name="username" id="username" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Password</label>
-                    <input type="password" class="form-control txt--input" name="password" id="password" oninput="myChange()" />
+                    <input type="password" class="form-control" name="password" id="password" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Email</label>
-                    <input type="text" class="form-control txt--input" name="emalID" id="emalID" oninput="myChange()" />
+                    <input type="text" class="form-control" name="emalID" id="emalID" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Phone</label>
-                    <input type="text" class="form-control txt--input" name="mobNo" id="mobNo" oninput="myChange()" />
+                    <input type="text" class="form-control" name="mobNo" id="mobNo" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Birthday</label>
-                    <input type="date" class="form-control txt--input" name="dob" id="dob" oninput="myChange()" />
+                    <input type="date" class="form-control" name="dob" id="dob" oninput="myChange()" />
                 </div>
                 <div class="form-group">
                     <label class="form-text">Address</label>
-                    <input type="text" class="form-control txt--input" name="address" id="address" oninput="myChange()" />
+                    <input type="text" class="form-control" name="address" id="address" oninput="myChange()" />
                 </div>
             </div>
             <div class="col-md-1"></div>
         </div>
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Create" onchange="myChange()" />
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" class="form-control mt-4 btn-primary change--admin" value="Create" onchange="myChange()" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Manager","Administrator")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
         </div>
     </form>
 </div>

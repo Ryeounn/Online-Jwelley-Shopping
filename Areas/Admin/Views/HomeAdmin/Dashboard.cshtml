@@ -3,3 +3,72 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
+
+<div class="container have_Chart">
+    <div class="row _re">
+        <div class="col-md-6">
+            <div class="chart_">
+                <canvas id="order" height="400" width=""></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="chart_">
+                <canvas id="total" height="400" width=""></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="row _re">
+        <div class="col-md-6">
+            <div class="chart_">
+                <canvas id="profit" height="400" width=""></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="chart_">
+                <canvas id="country" height="400" width=""></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log("log");
+    $.ajax({
+        url: '/Admin/HomeAdmin/GetChartData',
+        type: 'GET',
+        success: function (data) {
+            handleChartData(data);
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+    function handleChartData(data) {
+        console.log(data);
+         var ctx3 = document.getElementById('total');
+        var colorctx3 = ["red", "blue","green","yellow"];
+        var resultData = data.Result;
+        var labels = resultData.map(item => item.Year + '/' + item.Month);
+        var revenueData = resultData.map(item => item.TotalRevenue);
+
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Revenue',
+                    data: revenueData,
+                    borderWidth: 1,
+                    backgroundColor: colorctx3
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+    </script>

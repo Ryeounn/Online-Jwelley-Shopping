@@ -1,0 +1,32 @@
+﻿@model Jewelly.Models.BrandMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.Brand_Type ]</h6>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/BrandAdmin/Edit/@Model.Brand_ID" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="hidden" value="@Model.Brand_ID" name="Brandid" />
+                    <label class="form-text">Branch</label>
+                    <input type="text" class="form-control" value="@Model.Brand_Type" name="BrandType">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn form-control mt-4 edit--admin change--admin" name="create">Save Change</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Brand","BrandAdmin")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+                    
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

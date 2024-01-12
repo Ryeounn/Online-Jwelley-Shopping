@@ -284,7 +284,7 @@ namespace Jewelly.Controllers
                 }
                 cartList.userID = (int)Session["userID"];
                 cartList.AdminID = 1;
-                cartList.OrderDate = DateTime.Now.ToString();
+                cartList.OrderDate = DateTime.Now;
                 cartList.MRP = decimal.Parse(form["mrp"]);
                 cartList.ShipName = form["name"];
                 cartList.Email_ID = form["email"];
@@ -320,17 +320,6 @@ namespace Jewelly.Controllers
             return RedirectToAction("CheckOut", "Product");
 
         }
-
-        //public String GenerateUniqueRandomCode()
-        //{
-        //    var code = "";
-        //    Random rd = new Random();
-        //    while (db.CartLists.Count(s => s.OrderCode == code) > 0)
-        //    {
-        //        code = string.Join("", new int[13].Select(_ => rd.Next(10).ToString()));
-        //    }
-        //    return code;
-        //}
 
         public String GenerateUniqueRandomCode() 
         {

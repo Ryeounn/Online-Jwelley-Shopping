@@ -21,14 +21,10 @@ namespace Jewelly.Models
         public string Img { get; set; }
         public Nullable<decimal> Total { get; set; }
         public string ImgPath { get; set; }
-        public Nullable<int> id_pro { get; set; }
-        public Nullable<int> img_id { get; set; }
         public Nullable<int> item_id { get; set; }
         public Nullable<int> User_id { get; set; }
     
-        public virtual Img Img1 { get; set; }
         public virtual ItemMst ItemMst { get; set; }
-        public virtual ProdMst ProdMst { get; set; }
         public virtual UserRegMst UserRegMst { get; set; }
     }
 }

@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="container container--left">
+    <form action="/Admin/Payment/create" method="post">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <img class="demo--img" src="~/Content/Image/Layout/1200px-Circle-icons-clipboard.svg.png" />
+                <p class="mt-3" id="selectName"></p>
+                <div class="row mt-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <p class="demo--content"><i class="fas fa-user demo--icon"></i> Payment: </p>
+                        <p class="demo--content mt-3"><i class="fas fa-key demo--icon"></i> Number Card: </p>
+                        <p class="demo--content mt-3"><i class="fas fa-envelope demo--icon"></i> CGV: </p>
+                        <p class="demo--content mt-3"><i class="fas fa-phone demo--icon"></i> Expiration: </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="" id="selectPay"></p>
+                        <p class="mt-4" id="selectNum"></p>
+                        <p class="mt-4" id="selectCgv"></p>
+                        <p class="mt-4 demo--mt" id="selectEx"></p>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="form-text" hidden>ID</label>
+                    <input type="hidden" class="form-control" oninput="myChangep()" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Type:</label>
+                    <input type="text" class="form-control" name="type" id="type" onchange="myChangep()" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Number Card:</label>
+                    <input type="text" class="form-control" name="numbercard" id="numbercard" oninput="myChangep();" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">CGV</label>
+                    <input type="text" class="form-control" name="cgv" id="cgv" oninput="myChangep(); checkCgv();" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">date</label>
+                    <input type="date" class="form-control" name="expiration_date" id="expiration_date" oninput="myChangep();" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="form-control mt-5 btn-primary change--admin" value="Save Change" />
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Payment","Payment")" class="btn form-control mt-5 edit--admin">Back</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </form>
+</div>
+<script>
+    function myChangep() {
+        let x = document.getElementById("type").value;
+        document.getElementById("selectPay").innerHTML = x;
+        /* test Numbercard*/
+        let z = document.getElementById("numbercard");
+
+        var regex = /^\d{16}$/;
+
+        if (!regex.test(z.value)) {
+            z.style.border = '1px solid #B80000';
+
+        } else {
+            z.style.border = '1px solid green';
+            document.getElementById("selectNum").innerHTML = z.value;
+
+        }
+
+
+        let cgv = document.getElementById("cgv");
+        document.getElementById("selectCgv").innerHTML = cgv.value;
+
+
+        let a = document.getElementById("expiration_date").value;
+        document.getElementById("selectEx").innerHTML = a;
+    }
+
+    function checkCgv() {
+        let cgvnum = document.getElementById("cgv");
+        console.log(cgvnum);
+
+        var regexCgv = /^\d{3}$/;
+        if (!regexCgv.test(cgvnum.value)) {
+            cgvnum.style.border = '1px solid #B80000';
+
+        } else {
+            cgvnum.style.border = '1px solid green';
+            document.getElementById("selectCgv").innerHTML = cgvnum.value;
+        }
+    }
+
+    function checkDate() {
+        let cgvnum = document.getElementById("expiration_date");
+
+        var regexCgv = /^\d{3}$/;
+        if (!regexCgv.test(cgvnum.value)) {
+            cgvnum.style.border = '1px solid #B80000';
+
+        } else {
+            cgvnum.style.border = '1px solid green';
+            document.getElementById("selectCgv").innerHTML = cgvnum.value;
+        }
+    }
+</script>

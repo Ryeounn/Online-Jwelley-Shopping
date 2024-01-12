@@ -1,0 +1,80 @@
+﻿@model  List<Jewelly.Models.Orderdetail>
+@{
+    ViewBag.Title = "Orderdetails";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+        <div class="row">
+            @if (ViewBag.SuccessMg != null)
+            {
+                <div id="msgAlert" style="margin-left: 3em;" class="alert alert-success">
+                    @ViewBag.SuccessMg
+                </div>
+            }
+            else if (ViewBag.ErrorMg != null)
+            {
+                <div id="msgsAlert" style="margin-left: 3em;" class="alert alert-danger">
+                    @ViewBag.ErrorMg
+                </div>
+            }
+        </div>
+        <h2 class="title--admin">Order</h2>
+        <hr class="mx-5" />
+        <div class="search--group">
+            <form action="/Admin/Orderdetails/Orderdetails" method="post">
+                <input type="text" placeholder="Name" name="oc" class="form-control btn--search btn--search--inquiry" />
+                <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--inquiry" value="Search" />
+            </form>
+        </div>
+        <hr class="mx-5" />
+        <div class="container-fluid container--left">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table _gold">
+                        <thead>
+                            <tr>
+                                <td class="text--table">ID</td>
+                                <td class="text--table">Payment Type</td>
+                                <td class="text--table">Number Card</td>
+                                <td class="text--table">CGV</td>
+
+                                <td class="text--table" style="text-align: center">Information</td>
+                             
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text--table"> @item.ItemMst.ProdMst.Prod_Type </td>
+                                    <td class="text--table">@item.Quantity</td>
+                                    <td class="text--table"> @item.UnitPrice</td>
+                                    <td class="text--table">@item.ID</td>
+
+                                    <td class="text--table">
+                                        <a href="/Admin/Orderdetails/Details/@item.ID" class="btn edit--admin text-center change--admin"><i class="fas fa-info-circle mx-1"></i>Details</a>
+                                    </td>
+                                    
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script src="~/Areas/Admin/Content/Script/chart.js"></script>
+
+        <script>
+            setTimeout(function () {
+                $('#msgAlert').fadeOut('slow');
+                $('#msgsAlert').fadeOut('slow');
+            }, 2000);
+        </script>
