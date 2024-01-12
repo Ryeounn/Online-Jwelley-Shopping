@@ -226,8 +226,58 @@ namespace Jewelly.Areas.Admin.Controllers
 
         public ActionResult Notify()
         {
+            if(TempData["StatusApproved"] != null)
+            {
+                ViewBag.StatusApprovedMg = TempData["StatusApproved"];
+            }
+            if (TempData["StatusApprovedError"] != null)
+            {
+                ViewBag.StatusApprovedErrorMg = TempData["StatusApprovedError"];
+            }
+            if(TempData["StatusCancel"] != null)
+            {
+                ViewBag.StatusCancelMg = TempData["StatusCancel"];
+            }
+            if (TempData["StatusCancelError"] != null)
+            {
+                ViewBag.StatusCancelErrorMg = TempData["StatusCancelError"];
+            }
             List<CartList> cartLists = db.CartLists.Where(row => row.Status.Contains("Pending")).ToList();
             return View(cartLists);
+        }
+
+        public ActionResult Accept(int id)
+        {
+            var item = db.CartLists.Where(row => row.ID == id).FirstOrDefault();
+            if(item != null)
+            {
+                item.Status = "Approved";
+                db.SaveChanges();
+                TempData["StatusApproved"] = "Update successful.";
+                return RedirectToAction("Notify", "HomeAdmin");
+            }
+            else
+            {
+                TempData["StatusApprovedError"] = "Update fail.";
+                return RedirectToAction("Notify", "HomeAdmin");
+            }
+        }
+
+        public ActionResult Cancel(int id)
+        {
+            var item = db.CartLists.Where(row => row.ID == id).FirstOrDefault();
+            if (item != null)
+            {
+                item.Status = "Cancel";
+                db.SaveChanges();
+                TempData["StatusCancel"] = "Update successful.";
+                return RedirectToAction("Notify", "HomeAdmin");
+            }
+            else
+            {
+                TempData["StatusCancelError"] = "Update fail.";
+                return RedirectToAction("Notify", "HomeAdmin");
+            }
         }
     }
 }

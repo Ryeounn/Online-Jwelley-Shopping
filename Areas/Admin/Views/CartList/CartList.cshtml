@@ -35,7 +35,7 @@
                 {
                     <div class=" row list_form mb-4">
                         <div class="col-sm-3 _ec">
-                            <img src="@item.UserRegMst.Path_photo@item.UserRegMst.photo" class="img_cus" />
+                            <img src="@item.UserRegMst.Path_photo@item.UserRegMst.photo" class="" />
 
                         </div>
                         <div class="col-sm-3 _ec txt_line_">
@@ -48,7 +48,7 @@
                                     <i class="fa-solid fa-circle"></i>@item.Status
                                 </p>
                             }
-                            else if (item.Status == "Accept")
+                            else if (item.Status == "Approved")
                             {
                                 <p style="color: green">
                                     <i class="fa-solid fa-check"></i>@item.Status

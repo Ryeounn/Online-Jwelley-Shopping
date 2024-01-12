@@ -1,0 +1,27 @@
+﻿@model Jewelly.Models.CatMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.Cat_Name ]</h6>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/CategoryAdmin/Edit/@Model.Cat_ID" method="post" enctype="multipart/form-data">
+                <div class="form-group" hidden>
+                    <label class="form-text">Category ID</label>
+                    <input type="text" class="form-control" value="@Model.Cat_ID" name="catid" />
+                </div>
+                <div class="container-fluid brand__edit__container">
+                    <input type="text" class="form-control brand__edit__input" value="@Model.Cat_Name" name="CatName">
+                    <button class="btn form-control mt-4 edit--admin change--admin" name="create">Save Change</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+

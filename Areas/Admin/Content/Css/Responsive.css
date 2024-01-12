@@ -2,7 +2,7 @@
 @media (min-width: 64em) {
     /* Layout */
     .notificati{
-        right: 13.9%;
+        right: ;
     }
 
     /* Gold */
@@ -361,6 +361,11 @@
     .tablet--uncart{
         top: 0;
     }
+
+    /* Category */
+    .delete--category{
+        width: 50%;
+    }
 }
 
 /* Mobile */
@@ -695,5 +700,14 @@
 
     .btn--submit--dim {
         left: 74%;
+    }
+
+    /* Notify */
+    .btn--submit--notify--mobile{
+        left: 45%;
+    }
+
+    .location--notify--mobile{
+        margin-left: 37%;
     }
 }

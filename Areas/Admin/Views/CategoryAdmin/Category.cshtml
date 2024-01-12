@@ -1,0 +1,94 @@
+﻿@model List<Jewelly.Models.CatMst>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<div id="toast">
+    @if (ViewBag.AddCatMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGold());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.AddCatMg" />
+    }
+    else if (ViewBag.AddCatErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.AddCatErrorMg" />
+    }
+    else if (ViewBag.EditCarMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditCarMg" />
+    }
+    else if (ViewBag.EditCatErrorMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })
+        </script>
+        <input type="hidden" class="fail" value="@ViewBag.EditCatErrorMg" />
+    }
+    else if (ViewBag.DeleteCatMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteAdmin());
+            })
+        </script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteCatMg" />
+    }
+</div>
+<h2 class="title--admin">Category</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/CategoryAdmin/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Category</a>
+    <form action="/Admin/CategoryAdmin/Category" method="post">
+        <input type="text" placeholder="Category Name" name="search" class="form-control btn--search btn--search--dim" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--dim" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <th class="text--table">Category Id</th>
+                        <th class="text--table"> Certify Type</th>
+                        <th class="text--table" style="text-align: center">Edit</th>
+                        <th class="text--table" style="text-align: center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.Cat_ID</td>
+                            <td class="text--table">@item.Cat_Name</td>
+                            <td class="text--table">
+                                <a class="btn form-control edit--admin btn--td--gold" href="/Admin/CategoryAdmin/Edit/@item.Cat_ID">Edit</a>
+                            </td>
+                            <td class="text--table">
+                                <a class="btn form-control edit--admin btn--td--gold delete--admin delete--category" href="/Admin/CategoryAdmin/Delete/@item.Cat_ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
