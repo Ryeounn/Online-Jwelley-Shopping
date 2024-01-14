@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
@@ -19,7 +21,23 @@ namespace Jewelly.Areas.Admin.Controllers
         // GET: Admin/HomeAdmin
         public ActionResult Dashboard()
         {
-            return View();
+            List<CartList> cartLists = db.CartLists.ToList();
+            var total = db.CartLists
+           .Where(cart => cart.Status == "Complete")
+           .GroupBy(cart => cart.userID)
+           .Select(group => new StatusInfo
+           {
+               ID = group.Key,
+               Status = "Complete",
+               UserName = group.FirstOrDefault().UserRegMst.Username,
+               TotalMRP = group.Sum(cart => cart.MRP),
+               TotalQuantity = group.Count()
+
+        }).ToList();
+      
+            dynamic model = new ExpandoObject();
+            model.Total = total;
+            return View(model);
         }
 
         public ActionResult Logout()
@@ -221,6 +239,10 @@ namespace Jewelly.Areas.Admin.Controllers
                 var pending = db.CartLists.Where(row => row.Status.Equals("pending")).Count();
                 ViewBag.QuantityCart = pending;
             }
+            else
+            {
+                ViewBag.QuantityCart = 0;
+            }
             return PartialView("Notification");
         }
 
@@ -278,6 +300,94 @@ namespace Jewelly.Areas.Admin.Controllers
                 TempData["StatusCancelError"] = "Update fail.";
                 return RedirectToAction("Notify", "HomeAdmin");
             }
+        }
+        [HttpGet]
+        public ActionResult getProfitData()
+        {
+            var result = db.Orderdetails
+             .Join(db.CartLists, od => od.ID, cl => cl.ID, (od, cl) => new { OrderDetail = od, Cart = cl })
+             .Join(db.ItemMsts, od => od.OrderDetail.Style_Code, im => im.Style_Code, (od, im) => new { OrderDetail = od.OrderDetail, Cart = od.Cart, Item = im })
+             .GroupBy(x => new { Year = DbFunctions.TruncateTime(x.Cart.OrderDate).Value.Year })
+             .Select(g => new
+             {
+                 Year = g.Key.Year,
+                 Totalgiale = g.Sum(x => x.OrderDetail.UnitPrice),
+                 Totalcong = g.Sum(x => x.OrderDetail.ItemMst.Tot_Making)
+             })
+               .OrderBy(x => x.Year)
+               .ToList();
+            var totalRevenue = result.Sum(x => x.Totalgiale);// giá lẻ
+            var totalyear = result.Sum(x => x.Totalcong);//giá gốc
+            var total = totalRevenue - totalyear;// tiền lời
+            var resultWithTotalRevenue = new
+            {
+                Result = result,
+                TotalRevenue = totalRevenue,
+                Totalyear = totalyear,
+                Total = total,
+            };
+            db.Configuration.LazyLoadingEnabled = false;
+            return Json(resultWithTotalRevenue, JsonRequestBehavior.AllowGet);
+        }
+        //Này là Reneuve
+        [HttpGet]
+        public ActionResult getReneuveData()
+        {
+            var result = db.Orderdetails
+             .Join(db.CartLists, od => od.ID, cl => cl.ID, (od, cl) => new { OrderDetail = od, Cart = cl })
+             .Join(db.ItemMsts, od => od.OrderDetail.Style_Code, im => im.Style_Code, (od, im) => new { OrderDetail = od.OrderDetail, Cart = od.Cart, Item = im })
+             .GroupBy(x => new { Year = DbFunctions.TruncateTime(x.Cart.OrderDate).Value.Year })
+             .Select(g => new
+             {
+                 Year = g.Key.Year,
+                 TotalRevenue = g.Sum(x => x.OrderDetail.UnitPrice)
+             })
+                .OrderBy(x => x.Year)
+                .ToList();
+            var totalRevenue = result.Sum(x => x.TotalRevenue);
+            var resultWithTotalRevenue = new
+            {
+                Result = result,
+                TotalRevenue = totalRevenue
+            };
+            db.Configuration.LazyLoadingEnabled = false;
+            return Json(resultWithTotalRevenue, JsonRequestBehavior.AllowGet);
+        }
+        //Này là Tổng đơn hàng tính bằng order trên năm
+        [HttpGet]
+        public ActionResult getOrderData()
+        {
+            var result = db.CartLists
+              .GroupBy(x => new { Year = DbFunctions.TruncateTime(x.OrderDate).Value.Year })
+              .Select(g => new
+              {
+                  Year = g.Key.Year,
+                  TotalRevenue = g.Count()
+              })
+              .OrderBy(x => x.Year)
+              .ToList();
+            var totalRevenue = result.Sum(x => x.TotalRevenue);
+            var resultWithTotalRevenue = new
+            {
+                Result = result,
+                TotalRevenue = totalRevenue
+            };
+            db.Configuration.LazyLoadingEnabled = false;
+            return Json(resultWithTotalRevenue, JsonRequestBehavior.AllowGet);
+        }
+        //Này là tổng lượng sản phẩm trên năm
+        [HttpGet]
+        public ActionResult getProductData()
+        {
+            var result = db.ItemMsts.ToList();
+            var totalRevenue = result.Count();
+            var resultWithTotalRevenue = new
+            {
+                Result = result,
+                TotalRevenue = totalRevenue
+            };
+            db.Configuration.LazyLoadingEnabled = false;
+            return Json(resultWithTotalRevenue, JsonRequestBehavior.AllowGet);
         }
     }
 }

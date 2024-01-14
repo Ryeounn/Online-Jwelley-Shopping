@@ -2,6 +2,13 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    <style>
+        .eye_icon {
+            position: absolute;
+            right: 12px;
+            top: 50px;
+        }
+    </style>
 }
 <div id="toast">
     @if (ViewBag.RegisterMg != null)
@@ -52,4 +59,3 @@
     });
 </script>
 <script src="~/Content/Script/message.js"></script>
-

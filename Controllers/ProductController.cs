@@ -89,7 +89,7 @@ namespace Jewelly.Controllers
             var model = new JoinDetails().SelectDetails(id).ToList();
             dynamic models = new ExpandoObject();
             models.Details = model;
-
+            
             return View(models);
         }
 
@@ -206,10 +206,10 @@ namespace Jewelly.Controllers
 
         public PartialViewResult BagCart()
         {
+           
             var total = 0;
             if (Session["username"] != null)
             {
-
                 var user = (int)Session["userID"];
                 var cart = db.ShoppingCarts.Where(row => row.User_id == user);
                 var check = db.ShoppingCarts.Where(row => row.Quantity == 0);
@@ -220,9 +220,7 @@ namespace Jewelly.Controllers
                 else if (cart == null && check == null)
                 {
                     total = 0;
-
                 }
-
             }
 
             ViewBag.QuantityCart = total;

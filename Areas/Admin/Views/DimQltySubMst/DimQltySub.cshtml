@@ -1,0 +1,93 @@
+﻿@model List<Jewelly.Models.DimQltySubMst>
+@{
+    ViewBag.Title = "DimQltySub";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div id="toast">
+    @if (ViewBag.AddDimSubMstMg != null)
+    {
+        <script>
+$(document).ready(function () {
+                $("toast").load(checkAddGold());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.AddDimSubMstMg" />
+    }
+    else if (ViewBag.AddDimSubMstError != null)
+    {
+        <script>
+$(document).ready(function () {
+                $("toast").load(checkAddGoldError());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.AddDimSubMstError" />
+    }
+    else if (ViewBag.EditDimSubMstMg != null)
+    {
+        <script>
+$(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.EditDimSubMstMg" />
+    }
+    else if (ViewBag.EditDimSubMstErrorMg != null)
+    {
+        <script>
+$(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.EditDimSubMstErrorMg" />
+    }
+    else if (ViewBag.DeleteDimSubMstMg != null)
+    {
+        <script>
+$(document).ready(function () {
+                $("toast").load(checkDeleteAdmin());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteDimSubMstMg" />
+    }
+</div>
+<h2 class="title--admin">Diamond Sub Type</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/DimQltySubMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Diamond</a>
+    <form action="/Admin/DimQltySubMst/DimQltySub" method="post">
+        <input type="text" placeholder="Dim Qlty" name="search" class="form-control btn--search btn--search--dim" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--dim" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">DimSubType_ID</td>
+                        <td class="text--table">DimQlty</td>
+                        <td class="text--table">description</td>
+                        <td class="text--table" style="text-align: center">Edit</td>
+                        <td class="text--table" style="text-align: center">Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.DimSubType_ID</td>
+                            <td class="text--table">@item.DimQlty</td>
+                            <td class="text--table">@item.description</td>
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/DimQltySubMst/Edit/@item.DimSubType_ID" class="btn form-control edit--admin text-center">Edit</a>
+                            </td>
+                            <td class="text--table">
+                                <a href="/Admin/DimQltySubMst/Delete/@item.DimSubType_ID" class="btn form-control edit--admin delete--admin text-center">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>
+

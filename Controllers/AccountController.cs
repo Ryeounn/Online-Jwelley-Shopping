@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Net.Mail;
+using System.Diagnostics;
+using System.Dynamic;
 
 namespace Jewelly.Controllers
 {
@@ -138,40 +140,37 @@ namespace Jewelly.Controllers
             return View();
         }
 
-        public ActionResult General()
+        public ActionResult General(int id)
         {
-            if(TempData["ChangeInfor"] != null)
+            if (TempData["Editinfor"] != null)
             {
-                ViewBag.ChangeInforMg = TempData["ChangeInfor"];
+                ViewBag.EditinforMg = TempData["Editinfor"];
             }
-            if(TempData["ChangeInforError"] != null)
+            if (TempData["ErrorEditinfor"] != null)
             {
-                ViewBag.ChangeInforErrorMg = TempData["ChangeInforError"];
+                ViewBag.ErrorEditinforMg = TempData["ErrorEditinfor"];
             }
-            if(TempData["Password"] != null)
+            if (TempData["changeps"] != null)
             {
-                ViewBag.PasswordGeneralMg = TempData["Password"];
+                ViewBag.EditpMg = TempData["changeps"];
             }
-            if(TempData["PasswordError"] != null)
+            if (TempData["errorps"] != null)
             {
-                ViewBag.PasswordGeneralErrorMg = TempData["PasswordError"];
+                ViewBag.ErrorpsMg = TempData["errorps"];
             }
-            return View();
+            UserRegMst users = db.UserRegMsts.Where(s => s.userID == id).FirstOrDefault();
+            return View(users);
         }
         public ActionResult Information()
         {
-            if (Session["Username"] == null)
-            {
-                return Content("You are not logged in, Please log in!");
 
-            }
             var username = Session["Username"].ToString();
             UserRegMst users = db.UserRegMsts.Where(s => s.Username == username).FirstOrDefault();
             return View(users);
         }
 
         [HttpPost]
-        public ActionResult Information(UserRegMst users, HttpPostedFileBase imageFiles)
+        public ActionResult Information(UserRegMst users)
         {
             var username = Session["Username"].ToString();
             var testuser = db.UserRegMsts.FirstOrDefault(s => s.Username == username);
@@ -185,29 +184,24 @@ namespace Jewelly.Controllers
                 user.dob = users.dob;
                 user.emailID = users.emailID;
                 user.mobNo = users.mobNo;
-                var filename = user.Username + ".jpg";
-                var path = Path.Combine(Server.MapPath("~/Content/Image/Customer/"), filename);
-                user.photo = filename;
-                user.Path_photo = "/Content/Image/Customer/";
-                imageFiles.SaveAs(path);
                 db.SaveChanges();
-                TempData["ChangeInfor"] = "Change Information successful.";
-                return RedirectToAction("General", "Account");
+                TempData["Editinfor"] = "Change Information successful.";
+                return RedirectToAction("General/" + user.userID, "Account");
             }
             else
             {
-                TempData["ChangeInforError"] = "Change Information fail.";
+                TempData["ErrorEditinfor"] = "Change Information fail.";
                 return RedirectToAction("Index", "Home");
             }
 
 
         }
+
         public ActionResult Change()
         {
             if (Session["Username"] == null)
             {
                 return Content("You are not logged in, Please log in!");
-
             }
             return View();
         }
@@ -228,7 +222,7 @@ namespace Jewelly.Controllers
                     users.password = newpass;
                     db.SaveChanges();
                     TempData["Password"] = "Change Password successful.";
-                    return RedirectToAction("General", "Account");
+                    return RedirectToAction("General/" + users.userID, "Account");
 
                 }
                 else
@@ -280,22 +274,11 @@ namespace Jewelly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Forget(string emmailID, FormCollection form)
+        public ActionResult Forget(FormCollection form)
         {
             var email = form["emailID"];
             var emailuser = db.UserRegMsts.Where(row => row.emailID == email).FirstOrDefault();
-            var emailAdmin = db.AdminLoginMsts.Where(row => row.Email == email).FirstOrDefault();
             if (emailuser != null)
-            {
-                string userEmail = email; // Lấy địa chỉ email từ người dùng
-                string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
-                SendEmail(userEmail, randomCode); // Gửi email chứa mã xác nhận
-                                                  // Lưu mã xác nhận vào cơ sở dữ liệu hoặc session để kiểm tra sau này
-                Session["VerificationCode"] = randomCode;
-                Session["EmailForget"] = email;
-                TempData["CheckMail"] = "Email has been sent";
-                return RedirectToAction("Verification", "Account");
-            }else if(emailAdmin != null)
             {
                 string userEmail = email; // Lấy địa chỉ email từ người dùng
                 string randomCode = GenerateRandomCode(); // Sinh mã xác nhận ngẫu nhiên
@@ -350,7 +333,7 @@ namespace Jewelly.Controllers
                 TempData["VerificationCodeError"] = "Verification Code not match";
                 return RedirectToAction("Verification", "Account");
             }
-            
+
         }
 
         public ActionResult ChangeFromForget()
@@ -382,6 +365,7 @@ namespace Jewelly.Controllers
                 }
                 db.SaveChanges();
                 Session.Remove("EmailForget");
+                Session.Remove("VerificationCode");
                 TempData["ChangeFrom"] = "Change Password successful.";
                 return RedirectToAction("Login", "Account");
             }
@@ -391,12 +375,56 @@ namespace Jewelly.Controllers
                 return RedirectToAction("ChangeFromForget", "Account");
             }
         }
-
+        [HttpPost]
+        public ActionResult UploadFiles(int id)
+        {
+            try
+            {
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase file = Request.Files[fileName];
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        // Đường dẫn lưu trữ file trên server (điều này cần được điều chỉnh tùy theo yêu cầu của bạn)
+                        var uploadPath = Server.MapPath("/Content/Image/Customer/");
+                        if (!Directory.Exists(uploadPath))
+                        {
+                            Directory.CreateDirectory(uploadPath);
+                        }
+                        var user = db.UserRegMsts.FirstOrDefault(row => row.userID == id);
+                        if (user != null)
+                        {
+                            string filename = user.Username + ".jpg";
+                            var filePath = Path.Combine(Server.MapPath("/Content/Image/Customer/"), filename);
+                            file.SaveAs(filePath);
+                            user.Path_photo = "/Content/Image/Customer/";
+                            user.photo = filename;
+                            db.SaveChanges();
+                            TempData["Image"] = "Update successful.";
+                        }
+                        // Xử lý file tại đây, ví dụ: lưu thông tin vào cơ sở dữ liệu, vv.
+                    }
+                }
+                return RedirectToAction("General", "Account", new { id });
+                //return Json(new { Message = "File(s) uploaded successfully." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Message = "Error uploading files", Error = ex.Message });
+            }
+        }
         public ActionResult Logout(string userId)
         {
             Session.Clear();//remove session
             return RedirectToAction("Login", "Account");
         }
+
+        public ActionResult MyPurchase(int id)
+        {
+            var order = new JoinMyPurchase().SelectPurchase(id).ToList();
+            return View(order);
+        }
+
         public static string GetMD5(string str)
         {
             MD5 md5 = new MD5CryptoServiceProvider();

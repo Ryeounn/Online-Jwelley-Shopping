@@ -363,4 +363,36 @@ function checkForget() {
     }
 
 }
+function checkConfirm() {
+    var newpass = document.querySelector('.newpass');
+    var newpasscon = document.querySelector(".confirm");
+
+    if (newpasscon.value == "" && newpasscon.value.length < 8) {
+        newpasscon.style.border = '1px solid #B80000';
+        return false;
+
+    }
+    else if (newpasscon.value != newpass.value) {
+        newpasscon.style.border = '1px solid #B80000';
+        return false;
+    }
+    else if (newpasscon.value == newpass.value) {
+        newpasscon.style.border = '1px solid green';
+        return true;
+    }
+}
+function checkPassNew() {
+    var passnew = document.querySelector('.newpass');
+    if (passnew.value == "" || passnew.value == null) {
+        passnew.style.border = '1px solid #B80000';
+        return false;
+    } else if (passnew.value.length < 8) {
+        passnew.style.border = '1px solid #B80000';
+        return false
+    }
+    else {
+        passnew.style.border = '1px solid green';
+        return true;
+    }
+}
 

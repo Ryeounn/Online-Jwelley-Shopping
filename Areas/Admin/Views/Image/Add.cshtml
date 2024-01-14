@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/Image/Add" method="post" enctype="multipart/form-data">
+                <label class="title_warning">Please Upload full Image of Products</label>
+                <label class="form-text">Image 1</label>
+                <input type="file" class="form-control" id="Image1" name="pic_1" placeholder="" />
+                <label class="form-text">Image 2</label>
+                <input type="file" class="form-control" id="Image2" name="pic_2" placeholder="" />
+                <label class="form-text">Image 3</label>
+                <input type="file" class="form-control" id="Image3" name="pic_3" placeholder="" />
+                <label class="form-text">Image 4</label>
+                <input type="file" class="form-control" id="Image4" name="pic_4" placeholder="" />
+                <label class="form-text">Image 5</label>
+                <input type="file" class="form-control" id="Image5" name="pic_5" placeholder="" />
+                <label class="form-text">Image 6</label>
+                <input type="file" class="form-control" id="Image6" name="pic_6" placeholder="" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="form-control mt-4 btn-primary btn change--admin" name="Add" value="Create">
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Image","Image")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

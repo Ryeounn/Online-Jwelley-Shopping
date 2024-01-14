@@ -1,74 +1,161 @@
-﻿@{
+﻿@model dynamic
+@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
+<div class="container container--left lettop">
+    <div class="row _mbl_">
+        @*Profit*@
+        <div class="col-md-3">
+            <div class="_cuc_">
+                <div class="row _mbl_">
+                    <div class="col-md-6">
+                        <p class="_txt_">
+                            Profit
+                        </p>
 
-<div class="container have_Chart">
-    <div class="row _re">
-        <div class="col-md-6">
-            <div class="chart_">
-                <canvas id="order" height="400" width=""></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="_total_">
+                            <p>Year</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="_totinm_" id="profit">450.00</p>
+                <div class="contain_range">
+                    <p id="proper">60%</p>
+                    <div class="range_moz">
+                        <div class="range_" id="rangeBar"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="chart_">
-                <canvas id="total" height="400" width=""></canvas>
+        @* Reneuve *@
+        <div class="col-md-3">
+            <div class="_cuc_">
+                <div class="row _mbl_">
+                    <div class="col-md-6">
+                        <p class="_txt_">
+                            Renue
+                        </p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="_total_" id="reneuve">
+                            <p>Year</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="_totinm_" id="Renueve">450.00</p>
+                <div class="contain_range">
+                    <p id="reper">60%</p>
+                    <div class="range_moz">
+                        <div class="range_" id="rangereBar"></div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+        @* Order *@
+        <div class="col-md-3">
+            <div class="_cuc_">
+                <div class="row _mbl_">
+                    <div class="col-md-6">
+                        <p class="_txt_">
+                            Product
+                        </p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="_total_" id="qq">
+                            <p>Year</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="_totinm_" id="product">450.00</p>
+                <div class="contain_range">
+                    <p id="prper">60%</p>
+                    <div class="range_moz">
+                        <div class="range_" id="rangeproBar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        @* Product *@
+        <div class="col-md-3">
+            <div class="_cuc_">
+                <div class="row _mbl_">
+                    <div class="col-md-6">
+                        <p class="_txt_">
+                            Order
+                        </p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="_total_" id="toiben">
+                            <p>Year</p>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="_totinm_" id="order">450.00</p>
+                <div class="contain_range">
+                    <p id="orper">60%</p>
+                    <div class="range_moz">
+                        <div class="range_" id="rangeorBar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
-    <div class="row _re">
-        <div class="col-md-6">
-            <div class="chart_">
-                <canvas id="profit" height="400" width=""></canvas>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="chart_">
-                <canvas id="country" height="400" width=""></canvas>
+</div>
+<div class="editcolor_">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <canvas id="total" height="400" width="600"></canvas>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    console.log("log");
-    $.ajax({
-        url: '/Admin/HomeAdmin/GetChartData',
-        type: 'GET',
-        success: function (data) {
-            handleChartData(data);
-        },
-        error: function (error) {
-            console.error(error);
-        }
-    });
-    function handleChartData(data) {
-        console.log(data);
-         var ctx3 = document.getElementById('total');
-        var colorctx3 = ["red", "blue","green","yellow"];
-        var resultData = data.Result;
-        var labels = resultData.map(item => item.Year + '/' + item.Month);
-        var revenueData = resultData.map(item => item.TotalRevenue);
+<h2 class="edit_dashtable">Total Order Record</h2>
 
-        new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Revenue',
-                    data: revenueData,
-                    borderWidth: 1,
-                    backgroundColor: colorctx3
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+<div class="search--group">
+
+</div>
+<div class="container container--left edit_dash">
+    <div class="row ">
+        <div class="col-md-12">
+            <table class="table _gold _edit_color">
+                <tr>
+                    <th class="text--table">Username</th>
+                    <th class="text--table">Quanlity</th>
+                    <th class="text--table">Total Price</th>
+                    <th class="text--table">Status</th>
+                </tr>
+                @foreach (var item in Model.Total)
+                {
+                    <tr>
+                        <td class="text--table">@item.UserName</td>
+                        <td class="text--table">@item.TotalQuantity</td>
+                        <td class="text--table"> @item.TotalMRP</td>
+                        <td class="text--table"> @item.Status</td>
+                    </tr>
                 }
-            }
-        });
-    }
-    </script>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/Reneuve.js"></script>
+

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add Diamond Quantity Sub</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/DimQltySubMst/Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-text">DimQlty</label>
+                    <input type="text" class="form-control" name="DimQltySub" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Description</label>
+                    <input type="text" class="form-control" name="Description" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" name="create" class="btn form-control mt-4 edit--admin change--admin">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("DimQltySubMst","DimQltySubMst")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+

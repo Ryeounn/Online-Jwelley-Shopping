@@ -1,0 +1,36 @@
+﻿@model Jewelly.Models.DimQltyMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.DimQlty_ID ]</h6>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/DimQltyMst/Edit/@Model.DimQlty_ID" method="post">
+                <div class="form-group" hidden>
+                    <label class="form-text">DimSubType ID</label>
+                    <input type="text" class="form-control" readonly value="@Model.DimQlty_ID" name="productid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Dim Crt</label>
+                    <input type="text" class="form-control" value="@Model.DimQlty" name="DimQlty" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn mt-4 form-control edit--admin change--admin">Save Change</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("DimQlity","DimQltyMst")" class="btn mt-4 form-control edit--admin">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+

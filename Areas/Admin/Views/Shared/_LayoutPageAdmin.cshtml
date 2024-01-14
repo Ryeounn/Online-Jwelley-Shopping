@@ -47,11 +47,11 @@
                             <i class="fa-solid fa-ring"></i>Item<i class="fas fa-angle-right dropdown"></i>
                         </a>
                         <div class="sub-menu">
-                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Items</a>
+                            <a href="@Url.Action("Item","ItemMst")" class="sub-item"><i class="fa-solid fa-ring"></i>Items</a>
                             <a href="@Url.Action("Prod","ProMst")" class="sub-item"><i class="fa-solid fa-toolbox"></i>Product</a>
                             <a href="@Url.Action("Brand","BrandAdmin")" class="sub-item"><i class="fa-solid fa-copyright"></i>Brand</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-ring"></i>Jewelry</a>
+                            <a href="@Url.Action("Jewel","JewelTypeMst")" class="sub-item"><i class="fa-solid fa-ring"></i>Jewelry</a>
 
                         </div>
                     </div>
@@ -62,11 +62,11 @@
                         </a>
                         <div class="sub-menu">
                             <a href="#" class="sub-item"><i class="fa-solid fa-droplet"></i>Information</a>
-                            <a href="#" class="sub-item"><i class="fas fa-table"></i>Quanlity</a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-rainbow"></i>Subtype</a>
+                            <a href="@Url.Action("DimQlty","DimQltyMst")" class="sub-item"><i class="fas fa-table"></i>Quanlity</a>
+                            <a href="@Url.Action("DimQltySub","DimQltySubMst")" class="sub-item"><i class="fa-solid fa-rainbow"></i>Subtype</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-images"></i>Image</a>
                             <a href="#" class="sub-item"><i class="fa-solid fa-gem"></i>Diamond</a>
-                            <a href="#" class="sub-item"><i class="fa-solid fa-certificate"></i>Certify</a>
+                            <a href="@Url.Action("Certify","CertifyAdmin")" class="sub-item"><i class="fa-solid fa-certificate"></i>Certify</a>
                         </div>
                     </div>
                     @* Hệ đá *@
@@ -116,7 +116,7 @@
                     <a class="sub-btn"><i class="fas fa-table"></i>Contact<i class="fas fa-angle-right dropdown"></i></a>
                     <div class="sub-menu">
                         <a href="@Url.Action("Inquiry","HomeAdmin")" class="sub-item"><i class="fas fa-clipboard"></i>Inquiry</a>
-                        <a href="#" class="sub-item"><i class="fas fa-newspaper"></i>News</a>
+                        <a href="@Url.Action("News","HomeAdmin")" class="sub-item"><i class="fas fa-newspaper"></i>News</a>
                     </div>
                 </div>
                 </div>
@@ -133,7 +133,7 @@
         </div>
 
         <!-- Right Section -->
-        <div class="right-section tablet-edit-cartq tablet--uncart">
+        <div class="right-section tablet-edit-cartq tablet--uncart mobile_dash">
             
             <div class="nav">
                 <button id="menu-btn">

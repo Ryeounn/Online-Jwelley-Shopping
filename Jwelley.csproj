@@ -107,6 +107,8 @@
     <Content Include="Areas\Admin\Content\Script\Index.js" />
     <Content Include="Areas\Admin\Content\Script\messageAdmin.js" />
     <Content Include="Areas\Admin\Content\Script\Order.js" />
+    <Content Include="Areas\Admin\Content\Script\Reneuve.js" />
+    <Content Include="Areas\Admin\Content\Script\togglePassword.js" />
     <Content Include="Content\Css\intlTelInput.css" />
     <Content Include="Content\Css\Responsive.css" />
     <Content Include="Content\Css\Style.css" />
@@ -177,9 +179,11 @@
     <Content Include="Content\Image\Introduction\Les Ateliers Créations by Van Cleef &amp; Arpels.jpeg" />
     <Content Include="Content\Image\Introduction\pexels-luis-quintero-1659748.jpg" />
     <Content Include="Content\Image\Introduction\pexels-tima-miroshnichenko-6263066.jpg" />
+    <Content Include="Content\Image\Layout\cart.jpg" />
     <Content Include="Content\Image\Layout\empty.jpg" />
     <Content Include="Content\Image\Layout\favicon.png" />
     <Content Include="Content\Image\Layout\logo-header.png" />
+    <Content Include="Content\Image\Layout\TestforItem.jpg" />
     <Content Include="Content\Image\Natural\pexels-ady-5867401.jpg" />
     <Content Include="Content\Image\Natural\pexels-fuzail-ahmad-2792601.jpg" />
     <Content Include="Content\Image\Natural\pexels-hey-karan-1694663.jpg" />
@@ -608,12 +612,15 @@
     <Content Include="Content\Script\data.js" />
     <Content Include="Content\Script\data.min.js" />
     <Content Include="Content\Script\DrapandDrop.js" />
+    <Content Include="Content\Script\DrapandDropcus.js" />
     <Content Include="Content\Script\Function.js" />
+    <Content Include="Content\Script\ImgUpload.js" />
     <Content Include="Content\Script\intlTelInput-jquery.js" />
     <Content Include="Content\Script\intlTelInput-jquery.min.js" />
     <Content Include="Content\Script\intlTelInput.js" />
     <Content Include="Content\Script\intlTelInput.min.js" />
     <Content Include="Content\Script\message.js" />
+    <Content Include="Content\Script\togglePasswordVisibility.js" />
     <Content Include="Content\Script\utils.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\Jwelley.Context.tt">
@@ -635,10 +642,15 @@
     <Compile Include="Areas\Admin\Controllers\BrandAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CartListController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CertifyAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DimMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DimQltyMstController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DimQltySubMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\GoldKrtMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ItemMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\JewelTypeMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderdetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaymentController.cs" />
@@ -715,6 +727,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\myPurchase.cs" />
     <Compile Include="Models\News.cs">
       <DependentUpon>Jwelley.tt</DependentUpon>
     </Compile>
@@ -802,6 +815,21 @@
     <Content Include="Areas\Admin\Views\CategoryAdmin\Category.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryAdmin\Add.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CertifyAdmin\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\CertifyAdmin\Certify.cshtml" />
+    <Content Include="Areas\Admin\Views\CertifyAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltyMst\DimQlty.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltyMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltyMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltySubMst\DimQltySub.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltySubMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\DimQltySubMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemMst\Item.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemMst\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Image.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Add.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -834,6 +862,7 @@
     <Content Include="Views\Account\Forget.cshtml" />
     <Content Include="Views\Account\Verification.cshtml" />
     <Content Include="Views\Account\ChangeFromForget.cshtml" />
+    <Content Include="Views\Account\MyPurchase.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -846,7 +875,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\Image\Customer\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

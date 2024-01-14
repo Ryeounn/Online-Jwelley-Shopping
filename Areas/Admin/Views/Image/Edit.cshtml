@@ -1,0 +1,38 @@
+﻿@model Jewelly.Models.Img
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_1" /></div>
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_2" /></div>
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_3" /></div>
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_4" /></div>
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_5" /></div>
+        <div class="col-md-2"><img src="@Model.path_img@Model.pic_6" /></div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <!-- Your other form fields -->
+
+        <div class="form-group">
+            <label asp-for="Path">Path</label>
+            <input asp-for="Path" class="form-control" />
+        </div>
+
+        <!-- Image fields -->
+        @for (int i = 1; i <= 6; i++)
+        {
+            <div class="form-group">
+                <label for="Image@(i)">Image @(i)</label>
+                <input type="file" name="Image@(i)" id="Image@(i)" class="form-control" />
+            </div>
+        }
+
+        <button type="submit">Save</button>
+    </form>
+
+</div>

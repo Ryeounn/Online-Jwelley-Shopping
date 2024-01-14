@@ -15,6 +15,14 @@ namespace Jewelly.Models
         public string Path { get; set; }
 
     }
+    public class StatusInfo
+    {
+        public Nullable<int> ID { get; set; }
+        public string Status { get; set; }
+        public decimal TotalMRP { get; set; }
+        public int TotalQuantity { get; set; }
+        public string UserName { get; set; }
+    }
     public class Join
     {
         public JwelleyEntities db = new JwelleyEntities();

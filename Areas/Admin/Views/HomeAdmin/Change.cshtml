@@ -13,15 +13,27 @@
             {
                 <div class="form-group">
                     <label class="form-text">Current Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Current Password" required>
+                    <input type="password" class="form-control" name="password" placeholder="Current Password" id="current" required>
+                    <span class="eye-icon--current" onclick="togglePasswordVisibilityCurrentChange()">
+                        <span id="showIcon"><i class="fa-solid fa-eye"></i></span>
+                        <span id="hideIcon" style="display:none;"><i class="fa-solid fa-eye-slash"></i></span>
+                    </span>
                 </div>
                 <div class="form-group">
                     <label class="form-text">New Password</label>
-                    <input type="password" class="form-control" name="newp" oninput="checkConfirm()" placeholder="New Password" required>
+                    <input type="password" class="form-control" name="newp" oninput="checkConfirm()" id="news" placeholder="New Password" required>
+                    <span class="eye-icon--news" onclick="togglePasswordVisibilityChangeNews()">
+                        <span id="showIcon1"><i class="fa-solid fa-eye"></i></span>
+                        <span id="hideIcon1" style="display:none;"><i class="fa-solid fa-eye-slash"></i></span>
+                    </span>
                 </div>
                 <div class="form-group">
                     <label class="form-text">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirm" oninput="checkConfirm()" placeholder="Confirm Password" required>
+                    <input type="password" class="form-control" name="confirm" oninput="checkConfirm()" id="confirm" placeholder="Confirm Password" required>
+                    <span class="eye-icon--confirm" onclick="togglePasswordVisibilityChangeConfirm()">
+                        <span id="showIcon2"><i class="fa-solid fa-eye"></i></span>
+                        <span id="hideIcon2" style="display:none;"><i class="fa-solid fa-eye-slash"></i></span>
+                    </span>
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-6">
@@ -36,4 +48,4 @@
         </div>
     </div>
 </div>
-
+<script src="~/Areas/Admin/Content/Script/togglePassword.js"></script>

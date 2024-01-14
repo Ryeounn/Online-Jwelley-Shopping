@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add Certify</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/CertifyAdmin/Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-text">Certify</label>
+                    <input type="text" class="form-control brand__input" placeholder="Enter Certify Name" name="CertifyType">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn form-control edit--admin mt-4 change--admin" type="submit" name="create">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Certify","CertifyAdmin")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

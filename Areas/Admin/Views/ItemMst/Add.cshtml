@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Add Diamond</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/ItemMst/Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-text">Pairs</label>
+                    <input type="text" class="form-control" name="Pairs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Quantity</label>
+                    <input type="text" class="form-control" name="Quantity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Prod Quality</label>
+                    <input type="text" class="form-control" name="Prod_Quality" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold Wt</label>
+                    <input type="text" class="form-control" name="Gold_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone Wt</label>
+                    <input type="text" class="form-control" name="Stone_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Net_Gold</label>
+                    <input type="text" class="form-control" name="Net_Gold" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Wstg_Per</label>
+                    <input type="text" class="form-control" name="Wstg_Per" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Wstg</label>
+                    <input type="text" class="form-control" name="Wstg" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Tot_Gross_Wt</label>
+                    <input type="text" class="form-control" name="Tot_Gross_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Rate</label>
+                    <input type="text" class="form-control" name="Gold_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Amt</label>
+                    <input type="text" class="form-control" name="Gold_Amt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Making</label>
+                    <input type="text" class="form-control" name="Gold_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone_Making</label>
+                    <input type="text" class="form-control" name="Stone_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Other_Making</label>
+                    <input type="text" class="form-control" name="Other_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Tot_Making</label>
+                    <input type="text" class="form-control" name="Tot_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">MRP</label>
+                    <input type="text" class="form-control" name="MRP" />
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <button type="submit" name="create" class="btn form-control mt-4 edit--admin change--admin">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Item","ItemMst")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+

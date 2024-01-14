@@ -14,6 +14,10 @@
             <div class="space_input_login">
                 <p>PASSWORD <red style="color: red">*</red></p>
                 <input type="password" class="input_edits form-control txt--input password" placeholder="At least 8 characters" oninput="checkPass()" id="password" name="password"/>
+                <span class="eye_icon" onclick="togglePasswordVisibility()">
+                    <span id="showIcon"><i class="fa-solid fa-eye"></i></span>
+                    <span id="hideIcon" style="display:none;"><i class="fa-solid fa-eye-slash"></i></span>
+                </span>
             </div>
             <div class="space_input_login mt-3">
                 <a href="/Account/Forget" id="forget" class="forget_pass">Fogret Password ?</a>
@@ -22,7 +26,7 @@
         </form>
     </div>
 </div>
-
+<script src="~/Content/Script/togglePasswordVisibility.js"></script>
 <script>
     $("#register").click(function () {
         $("#ajax--load").load("Register", "Account");

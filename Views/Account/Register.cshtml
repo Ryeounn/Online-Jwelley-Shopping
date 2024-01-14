@@ -56,7 +56,11 @@
             </div>
             <div class="space_input_login">
                 <p>PASSWORD <red style="color: red">*</red></p>
-                <input class="input_edits form-control txt--input password" oninput="checkPass();" type="password" placeholder="At least 8 characters" name="password" />
+                <input class="input_edits form-control txt--input password" oninput="checkPass();" type="password" placeholder="At least 8 characters" id="password" name="password" />
+                <span class="eye-icon--register" onclick="togglePasswordVisibilityRegister()">
+                    <span id="showIcon"><i class="fa-solid fa-eye"></i></span>
+                    <span id="hideIcon" style="display:none;"><i class="fa-solid fa-eye-slash"></i></span>
+                </span>
             </div>
             <div>
                 <a class="forget_pass">Fogret Password ?</a>
@@ -66,6 +70,7 @@
         </form>
     </div>
 </div>
+<script src="~/Content/Script/togglePasswordVisibility.js"></script>
 <script src="~/Content/Script/intlTelInput.js"></script>
 <script src="~/Content/Script/utils.js"></script>
 

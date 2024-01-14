@@ -42,13 +42,17 @@
                     {
                         <a class="right-menu" href="@Url.Action("Login", "Account")"><i class="fas fa-user"></i></a>
                     }
-                    else
+                    else if (Session["Username"] != null) 
                     {
                         <a class="right-menu" href="@Url.Action("General", "Account")"><i class="fas fa-user"></i></a>
                         <ul class="subnav mgl--layout">
-                            <li><a href="@Url.Action("General", "Account")">Hello, @Session["userFname"] @Session["userLname"]</a></li>
+                            <li><a href="@Url.Action("General/" + Session["userID"], "Account")">Hello, @Session["userFname"] @Session["userLname"]</a></li>
                             <li><a href="@Url.Action("Logout", "Account")">Logout</a></li>
                         </ul>
+                    }
+                    else
+                    {
+                        <a class="right-menu" href="@Url.Action("Login", "Account")"><i class="fas fa-user"></i></a>
                     }
                 </li>
                 <li>

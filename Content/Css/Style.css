@@ -1106,6 +1106,7 @@ form.example::after {
 
 .space_input_login{
     margin-top: 10px;
+    position: relative;
 }
 
 .space_input_login p b{
@@ -1140,12 +1141,33 @@ form.example::after {
 }
 
 .iti__hide {
-  display: none; }
+  display: none;
+}
 
 pre {
   margin: 0 !important;
-  display: inline-block; }
+  display: inline-block; 
+}
 
+.eye-icon {
+    position: absolute;
+    right: 37.5%;
+    top: 56%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.eye_icon {
+    position: absolute;
+    right: 12px;
+    top: 50px;
+}
+.eye-icon--register {
+    position: absolute;
+    right: 37.7%;
+    top: 85.8%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 /* Contact */
 .img---contact-br {
     background: url('../Image/Contact/contact_br.jpg');
@@ -1461,6 +1483,127 @@ div.textdetails {
 }
 
 /*General*/
+._text_align {
+    position: relative;
+    left: 10%;
+}
+
+.btn_change {
+    width: 100%;
+    position: relative;
+    left: 6em;
+    height: 40px;
+    background-color: black;
+    color: #fff;
+}
+.edit--admin {
+    color: var(--color-btn) !important;
+    background-color: #ED9121 !important;
+    width: 100%;
+    box-shadow: none !important;
+    border-radius: 20px;
+}
+.edit_cus_infor{
+    position: relative;
+    left: 70px;
+}
+.title--admin {
+    margin: 3.5em 0 0 2.1em;
+}
+
+.search--group {
+    margin-left: 3.4em;
+}
+
+.btn--add {
+    color: var(--color-btn) !important;
+    display: inline-block !important;
+}
+
+.btn--search {
+    width: 15%;
+    position: absolute;
+    top: 17.55%;
+    left: 26.6%;
+}
+
+.btn--submit--admin {
+    position: absolute;
+    top: 17.7%;
+    left: 42.3%;
+}
+
+.container--left {
+    margin-left: 2.2em;
+}
+
+.img--admin {
+    width: 80px;
+    height: 180px;
+}
+
+.name--admin {
+    font-size: 16px;
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.state--admin,
+.state--admin i {
+    color: green !important;
+}
+
+.user--admin {
+    margin-top: 1em;
+}
+
+.icon--admin {
+    margin-right: .5em;
+}
+
+.edit--admin {
+    color: var(--color-btn) !important;
+    background-color: #ED9121 !important;
+    width: 100%;
+    box-shadow: none !important;
+}
+
+.delete--admin {
+    background-color: #E32636 !important;
+}
+
+.change--admin {
+    background-color: #0095B6 !important;
+}
+
+.btn-primary, .btn-warning {
+    border: none !important;
+}
+
+.details--admin {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.drap--drop {
+    width: 250px;
+    height: 100px;
+    border: 2px dashed #6C9BCF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drapdrop--title {
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+.sub--title {
+    margin: .5em 0 0 2.9em;
+    color: green;
+}
 .content_select {
     text-align: center;
     display: flex;
@@ -2396,4 +2539,21 @@ input{
 .btn--submit--veri{
     width: 30%;
     margin-left: 25em;
+}
+
+/* Forget */
+.eye-icon--news {
+    position: absolute;
+    right: 33.5%;
+    top: 29%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.eye-icon--confirm {
+    position: absolute;
+    right: 33.5%;
+    top: 67%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }

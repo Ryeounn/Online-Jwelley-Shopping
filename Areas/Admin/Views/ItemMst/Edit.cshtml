@@ -1,0 +1,99 @@
+﻿@model Jewelly.Models.ItemMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.Style_Code ]</h6>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/ItemMst/Edit/@Model.Style_Code" method="post">
+
+                <div class="form-group" hidden>
+                    <label class="form-text">Style_Code</label>
+                    <input type="text" class="form-control" readonly value="@Model.Style_Code" name="productid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Pairs</label>
+                    <input type="text" class="form-control" value="@Model.Pairs" name="Pairs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Quantity</label>
+                    <input type="text" class="form-control" value="@Model.Quantity" name="Quantity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Prod_Quality</label>
+                    <input type="text" class="form-control" value="@Model.Prod_Quality" name="Prod_Quality" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Wt</label>
+                    <input type="text" class="form-control" value="@Model.Gold_Wt" name="Gold_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone_Wt</label>
+                    <input type="text" class="form-control" value="@Model.Stone_Wt" name="Stone_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Net_Gold</label>
+                    <input type="text" class="form-control" value="@Model.Net_Gold" name="Net_Gold" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Wstg_Per</label>
+                    <input type="text" class="form-control" value="@Model.Wstg_Per" name="Wstg_Per" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Wstg</label>
+                    <input type="text" class="form-control" value="@Model.Wstg" name="Wstg" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Tot_Gross_Wt</label>
+                    <input type="text" class="form-control" value="@Model.Tot_Gross_Wt" name="Tot_Gross_Wt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Rate</label>
+                    <input type="text" class="form-control" value="@Model.Gold_Rate" name="Gold_Rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Amt</label>
+                    <input type="text" class="form-control" value="@Model.Gold_Amt" name="Gold_Amt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Gold_Making</label>
+                    <input type="text" class="form-control" value="@Model.Gold_Making" name="Gold_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Stone_Making</label>
+                    <input type="text" class="form-control" value="@Model.Stone_Making" name="Stone_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Other_Making</label>
+                    <input type="text" class="form-control" value="@Model.Other_Making" name="Other_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Tot_Making</label>
+                    <input type="text" class="form-control" value="@Model.Tot_Making" name="Tot_Making" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">Tot_Making</label>
+                    <input type="text" class="form-control" value="@Model.MRP" name="MRP" />
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn mt-4 form-control edit--admin change--admin">Save Change</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Dim","DimMst")" class="btn mt-4 form-control edit--admin">Back</a>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
