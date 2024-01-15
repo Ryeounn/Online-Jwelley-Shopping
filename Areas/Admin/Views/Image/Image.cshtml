@@ -1,65 +1,102 @@
-﻿@model List<Jewelly.Models.ItemMst>
+﻿@model List<Jewelly.Models.Img>
 @{
     ViewBag.Title = "Image";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
 }
+<div id="toast">
+    @if (ViewBag.AddImageMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkAddAdmin());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.AddImageMg" />
+    }
+    else if (ViewBag.AddImageErrorMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkErrorAdd());
+            })</script>
+        <input type="hidden" class="error" value="@ViewBag.AddImageErrorMg" />
+    }
+    else if (ViewBag.EditImageMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.EditImageMg" />
+    }
+    else if (ViewBag.EditImageErrorMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="error" value="@ViewBag.EditImageErrorMg" />
+    }
+    else if (ViewBag.DeleteImageMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkDeleteStone());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteImageMg" />
+    }
+    else if (ViewBag.DeleteImageErrorMg != null)
+    {
+        <script>$(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteImageErrorMg" />
+    }
+</div>
+
 <h2 class="title--admin">Image</h2>
 <hr class="mx-5" />
 <div class="search--group">
-    <form action="/Admin/CartList/CartList" method="post">
-        <input type="text" placeholder="Name" name="oc" class="form-control btn--search btn--search--inquiry" />
-        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--inquiry" value="Search" />
-    </form>
+    <a href="/Admin/Image/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Image</a>  
 </div>
 <hr class="mx-5" />
+
 <div class="container container--left">
     @foreach (var item in Model)
     {
         <div class="row list_form mb-4">
-            <div class="col-md-3">
-                @item.ProdMst.Prod_Type
+            <div class="col-md-1">
+                @item.ID
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_1" />
+                <img src="@item.path_img@item.pic_1" class="img_item_" />
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_2" />
+                <img src="@item.path_img@item.pic_2" />
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_3" />
+                <img src="@item.path_img@item.pic_3" />
 
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_4" />
+                <img src="@item.path_img@item.pic_4" />
 
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_5" />
+                <img src="@item.path_img@item.pic_5" />
 
             </div>
             <div class="col-md-1">
-                <img src="@item.Img.path_img@item.Img.pic_6" />
+                <img src="@item.path_img@item.pic_6" />
             </div>
-            <div class="col-sm-3 _ec text_Edit">
+            <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="" class="btn edit--admin text-center btn--td--gold">
-                            <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
-                            Edit
-                        </a>
+                       <a href="/Admin/Image/Edit/@item.ID" class="btn form-control mb-3 edit--admin"><i class="fa-solid fa-pen"></i> Edit</a>
                     </div>
                     <div class="col-md-6">
-                        <a href="" class="btn edit--admin text-center btn--td--gold">
+                        <a href="/Admin/Image/Delete/@item.ID" class="btn form-control edit--admin delete--admin btn--td">
                             <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
                             Delete
                         </a>
                     </div>
                 </div>
-               
-               
             </div>
         </div>
     }
-
 </div>
-
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

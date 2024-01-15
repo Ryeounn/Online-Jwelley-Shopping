@@ -7,7 +7,7 @@
 <div class="container hh">
     <div class="row">
         <div class="col-md-12">
-            <img src="~/Content/Image/Gallery/Bgall.jpg" class="taone" />
+            <img src="~/Content/Image/Gallery/Bgall.jpg" class="taone img--first" />
         </div>
         <!--<div class=" container-fluid row">-->
         @*<div class="col-sm-3">
@@ -37,14 +37,14 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <img src="~/Content/Image/Gallery/bganhsang.jpg" class="taone" />
+            <img src="~/Content/Image/Gallery/bganhsang.jpg" class="taone img--first" />
         </div>
     </div>
-    <div class="container @*" data-aos="fade-up" data-aos-duration="5000" *@>
+    <div class="container" data-aos="fade-up" data-aos-duration="5000" *@>
         <div class="row">
             @foreach (var item in Model.Galley)
             {
-                <div class="col-sm-3 effect_item">
+                <div class="col-md-3 effect_item">
                     <a href="/Product/Details/@item.ID">
                         <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
                         <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
@@ -69,7 +69,7 @@
         <div class="row">
             @foreach (var item in Model.Galley1)
             {
-                <div class="col-sm-3 effect_item">
+                <div class="col-md-3 effect_item">
                     <a href="/Product/Details/@item.ID">
                         <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
                         <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
@@ -95,7 +95,7 @@
         <div class="row">
             @foreach (var item in Model.Galley2)
             {
-                <div class="col-sm-3 effect_item">
+                <div class="col-md-3 effect_item">
                     <a href="/Product/Details/@item.ID">
                         <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
                         <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />

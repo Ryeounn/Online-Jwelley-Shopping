@@ -704,19 +704,8 @@
 .img_itemhover {
     width: 22em;
     position: relative;
-    bottom: 22em;
     height: 22em;
     opacity: 0;
-}
-
-.effect_item:hover .img_item {
-    opacity: 0;
-    transition: .5s;
-}
-
-.effect_item:hover .img_itemhover {
-    transition: .5s;
-    opacity: 1;
 }
 
 .title_item_ {
@@ -2584,7 +2573,7 @@ input{
     cursor: pointer;
 }
 
-/* Galary */
+/* Gallery*/
 .taone {
     background: #808080;
     margin-top: 1em;

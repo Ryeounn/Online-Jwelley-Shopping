@@ -391,6 +391,16 @@
     .table--width {
         height: auto;
     }
+
+    /*Gallery*/
+    .img_item {
+        width: 100%;
+        height: 150px;
+    }
+
+    .taone{
+        margin-left: 0;
+    }
 }
 
 /* Mobile */
@@ -1136,4 +1146,22 @@
         width: 100% !important;
         margin-left: .8em;
     }
+
+    /*Gallery*/
+    .img_item {
+        width: 100%;
+        height: 270px;
+        margin-top: 2em;
+    }
+
+    .taone {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .img--first{
+        margin-left: .9em;
+    }
+
 }

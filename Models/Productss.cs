@@ -386,6 +386,87 @@ namespace Jewelly.Models
 
             return product;
         }
+
+        public List<Productss> SelectBrand1()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           join b in db.BrandMsts on i.Brand_ID equals b.Brand_ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && b.Brand_Type == "Boucheron"
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectBrand2()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           join b in db.BrandMsts on i.Brand_ID equals b.Brand_ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && b.Brand_Type == "Chopard"
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectBrand3()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           join b in db.BrandMsts on i.Brand_ID equals b.Brand_ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && b.Brand_Type == "Mikimoto"
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).ToList();
+
+            return product;
+        }
+        public List<Productss> SelectBrand4()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           join b in db.BrandMsts on i.Brand_ID equals b.Brand_ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && b.Brand_Type == "Bulgari"
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).ToList();
+
+            return product;
+        }
     }
 }
 
