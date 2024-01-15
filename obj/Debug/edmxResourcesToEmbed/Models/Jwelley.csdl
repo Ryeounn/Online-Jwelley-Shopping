@@ -14,7 +14,6 @@
     <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_ad" FromRole="AdminLoginMst" ToRole="CartList" />
   </EntityType>
   <EntityType Name="BrandMst">
     <Key>
@@ -29,7 +28,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MRP" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Email_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="OrderDate" Type="DateTime" Precision="3" />
@@ -42,10 +41,9 @@
     <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="AdminID" Type="Int32" />
+    <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="userID" Type="Int32" />
     <Property Name="payment_ID" Type="Int32" />
-    <NavigationProperty Name="AdminLoginMst" Relationship="Self.fk_crt_id_ad" FromRole="CartList" ToRole="AdminLoginMst" />
     <NavigationProperty Name="Payment" Relationship="Self.fk_crt_id_pay" FromRole="CartList" ToRole="Payment" />
     <NavigationProperty Name="UserRegMst" Relationship="Self.fk_crt_id_user" FromRole="CartList" ToRole="UserRegMst" />
     <NavigationProperty Name="Orderdetails" Relationship="Self.fk_details_id_cart" FromRole="CartList" ToRole="Orderdetails" />
@@ -82,7 +80,7 @@
     <Property Name="DimType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DimSubType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DimCrt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DimPrice" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DimPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="DimImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Path_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ItemMsts" Relationship="Self.fk_item_id_diminfor" FromRole="DimInfoMst" ToRole="ItemMst" />
@@ -308,18 +306,6 @@
     <NavigationProperty Name="CartLists" Relationship="Self.fk_crt_id_user" FromRole="UserRegMst" ToRole="CartList" />
     <NavigationProperty Name="ShoppingCarts" Relationship="Self.fk_cart_id_User" FromRole="UserRegMst" ToRole="ShoppingCart" />
   </EntityType>
-  <Association Name="fk_crt_id_ad">
-    <End Role="AdminLoginMst" Type="Self.AdminLoginMst" Multiplicity="0..1" />
-    <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AdminLoginMst">
-        <PropertyRef Name="AdminID" />
-      </Principal>
-      <Dependent Role="CartList">
-        <PropertyRef Name="AdminID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_item_id_brand">
     <End Role="BrandMst" Type="Self.BrandMst" Multiplicity="0..1" />
     <End Role="ItemMst" Type="Self.ItemMst" Multiplicity="*" />
@@ -584,10 +570,6 @@
     <EntitySet Name="StoneMsts" EntityType="Self.StoneMst" />
     <EntitySet Name="StoneQltyMsts" EntityType="Self.StoneQltyMst" />
     <EntitySet Name="UserRegMsts" EntityType="Self.UserRegMst" />
-    <AssociationSet Name="fk_crt_id_ad" Association="Self.fk_crt_id_ad">
-      <End Role="AdminLoginMst" EntitySet="AdminLoginMsts" />
-      <End Role="CartList" EntitySet="CartLists" />
-    </AssociationSet>
     <AssociationSet Name="fk_item_id_brand" Association="Self.fk_item_id_brand">
       <End Role="BrandMst" EntitySet="BrandMsts" />
       <End Role="ItemMst" EntitySet="ItemMsts" />

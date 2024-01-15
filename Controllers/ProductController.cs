@@ -281,7 +281,6 @@ namespace Jewelly.Controllers
                     cartList.payment_ID = null;
                 }
                 cartList.userID = (int)Session["userID"];
-                cartList.AdminID = 1;
                 cartList.OrderDate = DateTime.Now;
                 cartList.MRP = decimal.Parse(form["mrp"]);
                 cartList.ShipName = form["name"];
@@ -328,6 +327,38 @@ namespace Jewelly.Controllers
                 code = string.Join("", new int[13].Select(_ => rd.Next(10).ToString()));
             }
             return code;
+        }
+
+        public ActionResult Glry()
+        {
+            if (TempData["contact"] != null)
+            {
+                ViewBag.ContactMg = TempData["contact"];
+            }
+            if (TempData["collection"] != null)
+            {
+                ViewBag.CollectionMg = TempData["collection"];
+            }
+            if (TempData["errorr"] != null)
+            {
+                ViewBag.ErrorrMg = TempData["errorr"];
+            }
+            if (TempData["news"] != null)
+            {
+                ViewBag.NewsMg = TempData["news"];
+            }
+            var dynamic = new Join().SelectGlry().ToList();
+            var dynamic1 = new Join().SelectGlry1().ToList();
+            var dynamic2 = new Join().SelectGlry2().ToList();
+            var dynamic3 = new Join().SelectGlry3().ToList();
+
+            dynamic models = new ExpandoObject();
+            models.Galley = dynamic;
+            models.Galley1 = dynamic1;
+            models.Galley2 = dynamic2;
+            models.Galley3 = dynamic3;
+
+            return View(models);
         }
     }
 }

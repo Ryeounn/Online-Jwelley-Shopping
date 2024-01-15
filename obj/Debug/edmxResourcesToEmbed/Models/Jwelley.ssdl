@@ -27,7 +27,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Product_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Product_Name" Type="varchar(max)" Nullable="false" />
     <Property Name="MRP" Type="numeric" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Email_ID" Type="varchar" MaxLength="255" />
     <Property Name="OrderDate" Type="datetime" />
@@ -40,7 +40,7 @@
     <Property Name="Phone" Type="varchar" MaxLength="255" />
     <Property Name="Note" Type="varchar" MaxLength="255" />
     <Property Name="Status" Type="varchar" MaxLength="255" />
-    <Property Name="AdminID" Type="int" />
+    <Property Name="userName" Type="varchar" MaxLength="250" />
     <Property Name="userID" Type="int" />
     <Property Name="payment_ID" Type="int" />
   </EntityType>
@@ -73,7 +73,7 @@
     <Property Name="DimType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DimSubType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DimCrt" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="DimPrice" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="DimPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="DimImg" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Path_img" Type="varchar(max)" />
   </EntityType>
@@ -287,18 +287,6 @@
       </Principal>
       <Dependent Role="ShoppingCart">
         <PropertyRef Name="User_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_crt_id_ad">
-    <End Role="AdminLoginMst" Type="Self.AdminLoginMst" Multiplicity="0..1" />
-    <End Role="CartList" Type="Self.CartList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AdminLoginMst">
-        <PropertyRef Name="AdminID" />
-      </Principal>
-      <Dependent Role="CartList">
-        <PropertyRef Name="AdminID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -549,10 +537,6 @@
     <AssociationSet Name="fk_cart_id_User" Association="Self.fk_cart_id_User">
       <End Role="UserRegMst" EntitySet="UserRegMst" />
       <End Role="ShoppingCart" EntitySet="ShoppingCart" />
-    </AssociationSet>
-    <AssociationSet Name="fk_crt_id_ad" Association="Self.fk_crt_id_ad">
-      <End Role="AdminLoginMst" EntitySet="AdminLoginMst" />
-      <End Role="CartList" EntitySet="CartList" />
     </AssociationSet>
     <AssociationSet Name="fk_crt_id_pay" Association="Self.fk_crt_id_pay">
       <End Role="Payment" EntitySet="Payment" />

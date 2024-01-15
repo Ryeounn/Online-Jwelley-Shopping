@@ -306,6 +306,86 @@ namespace Jewelly.Models
 
             return product;
         }
+
+        public List<Productss> SelectGlry()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 11
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(8).ToList();
+
+            return product;
+        }
+
+        public List<Productss> SelectGlry1()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 12
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(8).ToList();
+
+            return product;
+        }
+
+        public List<Productss> SelectGlry2()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 13
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(8).ToList();
+
+            return product;
+        }
+
+        public List<Productss> SelectGlry3()
+        {
+            var product = (from i in db.ItemMsts
+                           join p in db.ProdMsts on i.Prod_ID equals p.Prod_ID
+                           join j in db.JewelTypeMsts on i.ID_jewelly equals j.ID
+                           join m in db.Imgs on i.Img_ID equals m.ID
+                           where i.Prod_ID == p.Prod_ID && i.Img_ID == m.ID && i.ID_jewelly == 14
+                           select new Productss()
+                           {
+                               ID = i.Style_Code,
+                               Name = p.Prod_Type,
+                               Img = m.pic_1,
+                               secondImg = m.pic_2,
+                               Path = m.path_img,
+                               Price = i.MRP
+                           }).Take(8).ToList();
+
+            return product;
+        }
     }
 }
 

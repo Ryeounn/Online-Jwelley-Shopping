@@ -24,7 +24,7 @@ namespace Jewelly.Models
         public string DimType { get; set; }
         public string DimSubType { get; set; }
         public string DimCrt { get; set; }
-        public string DimPrice { get; set; }
+        public decimal DimPrice { get; set; }
         public string DimImg { get; set; }
         public string Path_img { get; set; }
     

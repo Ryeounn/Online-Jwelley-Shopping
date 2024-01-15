@@ -14,12 +14,6 @@ namespace Jewelly.Models
     
     public partial class AdminLoginMst
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AdminLoginMst()
-        {
-            this.CartLists = new HashSet<CartList>();
-        }
-    
         public int AdminID { get; set; }
         public string Name_employee { get; set; }
         public string Avatar { get; set; }
@@ -30,8 +24,5 @@ namespace Jewelly.Models
         public string Address { get; set; }
         public string userName { get; set; }
         public string Password { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CartList> CartLists { get; set; }
     }
 }

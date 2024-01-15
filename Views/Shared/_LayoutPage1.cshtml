@@ -17,7 +17,7 @@
 <body>
     <div id="header">
         <div class="header-menu">
-            <img src="~/Content/Image/Layout/logo-header.png" class="header-logo">
+            <img src="~/Content/Image/Layout/Yash.png" class="header-logo">
             <ul id="nav">
                 <li><a class="margin-menu sub-menu" href="@Url.Action("Index","Home")">Home</a></li>
                 <li>
@@ -44,7 +44,7 @@
                     }
                     else if (Session["Username"] != null) 
                     {
-                        <a class="right-menu" href="@Url.Action("General", "Account")"><i class="fas fa-user"></i></a>
+                        <a class="right-menu"><i class="fas fa-user"></i></a>
                         <ul class="subnav mgl--layout">
                             <li><a href="@Url.Action("General/" + Session["userID"], "Account")">Hello, @Session["userFname"] @Session["userLname"]</a></li>
                             <li><a href="@Url.Action("Logout", "Account")">Logout</a></li>

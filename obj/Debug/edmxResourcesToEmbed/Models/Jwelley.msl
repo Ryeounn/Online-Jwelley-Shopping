@@ -42,7 +42,7 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="payment_ID" ColumnName="payment_ID" />
         </MappingFragment>

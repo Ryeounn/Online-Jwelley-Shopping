@@ -1,0 +1,143 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Glry";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container hh">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="~/Content/Image/Gallery/Bgall.jpg" class="taone" />
+        </div>
+        <!--<div class=" container-fluid row">-->
+        @*<div class="col-sm-3">
+                <span >
+                    <img class="imm mx-auto d-block" data-src="" alt="BST Trầu Cau"
+                         src="~/Content/Image/Gallery/imgtext.jpg" >
+                </span>
+            </div>*@
+        <!--<div class="col-md-12">
+                    <h2>
+                        <span >Artifacts honor Traditional values<br />
+                        Adopts Modern design</span>
+                    </h2>
+                    <div class="cate-des">
+                        <div class="cate ">
+                            <p class="des">
+                                Associated with weddings, wedding jewelry is a ceremony to show the respect and love
+                                of boys for their women on a happy day on a couple's journey together.<br>
+                                From formal ceremonies to jubilant celebrations, the harmony between
+                                traditional values and modern beauty is the inspiration of the
+                                <strong>Light Wedding Jewelry Collection</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>-->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="~/Content/Image/Gallery/bganhsang.jpg" class="taone" />
+        </div>
+    </div>
+    <div class="container @*" data-aos="fade-up" data-aos-duration="5000" *@>
+        <div class="row">
+            @foreach (var item in Model.Galley)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="page_pro">
+        <div class="pagination_pro" id="pagination">
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <img src="~/Content/Image/Gallery/bgcatinh.jpg" class="taone" />
+    </div>
+    <div class="container-fluid" data-aos="fade-up" data-aos-duration="5000">
+        <div class="row">
+            @foreach (var item in Model.Galley1)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="page_pro">
+        <div class="pagination_pro" id="pagination">
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <img src="~/Content/Image/Gallery/bgcauhon.jpg" class="taone" />
+    </div>
+    <div class="container-fluid " data-aos="fade-up" data-aos-duration="5000">
+        <div class="row">
+            @foreach (var item in Model.Galley2)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="page_pro">
+        <div class="pagination_pro" id="pagination">
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <img src="~/Content/Image/Gallery/bgtrian.jpg" class="taone" />
+    </div>
+    <div class="container-fluid" data-aos="fade-up" data-aos-duration="5000">
+        <div class="row">
+            @foreach (var item in Model.Galley3)
+            {
+                <div class="col-sm-3 effect_item">
+                    <a href="/Product/Details/@item.ID">
+                        <img lazy_src="@item.Path@item.Img" src="imgaeforlazy" class="img_item" />
+                        <img lazy_src="~@item.Path@item.secondImg" src="imgaeforlazy" class="img_itemhover" />
+                        <p class="title_item_">@item.Name</p>
+                        <p class="title_item__">AOV</p>
+                        <p class="title_item__one">@item.Price$</p>
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="page_pro">
+        <div class="pagination_pro" id="pagination">
+
+        </div>
+    </div>
+</div>
+

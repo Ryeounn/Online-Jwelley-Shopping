@@ -33,8 +33,8 @@ function togglePasswordVisibilityRegister() {
 
 function togglePasswordVisibilityChangeNews() {
     var passwordField = document.getElementById("news");
-    var showIcon = document.getElementById("showIcon");
-    var hideIcon = document.getElementById("hideIcon");
+    var showIcon = document.getElementById("showIcon11");
+    var hideIcon = document.getElementById("hideIcon11");
 
     if (passwordField.type === "password") {
         passwordField.type = "text";
@@ -50,8 +50,8 @@ function togglePasswordVisibilityChangeNews() {
 
 function togglePasswordVisibilityChangeConfirm() {
     var passwordField = document.getElementById("confirm");
-    var showIcon = document.getElementById("showIcon1");
-    var hideIcon = document.getElementById("hideIcon1");
+    var showIcon = document.getElementById("showIcon12");
+    var hideIcon = document.getElementById("hideIcon12");
 
     if (passwordField.type === "password") {
         passwordField.type = "text";

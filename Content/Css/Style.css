@@ -1163,8 +1163,8 @@ pre {
 }
 .eye-icon--register {
     position: absolute;
-    right: 37.7%;
-    top: 85.8%;
+    right: 6%;
+    top: 74%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -1548,9 +1548,22 @@ div.textdetails {
     font-weight: 700;
 }
 
-.state--admin,
-.state--admin i {
+.state--admin{
     color: green !important;
+}
+
+.state--admin--off{
+    color: #ccc !important;
+}
+
+.btns{
+    border-radius: 5px !important;
+    color: #fff !important;
+    text-align: center;
+}
+
+.btns:hover{
+    text-decoration: none;
 }
 
 .user--admin {
@@ -1562,10 +1575,11 @@ div.textdetails {
 }
 
 .edit--admin {
-    color: var(--color-btn) !important;
+    color: var(--color-btn);
     background-color: #ED9121 !important;
     width: 100%;
     box-shadow: none !important;
+    border: none !important;
 }
 
 .delete--admin {
@@ -1597,7 +1611,7 @@ div.textdetails {
 .drapdrop--title {
     text-align: center;
     position: relative;
-    top: 30%;
+    top: 15%;
 }
 
 .sub--title {
@@ -1617,6 +1631,7 @@ div.textdetails {
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
+    margin-bottom: 3em;
 }
 
 .titlecontent {
@@ -1677,6 +1692,17 @@ div.textdetails {
 .title_general {
     display: flex;
     justify-content: center;
+}
+
+.title--gen{
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 1em;
+}
+
+.btn--infor{
+    
 }
 
 .hover__ {
@@ -2542,18 +2568,115 @@ input{
 }
 
 /* Forget */
-.eye-icon--news {
+.eye-icon--news--forget {
     position: absolute;
-    right: 33.5%;
-    top: 29%;
+    right: 6%;
+    top: 73%;
     transform: translateY(-50%);
     cursor: pointer;
 }
 
-.eye-icon--confirm {
+.eye-icon--confirm---forget {
     position: absolute;
-    right: 33.5%;
-    top: 67%;
+    right: 6%;
+    top: 73%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+/* Galary */
+.taone {
+    background: #808080;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    height: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/*.ty{
+    word-wrap: break-word;
+}
+*/
+.subCate, .tabSubMenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 1.5em auto;
+    position: relative;
+}
+
+    .subCate .left, .tabSubMenu .left {
+        max-width: 25em;
+        padding: 0 10em 0 6em;
+        z-index: 1;
+    }
+
+    .subCate .right {
+        z-index: 1;
+    }
+
+.imm {
+    /*max-width: 170%;
+    height: auto;
+    vertical-align: middle;
+    font-size: 0;
+    overflow-clip-margin: content-box;
+    overflow: clip;*/
+    height: 10em;
+    width: 15em;
+    text-align: center;
+    margin-top: 0.7em;
+}
+
+.subCate .right h2 {
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    text-align: left;
+    max-width: 605px;
+}
+
+.general .ty-tygh h2 {
+    font-size: 1em;
+}
+
+.cate-des {
+    margin-top: 0;
+    padding-bottom: 1.3em;
+    position: relative;
+}
+
+/*.cate p.des {
+    line-height: 1.4;
+    text-align: justify;
+    font-size: 1em;
+}*/
+
+.cate {
+    padding: 0.5em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 10em;
+    margin: auto;
+}
+
+/*.subCate .right h2 span {
+    font-size: 1.2em;
+    color: #203864;
+    font-weight: bold;
+    font-family: 'PNJ Demibold';
+    display: inline-block;
+    padding: 0 0.1em;
+}*/
+.img_item {
+    width: 100%;
+    height: 300px;
 }

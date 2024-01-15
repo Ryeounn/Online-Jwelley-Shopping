@@ -35,11 +35,10 @@ namespace Jewelly.Models
         public string Phone { get; set; }
         public string Note { get; set; }
         public string Status { get; set; }
-        public Nullable<int> AdminID { get; set; }
+        public string userName { get; set; }
         public Nullable<int> userID { get; set; }
         public Nullable<int> payment_ID { get; set; }
     
-        public virtual AdminLoginMst AdminLoginMst { get; set; }
         public virtual Payment Payment { get; set; }
         public virtual UserRegMst UserRegMst { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
