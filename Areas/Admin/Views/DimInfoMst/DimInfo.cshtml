@@ -1,0 +1,101 @@
+﻿@model List<Jewelly.Models.DimInfoMst>
+@{
+    ViewBag.Title = "DimInfo";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<div id="toast">
+    @if (ViewBag.AddDimMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGold());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.AddDimMstMg" />
+    }
+    else if (ViewBag.AddDimMstError != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkAddGoldError());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.AddDimMstError" />
+    }
+    else if (ViewBag.EditDimInfoMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGold());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.EditDimInfoMstMg" />
+    }
+    else if (ViewBag.EditDimInfoMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkEditGoldError());
+            })</script>
+        <input type="hidden" class="fail" value="@ViewBag.EditDimInfoMstMg" />
+    }
+    else if (ViewBag.DeleteDimMstMg != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $("toast").load(checkDeleteAdmin());
+            })</script>
+        <input type="hidden" class="success" value="@ViewBag.DeleteDimMstMg" />
+    }
+</div>
+<h2 class="title--admin">Diamond Infomation</h2>
+<hr class="mx-5" />
+<div class="search--group">
+    <a href="/Admin/DimInfoMst/Add" class="btn btn-primary btn--add"><i class="fa fa-plus"></i> Diamond</a>
+    <form action="/Admin/DimInfoMst/DimInfo" method="post">
+        <input type="text" placeholder="Username" name="search" class="form-control btn--search btn--search--dim" />
+        <input type="submit" class="btn btn-primary btn--submit--admin btn--submit--dim" value="Search" />
+    </form>
+</div>
+<hr class="mx-5" />
+<div class="container container--left">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table _gold">
+                <thead>
+                    <tr>
+                        <td class="text--table">DimID</td>
+                        <td class="text--table">DimType</td>
+                        <td class="text--table">DimSubType</td>
+                        <td class="text--table">DimCrt</td>
+                        <td class="text--table">DimPrice</td>
+                        <td class="text--table">DimImg</td>
+                        @*<td class="text--table">Path_Img</td>*@
+                        <td class="text--table" style="text-align: center">Edit</td>
+                        <td class="text--table" style="text-align: center">Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text--table">@item.DimID</td>
+                            <td class="text--table">@item.DimType</td>
+                            <td class="text--table">@item.DimSubType</td>
+                            <td class="text--table">@item.DimCrt</td>
+                            <td class="text--table">@item.DimPrice</td>
+                            <td class="text--table">@item.DimImg</td>
+                            @*<td class="text--table">@item.Path_Img</td>*@
+                            <td class="text--table" colspan="1">
+                                <a href="/Admin/DimInfoMst/Edit/@item.DimID" class="btn form-control edit--admin text-center">Edit</a>
+                            </td>
+                            <td class="text--table">
+                                <a href="/Admin/DimInfoMst/Delete/@item.DimID" class="btn form-control edit--admin delete--admin text-center">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/Content/Script/messageAdmin.js"></script>

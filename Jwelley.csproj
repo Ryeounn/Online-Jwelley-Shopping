@@ -121,6 +121,8 @@
     <Content Include="Content\Image\Admin\han2803.jpg" />
     <Content Include="Content\Image\Contact\contact_br.jpg" />
     <Content Include="Content\Image\Countries\flags.png" />
+    <Content Include="Content\Image\Customer\nam.jpg" />
+    <Content Include="Content\Image\Customer\nu.jpg" />
     <Content Include="Content\Image\Gallery\Anhsang\cuoiruby\cuoiruby.jpg" />
     <Content Include="Content\Image\Gallery\Anhsang\cuoiruby\cuoiruby1.jpg" />
     <Content Include="Content\Image\Gallery\Anhsang\cuoiruby\cuoiruby2.jpg" />
@@ -916,6 +918,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CertifyAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DimInfoMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\DimMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\DimQltyMstController.cs" />
     <Compile Include="Areas\Admin\Controllers\DimQltySubMstController.cs" />
@@ -1102,6 +1105,9 @@
     <Content Include="Models\Jwelley.edmx.diagram">
       <DependentUpon>Jwelley.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\DimInfoMst\DimInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\DimInfoMst\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\DimInfoMst\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -1147,7 +1153,6 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Content\Image\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

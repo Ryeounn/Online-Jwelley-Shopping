@@ -30,10 +30,11 @@
                 <li>
                     <a class="sub-menu" href="@Url.Action("Jewelry","Product")">Shop<i class="fas fa-angle-down"></i></a>
                     <ul class="subnav">
-                        <li><a href="#proplant.html">Boucheron</a></li>
-                        <li><a href="#goodtrees.html">Chopard</a></li>
-                        <li><a href="#goodtrees.html">Mikimoto</a></li>
-                        <li><a href="#prelotus.html">Bulgari</a></li>
+                        <li><a href="@Url.Action("/Brand/HarryWinston", "Product")">Harry Winston</a></li>
+                        <li><a href="@Url.Action("/Brand/Chopard", "Product")">Chopard</a></li>
+                        <li><a href="@Url.Action("/Brand/Mikimoto", "Product")">Mikimoto</a></li>
+                        <li><a href="@Url.Action("/Brand/Bulgari", "Product")">Bulgari</a></li>
+                        <li><a href="@Url.Action("/Brand/Boucheron", "Product")">Boucheron</a></li>
                     </ul>
                 </li>
                 <li><a class="sub-menu" href="@Url.Action("OurNews","News")">Our News</a></li>
@@ -91,21 +92,22 @@
                     <p class="title--center--footer mt-5">About Us</p>
                     <p><a class="link--footer" href="@Url.Action("Policy", "Home")">Policy</a></p>
                     <p><a class="link--footer" href="@Url.Action("Rules", "Home")">Rules</a></p>
-                <div class="col-md-4">
-                    <p class="title--right--footer mt-5">Sign up to receive new news</p>
-                    <p class="subtitle--right--footer mt-5">Receive the latest product information, promotions and more.</p>
-                    <form action="/Home/Newss" method="post">
-                        <input type="text" class="form-control txtEmail" name="email" placeholder="Your Email" value="@Session["Email"]" />
-                        <button type="submit" class="btn btn--dark--model mt-4 local--btn--send">Register</button>
-                    </form>
-                    <div class="mt-3 mb-2">
-                        <a href="#"><i class="fab fa-facebook icon--footer ml--footer"></i></a>
-                        <a href="#"><i class="fab fa-instagram icon--footer"></i></a>
-                        <a href="#"><i class="fab fa-youtube icon--footer"></i></a>
-                        <a href="#"><i class="fab fa-twitter icon--footer"></i></a>
+                </div>
+                    <div class="col-md-4">
+                        <p class="title--right--footer mt-5">Sign up to receive new news</p>
+                        <p class="subtitle--right--footer mt-5">Receive the latest product information, promotions and more.</p>
+                        <form action="/Home/Newss" method="post">
+                            <input type="text" class="form-control txtEmail" name="email" placeholder="Your Email" value="@Session["Email"]" />
+                            <button type="submit" class="btn btn--dark--model mt-4 local--btn--send">Register</button>
+                        </form>
+                        <div class="mt-3 mb-2">
+                            <a href="#"><i class="fab fa-facebook icon--footer ml--footer"></i></a>
+                            <a href="#"><i class="fab fa-instagram icon--footer"></i></a>
+                            <a href="#"><i class="fab fa-youtube icon--footer"></i></a>
+                            <a href="#"><i class="fab fa-twitter icon--footer"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             <div class="row mt-2">
                 <div class="col-md-12">
                     <p class="content--bottom--footer">Copyright &copy; 2023 Jwelley: 1 Ly Tu Trong Street, An Cu Ward, Ninh Kieu Dictrict, Can Tho City, VietNam.</p>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1d441cce28a2490b93133e4b527929e4" Name="Diagram1">
+      <Diagram DiagramId="aac85bcf8e0c42d8ae5890b8cc3d35ab" Name="Diagram1">
         <EntityTypeShape EntityType="JwelleyModel.AdminLoginMst" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="JwelleyModel.BrandMst" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="JwelleyModel.CartList" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />

@@ -1,0 +1,53 @@
+﻿@model Jewelly.Models.DimInfoMst
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="title--admin">Edit</h2>
+<h6 class="sub--title">[ @Model.DimID ]</h6>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/DimInfoMst/Edit/@Model.DimID" method="post">
+
+                <div class="form-group" hidden>
+                    <label class="form-text">DimID</label>
+                    <input type="text" class="form-control" readonly value="@Model.DimID" name="DimID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimType</label>
+                    <input type="text" class="form-control" value="@Model.DimType" name="DimType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimSubType</label>
+                    <input type="text" class="form-control" value="@Model.DimSubType" name="DimSubType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimCrt</label>
+                    <input type="text" class="form-control" value="@Model.DimCrt" name="DimCrt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimPrice</label>
+                    <input type="text" class="form-control" value="@Model.DimPrice" name="DimPrice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimImg</label>
+                    <input type="text" class="form-control" value="@Model.DimImg" name="DimImg" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn mt-4 form-control edit--admin change--admin">Save Change</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("DimInfo","DimInfoMst")" class="btn mt-4 form-control edit--admin">Back</a>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

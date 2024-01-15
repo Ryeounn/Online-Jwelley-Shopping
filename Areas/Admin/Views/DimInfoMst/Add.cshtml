@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<h2 class="title--admin">Add Diamond Infomation</h2>
+<div class="container container--left">
+    <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/Admin/DimInfoMst/Add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-text">DimType</label>
+                    <input type="text" class="form-control" name="DimType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimSubType</label>
+                    <input type="text" class="form-control" name="DimSubType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimCrt</label>
+                    <input type="text" class="form-control" name="DimCrt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimPrice</label>
+                    <input type="text" class="form-control" name="DimPrice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-text">DimImg</label>
+                    <input type="text" class="form-control" name="DimImg" />
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" name="create" class="btn form-control mt-4 edit--admin change--admin">Create</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@Url.Action("DimInfo","DimInfoMst")" class="btn form-control mt-4 edit--admin">Back</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
